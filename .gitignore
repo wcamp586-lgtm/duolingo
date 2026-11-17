@@ -1,0 +1,30 @@
+# 运行环境（登录态，约 1G）
+profile/
+
+# 依赖
+node_modules/
+
+# 调试产物（课程快照、截图）
+automation-test/
+story-debug/
+*.png
+
+# 日志
+*.log
+*.log.*
+
+# macOS
+.DS_Store
+
+# 运行时/调试产物（测试 fixture 不在此列：session-en.json、stories-session.json 保留）
+fails.json
+batch-report.json
+last-session.json
+practice-lexemes.json
+survey.json
+survey-all.json
+final-log.json
+auto-progress.json
+legend-survey.json
+legend-verify.json
+story-dump.json

@@ -1,0 +1,2002 @@
+{
+ "elements": [
+  {
+   "type": "HEADER",
+   "illustrationUrl": "https://stories-cdn.duolingo.com/image/501e7d609ee0dd5ba11ff7cdcf9740b12a7a7945.svg",
+   "title": "好的艺术",
+   "learningLanguageTitleContent": {
+    "audio": {
+     "keypoints": [
+      {
+       "audioStart": 0,
+       "rangeEnd": 5
+      },
+      {
+       "audioStart": 520,
+       "rangeEnd": 8
+      }
+     ],
+     "url": "https://stories-cdn.duolingo.com/audio/2c8665a17f9284bd75cac8e4a7efc223d97b5950.mp3"
+    },
+    "hintMap": [
+     {
+      "hintIndex": 0,
+      "rangeFrom": 0,
+      "rangeTo": 7
+     }
+    ],
+    "hints": [
+     "好的艺术"
+    ],
+    "monolingualHints": [],
+    "text": "Good Art"
+   },
+   "trackingProperties": {}
+  },
+  {
+   "type": "LINE",
+   "hideRangesForChallenge": [],
+   "line": {
+    "type": "PROSE",
+    "content": {
+     "audio": {
+      "keypoints": [
+       {
+        "audioStart": 0,
+        "rangeEnd": 5
+       },
+       {
+        "audioStart": 540,
+        "rangeEnd": 9
+       },
+       {
+        "audioStart": 690,
+        "rangeEnd": 13
+       },
+       {
+        "audioStart": 950,
+        "rangeEnd": 20
+       },
+       {
+        "audioStart": 1520,
+        "rangeEnd": 26
+       },
+       {
+        "audioStart": 2650,
+        "rangeEnd": 30
+       },
+       {
+        "audioStart": 2930,
+        "rangeEnd": 33
+       },
+       {
+        "audioStart": 3270,
+        "rangeEnd": 36
+       },
+       {
+        "audioStart": 3560,
+        "rangeEnd": 40
+       },
+       {
+        "audioStart": 3810,
+        "rangeEnd": 47
+       }
+      ],
+      "url": "https://stories-cdn.duolingo.com/audio/a80d5515966a53ded424cb8d09166b07bbfa87c7.mp3"
+     },
+     "hintMap": [
+      {
+       "hintIndex": 0,
+       "rangeFrom": 0,
+       "rangeTo": 3
+      },
+      {
+       "hintIndex": 1,
+       "rangeFrom": 5,
+       "rangeTo": 7
+      },
+      {
+       "hintIndex": 2,
+       "rangeFrom": 9,
+       "rangeTo": 11
+      },
+      {
+       "hintIndex": 3,
+       "rangeFrom": 13,
+       "rangeTo": 18
+      },
+      {
+       "hintIndex": 4,
+       "rangeFrom": 20,
+       "rangeTo": 24
+      },
+      {
+       "hintIndex": 5,
+       "rangeFrom": 26,
+       "rangeTo": 28
+      },
+      {
+       "hintIndex": 6,
+       "rangeFrom": 30,
+       "rangeTo": 31
+      },
+      {
+       "hintIndex": 7,
+       "rangeFrom": 33,
+       "rangeTo": 45
+      }
+     ],
+     "hints": [
+      "艾迪",
+      "和",
+      "他的",
+      "朋友",
+      "奥斯卡",
+      "是",
+      "在",
+      "一家艺术博物馆"
+     ],
+     "monolingualHints": [],
+     "text": "Eddy and his friend Oscar are at an art museum."
+    },
+    "lineIndex": 1
+   },
+   "trackingProperties": {
+    "line_index": 1
+   }
+  },
+  {
+   "type": "LINE",
+   "hideRangesForChallenge": [],
+   "line": {
+    "type": "PROSE",
+    "content": {
+     "audio": {
+      "keypoints": [
+       {
+        "audioStart": 0,
+        "rangeEnd": 5
+       },
+       {
+        "audioStart": 410,
+        "rangeEnd": 11
+       },
+       {
+        "audioStart": 1000,
+        "rangeEnd": 14
+       },
+       {
+        "audioStart": 1270,
+        "rangeEnd": 16
+       },
+       {
+        "audioStart": 1460,
+        "rangeEnd": 25
+       },
+       {
+        "audioStart": 2370,
+        "rangeEnd": 28
+       },
+       {
+        "audioStart": 2600,
+        "rangeEnd": 30
+       },
+       {
+        "audioStart": 2750,
+        "rangeEnd": 34
+       }
+      ],
+      "url": "https://stories-cdn.duolingo.com/audio/451dc21b25f5b6eda03d090c60b158bb003a5da6.mp3"
+     },
+     "hintMap": [
+      {
+       "hintIndex": 0,
+       "rangeFrom": 0,
+       "rangeTo": 3
+      },
+      {
+       "hintIndex": 1,
+       "rangeFrom": 5,
+       "rangeTo": 12
+      },
+      {
+       "hintIndex": 2,
+       "rangeFrom": 14,
+       "rangeTo": 23
+      },
+      {
+       "hintIndex": 3,
+       "rangeFrom": 25,
+       "rangeTo": 32
+      }
+     ],
+     "hints": [
+      "艾迪",
+      "看着",
+      "一幅画",
+      "一条狗的"
+     ],
+     "monolingualHints": [],
+     "text": "Eddy looks at a painting of a dog."
+    },
+    "lineIndex": 2
+   },
+   "trackingProperties": {
+    "line_index": 2
+   }
+  },
+  {
+   "type": "LINE",
+   "hideRangesForChallenge": [],
+   "line": {
+    "type": "CHARACTER",
+    "avatarUrl": "https://stories-cdn.duolingo.com/image/627af6feb184ba55e9e06e545d379e22609acf7c.svg",
+    "characterId": 414,
+    "characterNameMap": {
+     "de": "Eddy",
+     "en": "Eddy",
+     "es": "Eddy",
+     "fr": "Eddy",
+     "it": "Eddy",
+     "ja": "エディ",
+     "ko": "에디",
+     "pt": "Eddy",
+     "ru": "Эдди"
+    },
+    "content": {
+     "audio": {
+      "keypoints": [
+       {
+        "audioStart": 0,
+        "rangeEnd": 5
+       },
+       {
+        "audioStart": 360,
+        "rangeEnd": 8
+       },
+       {
+        "audioStart": 570,
+        "rangeEnd": 11
+       },
+       {
+        "audioStart": 820,
+        "rangeEnd": 20
+       },
+       {
+        "audioStart": 1420,
+        "rangeEnd": 29
+       },
+       {
+        "audioStart": 1990,
+        "rangeEnd": 32
+       },
+       {
+        "audioStart": 2250,
+        "rangeEnd": 36
+       },
+       {
+        "audioStart": 2370,
+        "rangeEnd": 43
+       }
+      ],
+      "url": "https://stories-cdn.duolingo.com/audio/cf25a8fd828ea93e6f34d13e94648b21d944e244.mp3"
+     },
+     "hintMap": [
+      {
+       "hintIndex": 0,
+       "rangeFrom": 0,
+       "rangeTo": 3
+      },
+      {
+       "hintIndex": 1,
+       "rangeFrom": 5,
+       "rangeTo": 6
+      },
+      {
+       "hintIndex": 2,
+       "rangeFrom": 8,
+       "rangeTo": 9
+      },
+      {
+       "hintIndex": 3,
+       "rangeFrom": 11,
+       "rangeTo": 18
+      },
+      {
+       "hintIndex": 4,
+       "rangeFrom": 20,
+       "rangeTo": 27
+      },
+      {
+       "hintIndex": 5,
+       "rangeFrom": 29,
+       "rangeTo": 41
+      }
+     ],
+     "hints": [
+      "这个",
+      "是",
+      "我的",
+      "最喜欢的",
+      "画儿",
+      "在(这家)博物馆里"
+     ],
+     "monolingualHints": [],
+     "text": "This is my favorite painting in the museum!"
+    },
+    "lineIndex": 3
+   },
+   "trackingProperties": {
+    "line_index": 3
+   }
+  },
+  {
+   "type": "LINE",
+   "hideRangesForChallenge": [],
+   "line": {
+    "type": "CHARACTER",
+    "avatarUrl": "https://stories-cdn.duolingo.com/image/513933588cd8d218adc26f86f423b99488e998fa.svg",
+    "characterId": 592,
+    "characterNameMap": {
+     "de": "Oscar",
+     "en": "Oscar",
+     "es": "Óscar",
+     "fr": "Oscar",
+     "it": "Oscar",
+     "ja": "オスカー",
+     "ko": "오스카",
+     "pt": "Óscar",
+     "ru": "Оскар"
+    },
+    "content": {
+     "audio": {
+      "keypoints": [
+       {
+        "audioStart": 0,
+        "rangeEnd": 5
+       },
+       {
+        "audioStart": 510,
+        "rangeEnd": 14
+       },
+       {
+        "audioStart": 1420,
+        "rangeEnd": 17
+       },
+       {
+        "audioStart": 1790,
+        "rangeEnd": 24
+       }
+      ],
+      "url": "https://stories-cdn.duolingo.com/audio/212a297b9d7d8a3f9074ce180ff83efb8166f2c2.mp3"
+     },
+     "hintMap": [
+      {
+       "hintIndex": 0,
+       "rangeFrom": 0,
+       "rangeTo": 3
+      },
+      {
+       "hintIndex": 1,
+       "rangeFrom": 5,
+       "rangeTo": 12
+      },
+      {
+       "hintIndex": 2,
+       "rangeFrom": 14,
+       "rangeTo": 15
+      },
+      {
+       "hintIndex": 3,
+       "rangeFrom": 17,
+       "rangeTo": 22
+      }
+     ],
+     "hints": [
+      "那(幅)",
+      "画儿",
+      "是",
+      "无聊的"
+     ],
+     "monolingualHints": [],
+     "text": "That painting is boring."
+    },
+    "lineIndex": 4
+   },
+   "trackingProperties": {
+    "line_index": 4
+   }
+  },
+  {
+   "type": "MULTIPLE_CHOICE",
+   "answers": [
+    {
+     "hintMap": [],
+     "hints": [],
+     "monolingualHints": [],
+     "text": "对，是这样的。"
+    },
+    {
+     "hintMap": [],
+     "hints": [],
+     "monolingualHints": [],
+     "text": "不，不是这样。"
+    }
+   ],
+   "correctAnswerIndex": 1,
+   "question": {
+    "hintMap": [
+     {
+      "hintIndex": 0,
+      "rangeFrom": 0,
+      "rangeTo": 4
+     }
+    ],
+    "hints": [
+     "奥斯卡"
+    ],
+    "monolingualHints": [],
+    "text": "Oscar 真的很喜欢那幅画儿。"
+   },
+   "lineIndex": 4,
+   "challengeLanguage": "zh",
+   "trackingProperties": {
+    "line_index": 4,
+    "challenge_type": "multiple-choice"
+   }
+  },
+  {
+   "type": "LINE",
+   "hideRangesForChallenge": [],
+   "line": {
+    "type": "CHARACTER",
+    "avatarUrl": "https://stories-cdn.duolingo.com/image/627af6feb184ba55e9e06e545d379e22609acf7c.svg",
+    "characterId": 414,
+    "characterNameMap": {
+     "de": "Eddy",
+     "en": "Eddy",
+     "es": "Eddy",
+     "fr": "Eddy",
+     "it": "Eddy",
+     "ja": "エディ",
+     "ko": "에디",
+     "pt": "Eddy",
+     "ru": "Эдди"
+    },
+    "content": {
+     "audio": {
+      "keypoints": [
+       {
+        "audioStart": 0,
+        "rangeEnd": 6
+       },
+       {
+        "audioStart": 930,
+        "rangeEnd": 8
+       },
+       {
+        "audioStart": 1300,
+        "rangeEnd": 13
+       },
+       {
+        "audioStart": 1730,
+        "rangeEnd": 18
+       }
+      ],
+      "url": "https://stories-cdn.duolingo.com/audio/3a1cfc8bd654bee5c61378c7d917c33501f84a4f.mp3"
+     },
+     "hintMap": [
+      {
+       "hintIndex": 0,
+       "rangeFrom": 0,
+       "rangeTo": 3
+      },
+      {
+       "hintIndex": 1,
+       "rangeFrom": 6,
+       "rangeTo": 6
+      },
+      {
+       "hintIndex": 2,
+       "rangeFrom": 8,
+       "rangeTo": 11
+      },
+      {
+       "hintIndex": 3,
+       "rangeFrom": 13,
+       "rangeTo": 16
+      }
+     ],
+     "hints": [
+      "什么",
+      "我",
+      "爱",
+      "狗"
+     ],
+     "monolingualHints": [],
+     "text": "What? I love dogs!"
+    },
+    "lineIndex": 5
+   },
+   "trackingProperties": {
+    "line_index": 5
+   }
+  },
+  {
+   "type": "LINE",
+   "hideRangesForChallenge": [],
+   "line": {
+    "type": "CHARACTER",
+    "avatarUrl": "https://stories-cdn.duolingo.com/image/513933588cd8d218adc26f86f423b99488e998fa.svg",
+    "characterId": 592,
+    "characterNameMap": {
+     "de": "Oscar",
+     "en": "Oscar",
+     "es": "Óscar",
+     "fr": "Oscar",
+     "it": "Oscar",
+     "ja": "オスカー",
+     "ko": "오스카",
+     "pt": "Óscar",
+     "ru": "Оскар"
+    },
+    "content": {
+     "audio": {
+      "keypoints": [
+       {
+        "audioStart": 0,
+        "rangeEnd": 6
+       },
+       {
+        "audioStart": 710,
+        "rangeEnd": 10
+       },
+       {
+        "audioStart": 940,
+        "rangeEnd": 13
+       },
+       {
+        "audioStart": 1090,
+        "rangeEnd": 17
+       },
+       {
+        "audioStart": 1380,
+        "rangeEnd": 26
+       },
+       {
+        "audioStart": 2340,
+        "rangeEnd": 28
+       },
+       {
+        "audioStart": 2670,
+        "rangeEnd": 33
+       },
+       {
+        "audioStart": 3300,
+        "rangeEnd": 38
+       },
+       {
+        "audioStart": 3660,
+        "rangeEnd": 42
+       }
+      ],
+      "url": "https://stories-cdn.duolingo.com/audio/8df78eb93121d69c0e1eebf4b9ee2b1fb9c969a7.mp3"
+     },
+     "hintMap": [
+      {
+       "hintIndex": 0,
+       "rangeFrom": 0,
+       "rangeTo": 3
+      },
+      {
+       "hintIndex": 1,
+       "rangeFrom": 6,
+       "rangeTo": 8
+      },
+      {
+       "hintIndex": 2,
+       "rangeFrom": 10,
+       "rangeTo": 23
+      },
+      {
+       "hintIndex": 3,
+       "rangeFrom": 26,
+       "rangeTo": 26
+      },
+      {
+       "hintIndex": 4,
+       "rangeFrom": 28,
+       "rangeTo": 31
+      },
+      {
+       "hintIndex": 5,
+       "rangeFrom": 33,
+       "rangeTo": 40
+      }
+     ],
+     "hints": [
+      "艾迪",
+      "我是",
+      "一个艺术课老师",
+      "我",
+      "了解",
+      "好的艺术"
+     ],
+     "monolingualHints": [],
+     "text": "Eddy, I'm an art teacher. I know good art."
+    },
+    "lineIndex": 6
+   },
+   "trackingProperties": {
+    "line_index": 6
+   }
+  },
+  {
+   "type": "LINE",
+   "hideRangesForChallenge": [],
+   "line": {
+    "type": "CHARACTER",
+    "avatarUrl": "https://stories-cdn.duolingo.com/image/513933588cd8d218adc26f86f423b99488e998fa.svg",
+    "characterId": 592,
+    "characterNameMap": {
+     "de": "Oscar",
+     "en": "Oscar",
+     "es": "Óscar",
+     "fr": "Oscar",
+     "it": "Oscar",
+     "ja": "オスカー",
+     "ko": "오스카",
+     "pt": "Óscar",
+     "ru": "Оскар"
+    },
+    "content": {
+     "audio": {
+      "keypoints": [
+       {
+        "audioStart": 0,
+        "rangeEnd": 5
+       },
+       {
+        "audioStart": 310,
+        "rangeEnd": 14
+       },
+       {
+        "audioStart": 920,
+        "rangeEnd": 17
+       },
+       {
+        "audioStart": 1240,
+        "rangeEnd": 21
+       },
+       {
+        "audioStart": 1910,
+        "rangeEnd": 26
+       },
+       {
+        "audioStart": 2360,
+        "rangeEnd": 30
+       }
+      ],
+      "url": "https://stories-cdn.duolingo.com/audio/783a2795f7fcc9b00e3245ac9ed3c6e6100e722d.mp3"
+     },
+     "hintMap": [
+      {
+       "hintIndex": 0,
+       "rangeFrom": 0,
+       "rangeTo": 3
+      },
+      {
+       "hintIndex": 1,
+       "rangeFrom": 5,
+       "rangeTo": 12
+      },
+      {
+       "hintIndex": 2,
+       "rangeFrom": 14,
+       "rangeTo": 19
+      },
+      {
+       "hintIndex": 3,
+       "rangeFrom": 21,
+       "rangeTo": 28
+      }
+     ],
+     "hints": [
+      "这(幅)",
+      "画儿",
+      "不是",
+      "好的艺术"
+     ],
+     "monolingualHints": [],
+     "text": "This painting is not good art."
+    },
+    "lineIndex": 7
+   },
+   "trackingProperties": {
+    "line_index": 7
+   }
+  },
+  {
+   "type": "LINE",
+   "hideRangesForChallenge": [],
+   "line": {
+    "type": "CHARACTER",
+    "avatarUrl": "https://stories-cdn.duolingo.com/image/627af6feb184ba55e9e06e545d379e22609acf7c.svg",
+    "characterId": 414,
+    "characterNameMap": {
+     "de": "Eddy",
+     "en": "Eddy",
+     "es": "Eddy",
+     "fr": "Eddy",
+     "it": "Eddy",
+     "ja": "エディ",
+     "ko": "에디",
+     "pt": "Eddy",
+     "ru": "Эдди"
+    },
+    "content": {
+     "audio": {
+      "keypoints": [
+       {
+        "audioStart": 0,
+        "rangeEnd": 4
+       }
+      ],
+      "url": "https://stories-cdn.duolingo.com/audio/be0455160ac1ec2cc8029b00743dc054bb43eba2.mp3"
+     },
+     "hintMap": [
+      {
+       "hintIndex": 0,
+       "rangeFrom": 0,
+       "rangeTo": 2
+      }
+     ],
+     "hints": [
+      "为什么"
+     ],
+     "monolingualHints": [],
+     "text": "Why?"
+    },
+    "lineIndex": 8
+   },
+   "trackingProperties": {
+    "line_index": 8
+   }
+  },
+  {
+   "type": "CHALLENGE_PROMPT",
+   "prompt": {
+    "hintMap": [],
+    "hints": [],
+    "monolingualHints": [],
+    "text": "选择你听到的内容"
+   },
+   "lineIndex": 9,
+   "trackingProperties": {
+    "line_index": 9,
+    "challenge_type": "arrange"
+   }
+  },
+  {
+   "type": "LINE",
+   "hideRangesForChallenge": [
+    {
+     "start": 0,
+     "end": 24
+    }
+   ],
+   "line": {
+    "type": "CHARACTER",
+    "avatarUrl": "https://stories-cdn.duolingo.com/image/513933588cd8d218adc26f86f423b99488e998fa.svg",
+    "characterId": 592,
+    "characterNameMap": {
+     "de": "Oscar",
+     "en": "Oscar",
+     "es": "Óscar",
+     "fr": "Oscar",
+     "it": "Oscar",
+     "ja": "オスカー",
+     "ko": "오스카",
+     "pt": "Óscar",
+     "ru": "Оскар"
+    },
+    "content": {
+     "audio": {
+      "keypoints": [
+       {
+        "audioStart": 0,
+        "rangeEnd": 5
+       },
+       {
+        "audioStart": 310,
+        "rangeEnd": 9
+       },
+       {
+        "audioStart": 880,
+        "rangeEnd": 12
+       },
+       {
+        "audioStart": 1390,
+        "rangeEnd": 24
+       }
+      ],
+      "url": "https://stories-cdn.duolingo.com/audio/c124a10a1285971f68dcd2ab877c8c6e7f942fbe.mp3"
+     },
+     "hintMap": [
+      {
+       "hintIndex": 0,
+       "rangeFrom": 0,
+       "rangeTo": 7
+      },
+      {
+       "hintIndex": 1,
+       "rangeFrom": 9,
+       "rangeTo": 10
+      },
+      {
+       "hintIndex": 2,
+       "rangeFrom": 12,
+       "rangeTo": 22
+      }
+     ],
+     "hints": [
+      "好的艺术",
+      "是",
+      "有意思的"
+     ],
+     "monolingualHints": [],
+     "text": "Good art is interesting!"
+    },
+    "lineIndex": 9
+   },
+   "trackingProperties": {
+    "line_index": 9
+   }
+  },
+  {
+   "type": "ARRANGE",
+   "characterPositions": [
+    9,
+    12,
+    24
+   ],
+   "phraseOrder": [
+    1,
+    0,
+    2
+   ],
+   "selectablePhrases": [
+    "is",
+    "Good art",
+    "interesting"
+   ],
+   "lineIndex": 9,
+   "trackingProperties": {
+    "line_index": 9,
+    "challenge_type": "arrange"
+   }
+  },
+  {
+   "type": "LINE",
+   "hideRangesForChallenge": [],
+   "line": {
+    "type": "CHARACTER",
+    "avatarUrl": "https://stories-cdn.duolingo.com/image/513933588cd8d218adc26f86f423b99488e998fa.svg",
+    "characterId": 592,
+    "characterNameMap": {
+     "de": "Oscar",
+     "en": "Oscar",
+     "es": "Óscar",
+     "fr": "Oscar",
+     "it": "Oscar",
+     "ja": "オスカー",
+     "ko": "오스카",
+     "pt": "Óscar",
+     "ru": "Оскар"
+    },
+    "content": {
+     "audio": {
+      "keypoints": [
+       {
+        "audioStart": 0,
+        "rangeEnd": 5
+       },
+       {
+        "audioStart": 410,
+        "rangeEnd": 9
+       },
+       {
+        "audioStart": 1450,
+        "rangeEnd": 12
+       },
+       {
+        "audioStart": 1600,
+        "rangeEnd": 23
+       }
+      ],
+      "url": "https://stories-cdn.duolingo.com/audio/0e2d41c7f8dd6d06d96e654a12ea69cd85e62ae9.mp3"
+     },
+     "hintMap": [
+      {
+       "hintIndex": 0,
+       "rangeFrom": 0,
+       "rangeTo": 7
+      },
+      {
+       "hintIndex": 1,
+       "rangeFrom": 9,
+       "rangeTo": 10
+      },
+      {
+       "hintIndex": 2,
+       "rangeFrom": 12,
+       "rangeTo": 21
+      }
+     ],
+     "hints": [
+      "好的艺术",
+      "是",
+      "出人意料的"
+     ],
+     "monolingualHints": [],
+     "text": "Good art is surprising!"
+    },
+    "lineIndex": 10
+   },
+   "trackingProperties": {
+    "line_index": 10
+   }
+  },
+  {
+   "type": "CHALLENGE_PROMPT",
+   "prompt": {
+    "hintMap": [],
+    "hints": [],
+    "monolingualHints": [],
+    "text": "选择短语",
+    "newLexemesCharRanges": []
+   },
+   "lineIndex": 11,
+   "trackingProperties": {
+    "line_index": 11,
+    "challenge_type": "select-phrases"
+   }
+  },
+  {
+   "type": "LINE",
+   "hideRangesForChallenge": [
+    {
+     "start": 22,
+     "end": 32
+    }
+   ],
+   "line": {
+    "type": "PROSE",
+    "content": {
+     "audio": {
+      "keypoints": [
+       {
+        "audioStart": 0,
+        "rangeEnd": 6
+       },
+       {
+        "audioStart": 790,
+        "rangeEnd": 11
+       },
+       {
+        "audioStart": 1410,
+        "rangeEnd": 13
+       },
+       {
+        "audioStart": 1530,
+        "rangeEnd": 22
+       },
+       {
+        "audioStart": 2660,
+        "rangeEnd": 25
+       },
+       {
+        "audioStart": 2880,
+        "rangeEnd": 27
+       },
+       {
+        "audioStart": 2950,
+        "rangeEnd": 33
+       }
+      ],
+      "url": "https://stories-cdn.duolingo.com/audio/8b4b89e3de843a3a94a563dca9ebe014d8bc6128.mp3"
+     },
+     "hintMap": [
+      {
+       "hintIndex": 0,
+       "rangeFrom": 0,
+       "rangeTo": 4
+      },
+      {
+       "hintIndex": 1,
+       "rangeFrom": 6,
+       "rangeTo": 9
+      },
+      {
+       "hintIndex": 2,
+       "rangeFrom": 11,
+       "rangeTo": 11
+      },
+      {
+       "hintIndex": 3,
+       "rangeFrom": 13,
+       "rangeTo": 20
+      },
+      {
+       "hintIndex": 4,
+       "rangeFrom": 22,
+       "rangeTo": 31
+      }
+     ],
+     "hints": [
+      "奥斯卡",
+      "看到",
+      "一个",
+      "三明治",
+      "在一张椅子上"
+     ],
+     "monolingualHints": [],
+     "text": "Oscar sees a sandwich on a chair."
+    },
+    "lineIndex": 11
+   },
+   "trackingProperties": {
+    "line_index": 11
+   }
+  },
+  {
+   "type": "SELECT_PHRASE",
+   "answers": [
+    "and this chair",
+    "on a chair",
+    "on his hair"
+   ],
+   "correctAnswerIndex": 1,
+   "lineIndex": 11,
+   "trackingProperties": {
+    "line_index": 11,
+    "challenge_type": "select-phrases"
+   }
+  },
+  {
+   "type": "LINE",
+   "hideRangesForChallenge": [],
+   "line": {
+    "type": "CHARACTER",
+    "avatarUrl": "https://stories-cdn.duolingo.com/image/513933588cd8d218adc26f86f423b99488e998fa.svg",
+    "characterId": 592,
+    "characterNameMap": {
+     "de": "Oscar",
+     "en": "Oscar",
+     "es": "Óscar",
+     "fr": "Oscar",
+     "it": "Oscar",
+     "ja": "オスカー",
+     "ko": "오스카",
+     "pt": "Óscar",
+     "ru": "Оскар"
+    },
+    "content": {
+     "audio": {
+      "keypoints": [
+       {
+        "audioStart": 0,
+        "rangeEnd": 5
+       },
+       {
+        "audioStart": 1020,
+        "rangeEnd": 8
+       },
+       {
+        "audioStart": 1420,
+        "rangeEnd": 13
+       },
+       {
+        "audioStart": 2030,
+        "rangeEnd": 17
+       }
+      ],
+      "url": "https://stories-cdn.duolingo.com/audio/c4989ddbcc3bf836ac337296da43fde47a1e2dcc.mp3"
+     },
+     "hintMap": [
+      {
+       "hintIndex": 0,
+       "rangeFrom": 0,
+       "rangeTo": 3
+      },
+      {
+       "hintIndex": 1,
+       "rangeFrom": 5,
+       "rangeTo": 6
+      },
+      {
+       "hintIndex": 2,
+       "rangeFrom": 8,
+       "rangeTo": 15
+      }
+     ],
+     "hints": [
+      "那",
+      "是",
+      "好的艺术"
+     ],
+     "monolingualHints": [],
+     "text": "That is good art!"
+    },
+    "lineIndex": 12
+   },
+   "trackingProperties": {
+    "line_index": 12
+   }
+  },
+  {
+   "type": "LINE",
+   "hideRangesForChallenge": [],
+   "line": {
+    "type": "CHARACTER",
+    "avatarUrl": "https://stories-cdn.duolingo.com/image/627af6feb184ba55e9e06e545d379e22609acf7c.svg",
+    "characterId": 414,
+    "characterNameMap": {
+     "de": "Eddy",
+     "en": "Eddy",
+     "es": "Eddy",
+     "fr": "Eddy",
+     "it": "Eddy",
+     "ja": "エディ",
+     "ko": "에디",
+     "pt": "Eddy",
+     "ru": "Эдди"
+    },
+    "content": {
+     "audio": {
+      "keypoints": [
+       {
+        "audioStart": 0,
+        "rangeEnd": 2
+       },
+       {
+        "audioStart": 200,
+        "rangeEnd": 11
+       },
+       {
+        "audioStart": 1110,
+        "rangeEnd": 14
+       },
+       {
+        "audioStart": 1320,
+        "rangeEnd": 16
+       },
+       {
+        "audioStart": 1450,
+        "rangeEnd": 23
+       }
+      ],
+      "url": "https://stories-cdn.duolingo.com/audio/775ae74190436b04f4fdd61aa96d085efe34444a.mp3"
+     },
+     "hintMap": [
+      {
+       "hintIndex": 0,
+       "rangeFrom": 0,
+       "rangeTo": 20
+      }
+     ],
+     "hints": [
+      "在椅子上的一个三明治"
+     ],
+     "monolingualHints": [],
+     "text": "A sandwich on a chair?!"
+    },
+    "lineIndex": 13
+   },
+   "trackingProperties": {
+    "line_index": 13
+   }
+  },
+  {
+   "type": "LINE",
+   "hideRangesForChallenge": [],
+   "line": {
+    "type": "CHARACTER",
+    "avatarUrl": "https://stories-cdn.duolingo.com/image/513933588cd8d218adc26f86f423b99488e998fa.svg",
+    "characterId": 592,
+    "characterNameMap": {
+     "de": "Oscar",
+     "en": "Oscar",
+     "es": "Óscar",
+     "fr": "Oscar",
+     "it": "Oscar",
+     "ja": "オスカー",
+     "ko": "오스카",
+     "pt": "Óscar",
+     "ru": "Оскар"
+    },
+    "content": {
+     "audio": {
+      "keypoints": [
+       {
+        "audioStart": 0,
+        "rangeEnd": 5
+       },
+       {
+        "audioStart": 890,
+        "rangeEnd": 10
+       },
+       {
+        "audioStart": 1240,
+        "rangeEnd": 22
+       },
+       {
+        "audioStart": 2200,
+        "rangeEnd": 26
+       },
+       {
+        "audioStart": 2320,
+        "rangeEnd": 38
+       },
+       {
+        "audioStart": 3630,
+        "rangeEnd": 42
+       },
+       {
+        "audioStart": 3890,
+        "rangeEnd": 49
+       },
+       {
+        "audioStart": 4760,
+        "rangeEnd": 52
+       },
+       {
+        "audioStart": 4980,
+        "rangeEnd": 54
+       },
+       {
+        "audioStart": 5180,
+        "rangeEnd": 61
+       }
+      ],
+      "url": "https://stories-cdn.duolingo.com/audio/7a58634fcd99fce31282b61095621000208944f7.mp3"
+     },
+     "hintMap": [
+      {
+       "hintIndex": 0,
+       "rangeFrom": 0,
+       "rangeTo": 2
+      },
+      {
+       "hintIndex": 1,
+       "rangeFrom": 5,
+       "rangeTo": 8
+      },
+      {
+       "hintIndex": 2,
+       "rangeFrom": 10,
+       "rangeTo": 20
+      },
+      {
+       "hintIndex": 3,
+       "rangeFrom": 22,
+       "rangeTo": 24
+      },
+      {
+       "hintIndex": 4,
+       "rangeFrom": 26,
+       "rangeTo": 35
+      },
+      {
+       "hintIndex": 5,
+       "rangeFrom": 38,
+       "rangeTo": 47
+      },
+      {
+       "hintIndex": 6,
+       "rangeFrom": 49,
+       "rangeTo": 50
+      },
+      {
+       "hintIndex": 7,
+       "rangeFrom": 52,
+       "rangeTo": 52
+      },
+      {
+       "hintIndex": 8,
+       "rangeFrom": 54,
+       "rangeTo": 59
+      }
+     ],
+     "hints": [
+      "是啊",
+      "它是",
+      "有意思的",
+      "而且",
+      "出人意料的",
+      "(这个)艺术家",
+      "是",
+      "一个",
+      "天才"
+     ],
+     "monolingualHints": [],
+     "text": "Yes! It's interesting and surprising! The artist is a genius!"
+    },
+    "lineIndex": 14
+   },
+   "trackingProperties": {
+    "line_index": 14
+   }
+  },
+  {
+   "type": "MULTIPLE_CHOICE",
+   "answers": [
+    {
+     "hintMap": [],
+     "hints": [],
+     "monolingualHints": [],
+     "text": "……那个三明治是做给狗狗的。"
+    },
+    {
+     "hintMap": [],
+     "hints": [],
+     "monolingualHints": [],
+     "text": "……那个三明治看起来很好吃。"
+    },
+    {
+     "hintMap": [],
+     "hints": [],
+     "monolingualHints": [],
+     "text": "……在椅子上放个三明治很出人意料。"
+    }
+   ],
+   "correctAnswerIndex": 2,
+   "question": {
+    "hintMap": [
+     {
+      "hintIndex": 0,
+      "rangeFrom": 0,
+      "rangeTo": 4
+     }
+    ],
+    "hints": [
+     "奥斯卡"
+    ],
+    "monolingualHints": [],
+    "text": "Oscar 认为那个艺术家是个天才，因为……"
+   },
+   "lineIndex": 14,
+   "challengeLanguage": "zh",
+   "trackingProperties": {
+    "line_index": 14,
+    "challenge_type": "multiple-choice"
+   }
+  },
+  {
+   "type": "LINE",
+   "hideRangesForChallenge": [],
+   "line": {
+    "type": "CHARACTER",
+    "avatarUrl": "https://stories-cdn.duolingo.com/image/627af6feb184ba55e9e06e545d379e22609acf7c.svg",
+    "characterId": 414,
+    "characterNameMap": {
+     "de": "Eddy",
+     "en": "Eddy",
+     "es": "Eddy",
+     "fr": "Eddy",
+     "it": "Eddy",
+     "ja": "エディ",
+     "ko": "에디",
+     "pt": "Eddy",
+     "ru": "Эдди"
+    },
+    "content": {
+     "audio": {
+      "keypoints": [
+       {
+        "audioStart": 0,
+        "rangeEnd": 2
+       },
+       {
+        "audioStart": 330,
+        "rangeEnd": 8
+       },
+       {
+        "audioStart": 670,
+        "rangeEnd": 19
+       },
+       {
+        "audioStart": 1580,
+        "rangeEnd": 23
+       }
+      ],
+      "url": "https://stories-cdn.duolingo.com/audio/46564acd92941ddcbc586b051928e330004bcb8b.mp3"
+     },
+     "hintMap": [
+      {
+       "hintIndex": 0,
+       "rangeFrom": 0,
+       "rangeTo": 0
+      },
+      {
+       "hintIndex": 1,
+       "rangeFrom": 2,
+       "rangeTo": 21
+      }
+     ],
+     "hints": [
+      "我",
+      "不懂艺术"
+     ],
+     "monolingualHints": [],
+     "text": "I don't understand art."
+    },
+    "lineIndex": 15
+   },
+   "trackingProperties": {
+    "line_index": 15
+   }
+  },
+  {
+   "type": "LINE",
+   "hideRangesForChallenge": [],
+   "line": {
+    "type": "PROSE",
+    "content": {
+     "audio": {
+      "keypoints": [
+       {
+        "audioStart": 0,
+        "rangeEnd": 2
+       },
+       {
+        "audioStart": 150,
+        "rangeEnd": 10
+       },
+       {
+        "audioStart": 1020,
+        "rangeEnd": 16
+       },
+       {
+        "audioStart": 1610,
+        "rangeEnd": 21
+       },
+       {
+        "audioStart": 1960,
+        "rangeEnd": 25
+       },
+       {
+        "audioStart": 2080,
+        "rangeEnd": 31
+       },
+       {
+        "audioStart": 3120,
+        "rangeEnd": 34
+       },
+       {
+        "audioStart": 3330,
+        "rangeEnd": 41
+       },
+       {
+        "audioStart": 4080,
+        "rangeEnd": 48
+       },
+       {
+        "audioStart": 4470,
+        "rangeEnd": 52
+       },
+       {
+        "audioStart": 4560,
+        "rangeEnd": 61
+       }
+      ],
+      "url": "https://stories-cdn.duolingo.com/audio/42cd80ffff2ce89a236cc804322edf7138ea0651.mp3"
+     },
+     "hintMap": [
+      {
+       "hintIndex": 0,
+       "rangeFrom": 0,
+       "rangeTo": 0
+      },
+      {
+       "hintIndex": 1,
+       "rangeFrom": 2,
+       "rangeTo": 8
+      },
+      {
+       "hintIndex": 2,
+       "rangeFrom": 10,
+       "rangeTo": 19
+      },
+      {
+       "hintIndex": 3,
+       "rangeFrom": 21,
+       "rangeTo": 28
+      },
+      {
+       "hintIndex": 4,
+       "rangeFrom": 31,
+       "rangeTo": 32
+      },
+      {
+       "hintIndex": 5,
+       "rangeFrom": 34,
+       "rangeTo": 39
+      },
+      {
+       "hintIndex": 6,
+       "rangeFrom": 41,
+       "rangeTo": 46
+      },
+      {
+       "hintIndex": 7,
+       "rangeFrom": 48,
+       "rangeTo": 59
+      }
+     ],
+     "hints": [
+      "一个",
+      "清洁工",
+      "走进",
+      "房间",
+      "他",
+      "开始",
+      "吃",
+      "(那个)三明治"
+     ],
+     "monolingualHints": [],
+     "text": "A janitor walks into the room. He starts eating the sandwich."
+    },
+    "lineIndex": 16
+   },
+   "trackingProperties": {
+    "line_index": 16
+   }
+  },
+  {
+   "type": "POINT_TO_PHRASE",
+   "correctAnswerIndex": 0,
+   "transcriptParts": [
+    {
+     "selectable": false,
+     "text": "A"
+    },
+    {
+     "selectable": false,
+     "text": " "
+    },
+    {
+     "selectable": true,
+     "text": "janitor"
+    },
+    {
+     "selectable": false,
+     "text": " "
+    },
+    {
+     "selectable": false,
+     "text": "walks into"
+    },
+    {
+     "selectable": false,
+     "text": " "
+    },
+    {
+     "selectable": true,
+     "text": "the room"
+    },
+    {
+     "selectable": false,
+     "text": ". "
+    },
+    {
+     "selectable": false,
+     "text": "He"
+    },
+    {
+     "selectable": false,
+     "text": " "
+    },
+    {
+     "selectable": true,
+     "text": "starts"
+    },
+    {
+     "selectable": false,
+     "text": " "
+    },
+    {
+     "selectable": true,
+     "text": "eating"
+    },
+    {
+     "selectable": false,
+     "text": " "
+    },
+    {
+     "selectable": false,
+     "text": "the sandwich"
+    },
+    {
+     "selectable": false,
+     "text": "."
+    }
+   ],
+   "question": {
+    "hintMap": [],
+    "hints": [],
+    "monolingualHints": [],
+    "text": "哪一个选项的意思是\"清洁工\"？"
+   },
+   "lineIndex": 16,
+   "challengeLanguage": "zh",
+   "trackingProperties": {
+    "line_index": 16,
+    "challenge_type": "point-to-phrase"
+   }
+  },
+  {
+   "type": "LINE",
+   "hideRangesForChallenge": [],
+   "line": {
+    "type": "CHARACTER",
+    "avatarUrl": "https://stories-cdn.duolingo.com/image/513933588cd8d218adc26f86f423b99488e998fa.svg",
+    "characterId": 592,
+    "characterNameMap": {
+     "de": "Oscar",
+     "en": "Oscar",
+     "es": "Óscar",
+     "fr": "Oscar",
+     "it": "Oscar",
+     "ja": "オスカー",
+     "ko": "오스카",
+     "pt": "Óscar",
+     "ru": "Оскар"
+    },
+    "content": {
+     "audio": {
+      "keypoints": [
+       {
+        "audioStart": 0,
+        "rangeEnd": 7
+       },
+       {
+        "audioStart": 630,
+        "rangeEnd": 11
+       },
+       {
+        "audioStart": 960,
+        "rangeEnd": 15
+       },
+       {
+        "audioStart": 1220,
+        "rangeEnd": 21
+       },
+       {
+        "audioStart": 1630,
+        "rangeEnd": 25
+       },
+       {
+        "audioStart": 1940,
+        "rangeEnd": 29
+       },
+       {
+        "audioStart": 2190,
+        "rangeEnd": 33
+       }
+      ],
+      "url": "https://stories-cdn.duolingo.com/audio/5507cc6346610abd4e982593d5c11c2685a37ab1.mp3"
+     },
+     "hintMap": [
+      {
+       "hintIndex": 0,
+       "rangeFrom": 0,
+       "rangeTo": 8
+      },
+      {
+       "hintIndex": 1,
+       "rangeFrom": 11,
+       "rangeTo": 13
+      },
+      {
+       "hintIndex": 2,
+       "rangeFrom": 15,
+       "rangeTo": 19
+      },
+      {
+       "hintIndex": 3,
+       "rangeFrom": 21,
+       "rangeTo": 23
+      },
+      {
+       "hintIndex": 4,
+       "rangeFrom": 25,
+       "rangeTo": 31
+      }
+     ],
+     "hints": [
+      "对不起",
+      "你",
+      "不可以",
+      "吃",
+      "艺术品"
+     ],
+     "monolingualHints": [],
+     "text": "Excuse me! You can't eat the art!"
+    },
+    "lineIndex": 17
+   },
+   "trackingProperties": {
+    "line_index": 17
+   }
+  },
+  {
+   "type": "LINE",
+   "hideRangesForChallenge": [],
+   "line": {
+    "type": "CHARACTER",
+    "avatarUrl": "https://stories-cdn.duolingo.com/image/d75836343379f4c053a8a83751e80025fd5c07bd.svg",
+    "characterId": 2078,
+    "characterNameMap": {
+     "de": "Aufseher",
+     "en": "Janitor",
+     "es": "Conserje",
+     "fr": "Janitor",
+     "it": "Custode",
+     "ko": "경비원",
+     "pt": "Guarda"
+    },
+    "content": {
+     "audio": {
+      "keypoints": [
+       {
+        "audioStart": 0,
+        "rangeEnd": 4
+       },
+       {
+        "audioStart": 560,
+        "rangeEnd": 9
+       },
+       {
+        "audioStart": 970,
+        "rangeEnd": 15
+       },
+       {
+        "audioStart": 1400,
+        "rangeEnd": 20
+       },
+       {
+        "audioStart": 2310,
+        "rangeEnd": 25
+       },
+       {
+        "audioStart": 2670,
+        "rangeEnd": 28
+       },
+       {
+        "audioStart": 2830,
+        "rangeEnd": 31
+       },
+       {
+        "audioStart": 3060,
+        "rangeEnd": 37
+       }
+      ],
+      "url": "https://stories-cdn.duolingo.com/audio/ddc5368972966b16fc10c17abd5280c0e06811cf.mp3"
+     },
+     "hintMap": [
+      {
+       "hintIndex": 0,
+       "rangeFrom": 0,
+       "rangeTo": 1
+      },
+      {
+       "hintIndex": 1,
+       "rangeFrom": 4,
+       "rangeTo": 7
+      },
+      {
+       "hintIndex": 2,
+       "rangeFrom": 9,
+       "rangeTo": 13
+      },
+      {
+       "hintIndex": 3,
+       "rangeFrom": 15,
+       "rangeTo": 17
+      },
+      {
+       "hintIndex": 4,
+       "rangeFrom": 20,
+       "rangeTo": 23
+      },
+      {
+       "hintIndex": 5,
+       "rangeFrom": 25,
+       "rangeTo": 26
+      },
+      {
+       "hintIndex": 6,
+       "rangeFrom": 28,
+       "rangeTo": 29
+      },
+      {
+       "hintIndex": 7,
+       "rangeFrom": 31,
+       "rangeTo": 35
+      }
+     ],
+     "hints": [
+      "呃",
+      "这个",
+      "不是",
+      "艺术品",
+      "这个",
+      "是",
+      "我的",
+      "午餐"
+     ],
+     "monolingualHints": [],
+     "text": "Uh, this isn't art. This is my lunch."
+    },
+    "lineIndex": 18
+   },
+   "trackingProperties": {
+    "line_index": 18
+   }
+  },
+  {
+   "type": "MULTIPLE_CHOICE",
+   "answers": [
+    {
+     "hintMap": [],
+     "hints": [],
+     "monolingualHints": [],
+     "text": "……把清洁工的午餐当成了艺术品。"
+    },
+    {
+     "hintMap": [],
+     "hints": [],
+     "monolingualHints": [],
+     "text": "……把清洁工当成了著名艺术家。"
+    },
+    {
+     "hintMap": [
+      {
+       "hintIndex": 0,
+       "rangeFrom": 5,
+       "rangeTo": 8
+      }
+     ],
+     "hints": [
+      "艾迪"
+     ],
+     "monolingualHints": [],
+     "text": "……以为 Eddy 把馆内的艺术品都吃掉了。"
+    }
+   ],
+   "correctAnswerIndex": 0,
+   "question": {
+    "hintMap": [
+     {
+      "hintIndex": 0,
+      "rangeFrom": 11,
+      "rangeTo": 15
+     }
+    ],
+    "hints": [
+     "奥斯卡"
+    ],
+    "monolingualHints": [],
+    "text": "哈哈！满身艺术细胞的 Oscar 竟然……"
+   },
+   "lineIndex": 18,
+   "challengeLanguage": "zh",
+   "trackingProperties": {
+    "line_index": 18,
+    "challenge_type": "multiple-choice"
+   }
+  },
+  {
+   "type": "MATCH",
+   "fallbackHints": [
+    {
+     "phrase": "He",
+     "translation": "他"
+    },
+    {
+     "phrase": "sandwich",
+     "translation": "三明治"
+    },
+    {
+     "phrase": "interesting",
+     "translation": "有意思的",
+     "phraseTtsUrl": "https://d1vq87e9lcf771.cloudfront.net/miranda/dace14011e8878b5bb9879c2537d373c"
+    },
+    {
+     "phrase": "starts",
+     "translation": "开始"
+    },
+    {
+     "phrase": "lunch",
+     "translation": "午餐",
+     "phraseTtsUrl": "https://d1vq87e9lcf771.cloudfront.net/miranda/24f6b09bf86c0adad993a19fd392e158"
+    }
+   ],
+   "matches": [
+    {
+     "phrase": "He",
+     "translation": "他"
+    },
+    {
+     "phrase": "sandwich",
+     "translation": "三明治"
+    },
+    {
+     "phrase": "interesting",
+     "translation": "有意思的",
+     "phraseTtsUrl": "https://d1vq87e9lcf771.cloudfront.net/miranda/dace14011e8878b5bb9879c2537d373c"
+    },
+    {
+     "phrase": "starts",
+     "translation": "开始"
+    },
+    {
+     "phrase": "lunch",
+     "translation": "午餐",
+     "phraseTtsUrl": "https://d1vq87e9lcf771.cloudfront.net/miranda/24f6b09bf86c0adad993a19fd392e158"
+    }
+   ],
+   "prompt": "请匹配单词和对应的翻译。",
+   "lineIndex": 19,
+   "trackingProperties": {
+    "line_index": 19,
+    "challenge_type": "match"
+   }
+  }
+ ],
+ "learningLanguage": "en",
+ "fromLanguage": "zh",
+ "revision": 28,
+ "startTime": 1793779000,
+ "illustrations": {
+  "active": "https://stories-cdn.duolingo.com/image/501e7d609ee0dd5ba11ff7cdcf9740b12a7a7945.svg",
+  "gilded": "https://stories-cdn.duolingo.com/image/371ead86e115c7dde2b230d96ad99aed79fe3ee1.svg",
+  "locked": "https://stories-cdn.duolingo.com/image/77ec14a8f702cbc018cfc7f9d784faa97d2219c8.svg"
+ },
+ "listenModeCharacterIds": [
+  592,
+  2078
+ ],
+ "speakModeCharacterIds": [
+  592
+ ],
+ "cefrLevel": "A1.1",
+ "baseXp": 16,
+ "mode": "READ",
+ "isListenModeAvailable": true,
+ "isListenModeRequired": true,
+ "fromLanguageName": "好的艺术",
+ "unspeakableWords": [],
+ "showPromptsInTargetLanguage": false,
+ "trackingProperties": {
+  "story_play_mode": "read",
+  "has_writing": false,
+  "story_id": "en-zh-good-art",
+  "story_revision": 28,
+  "story_language": "en",
+  "cefr_level": "A1.1",
+  "multipart": false,
+  "story_type": "radio-play",
+  "story_subtype": "radio-play",
+  "script_uuid": "en-zh-good-art",
+  "total_line_count": 19,
+  "session_cefr_level_section": "A1.1",
+  "session_cefr_level": "A1",
+  "activity_uuid": "8adb3bbf-217a-4492-9eb8-77471067c52a"
+ },
+ "trackingConstants": {
+  "maxTimePerLine": 30,
+  "maxTimePerChallenge": 60
+ }
+}

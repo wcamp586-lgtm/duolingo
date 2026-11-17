@@ -1,0 +1,17 @@
+{
+  "name": "duo-xp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test-core.js && node test-stories.js && node test-automation-policy.js && node test-lesson-runner.js",
+    "test:automation": "node test-automation-policy.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "playwright": "^1.64.1"
+  }
+}
