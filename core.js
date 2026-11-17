@@ -4,7 +4,8 @@ const norm = (s) => (s || '').replace(/[^\p{L}\p{N}]+/gu, '').toLowerCase();
 
 function tx(x) {
   if (typeof x === 'string') return x;
-  if (x && typeof x === 'object') return x.text || x.value || x.word || '';
+  // select 题的 choices 是 {phrase, hint, image} 对象，文本在 phrase 上
+  if (x && typeof x === 'object') return x.text || x.value || x.word || x.phrase || '';
   return '';
 }
 
@@ -63,6 +64,14 @@ function buildPlan(ch) {
       .filter((p) => p.text);
   }
   return [];
+}
+
+// match 题的配对不分先后：无序 pairs 相同就算同一题（普通课会重复出同一组词）
+function planSig(ch) {
+  if (normType(ch.type) === 'match' && Array.isArray(ch.pairs)) {
+    return JSON.stringify(ch.pairs.map((x) => [tx(x.learningToken), tx(x.fromToken)].sort().join('=')).sort());
+  }
+  return JSON.stringify(buildPlan(ch));
 }
 
 // 题型别名：extendedMatch 是配对题的扩展版，答案结构相同
@@ -137,7 +146,7 @@ function matchChallenge(pools, domOptions, domType) {
   if (domType) hits = hits.filter((ch) => normType(ch.type) === normType(domType));
   if (!hits.length) return null;
   if (hits.length === 1) return hits[0];
-  const sigs = new Set(hits.map((ch) => JSON.stringify(buildPlan(ch))));
+  const sigs = new Set(hits.map((ch) => planSig(ch)));
   return sigs.size === 1 ? hits[0] : null;
 }
 
@@ -196,7 +205,7 @@ function resolveChallenge(pools, dom) {
     const sessionOnly = cands.filter((p) => p.__pool !== 'lexemes');
     if (sessionOnly.length) cands = sessionOnly;
   }
-  const plans = new Set(cands.map((p) => JSON.stringify(buildPlan(p))));
+  const plans = new Set(cands.map((p) => planSig(p)));
   return plans.size === 1 ? cands[0] : null;
 }
 
@@ -273,4 +282,4 @@ function challengeFromLexemes(lexemes, domOptions) {
   return { id: 'lexemes|' + pairs.length, type: 'match', pairs, __pool: 'lexemes' };
 }
 
-module.exports = { challengeFromLexemes,  normType, matchByDisplay,  storiesPlan, storiesQuestions,  resolveChallenge, textAnswers, matchByPrompt,  isSubsetOf,  norm, tx, collectChallenges, challengeOptions, buildPlan, matchChallenge, multiset, sameMultiset, assignMarks, multipleOf };
+module.exports = { planSig, challengeFromLexemes,  normType, matchByDisplay,  storiesPlan, storiesQuestions,  resolveChallenge, textAnswers, matchByPrompt,  isSubsetOf,  norm, tx, collectChallenges, challengeOptions, buildPlan, matchChallenge, multiset, sameMultiset, assignMarks, multipleOf };

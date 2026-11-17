@@ -8,6 +8,10 @@ const lessonRunner = require('./lesson-runner.js');
 const { prepareByUrl, prepareLegendary, findCourseLevel, LEARN, ORIGIN } = require('./legendary-entry.js');
 
 const nextSelector = '[data-test="player-next"]:visible';
+// 配对题兜底用的词表（practice-lexemes 响应），solve 和响应回调都要读
+let lexemes = null;
+// 页面预加载的 session 先到、目标节点后设，按 skillId|levelIndex 缓存，进课时直接复用
+const sessionCache = new Map();
 
 function numberArg(name, minimum) {
   const index = process.argv.indexOf('--' + name);
@@ -42,6 +46,7 @@ async function clickSafe(page, loc, tries = 3) {
 
 async function solve(page, target, check) {
   let answered = 0;
+  let skippedCount = 0;
   let stalled = 0;
   let feedbackSince = null;
   let storyFinished = false;
@@ -50,6 +55,9 @@ async function solve(page, target, check) {
   for (let round = 0; round < 400; round++) {
     await check();
     if (LEARN.test(page.url())) return answered;
+    // 普通课：这关的题答完（含跳过）就退出，别在"继续练习"页里死循环
+    const total = Array.isArray(target.data?.challenges) ? target.data.challenges.length : 0;
+    if (target.mode === 'normal' && total && answered + skippedCount >= total) return answered;
 
     if (target.slot.type === 'story') {
       const finish = page.locator('[data-test="stories-player-done"]:visible');
@@ -81,7 +89,7 @@ async function solve(page, target, check) {
     } else {
       const dom = await lessonRunner.readDom(page);
       if (dom && target.data) {
-        const result = await lessonRunner.step(page, target.data, check);
+        const result = await lessonRunner.step(page, target.data, check, lexemes);
         if (result.status === 'waiting') {
           feedbackSince ??= Date.now();
           if (Date.now() - feedbackSince > 30000) throw new Error('等待普通课反馈或结算超时');
@@ -90,10 +98,9 @@ async function solve(page, target, check) {
         }
         if (['answered', 'skipped', 'advanced'].includes(result.status)) {
           if (result.status === 'answered') answered++;
+          if (result.status === 'skipped') skippedCount++;
           console.log('LESSON_' + result.status.toUpperCase() + (result.type ? ' type=' + result.type : ''));
           stalled = 0;
-        } else if (result.status !== 'waiting' && ++stalled >= 20) {
-          throw new Error('普通题停滞 ' + result.status + ' ' + (result.kind || '-') + ' ' + dom.type + ' ' + dom.boxText.slice(0, 120));
         } else if (result.status === 'nomatch' && !nomatchLogged) {
           // 第一次认不出题就把现场留下：页面选项/题干 + 题池里同题型候选（题干命中页面的排前面）
           nomatchLogged = true;
@@ -109,6 +116,18 @@ async function solve(page, target, check) {
             options: (dom.options || []).slice(0, 24), boxText: (dom.boxText || '').slice(0, 300),
             poolSize: pools.length, sameTypeCount: sameType.length, near,
           }));
+          if (target.mode === 'normal' && await trySkip(page, check)) {
+            skippedCount++;
+            console.log('LESSON_SKIP_NOMATCH type=' + dom.type);
+            stalled = 0;
+          }
+        } else if (result.status === 'nomatch' && target.mode === 'normal' && await trySkip(page, check)) {
+          // 普通课的"新单词"教学题不在 session 里，点平台跳过继续
+          skippedCount++;
+          console.log('LESSON_SKIP_NOMATCH type=' + dom.type);
+          stalled = 0;
+        } else if (result.status !== 'waiting' && ++stalled >= 20) {
+          throw new Error('普通题停滞 ' + result.status + ' ' + (result.kind || '-') + ' ' + dom.type + ' ' + dom.boxText.slice(0, 120));
         }
       } else if (!dom) {
         // 整页加载中：这不是停滞，等它加载完，别去点 next
@@ -169,19 +188,50 @@ async function solve(page, target, check) {
   throw new Error('课程未在步数上限内回到学习路径');
 }
 
+// 普通课里 session 没有对应条目的题（如"新单词"教学题），点平台跳过
+async function trySkip(page, check) {
+  const sk = page.locator('[data-test="player-skip"]:visible');
+  if (await sk.count() !== 1 || !(await sk.isEnabled().catch(() => false))) return false;
+  await check();
+  await clickSafe(page, sk);
+  await page.waitForTimeout(700);
+  const nxt = page.locator(nextSelector).filter({ hasText: /^\s*继续\s*$/ });
+  if (await nxt.count() === 1 && await nxt.isEnabled().catch(() => false)) {
+    await check();
+    await clickSafe(page, nxt);
+    await page.waitForTimeout(300);
+  }
+  return true;
+}
+
+// 普通课入口：/lesson 直接进当前 active 节点（不能像传奇那样构造 unit/level URL，那个 404）
+async function prepareNormal(page, check) {
+  await check();
+  await page.goto(ORIGIN + '/lesson', { waitUntil: 'domcontentloaded', timeout: 20000 }).catch(() => {});
+  await page.waitForTimeout(3500);
+  if (!/\/lesson/.test(page.url())) throw new Error('普通课入口没有进入 /lesson');
+  const start = page.locator('[data-test="player-next"]:visible').first();
+  const button = await start.count() ? start : null;
+  return { button, url: new URL(page.url()) };
+}
+
 async function main() {
   const minutes = numberArg('minutes', 0.001);
   const xp = numberArg('xp', 1);
   const fromSection = numberArg('from-section', 0) ?? 0;
   const fromUnit = numberArg('from-unit', 0) ?? 0;
+  const fromLevel = numberArg('from-level', 0) ?? 0;
   const maxLessons = numberArg('max-lessons', 1) ?? Infinity;
   if (!minutes && !xp) throw new Error('必须给 --minutes 或 --xp 上限');
 
   const startedAt = Date.now();
+  // --normal：从零做普通课（/lesson 进当前 active 节点）；默认刷传奇课
+  const mode = process.argv.includes('--normal') ? 'normal' : 'legendary';
   // 本次运行内确定进不去的节点（传奇入口已消失），不再重试
   const skipped = new Set();
-  const select = course => policy.planCourse(course).candidates.filter(slot =>
-    !skipped.has(slot.id) && slot.sectionIndex >= fromSection && slot.unitIndex >= fromUnit);
+  const select = course => (mode === 'normal' ? policy.planNormal(course) : policy.planCourse(course).candidates).filter(slot =>
+    !skipped.has(slot.id) && slot.sectionIndex >= fromSection && slot.unitIndex >= fromUnit
+    && (slot.unitIndex !== fromUnit || slot.levelIndex >= fromLevel));
   if (process.argv.includes('--dry-run')) {
     const course = JSON.parse(fs.readFileSync(path.join(__dirname, 'course-path.json'), 'utf8'));
     const queue = select(course);
@@ -210,15 +260,20 @@ async function main() {
     const story = url.hostname === 'stories.duolingo.com' && url.pathname.startsWith('/api2/stories/');
     const user = onSite && url.pathname.match(/^\/2023-05-23\/users\/(\d+)$/);
     const session = onSite && /^\/2023-05-23\/sessions(?:\/|$)/.test(url.pathname);
+    const lexicon = onSite && /practice-lexemes/.test(url.pathname);
     const document = onSite && response.request().resourceType() === 'document';
     if ((story || user || session || document) && [401, 403, 429].includes(response.status())) {
       restriction ||= '关键请求 HTTP ' + response.status() + ' ' + url.pathname;
       return;
     }
     const target = active;
-    if ((!user && !session && !story) || !response.ok()) return;
+    if ((!user && !session && !story && !lexicon) || !response.ok()) return;
     try {
       const data = await response.json();
+      if (lexicon && Array.isArray(data.practiceLexemes)) {
+        lexemes = data.practiceLexemes;
+        console.log('LEXEMES count=' + lexemes.length);
+      }
       if (user && data.currentCourse?.pathSectioned && Number.isFinite(data.totalXp)) {
         uid = user[1];
         initialProgress ||= { course: data.currentCourse, xp: data.totalXp };
@@ -226,6 +281,9 @@ async function main() {
       if (session && Array.isArray(data.challenges)) {
         console.log('SESSION_SEEN type=' + data.type + ' n=' + data.challenges.length
           + ' skillId=' + (data.skillId || '-') + ' levelIndex=' + (data.levelIndex ?? '-'));
+        if (data.id && !seenSessions.has(data.id)) {
+          sessionCache.set((data.skillId || '') + '|' + (data.levelIndex ?? ''), data);
+        }
       }
       if (!target || target !== active || target.data) return;
       if (target.slot.type === 'story' && story && Array.isArray(data.elements)
@@ -233,16 +291,18 @@ async function main() {
         target.data = data;
         console.log('STORY_DATA elements=' + data.elements.length);
       }
-      if (target.slot.type !== 'story' && session && Array.isArray(data.challenges)
-          && /^LEGENDARY/.test(data.type || '') && data.id && !seenSessions.has(data.id)) {
+      if (target.slot.type !== 'story' && session && Array.isArray(data.challenges) && data.id && !seenSessions.has(data.id)) {
         const meta = target.level.pathLevelMetadata || {};
         let matched;
-        if (target.slot.type === 'skill') {
-          matched = data.skillId === meta.skillId && data.levelIndex === meta.crownLevelIndex;
+        if (mode === 'normal') {
+          // 普通课：LESSON，按当前 active 节点的 skillId/crownLevelIndex 认
+          matched = /^LESSON/.test(data.type || '') && data.skillId === meta.skillId && data.levelIndex === meta.crownLevelIndex;
+        } else if (target.slot.type === 'skill') {
+          matched = /^LEGENDARY/.test(data.type || '') && data.skillId === meta.skillId && data.levelIndex === meta.crownLevelIndex;
         } else {
           // 复习/单元复习的 session 是 LEGENDARY_LEXEME_PRACTICE，里面没有 skillId/levelIndex 可对，
           // 既然页面已经导航到这节的 URL，就认这个 session
-          matched = true;
+          matched = /^LEGENDARY/.test(data.type || '');
         }
         if (!matched) return;
         seenSessions.add(data.id);
@@ -319,9 +379,18 @@ async function main() {
         return;
       }
       const level = findCourseLevel(progress.course, slot);
-      active = { slot, level, data: null };
+      active = { slot, level, data: null, mode };
+      // 普通课/传奇课都先看预加载缓存：/lesson 有时根本不发新 session（页面直接用预加载那份）
+      const meta = level?.pathLevelMetadata || {};
+      const cached = sessionCache.get((meta.skillId || '') + '|' + (meta.crownLevelIndex ?? ''));
+      if (cached && !seenSessions.has(cached.id)
+          && (mode === 'normal' ? /^LESSON/.test(cached.type || '') : /^LEGENDARY/.test(cached.type || ''))) {
+        active.data = cached;
+        seenSessions.add(cached.id);
+        console.log('SESSION_CACHED type=' + cached.type + ' n=' + cached.challenges.length);
+      }
       try {
-      const entry = await prepareByUrl(page, slot, check);
+      const entry = mode === 'normal' ? await prepareNormal(page, check) : await prepareByUrl(page, slot, check);
       console.log('ENTRY s' + slot.sectionIndex + 'u' + slot.unitIndex + 'l' + slot.levelIndex + ' ' + slot.name + ' → ' + entry.url.pathname);
       if (!budget().mayStartNext) {
         console.log('STOP ' + JSON.stringify(budget()));
@@ -336,13 +405,16 @@ async function main() {
       const answered = await solve(page, active, check);
 
       const before = progress.xp;
+      const wantState = mode === 'normal' ? 'passed' : 'legendary';
       for (let attempt = 0; attempt < 3; attempt++) {
         progress = await readProgress();
-        if (findCourseLevel(progress.course, slot)?.state === 'legendary' && progress.xp > before) break;
+        const levelState = findCourseLevel(progress.course, slot)?.state;
+        if (progress.xp > before && (mode === 'normal' || levelState === wantState)) break;
         if (attempt < 2) await page.waitForTimeout(1200);
       }
       const state = findCourseLevel(progress.course, slot)?.state;
-      if (state !== 'legendary' || progress.xp <= before) {
+      // 普通课一个 skill 节点要多次会话才 passed（totalSessions 常见 4），单节成功以 XP 到账为准
+      if (progress.xp <= before || (mode !== 'normal' && state !== wantState)) {
         throw new Error('未确认目标结算 id=' + slot.id + ' state=' + state + ' XP变化=' + (progress.xp - before));
       }
       completed++;

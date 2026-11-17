@@ -67,6 +67,12 @@ node auto-runner.js --xp 2000
 # 从指定 section/unit 之后开始（默认 0/0 = 从队列最前面）
 node auto-runner.js --minutes 60 --from-section 3 --from-unit 100
 
+# 再加 --from-level 可跳过同一 unit 里的前几关（story 定位用）
+node auto-runner.js --minutes 60 --from-unit 69 --from-level 1
+
+# 普通课模式：从零做当前 active 节点（每节 15-17 题、+15 XP；一个 skill 节点通常要 4 节才 passed）
+node auto-runner.js --normal --minutes 180 --max-lessons 4
+
 # 只看队列，不开浏览器（用 course-path.json 快照，是 11-04 的旧数据，仅供粗看）
 node auto-runner.js --dry-run --minutes 60
 
@@ -91,6 +97,8 @@ cd /Users/fengzhao/Projects/duolingo && node auto-runner.js --minutes 180 2>&1 |
 ### 刷哪些关
 
 `policy.planCourse(course)` 只挑**已通过、还没传奇**的节点，类型限于 `skill` / `story` / `practice` / `unit_review`，按课程顺序（section → unit → level）排。
+
+`--normal` 模式走 `policy.planNormal(course)`：只挑 `state === 'active'` 的节点（同一时刻只有一个），入口是 `/lesson`。普通课一节 = 一个 `LESSON` 会话（15-17 题），成功判定用 **XP 到账**而不是节点变 passed（一个 skill 节点通常要 4 节才 passed）。单元测试入口是 `/lesson/unit/<unit+1>/test`（会话类型 `UNIT_TEST`，约 18 题，+50 XP）。
 
 所以“从头开始刷”的真实含义是：**从课程里最靠前的未传奇节点开始**。前面的关如果已经是传奇，就不会再碰。电台、AI 对话、宝箱不在目标类型里，不刷；听说题遇到会自动点平台的跳过入口。
 
@@ -158,6 +166,9 @@ cd /Users/fengzhao/Projects/duolingo && node auto-runner.js --minutes 180 2>&1 |
 | `page.evaluate: TimeoutError: signal timed out` | 回读进度的请求 15 秒超时 | 课程实际已完成，XP 也到账，只是没确认。事后用节点 state 核实即可 |
 | `目标节点没有有效的传奇入口` | 该关已经不是"passed 未传奇"（多半上一条超时前已结算） | 本次运行内加入 `skipped`，不再重试（11-16 法语实测原来会反复撞 6 次） |
 | `BLOCKED 关键请求 HTTP 429/403` | 平台限流或限制 | 立即停，别重试、别换 IP |
+| 普通课 `select` 题 nomatch | 选项是 `{phrase}` 对象，旧 `tx()` 只认 text/value/word | 已修（`tx` 支持 phrase） |
+| 普通课 `match` 题 nomatch | 同一 unit 重复出同词表、选项集完全相同但 pairs 顺序不同 | 已修（`planSig` 按无序 pairs 比较 + practice-lexemes 兜底） |
+| 普通课"新单词"题 nomatch | session 里两道题选项集相同、正确答案不同 | 按题干消歧；仍失败点 `player-skip`（跳过会被平台重练，所以只在确实认不出时用） |
 
 ### nomatch 的已知根因
 
@@ -209,6 +220,10 @@ cd /Users/fengzhao/Projects/duolingo && node auto-runner.js --minutes 180 2>&1 |
 | `core.js` | `matchByPrompt` 命中多题干时取最长的 | 法语输入题"短题干是长题干子串"导致 nomatch（"您用卡付吗？" ⊂ "对不起，先生，您用卡付吗？"） |
 | `auto-runner.js` | 传奇入口消失的节点本次运行内跳过，不再重试 | TimeoutError 后该节点已传奇，原来反复撞墙直到 8 次或时间到 |
 | `read-xp.js` | 优先用系统 Chrome（`executablePath` 探测），加 `--no-proxy-server` | HOME 变了之后 Playwright 自带浏览器缓存找不到 |
+| `automation-policy.js` | 新增 `planNormal`（挑 `state==='active'`） | 普通课模式选关 |
+| `auto-runner.js` | 新增 `--normal` / `--from-level`；普通课入口 `/lesson`、`LESSON` 会话按 skillId+levelIndex 匹配、结算看 XP；`nomatch` 时点 `player-skip` | 普通课模式 |
+| `core.js` | `tx()` 支持 `{phrase}`；`planSig()` 配对题按无序 pairs 比较 | 普通课 `select` 题选项是对象；`match` 题同词表重复出题 |
+| `lesson-runner.js` | 选项集相同时按题干消歧；接受 `lexemes` 参数，配对题失配用 practice-lexemes 重建 | 普通课"新单词"题；补齐 hint 模式的两条兜底 |
 
 `npm test` 全部通过（core / stories / policy / lesson-runner 四套）。测试不覆盖浏览器启动参数和诊断输出。
 
@@ -217,6 +232,8 @@ cd /Users/fengzhao/Projects/duolingo && node auto-runner.js --minutes 180 2>&1 |
 ## 九、还没解决 / 要留意
 
 - 英语课偶发 nomatch 仍未确证，等 `NOMATCH_DETAIL` 再触发
+- 普通课 `--normal` 的单节成功以 XP 到账为准；一个 skill 节点通常 4 节才 passed，节点变 passed 后下一个节点会自动变 active
+- 普通课进课时经常要先等几秒才下发匹配的 `LESSON` session（预加载里有别的 skill），偶发"未收到与目标节点匹配的课程数据"，重试即过
 - `course-path.json` 是 11-04 的快照，`--dry-run` 的队列只能粗看；真实队列来自服务器实时进度
 - `read-xp.js` 里写死了未加密的 user id `769346152`，换账号要改
 - 运行环境变动过两次（Chrome 被卸载、活动课程被切到日语），每次开跑前的三步检查就是为这个

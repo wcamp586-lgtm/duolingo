@@ -26,6 +26,22 @@ function planCourse(course) {
   return {courseId:course.id,candidates,counts};
 }
 
+// 普通课：同一时刻只有 state==='active' 的节点能通过 /lesson 进入
+function planNormal(course) {
+  const out=[];
+  for(const section of course.pathSectioned||[]) {
+    if(section.type!=='learning')continue;
+    for(const unit of section.units||[])for(const [levelIndex,level] of (unit.levels||[]).entries()) {
+      if(level.state!=='active'||!TARGET_TYPES.has(level.type))continue;
+      out.push({
+        courseId:course.id,sectionIndex:section.index,unitIndex:unit.unitIndex,
+        levelIndex,id:level.id,type:level.type,name:level.debugName,state:level.state,
+      });
+    }
+  }
+  return out;
+}
+
 function stopDecision({startedAt,startXp,currentXp,now=Date.now(),minutes,xp,inLesson=false,settled=true}) {
   if(!Number.isFinite(startedAt)||!Number.isFinite(startXp)||!Number.isFinite(currentXp))throw new Error('Missing measured time/XP');
   if(!(minutes>0||xp>0))throw new Error('Set a positive time or XP limit');
@@ -46,4 +62,4 @@ function skipKind(type) {
   return /^listen/.test(type||'')?'listening':null;
 }
 
-module.exports={classifyLevel,planCourse,stopDecision,skipKind};
+module.exports={classifyLevel,planCourse,planNormal,stopDecision,skipKind};

@@ -123,7 +123,7 @@ async function advance(page, check = async () => {}) {
   }
 }
 
-async function step(page, session, check = async () => {}) {
+async function step(page, session, check = async () => {}, lexemes = null) {
   await check();
   const dom = await readDom(page);
   if (!dom) {
@@ -185,8 +185,17 @@ async function step(page, session, check = async () => {}) {
   }
 
   let ch = core.resolveChallenge(pools, dom);
+  // 配对题失配时用拦截到的 practice-lexemes 词表重建（hint 模式一直有，自动模式补齐）
+  if (!ch && core.normType(dom.type) === 'match' && Array.isArray(lexemes) && lexemes.length) {
+    ch = core.challengeFromLexemes(lexemes, dom.options);
+  }
   if (!ch && /^(tapComplete|completeReverseTranslation|partialReverseTranslate)$/.test(dom.type)) {
     ch = core.matchByDisplay(pools, dom.boxText, dom.type);
+  }
+  if (!ch) {
+    // 选项集相同但答案不同的题（普通课"新单词"：同一个词表问"哪个是咖啡/茶"）靠题干消歧
+    const hits = pools.filter((p) => core.normType(p.type) === core.normType(dom.type) && p.prompt && dom.boxText.includes(p.prompt));
+    if (hits.length === 1) ch = hits[0];
   }
   if (!ch) return { status: 'nomatch', kind: 'choice', dom };
 

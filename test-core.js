@@ -161,6 +161,24 @@ t('短题干是长题干子串时取最长的（法语真实案例）', () => {
   assert.ok(m);
   assert.strictEqual(m.id, 'b');
 });
+t('select 题：选项是 {phrase} 对象（普通课新题型）', () => {
+  const ch = {
+    type: 'select', prompt: '哪个是“茶”呢？', correctIndex: 0,
+    choices: [{ phrase: 'Tee' }, { phrase: 'Kaffee' }, { phrase: 'Zucker' }],
+  };
+  assert.deepStrictEqual(c.challengeOptions(ch), ['Tee', 'Kaffee', 'Zucker']);
+  // 页面选项带键盘快捷键尾号（Tee1 / Kaffee2），要能对上
+  const plan = c.buildPlan(ch);
+  assert.deepStrictEqual(c.assignMarks(['Tee1', 'Kaffee2', 'Zucker3'], plan), [{ index: 0, order: 0, text: 'Tee' }]);
+});
+t('普通课 match：同词表不同顺序也能认（无序配对）', () => {
+  const mk = (pairs) => ({ id: pairs.map((p) => p[0]).join(), type: 'match', pairs: pairs.map((p) => ({ learningToken: p[0], fromToken: p[1] })) });
+  const a = mk([['咖啡', 'Kaffee'], ['请', 'bitte'], ['你好', 'hallo'], ['茶', 'Tee']]);
+  const b = mk([['茶', 'Tee'], ['你好', 'hallo'], ['请', 'bitte'], ['咖啡', 'Kaffee']]);
+  const hit = c.resolveChallenge([a, b], { type: 'match', options: ['咖啡', '请', '你好', '茶', 'Kaffee', 'bitte', 'hallo', 'Tee'] });
+  assert.ok(hit, '同词表应命中');
+  assert.strictEqual(c.planSig(hit), c.planSig(a));
+});
 t('无 correctSolutions 的题不参与匹配', () => {
   const fake = [{ id: 'a', type: 'translate', prompt: '你好', correctSolutions: [] }];
   assert.strictEqual(c.matchByPrompt(fake, '你好'), null);
