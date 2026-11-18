@@ -355,7 +355,7 @@ async function main() {
             matched = /^(LESSON|LEVEL_REVIEW)/.test(data.type || '') && data.skillId === meta.skillId && data.levelIndex === meta.crownLevelIndex;
           } else {
             // 练习/单元复习：LEXEME_PRACTICE，没有 skillId/levelIndex 可对，页面进了 /lesson 就认
-            matched = /^(LEXEME_PRACTICE|UNIT_PRACTICE|LESSON|LEVEL_REVIEW)/.test(data.type || '');
+            matched = /^(LEXEME_PRACTICE|UNIT_PRACTICE|LEXEME_REVIEW|UNIT_REVIEW|LESSON|LEVEL_REVIEW)/.test(data.type || '');
           }
         } else if (target.slot.type === 'skill') {
           matched = /^LEGENDARY/.test(data.type || '') && data.skillId === meta.skillId && data.levelIndex === meta.crownLevelIndex;
