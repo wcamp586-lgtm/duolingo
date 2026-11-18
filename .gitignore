@@ -28,3 +28,6 @@ auto-progress.json
 legend-survey.json
 legend-verify.json
 story-dump.json
+
+# DSH 会话交接草稿（dsh-context-guard 生成）
+HANDOVER.md

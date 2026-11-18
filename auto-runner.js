@@ -205,8 +205,63 @@ async function trySkip(page, check) {
 }
 
 // 普通课入口：/lesson 直接进当前 active 节点（不能像传奇那样构造 unit/level URL，那个 404）
-async function prepareNormal(page, check) {
+// 延后 radio：路径上点它 → 「稍后选择」 → 同一 unit 往后找第一个有「开始」入口的节点并进课。
+// 接口会把 radio 报 active、下一节点 locked，但网页上下一节点已有可点的开始（Codex 实测）。
+async function prepareDeferredRadio(page, check, slot) {
   await check();
+  await page.goto(ORIGIN + '/learn', { waitUntil: 'domcontentloaded', timeout: 20000 }).catch(() => {});
+  // 学习路径是客户端渲染的，法语课常见要 7-9 秒才出现；3 秒时 unit 还不存在
+  const unit = page.locator('[data-test="skill-path-unit-' + slot.unitIndex + '"]').first();
+  await unit.waitFor({ timeout: 15000 }).catch(() => {});
+  await page.waitForTimeout(1500);
+  await unit.scrollIntoViewIfNeeded({ timeout: 6000 }).catch(() => {});
+  await page.waitForTimeout(800);
+  const radio = unit.locator('[data-test="skill-path-level-' + slot.levelIndex + ' skill-path-level-duo_radio"]').first();
+  // 用 locator 点击而不是坐标：坐标会被已经展开的气泡挡住
+  await radio.click({ timeout: 6000 }).catch(() => {});
+  await page.waitForTimeout(2500);
+  const later = page.locator('button:has-text("稍后选择"), [role="button"]:has-text("稍后选择")').filter({ visible: true }).first();
+  if (await later.count()) {
+    await later.click({ timeout: 5000 }).catch(() => {});
+    console.log('RADIO_LATER 点了稍后选择');
+    await page.waitForTimeout(2500);
+  } else {
+    // 按钮是一次性的（用过就不再出现）：再点一次节点把气泡关掉，否则会挡住下一节点
+    await radio.click({ timeout: 6000 }).catch(() => {});
+    await page.waitForTimeout(1500);
+  }
+  for (let li = slot.levelIndex + 1; li <= slot.levelIndex + 4; li++) {
+    const node = unit.locator('[data-test^="skill-path-level-' + li + ' "]').first();
+    if (!(await node.count())) continue;
+    await node.click({ timeout: 6000 }).catch(() => {});
+    await page.waitForTimeout(2000);
+    // 入口是 <a data-test="skill-path-state-active ...">开始 +10 经验</a>，不是按钮
+    const start = page.locator('a[data-test*="skill-path-state-active"]').filter({ hasText: '开始' }).filter({ visible: true }).first();
+    if (await start.count()) {
+      await start.click({ timeout: 5000 }).catch(() => {});
+      console.log('RADIO_NEXT level=' + li + ' 点了开始');
+      await page.waitForTimeout(4000);
+      return { url: new URL(page.url()), deferred: true };
+    }
+    await page.keyboard.press('Escape').catch(() => {});
+    await page.waitForTimeout(500);
+  }
+  throw new Error('延后 radio 后没有找到下一节点的开始入口');
+}
+
+async function prepareNormal(page, check, slot) {
+  await check();
+  if (slot && slot.type === 'duo_radio') return await prepareDeferredRadio(page, check, slot);
+  // 宝箱：/lesson 会回路径并显示「打开」，点掉就解锁下一节点（不给 XP）
+  if (slot && slot.type === 'chest') {
+    await page.goto(ORIGIN + '/learn', { waitUntil: 'domcontentloaded', timeout: 20000 }).catch(() => {});
+    await page.waitForTimeout(3000);
+    const open = page.locator('button:has-text("打开")').filter({ visible: true }).first();
+    if (!(await open.count())) throw new Error('宝箱没有「打开」入口');
+    await clickSafe(page, open);
+    await page.waitForTimeout(3000);
+    return { chest: true, url: new URL(page.url()) };
+  }
   await page.goto(ORIGIN + '/lesson', { waitUntil: 'domcontentloaded', timeout: 20000 }).catch(() => {});
   await page.waitForTimeout(3500);
   if (!/\/lesson/.test(page.url())) throw new Error('普通课入口没有进入 /lesson');
@@ -295,8 +350,13 @@ async function main() {
         const meta = target.level.pathLevelMetadata || {};
         let matched;
         if (mode === 'normal') {
-          // 普通课：LESSON，按当前 active 节点的 skillId/crownLevelIndex 认
-          matched = /^LESSON/.test(data.type || '') && data.skillId === meta.skillId && data.levelIndex === meta.crownLevelIndex;
+          if (target.slot.type === 'skill' || target.slot.type === 'story') {
+            // 普通课：LESSON/LEVEL_REVIEW，按当前 active 节点的 skillId/crownLevelIndex 认
+            matched = /^(LESSON|LEVEL_REVIEW)/.test(data.type || '') && data.skillId === meta.skillId && data.levelIndex === meta.crownLevelIndex;
+          } else {
+            // 练习/单元复习：LEXEME_PRACTICE，没有 skillId/levelIndex 可对，页面进了 /lesson 就认
+            matched = /^(LEXEME_PRACTICE|UNIT_PRACTICE|LESSON|LEVEL_REVIEW)/.test(data.type || '');
+          }
         } else if (target.slot.type === 'skill') {
           matched = /^LEGENDARY/.test(data.type || '') && data.skillId === meta.skillId && data.levelIndex === meta.crownLevelIndex;
         } else {
@@ -384,25 +444,30 @@ async function main() {
       const meta = level?.pathLevelMetadata || {};
       const cached = sessionCache.get((meta.skillId || '') + '|' + (meta.crownLevelIndex ?? ''));
       if (cached && !seenSessions.has(cached.id)
-          && (mode === 'normal' ? /^LESSON/.test(cached.type || '') : /^LEGENDARY/.test(cached.type || ''))) {
+          && (mode === 'normal' ? /^(LESSON|LEVEL_REVIEW)/.test(cached.type || '') : /^LEGENDARY/.test(cached.type || ''))) {
         active.data = cached;
         seenSessions.add(cached.id);
         console.log('SESSION_CACHED type=' + cached.type + ' n=' + cached.challenges.length);
       }
       try {
-      const entry = mode === 'normal' ? await prepareNormal(page, check) : await prepareByUrl(page, slot, check);
-      console.log('ENTRY s' + slot.sectionIndex + 'u' + slot.unitIndex + 'l' + slot.levelIndex + ' ' + slot.name + ' → ' + entry.url.pathname);
+      const entry = mode === 'normal' ? await prepareNormal(page, check, slot) : await prepareByUrl(page, slot, check);
+      console.log('ENTRY s' + slot.sectionIndex + 'u' + slot.unitIndex + 'l' + slot.levelIndex + ' ' + slot.name + ' → ' + entry.url.pathname + (entry.chest ? ' (chest)' : ''));
       if (!budget().mayStartNext) {
         console.log('STOP ' + JSON.stringify(budget()));
         return;
       }
       await check();
       active.startedAt = Date.now();
-      if (entry.button) {
-        await clickSafe(page, entry.button, 4);
-        await page.waitForURL(url => url.origin === ORIGIN && url.pathname === entry.url.pathname, { timeout: 25000 });
+      let answered = 0;
+      if (!entry.chest) {
+        if (entry.deferred) {
+          await page.waitForTimeout(2000);
+        } else if (entry.button) {
+          await clickSafe(page, entry.button, 4);
+          await page.waitForURL(url => url.origin === ORIGIN && url.pathname === entry.url.pathname, { timeout: 25000 });
+        }
+        answered = await solve(page, active, check);
       }
-      const answered = await solve(page, active, check);
 
       const before = progress.xp;
       const wantState = mode === 'normal' ? 'passed' : 'legendary';
@@ -413,8 +478,13 @@ async function main() {
         if (attempt < 2) await page.waitForTimeout(1200);
       }
       const state = findCourseLevel(progress.course, slot)?.state;
-      // 普通课一个 skill 节点要多次会话才 passed（totalSessions 常见 4），单节成功以 XP 到账为准
-      if (progress.xp <= before || (mode !== 'normal' && state !== wantState)) {
+      // 普通课一个 skill 节点要多次会话才 passed（totalSessions 常见 4），单节成功以 XP 到账为准；
+      // 宝箱打开不给 XP，只有 state 从 active 变 passed，所以 state 变化也算结算
+      if (mode === 'normal') {
+        if (progress.xp <= before && state === 'active') {
+          throw new Error('未确认目标结算 id=' + slot.id + ' state=' + state + ' XP变化=' + (progress.xp - before));
+        }
+      } else if (progress.xp <= before || state !== wantState) {
         throw new Error('未确认目标结算 id=' + slot.id + ' state=' + state + ' XP变化=' + (progress.xp - before));
       }
       completed++;

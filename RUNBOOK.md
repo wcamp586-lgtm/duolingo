@@ -98,7 +98,14 @@ cd /Users/fengzhao/Projects/duolingo && node auto-runner.js --minutes 180 2>&1 |
 
 `policy.planCourse(course)` 只挑**已通过、还没传奇**的节点，类型限于 `skill` / `story` / `practice` / `unit_review`，按课程顺序（section → unit → level）排。
 
-`--normal` 模式走 `policy.planNormal(course)`：只挑 `state === 'active'` 的节点（同一时刻只有一个），入口是 `/lesson`。普通课一节 = 一个 `LESSON` 会话（15-17 题），成功判定用 **XP 到账**而不是节点变 passed（一个 skill 节点通常要 4 节才 passed）。单元测试入口是 `/lesson/unit/<unit+1>/test`（会话类型 `UNIT_TEST`，约 18 题，+50 XP）。
+`--normal` 模式走 `policy.planNormal(course)`：只挑 `state === 'active'` 的节点（同一时刻只有一个）。按类型分入口：
+
+- `skill` / `story`：`/lesson`，`LESSON` / `LEVEL_REVIEW` 会话，按 `skillId + crownLevelIndex` 匹配；一个 skill 通常要 4 节才 `passed`，成功判定用 **XP 到账**。
+- `practice`：`/lesson`，会话是 `LEXEME_PRACTICE`（Course Practice）或 `UNIT_PRACTICE`（Unit Practice），没有 skillId 可对。
+- `chest`：`/learn` 上点「打开」，不给 XP，节点变 `passed` 后解锁下一节点。
+- `duo_radio`：路径上点它，有「稍后选择」就点；按钮用过就不再出现，这时再点一次节点把气泡关掉。然后找**同一 unit 往后**第一个有 `<a data-test="skill-path-state-active …">开始 +10 经验</a>` 的节点，点它进课。接口会一直把 radio 报 `active`、下一节点报 `locked`，这一课做完（+10~13 XP）radio 才变 `passed`，所以结算要按 radio 自己的 state 变化核实。
+
+单元测试入口是 `/lesson/unit/<unit+1>/test`（会话类型 `UNIT_TEST`，约 18 题，+50 XP）。
 
 所以“从头开始刷”的真实含义是：**从课程里最靠前的未传奇节点开始**。前面的关如果已经是传奇，就不会再碰。电台、AI 对话、宝箱不在目标类型里，不刷；听说题遇到会自动点平台的跳过入口。
 
@@ -167,6 +174,9 @@ cd /Users/fengzhao/Projects/duolingo && node auto-runner.js --minutes 180 2>&1 |
 | `目标节点没有有效的传奇入口` | 该关已经不是"passed 未传奇"（多半上一条超时前已结算） | 本次运行内加入 `skipped`，不再重试（11-16 法语实测原来会反复撞 6 次） |
 | `BLOCKED 关键请求 HTTP 429/403` | 平台限流或限制 | 立即停，别重试、别换 IP |
 | 普通课 `select` 题 nomatch | 选项是 `{phrase}` 对象，旧 `tx()` 只认 text/value/word | 已修（`tx` 支持 phrase） |
+| radio 延后后 API 仍 `locked` | 平台先给网页放行入口、后更新接口 | 按网页入口进课，结算看 radio 的 state 变 `passed` |
+| 点下一节点没反应 | 节点气泡挡住了坐标点击 | 改用 `locator.click()`；无「稍后选择」时先再点一次 radio 关气泡 |
+| 普通模式会话类型对不上 | 练习课是 `LEXEME_PRACTICE` / `UNIT_PRACTICE`，没有 skillId | normal 模式非 skill/story 节点放宽到这两种 |
 | 普通课 `match` 题 nomatch | 同一 unit 重复出同词表、选项集完全相同但 pairs 顺序不同 | 已修（`planSig` 按无序 pairs 比较 + practice-lexemes 兜底） |
 | 普通课"新单词"题 nomatch | session 里两道题选项集相同、正确答案不同 | 按题干消歧；仍失败点 `player-skip`（跳过会被平台重练，所以只在确实认不出时用） |
 
@@ -220,7 +230,8 @@ cd /Users/fengzhao/Projects/duolingo && node auto-runner.js --minutes 180 2>&1 |
 | `core.js` | `matchByPrompt` 命中多题干时取最长的 | 法语输入题"短题干是长题干子串"导致 nomatch（"您用卡付吗？" ⊂ "对不起，先生，您用卡付吗？"） |
 | `auto-runner.js` | 传奇入口消失的节点本次运行内跳过，不再重试 | TimeoutError 后该节点已传奇，原来反复撞墙直到 8 次或时间到 |
 | `read-xp.js` | 优先用系统 Chrome（`executablePath` 探测），加 `--no-proxy-server` | HOME 变了之后 Playwright 自带浏览器缓存找不到 |
-| `automation-policy.js` | 新增 `planNormal`（挑 `state==='active'`） | 普通课模式选关 |
+| `automation-policy.js` | 新增 `planNormal`（挑 `state==='active'`，含 chest/radio；旧版过滤 TARGET_TYPES 会卡在 radio 上） | 普通课模式选关 |
+| `auto-runner.js` | 普通模式：chest 点「打开」、duo_radio 走「稍后选择 → 同 unit 下一节点 `skill-path-state-active` 链接」；接受 `LEXEME_PRACTICE`/`UNIT_PRACTICE`；宝箱结算按 state 变化 | Codex 实测的延后 radio 分支（2026-11-18） |
 | `auto-runner.js` | 新增 `--normal` / `--from-level`；普通课入口 `/lesson`、`LESSON` 会话按 skillId+levelIndex 匹配、结算看 XP；`nomatch` 时点 `player-skip` | 普通课模式 |
 | `core.js` | `tx()` 支持 `{phrase}`；`planSig()` 配对题按无序 pairs 比较 | 普通课 `select` 题选项是对象；`match` 题同词表重复出题 |
 | `lesson-runner.js` | 选项集相同时按题干消歧；接受 `lexemes` 参数，配对题失配用 practice-lexemes 重建 | 普通课"新单词"题；补齐 hint 模式的两条兜底 |

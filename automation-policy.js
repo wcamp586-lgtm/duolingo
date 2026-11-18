@@ -26,13 +26,14 @@ function planCourse(course) {
   return {courseId:course.id,candidates,counts};
 }
 
-// 普通课：同一时刻只有 state==='active' 的节点能通过 /lesson 进入
+// 普通课：前沿节点可能是 chest（宝箱，点「打开」）或 duo_radio（对话课，可能要「稍后选择」），
+// 都要返回，由 auto-runner 按类型决定入口；否则解锁链会卡在它们身上。
 function planNormal(course) {
   const out=[];
   for(const section of course.pathSectioned||[]) {
     if(section.type!=='learning')continue;
     for(const unit of section.units||[])for(const [levelIndex,level] of (unit.levels||[]).entries()) {
-      if(level.state!=='active'||!TARGET_TYPES.has(level.type))continue;
+      if(level.state!=='active')continue;
       out.push({
         courseId:course.id,sectionIndex:section.index,unitIndex:unit.unitIndex,
         levelIndex,id:level.id,type:level.type,name:level.debugName,state:level.state,
