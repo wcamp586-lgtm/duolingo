@@ -34,7 +34,9 @@ async function prepareByUrl(page, slot, check) {
 
 // /learn 是虚拟列表：目标 unit 可能在远处没渲染。先回顶部，再逐屏向下滚到目标 unit；
 // 上限 120 屏 / 90 秒，超限返回 {ok:false}（上层记 SCROLL_LIMIT/unknown，不当 absent）。
-// 滚动过程记录「已滚屏数 / 当前渲染到的 unit 索引」，区分「滚不到」与「页面不渲染老段」。
+// 滚动过程记录「已滚屏数 / 当前渲染到的 unit 索引」，用于区分「滚不到」与「不在当前段」。
+// 更正（2026-11-19）：早先「/learn 不渲染老段」是 900px 大步长 + 400ms 检查太快的误判；
+// 300px/200ms 小步长下 unit 69→128 连续渲染，老段（unit<当前段起点）走 /sections 阶段入口即可。
 async function renderedUnitIndexes(page) {
   return await page.evaluate(() => {
     const out = [];
@@ -96,6 +98,13 @@ function isOldSegment(rendered, unitIndex) {
   return Array.isArray(rendered) && rendered.length > 0 && unitIndex < Math.min(...rendered);
 }
 
+// 该不该先试阶段入口：老段必须试；渲染列表还没出来（空）也先试一次，
+// 不能因为一次取样为空就退化成滚 120 屏（2026-11-19 unit 34 就这么误跳过一关）。
+function shouldTrySectionJump(rendered, unitIndex) {
+  if (!Array.isArray(rendered) || rendered.length === 0) return true;
+  return isOldSegment(rendered, unitIndex);
+}
+
 async function openOldSectionPath(page, sectionIndex, unitIndex, { waitMs = 10000, check = null } = {}) {
   await page.goto(ORIGIN + '/sections', { waitUntil: 'domcontentloaded', timeout: 20000 }).catch(() => {});
   await page.waitForTimeout(4000);
@@ -131,22 +140,31 @@ async function prepareByNode(page, slot, check) {
   await page.waitForTimeout(8000);
   let unit = page.locator('[data-test~="skill-path-unit-' + slot.unitIndex + '"]').first();
   // 目标 unit 不在当前段里（老单元）时，先走平台阶段入口把它渲染出来。
-  // 只在「目标比当前渲染段更早」时走阶段入口；当前段靠下的 unit 仍用滚动定位，避免误判。
+  // 渲染列表偶尔一次取样为空（客户端还没渲染完），先轮询等它出来，不急着滚 120 屏。
   if (!(await unit.count().catch(() => 0))) {
-    const rendered = await renderedUnitIndexes(page);
-    if (isOldSegment(rendered, slot.unitIndex)) {
+    let rendered = await renderedUnitIndexes(page);
+    for (let i = 0; i < 5 && !rendered.length; i++) {
+      await page.waitForTimeout(2000);
+      rendered = await renderedUnitIndexes(page);
+    }
+    const oldSegment = isOldSegment(rendered, slot.unitIndex);
+    if (shouldTrySectionJump(rendered, slot.unitIndex)) {
       const jump = await openOldSectionPath(page, slot.sectionIndex, slot.unitIndex, { check }).catch(() => ({ ok: false, rendered: [] }));
       console.log('LEGENDARY_ENTRY_SECTION_JUMP section=' + slot.sectionIndex + ' unit=' + slot.unitIndex
         + ' ok=' + jump.ok + ' tab=' + jump.tab + ' rendered=' + JSON.stringify(jump.rendered).slice(0, 120)
         + (jump.reason ? ' reason=' + jump.reason : '')
         + (jump.diag ? ' diag=' + JSON.stringify(jump.diag).slice(0, 160) : ''));
       if (!jump.ok) {
-        // 老段进不去就直说不可达（unknown），不去滚 120 屏空耗
-        throw new Error('LEGENDARY_ENTRY_SECTION_UNREACHABLE id=' + slot.id + ' unit=' + slot.unitIndex
-          + ' section=' + slot.sectionIndex + ' rendered=' + JSON.stringify(jump.rendered).slice(0, 120)
-          + ' reason=' + (jump.reason || 'SECTION_JUMP_UNMATCHED'));
+        // 老段进不去就直说不可达（unknown），不去滚 120 屏空耗；
+        // 渲染列表为空只是没取样到，跳转失败就继续走原有滚动兜底。
+        if (oldSegment) {
+          throw new Error('LEGENDARY_ENTRY_SECTION_UNREACHABLE id=' + slot.id + ' unit=' + slot.unitIndex
+            + ' section=' + slot.sectionIndex + ' rendered=' + JSON.stringify(jump.rendered).slice(0, 120)
+            + ' reason=' + (jump.reason || 'SECTION_JUMP_UNMATCHED'));
+        }
+      } else {
+        unit = page.locator('[data-test~="skill-path-unit-' + slot.unitIndex + '"]').first();
       }
-      unit = page.locator('[data-test~="skill-path-unit-' + slot.unitIndex + '"]').first();
     }
   }
   const pos = await ensureUnitVisible(page, unit).catch(() => ({ ok: false, screens: 0, stats: [] }));
@@ -220,4 +238,4 @@ function findCourseLevel(course, slot) {
   return unit?.levels.find(level => level.id === slot.id) ?? null;
 }
 
-module.exports = { prepareByUrl, prepareByNode, ensureUnitVisible, openOldSectionPath, isOldSegment, parseLegendaryEntry, findCourseLevel, LEARN, ORIGIN };
+module.exports = { prepareByUrl, prepareByNode, ensureUnitVisible, openOldSectionPath, isOldSegment, shouldTrySectionJump, parseLegendaryEntry, findCourseLevel, LEARN, ORIGIN };

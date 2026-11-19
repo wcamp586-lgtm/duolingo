@@ -2,7 +2,7 @@
 // 上限 120 屏/90 秒，超限返回 ok:false（上层记 SCROLL_LIMIT/unknown，不当 absent）。
 // 不联网、不使用 profile/；只 mock page 与 unit locator。
 const assert = require('node:assert/strict');
-const { ensureUnitVisible, openOldSectionPath, isOldSegment } = require('./legendary-entry.js');
+const { ensureUnitVisible, openOldSectionPath, isOldSegment, shouldTrySectionJump } = require('./legendary-entry.js');
 
 let pass = 0, fail = 0;
 const t = async (name, fn) => {
@@ -106,6 +106,12 @@ function mockPage({ appearAfter = 3, units = [] } = {}) {
     assert.equal(isOldSegment([69, 70, 72], 127), false);
     assert.equal(isOldSegment([], 30), false, '没渲染信息时不猜老段');
     assert.equal(isOldSegment([28, 29, 30, 31], 31), false);
+  });
+
+  await t('渲染列表为空时不退缩：先试阶段入口（unit 34 曾因空取样误跳过一关）', async () => {
+    assert.equal(shouldTrySectionJump([], 34), true);
+    assert.equal(shouldTrySectionJump([69, 70, 72], 34), true);
+    assert.equal(shouldTrySectionJump([69, 70, 72], 127), false, '当前段靠下的 unit 仍走滚动');
   });
 
   console.log('\n' + pass + ' passed, ' + fail + ' failed');
