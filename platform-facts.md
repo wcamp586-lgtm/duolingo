@@ -24,3 +24,14 @@
 
 - 节点定位成功（`skill-path-level-11 skill-path-level-duo_radio`），点击后气泡只有「跳级到这儿？」，**没有可绑定的电台入口**（证据 `l11-probe.json`）。
 - 记为「平台此刻不给该 radio 可绑入口」，保持缺口，不再重试。
+
+## 5. 平台连带（链路授予）
+
+- 现象：一个 unit 链内所有**有独立入口**的节点都金之后，没有独立入口的 radio / practice / unit_review 会被平台**连带授予** legendary。
+- 特征：连带节点 `finishedSessions/totalSessions` 不涨（radio 常是 1/1，unit_test 是 0/1），**不产生 XP、不产生独立结算**。
+- 实测：
+  - `ac0ae2f8`（unit 34 unit_review，0/1）在 unit 34 链完成后变 legendary。
+  - u35 批（`auto-legendary-u35a.log`）：独立结算 10 关（+400 XP），同批连带 15 个节点变金（unit 35 六个、unit 36 九个，含两个 unit_test 0/1），XP 只按 10 关计入。
+- 记录口径：连带**单独列**，不混进独立结算数；判定方式 = 每批前后各回读一次老段整链 state，`state` 由非 legendary 变 legendary 且不在本批结算 id 里的，就是平台连带。
+- 副作用：新变金的链头会把链内其它节点计入 pending，所以 pending 不是单调下降（u35 批 50→59）。
+
