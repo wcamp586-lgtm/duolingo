@@ -93,6 +93,13 @@ async function sectionDiag(page) {
   })).catch(() => ({ url: '?', texts: [] }));
 }
 
+// 节点离视口顶部太近时，点击会被固定导航栏拦截：返回需要滚动的像素（向上让出空间）
+function nodeClickOffset(box, clearance = 160, minY = 120) {
+  if (!box || typeof box.y !== 'number') return 0;
+  if (box.y >= minY) return 0;
+  return box.y - clearance;
+}
+
 // 目标 unit 比当前已渲染段更早 ⇒ 老段（/learn 当前段不含它），需要走阶段入口
 function isOldSegment(rendered, unitIndex) {
   return Array.isArray(rendered) && rendered.length > 0 && unitIndex < Math.min(...rendered);
@@ -201,6 +208,14 @@ async function prepareByNode(page, slot, check) {
   // 节点可能落在视口上方/下方：先滚到可见再点，避免点到被裁剪的位置
   await node.scrollIntoViewIfNeeded({ timeout: 6000 }).catch(() => {});
   await page.waitForTimeout(800);
+  // 顶部导航栏会吃掉落在它下面的点击（2026-11-20 unit 40 level-0：节点 y≈24，点不开气泡）：
+  // 节点离顶部太近时先向上让出 160px，再点。
+  const box = await node.boundingBox().catch(() => null);
+  const dy = nodeClickOffset(box);
+  if (dy) {
+    await page.evaluate((d) => window.scrollBy(0, d), dy).catch(() => {});
+    await page.waitForTimeout(600);
+  }
   await node.click({ timeout: 6000 }).catch(() => {});
   // 气泡/传说按钮是客户端渲染：真机里 5-10 秒才出现，轮询等它，不按固定 2.5 秒下结论
   const btn = page.locator('[data-test="legendary-node-button"]:visible');
@@ -259,4 +274,4 @@ function findCourseLevel(course, slot) {
   return unit?.levels.find(level => level.id === slot.id) ?? null;
 }
 
-module.exports = { prepareByUrl, prepareByNode, ensureUnitVisible, openOldSectionPath, isOldSegment, shouldTrySectionJump, parseLegendaryEntry, findCourseLevel, LEARN, ORIGIN };
+module.exports = { prepareByUrl, prepareByNode, ensureUnitVisible, openOldSectionPath, isOldSegment, shouldTrySectionJump, nodeClickOffset, parseLegendaryEntry, findCourseLevel, LEARN, ORIGIN };

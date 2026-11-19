@@ -2,7 +2,7 @@
 // 上限 120 屏/90 秒，超限返回 ok:false（上层记 SCROLL_LIMIT/unknown，不当 absent）。
 // 不联网、不使用 profile/；只 mock page 与 unit locator。
 const assert = require('node:assert/strict');
-const { ensureUnitVisible, openOldSectionPath, isOldSegment, shouldTrySectionJump } = require('./legendary-entry.js');
+const { ensureUnitVisible, openOldSectionPath, isOldSegment, shouldTrySectionJump, nodeClickOffset } = require('./legendary-entry.js');
 
 let pass = 0, fail = 0;
 const t = async (name, fn) => {
@@ -133,6 +133,13 @@ function mockPage({ appearAfter = 3, units = [] } = {}) {
     assert.equal(r.ok, false);
     assert.equal(r.reason, 'SECTION_JUMP_UNMATCHED');
     assert.ok(clicks.length <= 4);
+  });
+
+  await t('节点被顶部导航压住时先向上让位（unit 40 y≈24 点不开气泡）', async () => {
+    assert.equal(nodeClickOffset({ y: 24, height: 65 }), 24 - 160);
+    assert.equal(nodeClickOffset({ y: 300 }), 0, '正常位置不额外滚');
+    assert.equal(nodeClickOffset(null), 0);
+    assert.equal(nodeClickOffset({ y: 100 }, 160, 120), -60, '可按阈值调整');
   });
 
   console.log('\n' + pass + ' passed, ' + fail + ' failed');

@@ -1,0 +1,160 @@
+{
+ "box": {
+  "x": 517.5,
+  "y": 24,
+  "width": 70,
+  "height": 65
+ },
+ "frames": [
+  {
+   "s": 1,
+   "n": 38,
+   "hits": [
+    {
+     "test": "practice-hub-nav",
+     "text": "练习基地"
+    },
+    {
+     "test": "",
+     "text": "继续"
+    }
+   ],
+   "legendary": false
+  },
+  {
+   "s": 2,
+   "n": 38,
+   "hits": [
+    {
+     "test": "practice-hub-nav",
+     "text": "练习基地"
+    },
+    {
+     "test": "",
+     "text": "继续"
+    }
+   ],
+   "legendary": false
+  },
+  {
+   "s": 3,
+   "n": 38,
+   "hits": [
+    {
+     "test": "practice-hub-nav",
+     "text": "练习基地"
+    },
+    {
+     "test": "",
+     "text": "继续"
+    }
+   ],
+   "legendary": false
+  },
+  {
+   "s": 4,
+   "n": 38,
+   "hits": [
+    {
+     "test": "practice-hub-nav",
+     "text": "练习基地"
+    },
+    {
+     "test": "",
+     "text": "继续"
+    }
+   ],
+   "legendary": false
+  },
+  {
+   "s": 5,
+   "n": 38,
+   "hits": [
+    {
+     "test": "practice-hub-nav",
+     "text": "练习基地"
+    },
+    {
+     "test": "",
+     "text": "继续"
+    }
+   ],
+   "legendary": false
+  },
+  {
+   "s": 6,
+   "n": 38,
+   "hits": [
+    {
+     "test": "practice-hub-nav",
+     "text": "练习基地"
+    },
+    {
+     "test": "",
+     "text": "继续"
+    }
+   ],
+   "legendary": false
+  },
+  {
+   "s": 7,
+   "n": 38,
+   "hits": [
+    {
+     "test": "practice-hub-nav",
+     "text": "练习基地"
+    },
+    {
+     "test": "",
+     "text": "继续"
+    }
+   ],
+   "legendary": false
+  },
+  {
+   "s": 8,
+   "n": 38,
+   "hits": [
+    {
+     "test": "practice-hub-nav",
+     "text": "练习基地"
+    },
+    {
+     "test": "",
+     "text": "继续"
+    }
+   ],
+   "legendary": false
+  },
+  {
+   "s": 9,
+   "n": 38,
+   "hits": [
+    {
+     "test": "practice-hub-nav",
+     "text": "练习基地"
+    },
+    {
+     "test": "",
+     "text": "继续"
+    }
+   ],
+   "legendary": false
+  },
+  {
+   "s": 10,
+   "n": 38,
+   "hits": [
+    {
+     "test": "practice-hub-nav",
+     "text": "练习基地"
+    },
+    {
+     "test": "",
+     "text": "继续"
+    }
+   ],
+   "legendary": false
+  }
+ ]
+}
