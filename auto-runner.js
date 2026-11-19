@@ -56,6 +56,8 @@ async function solve(page, target, check) {
   let answered = 0;
   let skippedCount = 0;
   let stalled = 0;
+  // 同一道题（题目指纹不变）的独立停滞计时，和全局 stalled 分开
+  let sameTick = null;
   let feedbackSince = null;
   let nodom = 0;
   let nomatchLogged = false;
@@ -139,7 +141,7 @@ async function solve(page, target, check) {
       }
     } else {
       const dom = await lessonRunner.readDom(page);
-      if (dom) progress.touch();
+      // 单纯 DOM 存在不算进展：只有确认提交反馈/换题/换页才刷新计时（2026-11-20 s2u42l7 教训）
       if (dom && target.data) {
         const result = await lessonRunner.step(page, target.data, check, lexemes);
         if (result.status === 'waiting') {
@@ -152,8 +154,39 @@ async function solve(page, target, check) {
           progress.touch();
           if (result.status === 'answered') answered++;
           if (result.status === 'skipped') skippedCount++;
-          console.log('LESSON_' + result.status.toUpperCase() + (result.type ? ' type=' + result.type : ''));
+          console.log('LESSON_' + result.status.toUpperCase() + (result.type ? ' type=' + result.type : '')
+            + (result.evidence ? ' evidence=' + result.evidence : ''));
           stalled = 0;
+          sameTick = null;
+        } else if (result.status === 'nochange' || result.status === 'unknownRead') {
+          // 同一题重复出现且没有任何真实推进：不 touch、不计数，按题目指纹独立 30 秒兜底。
+          // 日志按「换题 / 每 10 秒」节流，避免每轮刷屏。
+          const now = Date.now();
+          const sig = lessonRunner.challengeSig(dom);
+          const next = lessonRunner.sameTickState(sig, sameTick, now);
+          const switched = !sameTick || sameTick.sig !== next.sig;
+          const loggedAt = switched ? 0 : (sameTick.loggedAt || 0);
+          sameTick = { sig: next.sig, since: next.since, loggedAt };
+          if (switched || now - loggedAt > 10000) {
+            console.log('LESSON_' + result.status.toUpperCase() + ' type=' + (dom && dom.type)
+              + ' footer=' + JSON.stringify(result.footerLabel || '')
+              + ' click=' + JSON.stringify(result.click || null)
+              + (result.readErr ? ' readErr=' + JSON.stringify(result.readErr) : '')
+              + ' waited=' + (now - next.since) + 'ms'
+              + ' box=' + JSON.stringify(String((dom && dom.promptText) || (dom && dom.boxText) || '').slice(0, 80)));
+            sameTick.loggedAt = now;
+          }
+          stalled++;
+          if (next.abort) {
+            throw new Error('LESSON_SAME_TICK 同一题 ' + Math.round((now - next.since) / 1000) + 's 无进展 type='
+              + (dom && dom.type) + ' footer=' + JSON.stringify(result.footerLabel || '')
+              + ' click=' + JSON.stringify(result.click || null)
+              + (result.readErr ? ' readErr=' + JSON.stringify(result.readErr) : '')
+              + ' box=' + JSON.stringify(String((dom && dom.promptText) || (dom && dom.boxText) || '').slice(0, 120)));
+          }
+          if (stalled >= 20) {
+            throw new Error('普通题停滞 ' + result.status + ' ' + (dom && dom.type));
+          }
         } else if (result.status === 'nomatch' && !nomatchLogged) {
           // 第一次认不出题就把现场留下：页面选项/题干 + 题池里同题型候选（题干命中页面的排前面）
           nomatchLogged = true;
@@ -179,6 +212,16 @@ async function solve(page, target, check) {
           skippedCount++;
           console.log('LESSON_SKIP_NOMATCH type=' + dom.type);
           stalled = 0;
+        } else if (result.status === 'clickfail' || result.status === 'fillfail') {
+          // 点击/填框没成功必须可诊断：带上目标控件数量与异常，不能当成作答成功
+          stalled++;
+          console.log('LESSON_' + result.status.toUpperCase() + ' type=' + (dom && dom.type)
+            + ' chType=' + (result.chType || '-') + ' click=' + JSON.stringify(result.click || null)
+            + ' box=' + JSON.stringify(String((dom && dom.boxText) || '').slice(0, 80)));
+          if (stalled >= 20) {
+            throw new Error('普通题停滞 ' + result.status + ' ' + (result.chType || '-') + ' ' + (dom && dom.type)
+              + ' click=' + JSON.stringify(result.click || null));
+          }
         } else if (result.status !== 'waiting' && ++stalled >= 20) {
           throw new Error('普通题停滞 ' + result.status + ' ' + (result.kind || '-') + ' ' + dom.type + ' ' + dom.boxText.slice(0, 120));
         }

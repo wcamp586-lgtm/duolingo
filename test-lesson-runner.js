@@ -36,7 +36,9 @@ async function main() {
       button.textContent = '继续';
       button.onclick = () => document.querySelector('[data-test^="challenge"]').remove();
     });
-    assert.deepEqual(await step(page, {}), { status: 'advanced' });
+    const advanced = await step(page, {});
+    assert.equal(advanced.status, 'answered', '继续点掉后进入下一屏算进展');
+    assert.equal(advanced.evidence, 'left');
     assert.equal(await page.locator('[data-test^="challenge"]').count(), 0);
     console.log('  ✓ waits for settlement feedback without answering the old question again');
 
@@ -47,13 +49,17 @@ async function main() {
         <button onclick="this.dataset.clicked='1'">Kaffee</button>
         <button onclick="this.dataset.clicked='1'">Zucker</button>
       </div>
-      <button data-test="player-next">检查</button>
+      <button data-test="player-next"
+        onclick="document.querySelector('[data-test^=challenge]').insertAdjacentHTML('beforeend','<p>下一题</p>')">检查</button>
     `);
     const select = await step(page, {
       challenges: [{ id: 'sel1', type: 'select', prompt: '哪个是“茶”？', correctIndex: 0,
         choices: [{ phrase: 'Tee' }, { phrase: 'Kaffee' }, { phrase: 'Zucker' }] }],
     });
-    assert.deepEqual(select, { status: 'answered', type: 'select', n: 1, plan: 1, mapped: 1 });
+    assert.equal(select.status, 'answered');
+    assert.equal(select.evidence, 'changed', '提交后换题才算作答进展');
+    assert.equal(select.type, 'select');
+    assert.equal(select.n, 1);
     assert.equal(await page.locator('button[data-clicked="1"]').innerText(), 'Tee');
     console.log('  ✓ select clicks the {phrase} choice');
 
@@ -64,14 +70,18 @@ async function main() {
         <button data-test="Kaffee-challenge-tap-token" onclick="this.dataset.clicked='1'"><span data-test="challenge-tap-token-text">Kaffee</span></button>
         <button data-test="bitte-challenge-tap-token" onclick="this.dataset.clicked='1'"><span data-test="challenge-tap-token-text">bitte</span></button>
       </div>
-      <button data-test="player-next">检查</button>
+      <button data-test="player-next"
+        onclick="document.querySelector('[data-test^=challenge]').insertAdjacentHTML('beforeend','<p>下一题</p>')">检查</button>
     `);
     const match = await step(page, {
       challenges: [{ id: 'm1', type: 'match', pairs: [
         { learningToken: '咖啡', fromToken: 'Kaffee' }, { learningToken: '请', fromToken: 'bitte' },
       ] }],
     });
-    assert.deepEqual(match, { status: 'answered', type: 'match', n: 4, plan: 4, mapped: 4 });
+    assert.equal(match.status, 'answered');
+    assert.equal(match.evidence, 'changed');
+    assert.equal(match.type, 'match');
+    assert.equal(match.n, 4);
     assert.equal(await page.locator('button[data-clicked="1"]').count(), 4);
     console.log('  ✓ match clicks both tokens of every pair');
 
@@ -80,15 +90,55 @@ async function main() {
         <p>用英语写出这句话 这座图书馆非常旧。</p>
         <textarea></textarea>
       </div>
-      <button data-test="player-next">检查</button>
+      <button data-test="player-next"
+        onclick="document.querySelector('[data-test^=challenge]').insertAdjacentHTML('beforeend','<p>下一题</p>')">检查</button>
     `);
     const fill = await step(page, {
       challenges: [{ id: 't1', type: 'translate', prompt: '这座图书馆非常旧。',
         correctSolutions: ['this library is very old'] }],
     });
-    assert.deepEqual(fill, { status: 'answered', type: 'translate', answer: 'this library is very old' });
+    assert.equal(fill.status, 'answered');
+    assert.equal(fill.evidence, 'changed');
+    assert.equal(fill.type, 'translate');
     assert.equal(await page.locator('textarea').inputValue(), 'this library is very old');
     console.log('  ✓ fill types correctSolutions into the input');
+
+    // 回归（2026-11-20 s2u42l7）：同一 name 题、检查按钮无反应 → 必须 nochange，不能算 answered
+    await page.setContent(`
+      <div data-test="challenge challenge-name">
+        <p>用英语写出这个名字 安娜。</p>
+        <input type="text" />
+      </div>
+      <button data-test="player-next">检查</button>
+    `);
+    const stuck = await step(page, {
+      challenges: [{ id: 'n1', type: 'name', prompt: '用英语写出这个名字 安娜。', correctSolutions: ['Anna'] }],
+    });
+    assert.equal(stuck.status, 'nochange');
+    assert.equal(stuck.footerLabel, '检查');
+    assert.ok(stuck.click && stuck.click.clicked === 1, '点过一次检查');
+    console.log('  ✓ same name question with no feedback is nochange (not answered)');
+
+    // 反馈延迟到达：第一步 nochange/等，第二步看到「继续」才算推进
+    await page.setContent(`
+      <div data-test="challenge challenge-name">
+        <p>用英语写出这个名字 安娜。</p>
+        <input type="text" />
+      </div>
+      <button data-test="player-next"
+        onclick="const b=this; setTimeout(()=>{b.textContent='继续'; b.onclick=()=>{document.querySelector('[data-test^=challenge]').remove(); b.remove();};}, 1200)">检查</button>
+    `);
+    const firstStep = await step(page, {
+      challenges: [{ id: 'n2', type: 'name', prompt: '用英语写出这个名字 安娜。', correctSolutions: ['Anna'] }],
+    });
+    assert.equal(firstStep.status, 'nochange', '反馈还没到时不能算作答成功');
+    await page.waitForTimeout(1500);
+    const secondStep = await step(page, {
+      challenges: [{ id: 'n2', type: 'name', prompt: '用英语写出这个名字 安娜。', correctSolutions: ['Anna'] }],
+    });
+    assert.equal(secondStep.status, 'answered', '反馈到了就走正常继续');
+    assert.ok(['left', 'feedback', 'changed'].includes(secondStep.evidence), '继续后要有真实变化证据');
+    console.log('  ✓ delayed feedback resolves on the next tick via 继续');
   } finally {
     await browser.close();
   }

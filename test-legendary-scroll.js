@@ -52,13 +52,17 @@ function mockPage({ appearAfter = 3, units = [] } = {}) {
   });
 
   // 老段（/learn 只渲染当前段）：走平台自己的 /sections → 第 N 阶段「复习」→ /learn 渲染该阶段
-  const mockSectionPage = ({ reviews = 3, unitsByTab = {} } = {}) => {
+  const mockSectionPage = ({ reviews = 3, unitsByTab = {}, headerByTab = {} } = {}) => {
     let clicked = -1;
     const clicks = [];
     const page = {
       async goto() {},
       async waitForTimeout() {},
-      async evaluate() { return clicked >= 0 ? (unitsByTab[clicked] || []) : []; },
+      async evaluate(fn) {
+        // currentPathStage 读页面标题，renderedUnitIndexes 读渲染到的 unit
+        if (String(fn).includes('阶段')) return clicked >= 0 ? (headerByTab[clicked] || null) : null;
+        return clicked >= 0 ? (unitsByTab[clicked] || []) : [];
+      },
       locator(sel, opts) {
         const isReview = !!(opts && opts.hasText === '复习');
         return {
@@ -112,6 +116,23 @@ function mockPage({ appearAfter = 3, units = [] } = {}) {
     assert.equal(shouldTrySectionJump([], 34), true);
     assert.equal(shouldTrySectionJump([69, 70, 72], 34), true);
     assert.equal(shouldTrySectionJump([69, 70, 72], 127), false, '当前段靠下的 unit 仍走滚动');
+  });
+
+  await t('段首只渲染邻近几屏时：页面标题已是对应阶段就算跳对（交给滚动定位）', async () => {
+    const { page } = mockSectionPage({ unitsByTab: { 2: [40, 41] }, headerByTab: { 2: { stage: 3, part: 1 } } });
+    const r = await openOldSectionPath(page, 2, 42);
+    assert.equal(r.ok, true);
+    assert.equal(r.tab, 2);
+    assert.equal(r.viaStage, true);
+    assert.deepEqual(r.rendered, [40, 41], '目标 unit 还没渲染也不算失败');
+  });
+
+  await t('页面标题不是目标阶段、目标 unit 也没渲染 → 继续兜底并在上限内失败', async () => {
+    const { page, clicks } = mockSectionPage({ unitsByTab: { 0: [8, 9], 1: [38, 39], 2: [40, 41] }, headerByTab: { 0: { stage: 1, part: 10 }, 1: { stage: 2, part: 30 }, 2: { stage: 3, part: 1 } } });
+    const r = await openOldSectionPath(page, 4, 99);
+    assert.equal(r.ok, false);
+    assert.equal(r.reason, 'SECTION_JUMP_UNMATCHED');
+    assert.ok(clicks.length <= 4);
   });
 
   console.log('\n' + pass + ' passed, ' + fail + ' failed');

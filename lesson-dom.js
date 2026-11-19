@@ -43,7 +43,7 @@ const COLLECT_SRC = `(() => {
   return els;
 })()`;
 
-async function readDom(page) {
+async function readDomOnce(page) {
   return await page.evaluate((src) => {
     const box = document.querySelector('[data-test*="challenge challenge-"]');
     if (!box) return null;
@@ -53,8 +53,18 @@ async function readDom(page) {
     const hasInput = [...box.querySelectorAll('textarea, input[type="text"], [contenteditable="true"]')]
       // 缺词填空的空位空闲时宽度是 0，只看宽度会漏掉；contenteditable 本身可编辑就算
       .some((e) => e.getBoundingClientRect().width > 0 || e.isContentEditable);
-    return { type, options: els.map((e) => clean(e.textContent)), hasInput, boxText: (box.innerText || '') };
-  }, COLLECT_SRC).catch(() => null);
+    // 题干只保留「问句」本身：去掉输入区（自己填的答案）和按钮（提示/动画）——
+    // 否则自己打进去的字、按钮文字变化会被当成「换了一题」（2026-11-20 s2u42l7）。
+    const clone = box.cloneNode(true);
+    for (const n of clone.querySelectorAll('textarea, input, [contenteditable="true"], button')) n.remove();
+    const promptText = (clone.innerText || '').replace(/\s+/g, ' ').trim();
+    return { type, options: els.map((e) => clean(e.textContent)), hasInput, boxText: (box.innerText || ''), promptText };
+  }, COLLECT_SRC);
+}
+
+// 容错版：读不到题目容器时返回 null；evaluate 抛错也吞掉（hint/旧调用依赖）。
+async function readDom(page) {
+  return await readDomOnce(page).catch(() => null);
 }
 
 async function clickMarks(page, marks) {
@@ -117,4 +127,4 @@ async function fillInput(page, text, { onMismatch } = {}) {
   }
 }
 
-module.exports = { COLLECT_SRC, readDom, clickMarks, fillInput };
+module.exports = { COLLECT_SRC, readDom, readDomOnce, clickMarks, fillInput };

@@ -105,6 +105,15 @@ function shouldTrySectionJump(rendered, unitIndex) {
   return isOldSegment(rendered, unitIndex);
 }
 
+// 当前 /learn 路径属哪个阶段：页面标题「第 N 阶段，第 X 部分」（N 从 1 起）
+async function currentPathStage(page) {
+  return await page.evaluate(() => {
+    const norm = (x) => (x || '').replace(/\s+/g, ' ').trim();
+    const m = /第 (\d+) 阶段，第 (\d+) 部分/.exec(norm(document.body.innerText));
+    return m ? { stage: Number(m[1]), part: Number(m[2]) } : null;
+  }).catch(() => null);
+}
+
 async function openOldSectionPath(page, sectionIndex, unitIndex, { waitMs = 10000, check = null } = {}) {
   await page.goto(ORIGIN + '/sections', { waitUntil: 'domcontentloaded', timeout: 20000 }).catch(() => {});
   await page.waitForTimeout(4000);
@@ -118,6 +127,7 @@ async function openOldSectionPath(page, sectionIndex, unitIndex, { waitMs = 1000
     .filter((i) => i >= 0 && i < count)
     .slice(0, 4);
   let rendered = [];
+  let lastStage = null;
   for (const tab of tries) {
     if (check) await check();
     await page.goto(ORIGIN + '/sections', { waitUntil: 'domcontentloaded', timeout: 20000 }).catch(() => {});
@@ -126,9 +136,13 @@ async function openOldSectionPath(page, sectionIndex, unitIndex, { waitMs = 1000
     await page.locator('button', { hasText: '复习' }).nth(tab).click({ timeout: 6000 }).catch(() => {});
     await page.waitForTimeout(waitMs);
     rendered = await renderedUnitIndexes(page);
-    if (rendered.includes(unitIndex)) return { ok: true, tab, rendered };
+    lastStage = await currentPathStage(page);
+    // 目标 unit 不一定已经在虚拟列表里（段首只渲染邻近几屏），
+    // 所以「页面标题已经是目标阶段」就算跳对，交给后面的滚动定位去找节点。
+    if (rendered.includes(unitIndex)) return { ok: true, tab, rendered, stage: lastStage };
+    if (lastStage && lastStage.stage === sectionIndex + 1) return { ok: true, tab, rendered, stage: lastStage, viaStage: true };
   }
-  return { ok: false, tab: -1, rendered, reason: 'SECTION_JUMP_UNMATCHED' };
+  return { ok: false, tab: -1, rendered, stage: lastStage, reason: 'SECTION_JUMP_UNMATCHED' };
 }
 
 // 传说入口只认 /learn 节点气泡里真实出现的 legendary-node-button
@@ -176,7 +190,14 @@ async function prepareByNode(page, slot, check) {
   await unit.scrollIntoViewIfNeeded({ timeout: 6000 }).catch(() => {});
   await page.waitForTimeout(800);
   const node = unit.locator('[data-test~="skill-path-level-' + slot.levelIndex + '"]').first();
-  if (!(await node.count().catch(() => 0))) throw new Error('LEGENDARY_ENTRY_UNMATCHED id=' + slot.id);
+  // 节点在虚拟列表里也可能晚一拍渲染：再滚一次并等一会，最多 3 次，别一次取样就判 UNMATCHED
+  let nodeCount = await node.count().catch(() => 0);
+  for (let i = 0; i < 2 && !nodeCount; i++) {
+    await unit.scrollIntoViewIfNeeded({ timeout: 6000 }).catch(() => {});
+    await page.waitForTimeout(1200);
+    nodeCount = await node.count().catch(() => 0);
+  }
+  if (!nodeCount) throw new Error('LEGENDARY_ENTRY_UNMATCHED id=' + slot.id);
   // 节点可能落在视口上方/下方：先滚到可见再点，避免点到被裁剪的位置
   await node.scrollIntoViewIfNeeded({ timeout: 6000 }).catch(() => {});
   await page.waitForTimeout(800);
