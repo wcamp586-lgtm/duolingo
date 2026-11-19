@@ -2,7 +2,9 @@
 
 给新会话用。照这里的顺序做，不要在没读完“开跑前检查清单”的情况下直接启动。
 
-代码位置：`/Users/fengzhao/Projects/duolingo`（`~/duo-xp` 是指向它的符号链接）。
+代码位置：`/Users/fengzhao/Projects/duolingo`（旧文档里的 `~/duo-xp` 链接已不存在）。
+
+> **文档状态**：本文件是唯一运行手册。README 是使用入口；HANDOFF.md、AUTOMATION-PLAN.md、STORY-COURSE-HANDOFF.md、HANDOVER.md 是历史记录，不再维护。
 
 ---
 
@@ -40,7 +42,7 @@ Playwright 自带的 Chrome for Testing 156 在这台 macOS 27 上**有头启动
 
 ### 3. 确认没有别的实例占着 `profile/`
 
-`profile/` 是登录态（约 858MB），**不要删**。两个浏览器同时用同一个 user-data-dir 会互相锁死。
+`profile/` 是登录态（约 1.1GB，2026-11-18 实测），**不要删**。两个浏览器同时用同一个 user-data-dir 会互相锁死。
 
 ```bash
 pgrep -fl 'Google Chrome for Testing' | head -5
@@ -103,7 +105,7 @@ cd /Users/fengzhao/Projects/duolingo && node auto-runner.js --minutes 180 2>&1 |
 - `skill` / `story`：`/lesson`，`LESSON` / `LEVEL_REVIEW` 会话，按 `skillId + crownLevelIndex` 匹配；一个 skill 通常要 4 节才 `passed`，成功判定用 **XP 到账**。
 - `practice`：`/lesson`，会话是 `LEXEME_PRACTICE`（Course Practice）或 `UNIT_PRACTICE`（Unit Practice），没有 skillId 可对。
 - `chest`：`/learn` 上点「打开」，不给 XP，节点变 `passed` 后解锁下一节点。
-- `duo_radio`：路径上点它，有「稍后选择」就点；按钮用过就不再出现，这时再点一次节点把气泡关掉。然后找**同一 unit 往后**第一个有 `<a data-test="skill-path-state-active …">开始 +10 经验</a>` 的节点，点它进课。接口会一直把 radio 报 `active`、下一节点报 `locked`，这一课做完（+10~13 XP）radio 才变 `passed`，所以结算要按 radio 自己的 state 变化核实。
+- `duo_radio`：路径上点它；有「稍后选择」时点击，但**点击本身不算成功**。要再找**同一 unit 往后**第一个有 `<a data-test="skill-path-state-active …">开始 +10 经验</a>` 的节点，点「开始」前先数候选：多个「开始」同时可见且无法唯一对应到刚选中的节点时，记 `RADIO_NEXT_AMBIGUOUS` 且不点；唯一才点。点完后先确认仍在 `/lesson` 课程路由，再确认题目/挑战容器出现（`lesson-guard` 判定为 `question`），两者都满足才打唯一一条 `RADIO_ADVANCED id=… next=… evidence=question url=…`；结算日志带 `radio=advanced next=…`。拿不到证据都算待处理：无入口 `RADIO_UNSUPPORTED`、点「稍后选择」失败 `RADIO_SKIP_CLICK_FAILED`、点了完全没变化 `RADIO_SKIP_NO_CHANGE`、弹窗收起但没推进 `RADIO_NO_PROGRESS`、后续节点/开始点击失败 `RADIO_NEXT_CLICK_FAILED`、多个入口无法唯一对应 `RADIO_NEXT_AMBIGUOUS`、离开 `/lesson` 的误导航 `RADIO_WRONG_PAGE`；都本次运行标记待处理，不猜下一节点。
 
 单元测试入口是 `/lesson/unit/<unit+1>/test`（会话类型 `UNIT_TEST`，约 18 题，+50 XP）。
 
@@ -151,6 +153,17 @@ cd /Users/fengzhao/Projects/duolingo && node auto-runner.js --minutes 180 2>&1 |
 | `SKIP_SLOT id=... (n/8) 原因` | 这一关这次失败，被跳过，之后会重试 |
 | `NOMATCH_DETAIL {...}` | 第一次认不出题时的现场（kind / 页面选项 / 题干 / 同题型候选池） |
 | `STOP {...}` | 正常结束，`xpGain` 是本次总增量 |
+| `STOP story-done（最后结束课程需用户点击）` | 故事已答完但结束控件不明确/点不动；本轮停止，专用窗口和页面已保留 |
+| `KEEP_OPEN 专用窗口和当前页面已保留` | 走到必须人工收尾的情况，没有在 finally 关闭浏览器 |
+| `RADIO_ADVANCED id=... next=s3u71l1 evidence=question url=/lesson` | 唯一成功日志：后续节点已打开、开始已点击、挑战容器已出现 |
+| `RADIO_NO_PROGRESS ...` | 弹窗收起或点了开始，但没进入题目界面，本次运行标记待处理 |
+| `RADIO_NEXT_CLICK_FAILED ... step=node\|start` | 找到后续入口但点击失败，本次运行标记待处理 |
+| `RADIO_NEXT_AMBIGUOUS ... candidates=N` | 多个「开始」同时可见且无法唯一对应，不点击，本次运行标记待处理 |
+| `RADIO_WRONG_PAGE ...` | 点「开始」后离开 `/lesson`（回首页/别的页面），本次运行标记待处理 |
+| `RADIO_SKIP_CLICK_FAILED ...` | 点击「稍后选择」抛错，本次运行标记待处理 |
+| `RADIO_SKIP_NO_CHANGE ...` | 点击「稍后选择」后页面完全没变化，本次运行标记待处理 |
+| `RADIO_UNSUPPORTED id=... ...` | 没有「稍后选择」入口，本次运行标记待处理 |
+| `SETTLED ... radio=advanced next=...` | radio 内容跳过后，由产品 state + XP 确认结算 |
 | `BLOCKED 原因` | 被平台信号或致命错误打断 |
 
 ### 结束后的对账方法
@@ -175,7 +188,9 @@ cd /Users/fengzhao/Projects/duolingo && node auto-runner.js --minutes 180 2>&1 |
 | `BLOCKED 关键请求 HTTP 429/403` | 平台限流或限制 | 立即停，别重试、别换 IP |
 | 普通课 `select` 题 nomatch | 选项是 `{phrase}` 对象，旧 `tx()` 只认 text/value/word | 已修（`tx` 支持 phrase） |
 | radio 延后后 API 仍 `locked` | 平台先给网页放行入口、后更新接口 | 按网页入口进课，结算看 radio 的 state 变 `passed` |
-| 点下一节点没反应 | 节点气泡挡住了坐标点击 | 改用 `locator.click()`；无「稍后选择」时先再点一次 radio 关气泡 |
+| radio 后停在非题目页（如 `CONVERSATIONS AVEC ZARI`） | 页面只有 token，没有 `challenge challenge-` 容器 | 已加无题页识别 + 60 秒无进展超时，按单关失败跳过，打印页面状态 |
+| 点下一节点没反应 | 节点气泡挡住了坐标点击 | 改用 `locator.click()`；只有「稍后选择」成功后才继续找下一节点 |
+| `RADIO_UNSUPPORTED ...` / `RADIO_SKIP_CLICK_FAILED` / `RADIO_SKIP_NO_CHANGE` | radio 没有入口、点击失败、或点击后页面没变 | 本次运行标记待处理，不重试；三种情况分开记录 |
 | 普通模式会话类型对不上 | 练习课是 `LEXEME_PRACTICE` / `UNIT_PRACTICE`，没有 skillId | normal 模式非 skill/story 节点放宽到这两种 |
 | 普通课 `match` 题 nomatch | 同一 unit 重复出同词表、选项集完全相同但 pairs 顺序不同 | 已修（`planSig` 按无序 pairs 比较 + practice-lexemes 兜底） |
 | 普通课"新单词"题 nomatch | session 里两道题选项集相同、正确答案不同 | 按题干消歧；仍失败点 `player-skip`（跳过会被平台重练，所以只在确实认不出时用） |
@@ -220,7 +235,7 @@ cd /Users/fengzhao/Projects/duolingo && node auto-runner.js --minutes 180 2>&1 |
 
 ---
 
-## 八、代码改动记录（本轮之前动过的地方）
+## 八、代码改动记录
 
 | 文件 | 改动 | 原因 |
 |---|---|---|
@@ -235,8 +250,14 @@ cd /Users/fengzhao/Projects/duolingo && node auto-runner.js --minutes 180 2>&1 |
 | `auto-runner.js` | 新增 `--normal` / `--from-level`；普通课入口 `/lesson`、`LESSON` 会话按 skillId+levelIndex 匹配、结算看 XP；`nomatch` 时点 `player-skip` | 普通课模式 |
 | `core.js` | `tx()` 支持 `{phrase}`；`planSig()` 配对题按无序 pairs 比较 | 普通课 `select` 题选项是对象；`match` 题同词表重复出题 |
 | `lesson-runner.js` | 选项集相同时按题干消歧；接受 `lexemes` 参数，配对题失配用 practice-lexemes 重建 | 普通课"新单词"题；补齐 hint 模式的两条兜底 |
+| `auto-runner.js` / `lesson-guard.js` | 无题页面识别 + 无进展超时；去掉周期性 `LESSON_IDLE`，同一屏只记一次，超时抛错并带页面状态 | 法语 radio 后停在只有 token 的页面会无限刷日志（2026-11-18 `auto-normal-run3`） |
+| `auto-runner.js` | radio 成功日志推迟到确认推进之后：后续节点打开 + 点「开始」+ 挑战容器出现才记唯一一条 `RADIO_ADVANCED`（带 `next` 和证据）；弹窗收起/无进度、点击失败、误导航、无入口全部按待处理抛错 | 用户验收发现「先记成功、后找下一关」会把未推进误记成跳过（2026-11-18 补正） |
+| `auto-runner.js` | 故事封面不再等 `target.data` 才点（先点「开始读故事」触发 stories API，破死锁）；答完后按已知 `data-test`/「结束课程」找结束控件，点后必须看到页面变化，回 `/learn` 才继续结算；不明确/点不动时保留窗口 | 故事入口连续 6 次等不到数据（2026-11-18 真机）；结束后空转 2 分 42 秒 |
+| `lesson-dom.js` | 抽出 `hint.js` / `lesson-runner.js` 共用的 `readDom` / `clickMarks` / `fillInput` | 两份复制实现容易漂移 |
+| `archive/` | `batch-test.js`、`probe-*`、旧 `prepareLegendary` 移入存档 | 旧调试脚本已无人调用 |
+| `auto-summary.js` | 结束行改读 `STOP`（兼容旧 `END`），并打印 `xpGain` | 日志早已改成 `STOP`，摘要读不到结束行 |
 
-`npm test` 全部通过（core / stories / policy / lesson-runner 四套）。测试不覆盖浏览器启动参数和诊断输出。
+`npm test` 全部通过，当前 140 项（core 50 / stories 7 / policy 14 / lesson-runner 6 / lesson-guard 10 / story-done 5 / progress-touch 4 / story-done-main 1 / story-flow 4 / node-entry 8 / story-sig 2 / story-finish 4 / radio-skip 12 / radio-tap 3 / radio-quiz 10）。测试不覆盖浏览器启动参数、真实页面 DOM 和诊断输出。
 
 ---
 

@@ -1,0 +1,123 @@
+{
+ "at": "2026-11-19T07:36:04.186Z",
+ "tapStatus": "partial",
+ "tapText": "LES VOYAGES DE BÉA Les acteurs improvisent souvent. 1 2",
+ "challengeChoiceCount": 2,
+ "cards": [
+  {
+   "i": 0,
+   "textContent": "1",
+   "innerText": "1",
+   "ariaChecked": "false",
+   "ariaDisabled": "false",
+   "tabindex": "0",
+   "spans": [
+    {
+     "text": "1",
+     "ariaHidden": "",
+     "cls": "_3zbIX _20AkF k-_wd",
+     "dir": "",
+     "lang": ""
+    }
+   ],
+   "svgs": [
+    {
+     "k": 0,
+     "viewBox": "0 0 41 28",
+     "ariaHidden": "",
+     "pathN": 1
+    },
+    {
+     "k": 1,
+     "viewBox": "0 0 132 80",
+     "ariaHidden": "",
+     "pathN": 2
+    },
+    {
+     "k": 2,
+     "viewBox": "0 0 90 72",
+     "ariaHidden": "",
+     "pathN": 1
+    }
+   ],
+   "ascii": ".............................##...\n...........................######.\n.........................########.\n.......................##########.\n......................#########...\n.#####..............#########.....\n.#######..........##########......\n.#########.......#########........\n..#########....#########..........\n....###################...........\n.....################.............\n.......############...............\n.........#########................\n..........######.................."
+  },
+  {
+   "i": 1,
+   "textContent": "2",
+   "innerText": "2",
+   "ariaChecked": "false",
+   "ariaDisabled": "false",
+   "tabindex": "-1",
+   "spans": [
+    {
+     "text": "2",
+     "ariaHidden": "",
+     "cls": "_3zbIX _20AkF k-_wd",
+     "dir": "",
+     "lang": ""
+    }
+   ],
+   "svgs": [
+    {
+     "k": 0,
+     "viewBox": "0 0 36 38",
+     "ariaHidden": "",
+     "pathN": 1
+    },
+    {
+     "k": 1,
+     "viewBox": "0 0 132 80",
+     "ariaHidden": "",
+     "pathN": 2
+    },
+    {
+     "k": 2,
+     "viewBox": "0 0 90 72",
+     "ariaHidden": "",
+     "pathN": 1
+    }
+   ],
+   "ascii": "...###.....................###....\n.#######.................#######..\n.#########.............#########..\n.##########...........##########..\n..###########.......###########...\n....###########....##########.....\n......##########.###########......\n.......###################........\n.........###############..........\n..........#############...........\n..........#############...........\n.........###############..........\n.......###################........\n.....###########.###########......\n....###########....##########.....\n..###########.......###########...\n.##########...........##########..\n.#########.............#########..\n.#######.................#######..\n...###.....................###....\n..................................\n.................................."
+  }
+ ],
+ "iconShapes": [
+  {
+   "rect": {
+    "x": 133,
+    "y": 57,
+    "w": 18,
+    "h": 18
+   },
+   "err": "page.evaluate: TypeError: Failed to fetch\n    at https://d35aaqx5ub95lt.cloudfront.net/js/4779-0fb1dea3.js:2:157040\n    at eval (eval at evaluate (:370:30), <anonymous>:2:25)\n    at UtilityScript.evaluate (<anonymous>:372:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+  },
+  {
+   "rect": {
+    "x": 550,
+    "y": 798,
+    "w": 39,
+    "h": 48
+   },
+   "err": "page.evaluate: TypeError: Failed to fetch\n    at https://d35aaqx5ub95lt.cloudfront.net/js/4779-0fb1dea3.js:2:157040\n    at eval (eval at evaluate (:370:30), <anonymous>:2:25)\n    at UtilityScript.evaluate (<anonymous>:372:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+  },
+  {
+   "rect": {
+    "x": 613,
+    "y": 798,
+    "w": 39,
+    "h": 48
+   },
+   "err": "page.evaluate: TypeError: Failed to fetch\n    at https://d35aaqx5ub95lt.cloudfront.net/js/4779-0fb1dea3.js:2:157040\n    at eval (eval at evaluate (:370:30), <anonymous>:2:25)\n    at UtilityScript.evaluate (<anonymous>:372:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+  },
+  {
+   "rect": {
+    "x": 676,
+    "y": 802,
+    "w": 39,
+    "h": 48
+   },
+   "err": "page.evaluate: TypeError: Failed to fetch\n    at https://d35aaqx5ub95lt.cloudfront.net/js/4779-0fb1dea3.js:2:157040\n    at eval (eval at evaluate (:370:30), <anonymous>:2:25)\n    at UtilityScript.evaluate (<anonymous>:372:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+  }
+ ],
+ "note": "形状用 canvas 渲染后转 ASCII，仅用于判断图标语义；不保存 path 原文、URL、凭据"
+}

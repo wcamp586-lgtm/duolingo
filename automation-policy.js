@@ -9,21 +9,55 @@ function classifyLevel(level) {
   return 'check-legendary-entry';
 }
 
+// 链头策略（2026-11-19 新口径）：每个 unit 是一条链，链头是 l0，传奇只挑链头。
+// 第 1 步实验（s3u72l0 传奇）：l0 变 legendary，l1 story 仍 passed —— story 不靠链头立即继承；
+// practice / unit_review 该实验未覆盖（l3 未 passed、l12 locked），标 TODO，不猜。
+// 已知：duo_radio / chest 无独立入口，整链金后连带（s3u71 实证）。
+// TARGET_TYPES 仍保留给 planNormal 与历史口径；链头本身类型不限，但只有可传奇类型才会进候选。
 function planCourse(course) {
   const candidates=[];
   const counts={};
   for(const section of course.pathSectioned||[]) {
     if(section.type!=='learning')continue;
-    for(const unit of section.units||[])for(const [levelIndex,level] of (unit.levels||[]).entries()) {
+    for(const unit of section.units||[]) {
+      const levels=unit.levels||[];
+      if(!levels.length)continue;
+      // 每个 unit 只取 l0：后续节点靠整链连带，没跟上的进「继承失败待补」清单
+      const level=levels[0];
       const reason=classifyLevel(level);
       counts[reason]=(counts[reason]||0)+1;
       if(reason==='check-legendary-entry')candidates.push({
         courseId:course.id,sectionIndex:section.index,unitIndex:unit.unitIndex,
-        levelIndex,id:level.id,type:level.type,name:level.debugName,state:level.state,
+        levelIndex:0,id:level.id,type:level.type,name:level.debugName,state:level.state,
       });
     }
   }
   return {courseId:course.id,candidates,counts};
+}
+
+// 链口径：链头已金 N 条 / 整链已金 N 条 / 继承失败待补清单（链头已金但单元内还有非 legendary 节点）。
+function chainReport(course) {
+  const isGold=(level)=>level&&(level.state==='legendary'||level.pathLevelMetadata?.nodeState==='legendary');
+  const pending=[];
+  let headsGold=0,chainsGold=0;
+  for(const section of course.pathSectioned||[]) {
+    if(section.type!=='learning')continue;
+    for(const unit of section.units||[]) {
+      const levels=unit.levels||[];
+      if(!levels.length)continue;
+      const head=levels[0];
+      if(!isGold(head))continue;
+      headsGold++;
+      const rest=levels.slice(1);
+      const notGold=rest.filter((l)=>!isGold(l));
+      if(!notGold.length){chainsGold++;continue;}
+      for(const [levelIndex,level] of rest.entries()) {
+        if(isGold(level))continue;
+        pending.push({unitIndex:unit.unitIndex,levelIndex:levelIndex+1,id:level.id,type:level.type,state:level.state});
+      }
+    }
+  }
+  return {headsGold,chainsGold,pending};
 }
 
 // 普通课：前沿节点可能是 chest（宝箱，点「打开」）或 duo_radio（对话课，可能要「稍后选择」），
@@ -63,4 +97,33 @@ function skipKind(type) {
   return /^listen/.test(type||'')?'listening':null;
 }
 
-module.exports={classifyLevel,planCourse,planNormal,stopDecision,skipKind};
+// 失败熔断：节点维度（同一节点 2 次失败就换下一个可达节点）与批次维度
+// （不同节点连续 5 个失败才 BLOCKED）分开计数，另用总尝试次数兜底。
+// 纯函数，便于离线测试；auto-runner 只负责把结果写进日志。
+function createRetryTracker({ perNode = 2, nodeStreak = 5, total = 40 } = {}) {
+  const attempts = new Map();
+  const skipped = new Set();
+  let lastFailed = null;
+  let streak = 0;
+  let totalAttempts = 0;
+  return {
+    fail(id) {
+      totalAttempts++;
+      const n = (attempts.get(id) || 0) + 1;
+      attempts.set(id, n);
+      // 只有换了节点才加批次维度计数：同一节点重复失败不能掐死整轮
+      if (id !== lastFailed) { streak++; lastFailed = id; }
+      let action = 'retry';
+      if (n >= perNode) { skipped.add(id); action = 'skip-node'; }
+      let stop = null;
+      if (streak >= nodeStreak) stop = 'node-streak';
+      else if (totalAttempts >= total) stop = 'total-attempts';
+      return { attempts: n, action, stop, streak, totalAttempts };
+    },
+    ok(id) { attempts.delete(id); lastFailed = null; streak = 0; },
+    attempts,
+    skipped,
+  };
+}
+
+module.exports={classifyLevel,planCourse,planNormal,stopDecision,skipKind,createRetryTracker,chainReport};

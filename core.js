@@ -122,6 +122,23 @@ function matchByPrompt(pools, boxText, domType) {
   return plans.size === 1 ? best[0] : null;
 }
 
+// patternTapComplete（新词形·选词填空）：页面显示的是 patternSentences 里的模板句，
+// 不是元素自身的 prompt（同一组 choices 的两个题靠模板句区分），答案仍是 choices[correctIndex]。
+function matchByPattern(pools, boxText, domType) {
+  if (!boxText) return null;
+  const box = (boxText || '').replace(/\s+/g, ' ');
+  const cands = pools.filter((p) => {
+    if (domType && normType(p.type) !== normType(domType)) return false;
+    const ps = Array.isArray(p.patternSentences) ? p.patternSentences : [];
+    const prompts = ps.map((s) => (s && s.prompt) || '').filter(Boolean);
+    return prompts.length > 0 && prompts.every((q) => box.includes(q));
+  });
+  if (cands.length === 1) return cands[0];
+  if (!cands.length) return null;
+  const sigs = new Set(cands.map((p) => planSig(p)));
+  return sigs.size === 1 ? cands[0] : null;
+}
+
 // 页面选项可能是题目选项的整数倍重复（多邻国渲染两套布局）
 function multipleOf(dset, cset) {
   if (dset.size !== cset.size) return null;
@@ -282,4 +299,4 @@ function challengeFromLexemes(lexemes, domOptions) {
   return { id: 'lexemes|' + pairs.length, type: 'match', pairs, __pool: 'lexemes' };
 }
 
-module.exports = { planSig, challengeFromLexemes,  normType, matchByDisplay,  storiesPlan, storiesQuestions,  resolveChallenge, textAnswers, matchByPrompt,  isSubsetOf,  norm, tx, collectChallenges, challengeOptions, buildPlan, matchChallenge, multiset, sameMultiset, assignMarks, multipleOf };
+module.exports = { planSig, challengeFromLexemes,  normType, matchByDisplay, matchByPattern,  storiesPlan, storiesQuestions,  resolveChallenge, textAnswers, matchByPrompt,  isSubsetOf,  norm, tx, collectChallenges, challengeOptions, buildPlan, matchChallenge, multiset, sameMultiset, assignMarks, multipleOf };

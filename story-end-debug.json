@@ -1,0 +1,640 @@
+[
+  {
+    "at": "2026-11-19T06:52:42.961Z",
+    "event": "story-node-entry",
+    "nodeTest": "skill-path-level-4 skill-path-level-story",
+    "type": "story",
+    "state": "active",
+    "before": {
+      "starts": []
+    },
+    "after": {
+      "starts": [
+        {
+          "test": "skill-path-state-active skill-path-unit-test-71",
+          "text": "开始 +30 经验",
+          "pathname": "/lesson",
+          "params": [],
+          "box": "skill-path-state-active skill-path-unit-test-71"
+        }
+      ],
+      "text": "讨论戏剧表演 Lumières pour la planète… 开始 +30 经验"
+    },
+    "storyName": "Lumières pour la planète…",
+    "hasTitle": true
+  },
+  {
+    "at": "2026-11-19T06:54:04.595Z",
+    "event": "clicked",
+    "clicks": 0,
+    "total": 29,
+    "spec": "[data-test=\"stories-player-continue\"]",
+    "clickError": null,
+    "before": {
+      "route": "/lesson",
+      "candidates": [
+        {
+          "spec": "[data-test=\"stories-player-done\"]",
+          "count": 0,
+          "visible": null,
+          "enabled": null,
+          "box": null
+        },
+        {
+          "spec": "[data-test=\"stories-player-continue\"]",
+          "count": 1,
+          "visible": true,
+          "enabled": true,
+          "box": {
+            "x": 942.484375,
+            "y": 805,
+            "width": 150,
+            "height": 50
+          }
+        },
+        {
+          "spec": "[data-test=\"legendary-session-end-continue\"]",
+          "count": 0,
+          "visible": null,
+          "enabled": null,
+          "box": null
+        },
+        {
+          "spec": "button:has-text(\"结束课程\")",
+          "count": 0,
+          "visible": null,
+          "enabled": null,
+          "box": null
+        }
+      ]
+    },
+    "afterRoute": "/lesson"
+  },
+  {
+    "at": "2026-11-19T06:54:05.614Z",
+    "event": "story-progress",
+    "clicks": 0,
+    "total": 29,
+    "spec": "[data-test=\"stories-player-continue\"]",
+    "after": {
+      "len": 1016,
+      "tail": "rmes ! Ils filment toute la journée. Le soir, Eddy est très fatigué. Complète le texte C'est la prise numéro quarante. Et j'ai chaud avec toutes ces lampes ! 继续",
+      "storyCount": 19,
+      "storyParts": [
+        "Lumières pour la planète…",
+        "C'est samedi. Junior a le téléphone d'Eddy dans les mains. Il est très sérieux.",
+        "Papa, j'ai un grand projet. Je fais un film sur la planète.",
+        "Un film ? Super !",
+        "Oui. Les gens vont voir mon film, et après, tout le monde va éteindre les lumières. Le monde entier !",
+        "Wow, tu es vraiment créatif, Junior !",
+        "Merci. Le cinéma peut changer le monde. Et toi, tu es la star.",
+        "Moi ? Une star ? D'accord ! Je suis prêt !",
+        "Tu dois lire un poème. Je l'ai écrit ce matin.",
+        "Eddy prend le papier. Il ouvre les bras, comme sur une grande scène.",
+        "Bonsoir tout le monde ! C'est de la poésie rock !",
+        "Papa, non. Ce n'est pas un concert. Lis doucement, s'il te plaît.",
+        "Pardon. Euh… « Planète, ma belle planète, tu es fatiguée… »",
+        "Eddy s'arrête. Il a des larmes dans les yeux.",
+        "Oh, Junior… C'est trop beau. Pauvre planète !",
+        "Parfait ! Encore une fois, avec plus de larmes !",
+        "Ils filment toute la journée. Le soir, Eddy est très fatigué.",
+        "Complète le texte",
+        "C'est la prise numéro quarante. Et j'ai chaud avec toutes ces lampes !"
+      ],
+      "buttons": [
+        "stories-player-continue:disabled"
+      ],
+      "top": true
+    },
+    "sigChanged": true
+  },
+  {
+    "at": "2026-11-19T06:54:08.714Z",
+    "event": "control-enabled",
+    "clicks": 1,
+    "total": 29,
+    "waited": 3,
+    "spec": "[data-test=\"stories-player-continue\"]"
+  },
+  {
+    "at": "2026-11-19T06:54:08.758Z",
+    "event": "clicked",
+    "clicks": 1,
+    "total": 29,
+    "spec": "[data-test=\"stories-player-continue\"]",
+    "clickError": null,
+    "before": {
+      "route": "/lesson",
+      "candidates": [
+        {
+          "spec": "[data-test=\"stories-player-done\"]",
+          "count": 0,
+          "visible": null,
+          "enabled": null,
+          "box": null
+        },
+        {
+          "spec": "[data-test=\"stories-player-continue\"]",
+          "count": 1,
+          "visible": true,
+          "enabled": false,
+          "box": {
+            "x": 942.484375,
+            "y": 811,
+            "width": 150,
+            "height": 50
+          }
+        },
+        {
+          "spec": "[data-test=\"legendary-session-end-continue\"]",
+          "count": 0,
+          "visible": null,
+          "enabled": null,
+          "box": null
+        },
+        {
+          "spec": "button:has-text(\"结束课程\")",
+          "count": 0,
+          "visible": null,
+          "enabled": null,
+          "box": null
+        }
+      ]
+    },
+    "afterRoute": "/lesson"
+  },
+  {
+    "at": "2026-11-19T06:54:09.767Z",
+    "event": "story-progress",
+    "clicks": 1,
+    "total": 29,
+    "spec": "[data-test=\"stories-player-continue\"]",
+    "after": {
+      "len": 1043,
+      "tail": " journée. Le soir, Eddy est très fatigué. C'est la prise numéro quarante. Et j'ai chaud avec toutes ces lampes ! C'est fini, Papa ! Demain, le monde change ! 继续",
+      "storyCount": 19,
+      "storyParts": [
+        "Lumières pour la planète…",
+        "C'est samedi. Junior a le téléphone d'Eddy dans les mains. Il est très sérieux.",
+        "Papa, j'ai un grand projet. Je fais un film sur la planète.",
+        "Un film ? Super !",
+        "Oui. Les gens vont voir mon film, et après, tout le monde va éteindre les lumières. Le monde entier !",
+        "Wow, tu es vraiment créatif, Junior !",
+        "Merci. Le cinéma peut changer le monde. Et toi, tu es la star.",
+        "Moi ? Une star ? D'accord ! Je suis prêt !",
+        "Tu dois lire un poème. Je l'ai écrit ce matin.",
+        "Eddy prend le papier. Il ouvre les bras, comme sur une grande scène.",
+        "Bonsoir tout le monde ! C'est de la poésie rock !",
+        "Papa, non. Ce n'est pas un concert. Lis doucement, s'il te plaît.",
+        "Pardon. Euh… « Planète, ma belle planète, tu es fatiguée… »",
+        "Eddy s'arrête. Il a des larmes dans les yeux.",
+        "Oh, Junior… C'est trop beau. Pauvre planète !",
+        "Parfait ! Encore une fois, avec plus de larmes !",
+        "Ils filment toute la journée. Le soir, Eddy est très fatigué.",
+        "C'est la prise numéro quarante. Et j'ai chaud avec toutes ces lampes !",
+        "C'est fini, Papa ! Demain, le monde change !"
+      ],
+      "buttons": [
+        "stories-player-continue:disabled"
+      ],
+      "top": true
+    },
+    "sigChanged": true
+  },
+  {
+    "at": "2026-11-19T06:54:12.849Z",
+    "event": "control-enabled",
+    "clicks": 2,
+    "total": 29,
+    "waited": 3,
+    "spec": "[data-test=\"stories-player-continue\"]"
+  },
+  {
+    "at": "2026-11-19T06:54:12.907Z",
+    "event": "clicked",
+    "clicks": 2,
+    "total": 29,
+    "spec": "[data-test=\"stories-player-continue\"]",
+    "clickError": null,
+    "before": {
+      "route": "/lesson",
+      "candidates": [
+        {
+          "spec": "[data-test=\"stories-player-done\"]",
+          "count": 0,
+          "visible": null,
+          "enabled": null,
+          "box": null
+        },
+        {
+          "spec": "[data-test=\"stories-player-continue\"]",
+          "count": 1,
+          "visible": true,
+          "enabled": false,
+          "box": {
+            "x": 942.484375,
+            "y": 811,
+            "width": 150,
+            "height": 50
+          }
+        },
+        {
+          "spec": "[data-test=\"legendary-session-end-continue\"]",
+          "count": 0,
+          "visible": null,
+          "enabled": null,
+          "box": null
+        },
+        {
+          "spec": "button:has-text(\"结束课程\")",
+          "count": 0,
+          "visible": null,
+          "enabled": null,
+          "box": null
+        }
+      ]
+    },
+    "afterRoute": "/lesson"
+  },
+  {
+    "at": "2026-11-19T06:54:13.923Z",
+    "event": "story-progress",
+    "clicks": 2,
+    "total": 29,
+    "spec": "[data-test=\"stories-player-continue\"]",
+    "after": {
+      "len": 1100,
+      "tail": "numéro quarante. Et j'ai chaud avec toutes ces lampes ! C'est fini, Papa ! Demain, le monde change ! Eddy regarde la maison. Toutes les lampes sont allumées. 继续",
+      "storyCount": 20,
+      "storyParts": [
+        "Lumières pour la planète…",
+        "C'est samedi. Junior a le téléphone d'Eddy dans les mains. Il est très sérieux.",
+        "Papa, j'ai un grand projet. Je fais un film sur la planète.",
+        "Un film ? Super !",
+        "Oui. Les gens vont voir mon film, et après, tout le monde va éteindre les lumières. Le monde entier !",
+        "Wow, tu es vraiment créatif, Junior !",
+        "Merci. Le cinéma peut changer le monde. Et toi, tu es la star.",
+        "Moi ? Une star ? D'accord ! Je suis prêt !",
+        "Tu dois lire un poème. Je l'ai écrit ce matin.",
+        "Eddy prend le papier. Il ouvre les bras, comme sur une grande scène.",
+        "Bonsoir tout le monde ! C'est de la poésie rock !",
+        "Papa, non. Ce n'est pas un concert. Lis doucement, s'il te plaît.",
+        "Pardon. Euh… « Planète, ma belle planète, tu es fatiguée… »",
+        "Eddy s'arrête. Il a des larmes dans les yeux.",
+        "Oh, Junior… C'est trop beau. Pauvre planète !",
+        "Parfait ! Encore une fois, avec plus de larmes !",
+        "Ils filment toute la journée. Le soir, Eddy est très fatigué.",
+        "C'est la prise numéro quarante. Et j'ai chaud avec toutes ces lampes !",
+        "C'est fini, Papa ! Demain, le monde change !",
+        "Eddy regarde la maison. Toutes les lampes sont allumées."
+      ],
+      "buttons": [
+        "stories-player-continue:disabled"
+      ],
+      "top": true
+    },
+    "sigChanged": true
+  },
+  {
+    "at": "2026-11-19T06:54:16.020Z",
+    "event": "control-enabled",
+    "clicks": 3,
+    "total": 29,
+    "waited": 2,
+    "spec": "[data-test=\"stories-player-continue\"]"
+  },
+  {
+    "at": "2026-11-19T06:54:16.080Z",
+    "event": "clicked",
+    "clicks": 3,
+    "total": 29,
+    "spec": "[data-test=\"stories-player-continue\"]",
+    "clickError": null,
+    "before": {
+      "route": "/lesson",
+      "candidates": [
+        {
+          "spec": "[data-test=\"stories-player-done\"]",
+          "count": 0,
+          "visible": null,
+          "enabled": null,
+          "box": null
+        },
+        {
+          "spec": "[data-test=\"stories-player-continue\"]",
+          "count": 1,
+          "visible": true,
+          "enabled": false,
+          "box": {
+            "x": 942.484375,
+            "y": 811,
+            "width": 150,
+            "height": 50
+          }
+        },
+        {
+          "spec": "[data-test=\"legendary-session-end-continue\"]",
+          "count": 0,
+          "visible": null,
+          "enabled": null,
+          "box": null
+        },
+        {
+          "spec": "button:has-text(\"结束课程\")",
+          "count": 0,
+          "visible": null,
+          "enabled": null,
+          "box": null
+        }
+      ]
+    },
+    "afterRoute": "/lesson"
+  },
+  {
+    "at": "2026-11-19T06:54:17.104Z",
+    "event": "story-progress",
+    "clicks": 3,
+    "total": 29,
+    "spec": "[data-test=\"stories-player-continue\"]",
+    "after": {
+      "len": 1192,
+      "tail": "change ! Eddy regarde la maison. Toutes les lampes sont allumées. Euh, Junior… Toutes les lumières sont allumées depuis ce matin. Pour un film sur l'énergie. 继续",
+      "storyCount": 21,
+      "storyParts": [
+        "Lumières pour la planète…",
+        "C'est samedi. Junior a le téléphone d'Eddy dans les mains. Il est très sérieux.",
+        "Papa, j'ai un grand projet. Je fais un film sur la planète.",
+        "Un film ? Super !",
+        "Oui. Les gens vont voir mon film, et après, tout le monde va éteindre les lumières. Le monde entier !",
+        "Wow, tu es vraiment créatif, Junior !",
+        "Merci. Le cinéma peut changer le monde. Et toi, tu es la star.",
+        "Moi ? Une star ? D'accord ! Je suis prêt !",
+        "Tu dois lire un poème. Je l'ai écrit ce matin.",
+        "Eddy prend le papier. Il ouvre les bras, comme sur une grande scène.",
+        "Bonsoir tout le monde ! C'est de la poésie rock !",
+        "Papa, non. Ce n'est pas un concert. Lis doucement, s'il te plaît.",
+        "Pardon. Euh… « Planète, ma belle planète, tu es fatiguée… »",
+        "Eddy s'arrête. Il a des larmes dans les yeux.",
+        "Oh, Junior… C'est trop beau. Pauvre planète !",
+        "Parfait ! Encore une fois, avec plus de larmes !",
+        "Ils filment toute la journée. Le soir, Eddy est très fatigué.",
+        "C'est la prise numéro quarante. Et j'ai chaud avec toutes ces lampes !",
+        "C'est fini, Papa ! Demain, le monde change !",
+        "Eddy regarde la maison. Toutes les lampes sont allumées.",
+        "Euh, Junior… Toutes les lumières sont allumées depuis ce matin. Pour un film sur l'énergie."
+      ],
+      "buttons": [
+        "stories-player-continue:disabled"
+      ],
+      "top": true
+    },
+    "sigChanged": true
+  },
+  {
+    "at": "2026-11-19T06:54:22.258Z",
+    "event": "control-enabled",
+    "clicks": 4,
+    "total": 29,
+    "waited": 5,
+    "spec": "[data-test=\"stories-player-continue\"]"
+  },
+  {
+    "at": "2026-11-19T06:54:22.309Z",
+    "event": "clicked",
+    "clicks": 4,
+    "total": 29,
+    "spec": "[data-test=\"stories-player-continue\"]",
+    "clickError": null,
+    "before": {
+      "route": "/lesson",
+      "candidates": [
+        {
+          "spec": "[data-test=\"stories-player-done\"]",
+          "count": 0,
+          "visible": null,
+          "enabled": null,
+          "box": null
+        },
+        {
+          "spec": "[data-test=\"stories-player-continue\"]",
+          "count": 1,
+          "visible": true,
+          "enabled": false,
+          "box": {
+            "x": 942.484375,
+            "y": 811,
+            "width": 150,
+            "height": 50
+          }
+        },
+        {
+          "spec": "[data-test=\"legendary-session-end-continue\"]",
+          "count": 0,
+          "visible": null,
+          "enabled": null,
+          "box": null
+        },
+        {
+          "spec": "button:has-text(\"结束课程\")",
+          "count": 0,
+          "visible": null,
+          "enabled": null,
+          "box": null
+        }
+      ]
+    },
+    "afterRoute": "/lesson"
+  },
+  {
+    "at": "2026-11-19T06:54:23.331Z",
+    "event": "story-progress",
+    "clicks": 4,
+    "total": 29,
+    "spec": "[data-test=\"stories-player-continue\"]",
+    "after": {
+      "len": 1271,
+      "tail": "Toutes les lumières sont allumées depuis ce matin. Pour un film sur l'énergie. Oh… Pas de problème. Demain, on fait le film numéro deux: « Pardon, planète. » 继续",
+      "storyCount": 22,
+      "storyParts": [
+        "Lumières pour la planète…",
+        "C'est samedi. Junior a le téléphone d'Eddy dans les mains. Il est très sérieux.",
+        "Papa, j'ai un grand projet. Je fais un film sur la planète.",
+        "Un film ? Super !",
+        "Oui. Les gens vont voir mon film, et après, tout le monde va éteindre les lumières. Le monde entier !",
+        "Wow, tu es vraiment créatif, Junior !",
+        "Merci. Le cinéma peut changer le monde. Et toi, tu es la star.",
+        "Moi ? Une star ? D'accord ! Je suis prêt !",
+        "Tu dois lire un poème. Je l'ai écrit ce matin.",
+        "Eddy prend le papier. Il ouvre les bras, comme sur une grande scène.",
+        "Bonsoir tout le monde ! C'est de la poésie rock !",
+        "Papa, non. Ce n'est pas un concert. Lis doucement, s'il te plaît.",
+        "Pardon. Euh… « Planète, ma belle planète, tu es fatiguée… »",
+        "Eddy s'arrête. Il a des larmes dans les yeux.",
+        "Oh, Junior… C'est trop beau. Pauvre planète !",
+        "Parfait ! Encore une fois, avec plus de larmes !",
+        "Ils filment toute la journée. Le soir, Eddy est très fatigué.",
+        "C'est la prise numéro quarante. Et j'ai chaud avec toutes ces lampes !",
+        "C'est fini, Papa ! Demain, le monde change !",
+        "Eddy regarde la maison. Toutes les lampes sont allumées.",
+        "Euh, Junior… Toutes les lumières sont allumées depuis ce matin. Pour un film sur l'énergie.",
+        "Oh… Pas de problème. Demain, on fait le film numéro deux: « Pardon, planète. »"
+      ],
+      "buttons": [
+        "stories-player-continue:disabled"
+      ],
+      "top": true
+    },
+    "sigChanged": true
+  },
+  {
+    "at": "2026-11-19T06:54:29.497Z",
+    "event": "control-enabled",
+    "clicks": 5,
+    "total": 29,
+    "waited": 6,
+    "spec": "[data-test=\"stories-player-continue\"]"
+  },
+  {
+    "at": "2026-11-19T06:54:29.549Z",
+    "event": "clicked",
+    "clicks": 5,
+    "total": 29,
+    "spec": "[data-test=\"stories-player-continue\"]",
+    "clickError": null,
+    "before": {
+      "route": "/lesson",
+      "candidates": [
+        {
+          "spec": "[data-test=\"stories-player-done\"]",
+          "count": 0,
+          "visible": null,
+          "enabled": null,
+          "box": null
+        },
+        {
+          "spec": "[data-test=\"stories-player-continue\"]",
+          "count": 1,
+          "visible": true,
+          "enabled": false,
+          "box": {
+            "x": 942.484375,
+            "y": 811,
+            "width": 150,
+            "height": 50
+          }
+        },
+        {
+          "spec": "[data-test=\"legendary-session-end-continue\"]",
+          "count": 0,
+          "visible": null,
+          "enabled": null,
+          "box": null
+        },
+        {
+          "spec": "button:has-text(\"结束课程\")",
+          "count": 0,
+          "visible": null,
+          "enabled": null,
+          "box": null
+        }
+      ]
+    },
+    "afterRoute": "/lesson"
+  },
+  {
+    "at": "2026-11-19T06:54:30.570Z",
+    "event": "story-progress",
+    "clicks": 5,
+    "total": 29,
+    "spec": "[data-test=\"stories-player-continue\"]",
+    "after": {
+      "len": 1268,
+      "tail": "r… Toutes les lumières sont allumées depuis ce matin. Pour un film sur l'énergie. Oh… Pas de problème. Demain, on fait le film numéro deux: « Pardon, planète. »",
+      "storyCount": 22,
+      "storyParts": [
+        "Lumières pour la planète…",
+        "C'est samedi. Junior a le téléphone d'Eddy dans les mains. Il est très sérieux.",
+        "Papa, j'ai un grand projet. Je fais un film sur la planète.",
+        "Un film ? Super !",
+        "Oui. Les gens vont voir mon film, et après, tout le monde va éteindre les lumières. Le monde entier !",
+        "Wow, tu es vraiment créatif, Junior !",
+        "Merci. Le cinéma peut changer le monde. Et toi, tu es la star.",
+        "Moi ? Une star ? D'accord ! Je suis prêt !",
+        "Tu dois lire un poème. Je l'ai écrit ce matin.",
+        "Eddy prend le papier. Il ouvre les bras, comme sur une grande scène.",
+        "Bonsoir tout le monde ! C'est de la poésie rock !",
+        "Papa, non. Ce n'est pas un concert. Lis doucement, s'il te plaît.",
+        "Pardon. Euh… « Planète, ma belle planète, tu es fatiguée… »",
+        "Eddy s'arrête. Il a des larmes dans les yeux.",
+        "Oh, Junior… C'est trop beau. Pauvre planète !",
+        "Parfait ! Encore une fois, avec plus de larmes !",
+        "Ils filment toute la journée. Le soir, Eddy est très fatigué.",
+        "C'est la prise numéro quarante. Et j'ai chaud avec toutes ces lampes !",
+        "C'est fini, Papa ! Demain, le monde change !",
+        "Eddy regarde la maison. Toutes les lampes sont allumées.",
+        "Euh, Junior… Toutes les lumières sont allumées depuis ce matin. Pour un film sur l'énergie.",
+        "Oh… Pas de problème. Demain, on fait le film numéro deux: « Pardon, planète. »"
+      ],
+      "buttons": [
+        "stories-player-continue:disabled"
+      ],
+      "top": true
+    },
+    "sigChanged": true
+  },
+  {
+    "at": "2026-11-19T06:54:36.707Z",
+    "event": "control-enabled",
+    "clicks": 6,
+    "total": 29,
+    "waited": 6,
+    "spec": "[data-test=\"stories-player-done\"]"
+  },
+  {
+    "at": "2026-11-19T06:54:36.822Z",
+    "event": "clicked",
+    "clicks": 6,
+    "total": 29,
+    "spec": "[data-test=\"stories-player-done\"]",
+    "clickError": null,
+    "before": {
+      "route": "/lesson",
+      "candidates": [
+        {
+          "spec": "[data-test=\"stories-player-done\"]",
+          "count": 0,
+          "visible": null,
+          "enabled": null,
+          "box": null
+        },
+        {
+          "spec": "[data-test=\"stories-player-continue\"]",
+          "count": 1,
+          "visible": true,
+          "enabled": false,
+          "box": {
+            "x": 942.484375,
+            "y": 807,
+            "width": 150,
+            "height": 50
+          }
+        },
+        {
+          "spec": "[data-test=\"legendary-session-end-continue\"]",
+          "count": 0,
+          "visible": null,
+          "enabled": null,
+          "box": null
+        },
+        {
+          "spec": "button:has-text(\"结束课程\")",
+          "count": 0,
+          "visible": null,
+          "enabled": null,
+          "box": null
+        }
+      ]
+    },
+    "afterRoute": "/learn"
+  }
+]

@@ -1,0 +1,406 @@
+{
+ "at": "2026-11-19T07:10:13.161Z",
+ "entryText": "听力练习 +30 经验",
+ "stage": {
+  "waitedMs": 22163,
+  "found": [
+   "(origin)/lesson/unit/72/level/6"
+  ]
+ },
+ "frames": [
+  {
+   "urlPath": "/lesson/unit/72/level/6",
+   "host": "www.duolingo.com",
+   "name": ""
+  },
+  {
+   "urlPath": "/recaptcha/enterprise/anchor",
+   "host": "www.recaptcha.net",
+   "name": "a-g9v06cs51o8q"
+  },
+  {
+   "urlPath": "blank",
+   "host": "",
+   "name": ""
+  },
+  {
+   "urlPath": "blank",
+   "host": "",
+   "name": ""
+  }
+ ],
+ "detail": [
+  {
+   "urlPath": "/lesson/unit/72/level/6",
+   "host": "www.duolingo.com",
+   "dom": {
+    "title": "多邻国 - 学得轻松，学有所成的法语 课程！",
+    "textLen": 51,
+    "text": "LES VOYAGES DE BÉA 选择配对 1 2 3 4 5 角色 6 演出 7 演员 8 戏剧",
+    "buttons": [
+     {
+      "tag": "button",
+      "test": "quit-button",
+      "aria": "",
+      "role": "",
+      "text": "",
+      "disabled": false,
+      "rect": {
+       "x": 133,
+       "y": 57,
+       "w": 18,
+       "h": 18
+      }
+     },
+     {
+      "tag": "button",
+      "test": "",
+      "aria": "",
+      "role": "",
+      "text": "",
+      "disabled": false,
+      "rect": {
+       "x": 550,
+       "y": 798,
+       "w": 39,
+       "h": 48
+      }
+     },
+     {
+      "tag": "button",
+      "test": "",
+      "aria": "",
+      "role": "",
+      "text": "",
+      "disabled": false,
+      "rect": {
+       "x": 613,
+       "y": 798,
+       "w": 39,
+       "h": 48
+      }
+     },
+     {
+      "tag": "button",
+      "test": "",
+      "aria": "",
+      "role": "",
+      "text": "",
+      "disabled": true,
+      "rect": {
+       "x": 676,
+       "y": 802,
+       "w": 39,
+       "h": 48
+      }
+     },
+     {
+      "tag": "button",
+      "test": "演出-challenge-tap-token",
+      "aria": "",
+      "role": "",
+      "text": "1",
+      "disabled": false,
+      "rect": {
+       "x": 363,
+       "y": 614,
+       "w": 255,
+       "h": 58
+      }
+     },
+     {
+      "tag": "button",
+      "test": "演员-challenge-tap-token",
+      "aria": "",
+      "role": "",
+      "text": "2",
+      "disabled": false,
+      "rect": {
+       "x": 363,
+       "y": 682,
+       "w": 255,
+       "h": 58
+      }
+     },
+     {
+      "tag": "button",
+      "test": "角色-challenge-tap-token",
+      "aria": "",
+      "role": "",
+      "text": "3",
+      "disabled": false,
+      "rect": {
+       "x": 363,
+       "y": 750,
+       "w": 255,
+       "h": 58
+      }
+     },
+     {
+      "tag": "button",
+      "test": "戏剧-challenge-tap-token",
+      "aria": "",
+      "role": "",
+      "text": "4",
+      "disabled": false,
+      "rect": {
+       "x": 363,
+       "y": 818,
+       "w": 255,
+       "h": 58
+      }
+     },
+     {
+      "tag": "button",
+      "test": "角色-challenge-tap-token",
+      "aria": "",
+      "role": "",
+      "text": "5 角色",
+      "disabled": false,
+      "rect": {
+       "x": 648,
+       "y": 614,
+       "w": 255,
+       "h": 58
+      }
+     },
+     {
+      "tag": "button",
+      "test": "演出-challenge-tap-token",
+      "aria": "",
+      "role": "",
+      "text": "6 演出",
+      "disabled": false,
+      "rect": {
+       "x": 648,
+       "y": 682,
+       "w": 255,
+       "h": 58
+      }
+     },
+     {
+      "tag": "button",
+      "test": "演员-challenge-tap-token",
+      "aria": "",
+      "role": "",
+      "text": "7 演员",
+      "disabled": false,
+      "rect": {
+       "x": 648,
+       "y": 750,
+       "w": 255,
+       "h": 58
+      }
+     },
+     {
+      "tag": "button",
+      "test": "戏剧-challenge-tap-token",
+      "aria": "",
+      "role": "",
+      "text": "8 戏剧",
+      "disabled": false,
+      "rect": {
+       "x": 648,
+       "y": 818,
+       "w": 255,
+       "h": 58
+      }
+     }
+    ],
+    "containers": [
+     "quit-button",
+     "演出-challenge-tap-token",
+     "演员-challenge-tap-token",
+     "角色-challenge-tap-token",
+     "戏剧-challenge-tap-token",
+     "challenge-tap-token-text",
+     "drawer-backdrop"
+    ],
+    "media": [],
+    "textish": [
+     {
+      "tag": "div",
+      "test": "",
+      "len": 51
+     },
+     {
+      "tag": "div",
+      "test": "",
+      "len": 51
+     },
+     {
+      "tag": "div",
+      "test": "",
+      "len": 51
+     },
+     {
+      "tag": "div",
+      "test": "",
+      "len": 51
+     },
+     {
+      "tag": "div",
+      "test": "",
+      "len": 51
+     },
+     {
+      "tag": "div",
+      "test": "",
+      "len": 51
+     },
+     {
+      "tag": "div",
+      "test": "",
+      "len": 51
+     },
+     {
+      "tag": "div",
+      "test": "",
+      "len": 18
+     },
+     {
+      "tag": "div",
+      "test": "",
+      "len": 18
+     },
+     {
+      "tag": "div",
+      "test": "",
+      "len": 18
+     },
+     {
+      "tag": "div",
+      "test": "",
+      "len": 18
+     },
+     {
+      "tag": "div",
+      "test": "",
+      "len": 32
+     },
+     {
+      "tag": "div",
+      "test": "",
+      "len": 32
+     },
+     {
+      "tag": "div",
+      "test": "",
+      "len": 27
+     },
+     {
+      "tag": "div",
+      "test": "",
+      "len": 27
+     }
+    ],
+    "lang": "zh-CN"
+   }
+  },
+  {
+   "urlPath": "/recaptcha/enterprise/anchor",
+   "host": "www.recaptcha.net",
+   "dom": {
+    "title": "reCAPTCHA",
+    "textLen": 22,
+    "text": "protected by reCAPTCHA",
+    "buttons": [],
+    "containers": [],
+    "media": [],
+    "textish": [
+     {
+      "tag": "div",
+      "test": "",
+      "len": 22
+     },
+     {
+      "tag": "div",
+      "test": "",
+      "len": 22
+     },
+     {
+      "tag": "span",
+      "test": "",
+      "len": 22
+     }
+    ],
+    "lang": "en"
+   }
+  },
+  {
+   "urlPath": "blank",
+   "host": "",
+   "dom": {
+    "title": "",
+    "textLen": 0,
+    "text": "",
+    "buttons": [],
+    "containers": [],
+    "media": [],
+    "textish": [],
+    "lang": ""
+   }
+  },
+  {
+   "urlPath": "blank",
+   "host": "",
+   "dom": {
+    "title": "",
+    "textLen": 0,
+    "text": "",
+    "buttons": [],
+    "containers": [],
+    "media": [],
+    "textish": [],
+    "lang": ""
+   }
+  }
+ ],
+ "sessions": [
+  {
+   "status": 200,
+   "ms": 682,
+   "keys": [
+    "avatarNum",
+    "avatars",
+    "cefrLevel",
+    "challengePools",
+    "displayedTranslatedTitle",
+    "id",
+    "character",
+    "introLengthMillis",
+    "titleCardShowMillis",
+    "transcript",
+    "outroPoseShowMillis",
+    "elements",
+    "ttsAnnotations",
+    "wrapperName",
+    "schema_name",
+    "script_uuid",
+    "metadata",
+    "trackingProperties"
+   ],
+   "shape": {
+    "avatarNum": "number",
+    "avatars": "array[1]",
+    "cefrLevel": "string",
+    "challengePools": "object",
+    "displayedTranslatedTitle": "string",
+    "id": "string",
+    "character": "object",
+    "introLengthMillis": "number",
+    "titleCardShowMillis": "number",
+    "transcript": "object",
+    "outroPoseShowMillis": "number",
+    "elements": "array[13]",
+    "ttsAnnotations": "object",
+    "wrapperName": "string",
+    "schema_name": "string",
+    "script_uuid": "string",
+    "metadata": "object",
+    "trackingProperties": "object"
+   }
+  }
+ ],
+ "note": "只读；未提交配对、未点跳级"
+}

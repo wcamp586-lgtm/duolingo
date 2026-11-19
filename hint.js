@@ -3,68 +3,13 @@ const path = require('path');
 const fs = require('fs');
 const core = require('./core.js');
 const storyRunner = require('./story-runner.js');
+const { COLLECT_SRC, readDom, clickMarks, fillInput } = require('./lesson-dom.js');
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const AUTO = process.argv.includes('--auto');    // 全自动：填答案 + 点检查/继续
 const HINT_ONLY = process.argv.includes('--hint'); // 只标绿框，不点
 const FILL = !HINT_ONLY;                         // 默认：自动填答案，流程由用户控制
 const NOPUNCT = process.argv.includes('--nopunct'); // 填答案时去掉末尾标点（更像真人手打）
-
-// 唯一的选项收集实现：读取 / 标注 / 点击三处 eval 同一份源码，保证索引一致
-const COLLECT_SRC = `(() => {
-  const box = document.querySelector('[data-test*="challenge challenge-"]');
-  if (!box) return null;
-  const vis = (e) => {
-    const r = e.getBoundingClientRect();
-    if (r.width <= 0 || r.height <= 0) return false;
-    if (r.bottom <= 0 || r.top >= innerHeight) return false;
-    const s = getComputedStyle(e);
-    if (s.display === 'none' || s.visibility === 'hidden') return false;
-    if (parseFloat(s.opacity || '1') <= 0.1) return false;
-    return true;
-  };
-  // 多邻国渲染两套重叠布局，按矩形去重（读取与标注必须一致）
-  const dedupe = (ls) => {
-    const seen = new Set();
-    const out = [];
-    for (const e of ls) {
-      if (!(e.textContent || '').trim()) continue;
-      const r = e.getBoundingClientRect();
-      const k = Math.round(r.x) + ',' + Math.round(r.y) + ',' + Math.round(r.width) + ',' + Math.round(r.height);
-      if (seen.has(k)) continue;
-      seen.add(k);
-      out.push(e);
-    }
-    return out;
-  };
-  // 合并所有来源：配对题左右列可能是不同容器，先匹配到一个就停会漏掉另一列
-  // 只有流程按钮才按文本排除；词块本身可能就是「开始」「继续」，不能一起删掉
-  const skip = /^(检查|继续|跳过|退出|开始|现在不做口语题|使用键盘|加大难度)$/;
-  const isToken = (e) => /challenge-(tap-token|choice)/.test(e.getAttribute('data-test') || '');
-  const all = [
-    ...box.querySelectorAll('[data-test$="challenge-tap-token"]'),
-    ...box.querySelectorAll('[data-test*="challenge-choice"]'),
-    ...box.querySelectorAll('button'),
-  ];
-  const els = dedupe(all.filter(vis).filter((e) => isToken(e) || !skip.test((e.textContent || '').trim())));
-  return els;
-})()`;
-
-const cleanText = (s) => (s || '').trim().replace(/^\d+\s*/, ''); // 剥行首序号 "1Coffee"
-
-async function readDom(page) {
-  return await page.evaluate((src) => {
-    const box = document.querySelector('[data-test*="challenge challenge-"]');
-    if (!box) return null;
-    const els = eval(src);
-    const type = (box.getAttribute('data-test') || '').replace('challenge challenge-', '');
-    const clean = (s) => (s || '').trim().replace(/^\d+\s*/, '');
-    const hasInput = [...box.querySelectorAll('textarea, input[type="text"], [contenteditable="true"]')]
-      // 缺词填空的空位空闲时宽度是 0，只看宽度会漏掉；contenteditable 本身可编辑就算
-      .some((e) => e.getBoundingClientRect().width > 0 || e.isContentEditable);
-    return { type, options: els.map((e) => clean(e.textContent)), hasInput, boxText: (box.innerText || '') };
-  }, COLLECT_SRC).catch(() => null);
-}
 
 // 失败留证：同一现场只记一次，写 fails.json + fail-N.png，事后直接看这两样就能定位
 const fails = [];
@@ -121,50 +66,6 @@ async function challengePromptText(page) {
     cp.querySelectorAll('textarea, input, [contenteditable="true"]').forEach((e) => e.remove());
     return (cp.innerText || '').trim();
   }).catch(() => '');
-}
-
-async function fillInput(page, text) {
-  const box = page.locator('[data-test*="challenge challenge-"]');
-  const el = box.locator('textarea, input[type="text"], [contenteditable="true"]').first();
-  if (!(await el.count().catch(() => 0))) return false;
-  // ElementHandle 绑定这个具体元素：题目被换掉后操作会报错，不会把旧答案写进新题的框
-  const handle = await el.elementHandle().catch(() => null);
-  if (!handle) return false;
-
-  const norm = (s) => (s || '').replace(/\s+/g, ' ').trim().toLowerCase();
-  const read = async () => norm(await handle.evaluate((e) => (e.value != null ? e.value : (e.textContent || ''))).catch(() => ''));
-  const want = norm(text);
-  const clear = async () => {
-    await handle.click({ timeout: 1500, force: true }).catch(() => handle.focus().catch(() => {}));
-    await page.keyboard.press('Meta+A').catch(() => {});
-    await page.keyboard.press('Backspace').catch(() => {});
-  };
-
-  try {
-    await handle.scrollIntoViewIfNeeded().catch(() => {});
-    // 方式一：逐字键击
-    await clear();
-    await handle.type(text, { delay: 12 });
-    await sleep(200);
-    let got = await read();
-    if (got === want) return true;
-
-    // 方式二：一次性插入。缺词填空的空位宽度为 0 时键击容易丢字，
-    // insertText 走 beforeinput/input 事件，React 一样能收到
-    await clear();
-    await page.keyboard.insertText(text).catch(() => {});
-    await sleep(200);
-    got = await read();
-    if (got === want) return true;
-
-    // 校验放宽：空位里可能残留占位符字符，答案整段在里面就算填进去了
-    if (want && got.includes(want)) return true;
-
-    console.log('FILL_GOT ' + JSON.stringify(got.slice(0, 80)) + ' want=' + JSON.stringify(want.slice(0, 80)));
-    return false;
-  } catch (e) {
-    return false;
-  }
 }
 
 // 读当前输入框已有内容：同一 ID 的题重出时容器是新的、框是空的，缓存必须失效
@@ -228,21 +129,6 @@ async function clickToken(page, text) {
   const lo = page.locator('button:visible').filter({ hasText: new RegExp('^\\s*\\d*\\s*' + esc + '\\d*\\s*$') }).first();
   if (await lo.count().catch(() => 0)) { try { await lo.click({ timeout: 1500 }); return true; } catch (e) {} }
   return false;
-}
-
-async function clickMarks(page, marks) {
-  return await page.evaluate(({ src, list }) => {
-    const els = eval(src);
-    if (!els) return 0;
-    let n = 0;
-    for (const m of list) {
-      const el = els[m.index];
-      // disabled 的元素调用 click() 不会触发事件，不能记成“已选”
-      if (!el || el.disabled || el.getAttribute('aria-disabled') === 'true') continue;
-      el.click(); n++;
-    }
-    return n;
-  }, { src: COLLECT_SRC, list: marks }).catch(() => 0);
 }
 
 (async () => {
@@ -440,7 +326,9 @@ async function clickMarks(page, marks) {
         const key = 'fill|' + ich.id + '|' + ans;
         if (!(await inputValueNow(page))) filledInputKey = '';   // 新容器（同一题重出）清掉旧缓存
         if (filledInputKey !== key && (FILL || AUTO)) {
-          const ok = await fillInput(page, ans);
+          const ok = await fillInput(page, ans, {
+            onMismatch: (got, want) => console.log('FILL_GOT ' + JSON.stringify(got.slice(0, 80)) + ' want=' + JSON.stringify(want.slice(0, 80))),
+          });
           if (!ok) await recordFail(page, 'fill-retry', dom, { answer: ans });
           console.log(`FILL ${ich.type}[${ich.__pool}] -> ${JSON.stringify(ans)} ${ok ? 'ok' : 'FAIL'}`);
           if (ok) filledInputKey = key;

@@ -1,0 +1,640 @@
+{
+ "at": "2026-11-19T07:30:44.614Z",
+ "bubble": {
+  "text": "学习 练习基地 排行榜 特别任务 宝石小店 个人档案 更多 31 323 4283 钻石等级 查看排行榜 你当前排在第 1 位 继续努力，坐稳前 3！ 每日特别任务 显示全部 获取 50 经验 50 / 50 50 / 50 3 个单元至少答对 90% 3 / 3 3 / 3 学习时长满 20 分钟 20 / 20 20 / 20 关于我们 宝石小店 有效性 招聘贤才 投资者 条款 隐私 第 4 阶段，第 3 部分 讨论戏剧表演 指南 应对紧急情况 讨论戏剧表演 Le théâtre à Montréal 听力练习 +30 经验 做比较 跳级到这儿？ 下一级 第 5 阶段 学会如何组建句子，就",
+  "links": [
+   {
+    "test": "home-nav",
+    "text": "学习",
+    "path": "/learn"
+   },
+   {
+    "test": "practice-hub-nav",
+    "text": "练习基地",
+    "path": "/practice-hub"
+   },
+   {
+    "test": "leaderboard-nav",
+    "text": "排行榜",
+    "path": "/leaderboard"
+   },
+   {
+    "test": "quests-nav",
+    "text": "特别任务",
+    "path": "/quests"
+   },
+   {
+    "test": "shop-nav",
+    "text": "宝石小店",
+    "path": "/shop"
+   },
+   {
+    "test": "profile-tab",
+    "text": "个人档案",
+    "path": "/profile/fongzhua"
+   },
+   {
+    "test": "leaderboards-open",
+    "text": "查看排行榜",
+    "path": "/leaderboard"
+   },
+   {
+    "test": "",
+    "text": "显示全部",
+    "path": "/quests"
+   },
+   {
+    "test": "",
+    "text": "关于我们",
+    "path": "/"
+   },
+   {
+    "test": "",
+    "text": "宝石小店",
+    "path": "/"
+   },
+   {
+    "test": "",
+    "text": "有效性",
+    "path": "/efficacy"
+   },
+   {
+    "test": "",
+    "text": "招聘贤才",
+    "path": "/"
+   },
+   {
+    "test": "",
+    "text": "投资者",
+    "path": "/"
+   },
+   {
+    "test": "",
+    "text": "条款",
+    "path": "/terms"
+   },
+   {
+    "test": "",
+    "text": "隐私",
+    "path": "/privacy"
+   },
+   {
+    "test": "",
+    "text": "第 4 阶段，第 3 部分",
+    "path": "/sections"
+   },
+   {
+    "test": "guidebook-button-72",
+    "text": "指南",
+    "path": "/guidebook/fr/72"
+   },
+   {
+    "test": "skill-path-state-passed skill-path-unit-test-71",
+    "text": "听力练习 +30 经验",
+    "path": "/lesson/unit/72/level/6"
+   },
+   {
+    "test": "skill-path-state-unit_test skill-path-unit-test-72",
+    "text": "跳级到这儿？",
+    "path": "/lesson/unit/73/test"
+   }
+  ],
+  "buttons": [
+   {
+    "test": "skill-path-level-0 skill-path-level-skill",
+    "text": "",
+    "aria": "Lesson",
+    "disabled": false
+   },
+   {
+    "test": "skill-path-level-1 skill-path-level-story",
+    "text": "",
+    "aria": "小故事",
+    "disabled": false
+   },
+   {
+    "test": "skill-path-level-2 skill-path-level-duo_radio",
+    "text": "",
+    "aria": "电台",
+    "disabled": false
+   },
+   {
+    "test": "skill-path-level-3 skill-path-level-skill",
+    "text": "",
+    "aria": "Lesson",
+    "disabled": false
+   },
+   {
+    "test": "skill-path-level-4 skill-path-level-story",
+    "text": "",
+    "aria": "小故事",
+    "disabled": false
+   },
+   {
+    "test": "skill-path-level-5 skill-path-level-duo_radio",
+    "text": "",
+    "aria": "电台",
+    "disabled": false
+   },
+   {
+    "test": "skill-path-level-6 skill-path-level-practice",
+    "text": "",
+    "aria": "Practice",
+    "disabled": false
+   },
+   {
+    "test": "",
+    "text": "",
+    "aria": "宝箱",
+    "disabled": true
+   },
+   {
+    "test": "skill-path-level-8 skill-path-level-story",
+    "text": "",
+    "aria": "小故事",
+    "disabled": false
+   },
+   {
+    "test": "skill-path-level-9 skill-path-level-duo_radio",
+    "text": "",
+    "aria": "电台",
+    "disabled": false
+   },
+   {
+    "test": "skill-path-level-10 skill-path-level-practice",
+    "text": "",
+    "aria": "Practice",
+    "disabled": false
+   },
+   {
+    "test": "skill-path-level-11 skill-path-level-duo_radio",
+    "text": "",
+    "aria": "电台",
+    "disabled": false
+   },
+   {
+    "test": "skill-path-level-12 skill-path-level-unit_review",
+    "text": "",
+    "aria": "把第 2 部分提升到传奇等级",
+    "disabled": false
+   },
+   {
+    "test": "skill-path-level-0 skill-path-level-skill",
+    "text": "",
+    "aria": "Lesson",
+    "disabled": false
+   },
+   {
+    "test": "skill-path-level-1 skill-path-level-story",
+    "text": "",
+    "aria": "小故事",
+    "disabled": false
+   },
+   {
+    "test": "skill-path-level-2 skill-path-level-duo_radio",
+    "text": "",
+    "aria": "电台",
+    "disabled": false
+   },
+   {
+    "test": "skill-path-level-3 skill-path-level-skill",
+    "text": "",
+    "aria": "Lesson",
+    "disabled": false
+   },
+   {
+    "test": "skill-path-level-4 skill-path-level-story",
+    "text": "",
+    "aria": "小故事",
+    "disabled": false
+   },
+   {
+    "test": "skill-path-level-5 skill-path-level-duo_radio",
+    "text": "",
+    "aria": "电台",
+    "disabled": false
+   },
+   {
+    "test": "skill-path-level-6 skill-path-level-practice",
+    "text": "",
+    "aria": "Practice",
+    "disabled": false
+   },
+   {
+    "test": "",
+    "text": "",
+    "aria": "宝箱",
+    "disabled": true
+   },
+   {
+    "test": "skill-path-level-8 skill-path-level-story",
+    "text": "",
+    "aria": "小故事",
+    "disabled": false
+   },
+   {
+    "test": "skill-path-level-9 skill-path-level-duo_radio",
+    "text": "",
+    "aria": "电台",
+    "disabled": false
+   },
+   {
+    "test": "skill-path-level-10 skill-path-level-practice",
+    "text": "",
+    "aria": "Practice",
+    "disabled": false
+   },
+   {
+    "test": "skill-path-level-11 skill-path-level-duo_radio",
+    "text": "",
+    "aria": "电台",
+    "disabled": false
+   },
+   {
+    "test": "skill-path-level-12 skill-path-level-unit_review",
+    "text": "",
+    "aria": "复习该部分",
+    "disabled": false
+   },
+   {
+    "test": "skill-path-level-1 skill-path-level-story",
+    "text": "",
+    "aria": "小故事",
+    "disabled": false
+   },
+   {
+    "test": "",
+    "text": "",
+    "aria": "宝箱",
+    "disabled": true
+   },
+   {
+    "test": "skill-path-level-3 skill-path-level-skill",
+    "text": "",
+    "aria": "Lesson",
+    "disabled": false
+   },
+   {
+    "test": "skill-path-level-4 skill-path-level-story",
+    "text": "",
+    "aria": "小故事",
+    "disabled": false
+   }
+  ]
+ },
+ "tap": {
+  "status": "partial",
+  "next": {
+   "url": "/lesson/unit/72/level/6",
+   "text": "LES VOYAGES DE BÉA Les acteurs improvisent souvent. 1 2",
+   "buttons": [
+    {
+     "i": 0,
+     "test": "quit-button",
+     "aria": "",
+     "title": "",
+     "role": "",
+     "class": [
+      "_1gEmM",
+      "_7jW2t",
+      "_3X5b9"
+     ],
+     "text": "",
+     "disabled": false,
+     "rect": {
+      "x": 133,
+      "y": 57,
+      "w": 18,
+      "h": 18
+     },
+     "kids": [
+      {
+       "tag": "img",
+       "attrs": [
+        "class",
+        "src"
+       ],
+       "cls": [
+        "_3X5b9",
+        "_9lHjd"
+       ]
+      }
+     ],
+     "svg": null,
+     "parentText": ""
+    },
+    {
+     "i": 1,
+     "test": "",
+     "aria": "",
+     "title": "",
+     "role": "",
+     "class": [
+      "_2rQ98",
+      "_1GQxS",
+      "_1ursp",
+      "_7jW2t",
+      "_3GWMC"
+     ],
+     "text": "",
+     "disabled": false,
+     "rect": {
+      "x": 550,
+      "y": 798,
+      "w": 39,
+      "h": 48
+     },
+     "kids": [
+      {
+       "tag": "img",
+       "attrs": [
+        "src",
+        "class"
+       ],
+       "cls": [
+        "_9lHjd"
+       ]
+      }
+     ],
+     "svg": null,
+     "parentText": ""
+    },
+    {
+     "i": 2,
+     "test": "",
+     "aria": "",
+     "title": "",
+     "role": "",
+     "class": [
+      "_2rQ98",
+      "_1GQxS",
+      "_1ursp",
+      "_7jW2t",
+      "_3GWMC"
+     ],
+     "text": "",
+     "disabled": false,
+     "rect": {
+      "x": 613,
+      "y": 798,
+      "w": 39,
+      "h": 48
+     },
+     "kids": [
+      {
+       "tag": "img",
+       "attrs": [
+        "src",
+        "class"
+       ],
+       "cls": [
+        "_9lHjd"
+       ]
+      }
+     ],
+     "svg": null,
+     "parentText": ""
+    },
+    {
+     "i": 3,
+     "test": "",
+     "aria": "",
+     "title": "",
+     "role": "",
+     "class": [
+      "_2wryV",
+      "_2rQ98",
+      "_1GQxS",
+      "_1ursp",
+      "_7jW2t",
+      "_3mDWI",
+      "_3GWMC"
+     ],
+     "text": "",
+     "disabled": true,
+     "rect": {
+      "x": 676,
+      "y": 802,
+      "w": 39,
+      "h": 48
+     },
+     "kids": [
+      {
+       "tag": "img",
+       "attrs": [
+        "src",
+        "class"
+       ],
+       "cls": [
+        "_9lHjd"
+       ]
+      }
+     ],
+     "svg": null,
+     "parentText": ""
+    }
+   ],
+   "media": 0
+  }
+ },
+ "sessions": [
+  {
+   "status": 200,
+   "elements": 13,
+   "judges": [
+    {
+     "type": "challenge",
+     "isTrue": false,
+     "prompt": "Les acteurs improvisent souvent."
+    }
+   ]
+  }
+ ],
+ "judge": {
+  "text": "LES VOYAGES DE BÉA Les acteurs improvisent souvent. 1 2",
+  "controls": [
+   {
+    "i": 0,
+    "tag": "button",
+    "test": "quit-button",
+    "role": "",
+    "aria": "",
+    "labelledby": "",
+    "title": "",
+    "text": "",
+    "class": [
+     "_1gEmM",
+     "_7jW2t",
+     "_3X5b9"
+    ],
+    "disabled": false,
+    "rect": {
+     "x": 133,
+     "y": 57,
+     "w": 18,
+     "h": 18
+    },
+    "svg": null,
+    "img": {
+     "alt": "",
+     "cls": "_3X5b9 _9lHjd"
+    },
+    "parentText": ""
+   },
+   {
+    "i": 1,
+    "tag": "button",
+    "test": "",
+    "role": "",
+    "aria": "",
+    "labelledby": "",
+    "title": "",
+    "text": "",
+    "class": [
+     "_2rQ98",
+     "_1GQxS",
+     "_1ursp",
+     "_7jW2t",
+     "_3GWMC"
+    ],
+    "disabled": false,
+    "rect": {
+     "x": 550,
+     "y": 798,
+     "w": 39,
+     "h": 48
+    },
+    "svg": null,
+    "img": {
+     "alt": "",
+     "cls": "_9lHjd"
+    },
+    "parentText": ""
+   },
+   {
+    "i": 2,
+    "tag": "button",
+    "test": "",
+    "role": "",
+    "aria": "",
+    "labelledby": "",
+    "title": "",
+    "text": "",
+    "class": [
+     "_2rQ98",
+     "_1GQxS",
+     "_1ursp",
+     "_7jW2t",
+     "_3GWMC"
+    ],
+    "disabled": false,
+    "rect": {
+     "x": 613,
+     "y": 798,
+     "w": 39,
+     "h": 48
+    },
+    "svg": null,
+    "img": {
+     "alt": "",
+     "cls": "_9lHjd"
+    },
+    "parentText": ""
+   },
+   {
+    "i": 3,
+    "tag": "button",
+    "test": "",
+    "role": "",
+    "aria": "",
+    "labelledby": "",
+    "title": "",
+    "text": "",
+    "class": [
+     "_2wryV",
+     "_2rQ98",
+     "_1GQxS",
+     "_1ursp",
+     "_7jW2t",
+     "_3mDWI",
+     "_3GWMC"
+    ],
+    "disabled": true,
+    "rect": {
+     "x": 676,
+     "y": 802,
+     "w": 39,
+     "h": 48
+    },
+    "svg": null,
+    "img": {
+     "alt": "",
+     "cls": "_9lHjd"
+    },
+    "parentText": ""
+   },
+   {
+    "i": 4,
+    "tag": "div",
+    "test": "challenge-choice",
+    "role": "radio",
+    "aria": "",
+    "labelledby": "",
+    "title": "",
+    "text": "1",
+    "class": [
+     "_8dMUn",
+     "_2cKzl",
+     "FG-ts"
+    ],
+    "disabled": false,
+    "rect": {
+     "x": 453,
+     "y": 634,
+     "w": 172,
+     "h": 170
+    },
+    "svg": {
+     "hasPath": true,
+     "pathIds": [],
+     "svgId": "",
+     "svgName": ""
+    },
+    "img": null,
+    "parentText": "1 2"
+   },
+   {
+    "i": 5,
+    "tag": "div",
+    "test": "challenge-choice",
+    "role": "radio",
+    "aria": "",
+    "labelledby": "",
+    "title": "",
+    "text": "2",
+    "class": [
+     "_8dMUn",
+     "_2cKzl",
+     "FG-ts"
+    ],
+    "disabled": false,
+    "rect": {
+     "x": 641,
+     "y": 634,
+     "w": 172,
+     "h": 170
+    },
+    "svg": {
+     "hasPath": true,
+     "pathIds": [],
+     "svgId": "",
+     "svgName": ""
+    },
+    "img": null,
+    "parentText": "1 2"
+   }
+  ],
+  "media": 0
+ },
+ "note": "只读取证；未点判断题按钮；不写 URL 查询值/凭据/完整 HTML"
+}

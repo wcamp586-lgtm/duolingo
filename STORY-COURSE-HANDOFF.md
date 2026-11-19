@@ -1,10 +1,12 @@
 # 多邻国「故事课自动作答」交接文档
 
+> **状态：历史记录。** 当前故事实现在 [story-runner.js](story-runner.js)，运行手册见 [RUNBOOK.md](RUNBOOK.md)。下文第 4/5/8 节描述的是 2026-11-03 之前的实现与卡点，已不成立。
+
 > 2026-11-03 实测更新：当前 The Basketball Player 会话的 7 个交互元素已逐项完成，包括最后 5 组配对。
 > 根因已确认：选择题的实际控件是答案行 `li` 内无文字的 `button[data-test="stories-choice"]`，答案文字是它的兄弟节点。
 > 故事逻辑已迁入 `story-runner.js`，旧的按文字中心坐标点击逻辑已移除；补齐排序、短语选择、配对并验证页面状态。
 > 最后一道题完成后保留绿色「继续」供用户手动结束，未代点最终结束，也未验证最终 XP 结算。
-> 证据：`story-debug/live-test.jsonl`、`story-debug/all-questions-verified.png`；`npm test` 运行 43 项核心测试及 7 项故事测试。
+> 证据：`story-debug/live-test.jsonl`、`story-debug/all-questions-verified.png`；当时 `npm test` 运行 43 项核心测试及 7 项故事测试（当前测试数见 RUNBOOK）。
 > 下文保留此前卡点记录，旧代码描述不再代表当前实现。
 
 写于 2026-11-03。目标读者：接手继续做的人。所有结论标了「已验证 / 未验证」。
@@ -137,9 +139,9 @@ STORY_STUCK  (没有可点的推进按钮)
 
 ---
 
-## 4. 现状代码
+## 4. 历史代码（已迁出 hint.js）
 
-文件 `hint.js`（项目根目录），故事课相关四个函数：
+当时 `hint.js`（项目根目录）里的四个故事函数；其中 `captureStory` / `storyChoose` 已删除，实际作答在 `story-runner.js`：
 
 | 函数 | 作用 |
 |---|---|
@@ -174,7 +176,9 @@ if (storiesSession) {
 
 ---
 
-## 5. 三个待验证假设（按可能性排序）
+## 5. 当时三个待验证假设（均已解决）
+
+> 后续确认：点中选项的正确做法是点 `li` 内的 `button[data-test="stories-choice"]`；A/B/C 不再需要验证。
 
 ### 假设 A（最可能）：有透明遮罩挡住了点击
 
@@ -227,6 +231,7 @@ el.dispatchEvent(new MouseEvent('click', { bubbles: true, clientX: x, clientY: y
 ### 6.1 先把调试通道打开
 
 现在 `hint.js` 用 `--remote-debugging-pipe` 启动，**外部无法连接**，只能靠在脚本里打日志盲猜，这是本次卡住的根本原因。
+（历史说明：当前 `hint.js` 的启动参数里已经没有 `--remote-debugging-pipe`；以下建议仅作存档。）
 
 改 `hint.js` 第 ~206 行的启动参数，加：
 
@@ -283,11 +288,11 @@ DevTools → Elements → 选中选项 → 右侧 **Event Listeners** 面板，�
 | `core.js` | 纯函数；`storiesPlan` / `storiesQuestions` |
 | `stories-session.json` | 故事数据样本（`The Basketball Player`，31 elements） |
 | `story-dump.json` | 脚本每屏采集的结构（当前无选择题屏，因去重键太短被跳过） |
-| `probe-story-dom.js` | 早期写的故事 DOM 探查脚本，可参考其连接方式 |
+| `archive/probes/probe-story-dom.js` | 早期写的故事 DOM 探查脚本（已存档），可参考其连接方式 |
 | `hint.log` / `hint.log.r12` 等 | 各轮运行日志，`STORY_DOM` / `STORY_ANSWER` 证据都在里面 |
 
 ---
 
-## 8. 一句话总结
+## 8. 一句话总结（历史）
 
-**除了「在选择题里点中选项」这一个动作，故事课自动化的其它部分都已经能用。** 卡住的原因是拿不到真实 DOM 结构，只能在每次重启后靠几十字符的日志片段推测——建议接手时先开 CDP 调试端口，把那一屏的完整 HTML 和事件绑定看清楚，再动手。
+**当时**除了「在选择题里点中选项」这一个动作，故事课自动化的其它部分都已经能用。后续已解决：选择题点 `li` 内的 `button[data-test="stories-choice"]`，实现迁到 `story-runner.js`，并由离线故事测试覆盖。

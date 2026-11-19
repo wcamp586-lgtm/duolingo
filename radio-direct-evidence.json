@@ -1,0 +1,22 @@
+{
+  "at": "2026-11-19T18:35:00+08:00",
+  "source": "auto-radio-direct.log (2026-11-19 18:17-18:21)",
+  "facts": {
+    "entry": "radio 气泡唯一入口「听力练习 +30 经验」→ /lesson/unit/72/level/6，ENTRY (radio-direct)",
+    "page_text": "LES VOYAGES DE BÉA 选择配对 1 2 3 4 5 演员 6 演出 7 戏剧 8 角色",
+    "page_state": "kind=non-question；有 quit-button；无 challenge 容器、无 next、无 stories-element",
+    "session": "没收到匹配的 session 数据，45 秒数据超时；两次进入均如此",
+    "retries": "在第 2/8 次后按指令停止，未继续到 8 次",
+    "browser": "停止 node 后专用 Chrome 一并退出，页面未能保留；证据以日志为准"
+  },
+  "inference": {
+    "type": "电台专用 UI 的配对题（1-5 数字按钮 + 中文词 演员/角色/戏剧/演出），需靠音频把法语音频与中文词配对",
+    "missing": "通用 challenge 容器和 session 数据都不在，lesson-runner 无法识别；页面没有字幕/可读句子，只有候选词",
+    "capability": "现有能力无法可靠确认配对；不能按数字或顺序猜"
+  },
+  "conclusion": {
+    "result": "不通过（明确新缺口）",
+    "gap": "缺少音频识别/字幕，或平台未提供电台专用接口；需要电台 UI 专用解析 + 音频内容",
+    "action": "停止这条分支，不硬解、不重进；radio 节点仍未结算，s3u71l6 仍 locked"
+  }
+}

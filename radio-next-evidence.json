@@ -1,0 +1,266 @@
+{
+ "at": "2026-11-19T06:58:46.667Z",
+ "radioCount": 1,
+ "unitFound": true,
+ "laterCount": 0,
+ "afterRadio": {
+  "label": "after-radio-click",
+  "url": "/learn",
+  "title": "多邻国 - 学得轻松，学有所成的法语 课程！",
+  "text": "学习 练习基地 排行榜 特别任务 宝石小店 个人档案 更多 31 323 4283 钻石等级 查看排行榜 你当前排在第 1 位 继续努力，坐稳前 3！ 每日特别任务 显示全部 获取 50 经验 50 / 50 50 / 50 3 个单元至少答对 90% 3 / 3 3 / 3 学习时长满 20 分钟 20 / 20 20 / 20 关于我们 宝石小店 有效性 招聘贤才 投资者 条款 隐私 第 4 阶段，第 3 部分 讨论戏剧表演 指南 应对紧急情况 讨论戏剧表演 Le théâtre à Montréal 听力练习 +30 经验 做比较 跳级到这儿？ 下一级 第 5 阶段 学会如何组建句子，就更广泛的话题展开对话 跳级到这儿？",
+  "buttons": [
+   {
+    "tag": "a",
+    "test": "",
+    "text": "",
+    "disabled": false
+   },
+   {
+    "tag": "a",
+    "test": "home-nav",
+    "text": "学习",
+    "disabled": false
+   },
+   {
+    "tag": "a",
+    "test": "practice-hub-nav",
+    "text": "练习基地",
+    "disabled": false
+   },
+   {
+    "tag": "a",
+    "test": "leaderboard-nav",
+    "text": "排行榜",
+    "disabled": false
+   },
+   {
+    "tag": "a",
+    "test": "quests-nav",
+    "text": "特别任务",
+    "disabled": false
+   },
+   {
+    "tag": "a",
+    "test": "shop-nav",
+    "text": "宝石小店",
+    "disabled": false
+   },
+   {
+    "tag": "a",
+    "test": "profile-tab",
+    "text": "个人档案",
+    "disabled": false
+   },
+   {
+    "tag": "a",
+    "test": "",
+    "text": "",
+    "disabled": false
+   },
+   {
+    "tag": "a",
+    "test": "leaderboards-open",
+    "text": "查看排行榜",
+    "disabled": false
+   },
+   {
+    "tag": "a",
+    "test": "",
+    "text": "显示全部",
+    "disabled": false
+   },
+   {
+    "tag": "a",
+    "test": "",
+    "text": "关于我们",
+    "disabled": false
+   },
+   {
+    "tag": "a",
+    "test": "",
+    "text": "宝石小店",
+    "disabled": false
+   },
+   {
+    "tag": "a",
+    "test": "",
+    "text": "有效性",
+    "disabled": false
+   },
+   {
+    "tag": "a",
+    "test": "",
+    "text": "招聘贤才",
+    "disabled": false
+   },
+   {
+    "tag": "a",
+    "test": "",
+    "text": "投资者",
+    "disabled": false
+   },
+   {
+    "tag": "a",
+    "test": "",
+    "text": "条款",
+    "disabled": false
+   },
+   {
+    "tag": "a",
+    "test": "",
+    "text": "隐私",
+    "disabled": false
+   },
+   {
+    "tag": "a",
+    "test": "",
+    "text": "第 4 阶段，第 3 部分",
+    "disabled": false
+   },
+   {
+    "tag": "a",
+    "test": "guidebook-button-72",
+    "text": "指南",
+    "disabled": false
+   },
+   {
+    "tag": "button",
+    "test": "skill-path-level-0 skill-path-level-skill",
+    "text": "",
+    "disabled": false
+   },
+   {
+    "tag": "button",
+    "test": "skill-path-level-1 skill-path-level-story",
+    "text": "",
+    "disabled": false
+   },
+   {
+    "tag": "button",
+    "test": "skill-path-level-2 skill-path-level-duo_radio",
+    "text": "",
+    "disabled": false
+   },
+   {
+    "tag": "button",
+    "test": "skill-path-level-3 skill-path-level-skill",
+    "text": "",
+    "disabled": false
+   },
+   {
+    "tag": "button",
+    "test": "skill-path-level-4 skill-path-level-story",
+    "text": "",
+    "disabled": false
+   },
+   {
+    "tag": "button",
+    "test": "skill-path-level-5 skill-path-level-duo_radio",
+    "text": "",
+    "disabled": false
+   },
+   {
+    "tag": "button",
+    "test": "skill-path-level-6 skill-path-level-practice",
+    "text": "",
+    "disabled": false
+   },
+   {
+    "tag": "button",
+    "test": "",
+    "text": "",
+    "disabled": true
+   },
+   {
+    "tag": "button",
+    "test": "skill-path-level-8 skill-path-level-story",
+    "text": "",
+    "disabled": false
+   },
+   {
+    "tag": "button",
+    "test": "skill-path-level-9 skill-path-level-duo_radio",
+    "text": "",
+    "disabled": false
+   },
+   {
+    "tag": "button",
+    "test": "skill-path-level-10 skill-path-level-practice",
+    "text": "",
+    "disabled": false
+   },
+   {
+    "tag": "button",
+    "test": "skill-path-level-11 skill-path-level-duo_radio",
+    "text": "",
+    "disabled": false
+   },
+   {
+    "tag": "button",
+    "test": "skill-path-level-12 skill-path-level-unit_review",
+    "text": "",
+    "disabled": false
+   },
+   {
+    "tag": "button",
+    "test": "skill-path-level-0 skill-path-level-skill",
+    "text": "",
+    "disabled": false
+   },
+   {
+    "tag": "button",
+    "test": "skill-path-level-1 skill-path-level-story",
+    "text": "",
+    "disabled": false
+   },
+   {
+    "tag": "button",
+    "test": "skill-path-level-2 skill-path-level-duo_radio",
+    "text": "",
+    "disabled": false
+   },
+   {
+    "tag": "button",
+    "test": "skill-path-level-3 skill-path-level-skill",
+    "text": "",
+    "disabled": false
+   },
+   {
+    "tag": "button",
+    "test": "skill-path-level-4 skill-path-level-story",
+    "text": "",
+    "disabled": false
+   },
+   {
+    "tag": "button",
+    "test": "skill-path-level-5 skill-path-level-duo_radio",
+    "text": "",
+    "disabled": false
+   },
+   {
+    "tag": "a",
+    "test": "skill-path-state-passed skill-path-unit-test-71",
+    "text": "听力练习 +30 经验",
+    "disabled": false
+   },
+   {
+    "tag": "button",
+    "test": "skill-path-level-6 skill-path-level-practice",
+    "text": "",
+    "disabled": false
+   }
+  ],
+  "playerNext": false,
+  "iframes": [
+   {
+    "host": "www.recaptcha.net",
+    "path": "/recaptcha/enterprise/anchor"
+   },
+   {
+    "host": "",
+    "path": ""
+   }
+  ]
+ },
+ "sessions": []
+}

@@ -370,5 +370,28 @@ t('display 匹配传了题型就只认同题型', () => {
   assert.ok(hit && hit.id === 'y', '只应返回 translate 那道');
 });
 
+t('新词形·选词填空：靠 patternSentences 模板句区分同选项的两题', () => {
+  const pools = [
+    { id: 'p1', type: 'patternTapComplete', prompt: 'Moi, je vais acheter un château !', choices: ['Toi', 'Moi'], correctIndex: 1,
+      patternSentences: [{ prompt: 'Toi, tu déménages en juillet.' }, { prompt: 'Moi, je déménage en mai.' }] },
+    { id: 'p2', type: 'patternTapComplete', prompt: 'Toi, tu adores cette ville !', choices: ['Moi', 'Toi'], correctIndex: 1,
+      patternSentences: [{ prompt: 'Moi, je préfère la campagne.' }, { prompt: 'Toi, tu habites dans un village.' }] },
+  ];
+  const box = '新词形 选词填空 Toi, tu déménages en juillet. Moi, je déménage en mai. Toi Moi';
+  const hit = c.matchByPattern(pools, box, 'patternTapComplete');
+  assert.ok(hit && hit.id === 'p1', '应认出模板句属于 p1');
+  assert.deepEqual(c.buildPlan(hit), [{ text: 'Moi', order: 0 }], '答案取 choices[correctIndex]');
+  const none = c.matchByPattern(pools, '别的句子', 'patternTapComplete');
+  assert.equal(none, null);
+});
+
+t('新词形·选词填空：模板句不全出现时不猜', () => {
+  const pools = [
+    { id: 'p1', type: 'patternTapComplete', choices: ['Toi', 'Moi'], correctIndex: 0,
+      patternSentences: [{ prompt: 'Toi, tu déménages en juillet.' }, { prompt: 'Moi, je déménage en mai.' }] },
+  ];
+  assert.equal(c.matchByPattern(pools, 'Toi, tu déménages en juillet. Toi Moi', 'patternTapComplete'), null, '缺第二句应拒绝');
+});
+
 console.log(`\n结果: ${pass} 通过, ${fail} 失败`);
 process.exit(fail ? 1 : 0);

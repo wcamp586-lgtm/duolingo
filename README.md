@@ -1,91 +1,68 @@
 # 多邻国答案标注器
 
-### 故事课（2026-11-03 实测）
+**目录**：`/Users/fengzhao/Projects/duolingo`
+**当前运行手册**：[RUNBOOK.md](RUNBOOK.md)。本文只做入口说明；HANDOFF.md、AUTOMATION-PLAN.md、STORY-COURSE-HANDOFF.md、HANDOVER.md 是历史记录，不再维护。
 
-进入故事课后自动作答、自动推进对话；最后一道题完成后停在绿色「继续」，结束课程由用户点击。
-故事逻辑在 `story-runner.js`，普通课程仍使用原有填充逻辑。
+## 两种模式
 
-已在 The Basketball Player 当前会话验证选择、指词、排序、短语选择及 5 组配对。
-选择题点答案所在行内的 `[data-test="stories-choice"]`，不点击答案文字。
-每题等故事继续按钮启用后记录 `STORY_VERIFIED`，每组配对检查词块禁用后记录 `STORY_PAIR_VERIFIED`。
-异常时保存完整页面和状态到 `story-debug/failure-*`，停止对该会话继续猜选。
-
-`npm test` 运行核心测试及离线浏览器故事测试；不会使用 `profile/` 或访问网站。
-
-**做什么**：脚本自动把答案填上（并标绿框），但**开始 / 检查 / 继续 / 结束都由你点**。
+- **半自动（默认）**：`node hint.js`。脚本拦截 session、把答案填上并标绿框；「开始 / 检查 / 继续 / 结束」都由你点，口语题自己跳过。
+- **全自动**：`node auto-runner.js`。选关、进课、作答、检查/继续、结算由脚本完成；默认刷传奇课，`--normal` 刷当前普通课。故事课全部答完后，有明确的结束/继续控件就自动点掉并结算；控件不明确或点不动时保留专用窗口和当前页面，等人工处理。开跑前必须先读 [RUNBOOK.md](RUNBOOK.md)。
 
 ## 用法
 
 ```bash
-cd ~/duo-xp
-node hint.js
+cd /Users/fengzhao/Projects/duolingo
+
+node hint.js                 # 半自动：自动填答案，流程你控制
+node hint.js --hint          # 只标绿框，不点
+node hint.js --nopunct       # 填答案时去掉末尾标点
+node hint.js 4 --auto        # 单课全自动（旧入口，验证用）
+node auto-runner.js --minutes 60              # 全自动传奇课，时间上限 60 分钟
+node auto-runner.js --normal --minutes 60     # 全自动普通课
+node auto-runner.js --dry-run --minutes 60    # 只看队列（11-04 的 course-path.json 快照）
+node read-xp.js              # 读账号总 XP
+npm test                     # 离线测试：不联网、不使用 profile/
 ```
 
-1. 浏览器打开学习页，**你点「开始」进课**
-2. 题目出现后，脚本自动填好答案：
-   - 选择题/词块题 → 自动点选（绿框 + 序号）
-   - **打字题 → 自动输入整句**（`FILL translate -> "..."`）
-   - **缺词填空 → 自动输入缺的词**（`FILL completeReverseTranslation`）
-   - **阅读题 / 定义题 → 自动勾选**（`MARK readComprehension` / `definition`）
-   - 重复词展开（`开始`/`开始3`）会自动去重匹配
-3. **你点「检查」→「继续」**，下一题脚本再自动填
-4. 遇到口语题自己点「现在不做口语题」
-5. 做完你点「结束」
-
-### 三种模式
-
-```bash
-node hint.js            # 默认：自动填答案，流程你控制
-node hint.js --hint     # 只标绿框，不替你点
-node hint.js --nopunct  # 填答案时去掉末尾标点
-node hint.js 4 --auto   # 全自动（填答案 + 检查/继续），验证/刷课用
-node hint.js 4          # 直接进 unit 4 传奇课
-node test-core.js       # 离线测试（不联网、不开浏览器）
-node read-xp.js         # 读当前总 XP
-```
+`auto-runner.js` 必须给 `--minutes` 或 `--xp`；它不选课程，刷的是账号当前活动课程，开跑前按 RUNBOOK 第一节核对。
 
 ## 原理
 
-- 拦截 `POST /2023-05-23/sessions`：多邻国把每道题的答案直接下发，**零 AI 调用、零 API 成本**
-- 三组题池全部合并搜索：`challenges` / `mistakesReplacementChallenges` / `adaptiveInterleavedChallenges`
-- **严格匹配**：页面完整选项与题目选项逐项相等才标；匹配不唯一时**不标**并打印 `NO_MATCH`（不猜答案）
-- 标注：完整文本优先、限定在当前题容器内、按矩形去重（多邻国渲染两套重叠布局）
-
-## 已验证
-
-- 离线 `test-core.js` **20/20 通过**
-- 端到端：`tapComplete` / `translate` / `dialogue` / `readComprehension`，覆盖 main / replacement / adaptive 三池；所有题目标记数 `n` 与计划数完全相等（索引一致）
-- **打字题实测成功**：`FILL translate[main] -> "This park is very famous." ok` 连续多题正确填入
-- 完整做完一节传奇课，**XP 82833 → 82873（+40）**
-
-## 未验证（诚实标注）
-
-- 重复词展开（`开始3`）与「只填一半词」的输入框题的端到端
-- 纯手动模式（`node hint.js` 不带 `--auto`）的完整端到端
-- `listenIsolation` 的实际标注效果
-- 部分 DOM 重绘后的自动补标（有 `data-duoSig` 检查逻辑，未真实复现）
-
-## 已知限制
-
-- **进课入口仍需手动点**：路径节点位置随学习进度变化，自动定位不稳定
-- 口语题（`speak`）没有可选项，无法提示，只能跳过
-- 多邻国前端改版若改了 `data-test` / DOM 结构，需要更新 `hint.js` 里的选择器
-
-## 风险
-
-- 违反多邻国服务条款，存在封号风险
-- 本方案只做「显示答案」，点击行为全是你自己的，检测面比全自动小，但不是零风险
-- 建议保持真人节奏，一天 1–2 节
+- 拦截 `POST /2023-05-23/sessions`，答案随题目下发，零 AI / 零 API 成本。
+- 三组题池合并：`challenges` / `mistakesReplacementChallenges` / `adaptiveInterleavedChallenges.challenges`，并兼容 `adaptiveChallenges`。
+- 严格匹配完整选项多重集；不唯一就 `NO_MATCH`，不猜。部分点选后按「唯一超集」沿用。
+- 标注按矩形去重，覆盖多邻国两套重叠布局。
 
 ## 文件
 
 | 文件 | 作用 |
 |---|---|
-| `core.js` | 核心：题池合并、选项提取、答案计划、严格匹配、标注分配 |
-| `hint.js` | 浏览器入口：拦截响应、读 DOM、调 core、上标记 |
-| `test-core.js` | 离线测试（引用同一份 `core.js`） |
-| `read-xp.js` | 读账号总 XP |
-| `login.js` | 登录态失效时重新登录 |
+| `core.js` | 题池合并、选项提取、答案计划、严格匹配、标注分配 |
+| `hint.js` | 半自动浏览器入口：拦截响应、读 DOM、填答案、标绿框 |
+| `lesson-dom.js` | 共用页面读取 / 点击 / 填框实现（hint 与 lesson-runner 共用） |
+| `lesson-runner.js` | 普通课全自动执行器：一步 = 读 DOM → 认题 → 作答 → 推进 |
+| `story-runner.js` | 故事课自动作答 |
+| `auto-runner.js` | 全自动调度器：选关、进课、结算、时间/XP 停止 |
+| `automation-policy.js` | 纯函数：选关、停止判定、听说题跳过策略 |
+| `legendary-entry.js` | 传奇课入口（直接构造 URL） |
+| `test-*.js` | 离线测试；`npm test` 全跑 |
+| `archive/` | 旧脚本存档（batch-test、probe-*、旧 prepareLegendary） |
+| `LEVEL-COVERAGE.md` | 关卡类型覆盖表、证据与待支持缺口 |
+| `french-course-structure.json` / `french-course-inventory.json` / `french-page-evidence.json` | 法语整门结构、逐关清单、页面传说入口抽样（2026-11-18） |
+| `read-xp.js` / `login.js` | 读总 XP / 登录态失效时重新登录 |
 | `profile/` | 登录态，**勿删** |
 
-> 交付脚本和测试**调用同一份 `core.js`**，不存在「改一份、测另一份」。
+## 验证与限制
+
+- `npm test` 当前 140 项全过（core 50 / stories 7 / policy 14 / lesson-runner 6 / lesson-guard 10 / story-done 5 / progress-touch 4 / story-done-main 1 / story-flow 4 / node-entry 8 / story-sig 2 / story-finish 4 / radio-skip 12 / radio-tap 3 / radio-quiz 10），不联网、不使用 `profile/`。
+- 全自动实测：传奇 3h 75 关/+3200 XP；法语普通课单轮 14 关/+250 XP。
+- radio：点「稍后选择」本身不算成功。要同一 unit 的后续节点打开、点「开始」成功、且题目/挑战容器真的出现，才记唯一一条 `RADIO_ADVANCED`；点击失败、点击后没变化、弹窗收起但没推进、后续入口点击失败、多个「开始」无法唯一对应、误导航、没有入口分别记 `RADIO_SKIP_CLICK_FAILED` / `RADIO_SKIP_NO_CHANGE` / `RADIO_NO_PROGRESS` / `RADIO_NEXT_CLICK_FAILED` / `RADIO_NEXT_AMBIGUOUS` / `RADIO_WRONG_PAGE` / `RADIO_UNSUPPORTED`，都算待处理，不猜下一节点。法语曾停在非题目页，已有超时兜底。普通课「新单词」、英语偶发 nomatch、日语注音 nomatch 仍不稳。
+- 半自动模式的完整端到端仍以人工使用为主，未做自动化验收。
+- 进课入口仍需按 RUNBOOK 检查当前课程；`auto-runner` 不替你切课程。
+
+## 风险
+
+- 违反多邻国服务条款，封号、清进度是真实可能。
+- 半自动只显示/填答案，但 `hint.js --auto` 和 `auto-runner.js` 会代点，检测面比半自动大。
+- 不要声称「真人速度就安全」或「某 XP 阈值不会触发」；连续多天跑尤其要注意。
+- 只做页面操作，不做指纹伪装、代理轮换或验证码绕过。

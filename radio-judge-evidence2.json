@@ -1,0 +1,445 @@
+{
+ "at": "2026-11-19T07:34:32.854Z",
+ "tapStatus": "partial",
+ "session": [
+  {
+   "status": 200,
+   "elements": 13,
+   "topKeys": [
+    "avatarNum",
+    "avatars",
+    "cefrLevel",
+    "challengePools",
+    "character",
+    "displayedTranslatedTitle",
+    "elements",
+    "id",
+    "introLengthMillis",
+    "metadata",
+    "outroPoseShowMillis",
+    "schema_name",
+    "script_uuid",
+    "titleCardShowMillis",
+    "trackingProperties",
+    "transcript",
+    "ttsAnnotations",
+    "wrapperName"
+   ],
+   "judgeEls": [
+    {
+     "type": "challenge",
+     "prompt": "Les acteurs improvisent souvent.",
+     "isTrue": false,
+     "keys": [
+      "challengeID",
+      "challengeType",
+      "isTrue",
+      "prompt",
+      "type"
+     ],
+     "hasChoices": false,
+     "choicesN": null,
+     "hasAudio": false
+    }
+   ]
+  }
+ ],
+ "boxTest": null,
+ "pageText": "LES VOYAGES DE BÉA Les acteurs improvisent souvent. 1 2",
+ "allTests": [
+  "quit-button",
+  "challenge-choice",
+  "drawer-backdrop"
+ ],
+ "media": 0,
+ "iframes": [
+  {
+   "src": "https://www.recaptcha.net/recaptcha/enterprise/anchor?ar=1&k=6LcLOdsjAAAAAFfwGusLLnnn492SOGhsCh-uEAvI&co=aHR0cHM6Ly93d3cuZHVvbGluZ28uY29tOjQ0Mw..&hl=en&v=4i3aN5wAweL7i3ADI7BSX4B-&size=invisible&anchor-ms=20000&execute-ms=30000&ovv=CADq00gF&cb=g6jct5d8jz53",
+   "title": "reCAPTCHA",
+   "cls": ""
+  },
+  {
+   "src": "",
+   "title": "",
+   "cls": ""
+  }
+ ],
+ "hasHome": false,
+ "cards": [
+  {
+   "i": 0,
+   "text": "1",
+   "rect": {
+    "x": 453,
+    "y": 634,
+    "w": 172,
+    "h": 170
+   },
+   "classes": [
+    "_8dMUn",
+    "_2cKzl",
+    "FG-ts"
+   ],
+   "attrs": [
+    "aria-checked",
+    "aria-disabled",
+    "class",
+    "role",
+    "tabindex",
+    "data-test"
+   ],
+   "kids": [
+    {
+     "tag": "div",
+     "attrs": [
+      "class"
+     ],
+     "cls": "_9sDdl"
+    },
+    {
+     "tag": "div",
+     "attrs": [
+      "class"
+     ],
+     "cls": "PZbwQ"
+    },
+    {
+     "tag": "span",
+     "attrs": [
+      "class"
+     ],
+     "cls": "_1kZ3q _1JEsl"
+    },
+    {
+     "tag": "svg",
+     "attrs": [
+      "width",
+      "height",
+      "viewBox",
+      "fill",
+      "xmlns"
+     ],
+     "cls": ""
+    },
+    {
+     "tag": "path",
+     "attrs": [
+      "fill-rule",
+      "clip-rule",
+      "d",
+      "fill"
+     ],
+     "cls": ""
+    },
+    {
+     "tag": "div",
+     "attrs": [
+      "class"
+     ],
+     "cls": "-gzTf"
+    },
+    {
+     "tag": "span",
+     "attrs": [
+      "class",
+      "dir",
+      "lang"
+     ],
+     "cls": "AKwIn"
+    },
+    {
+     "tag": "span",
+     "attrs": [
+      "class"
+     ],
+     "cls": "_3zbIX _20AkF k-_wd"
+    },
+    {
+     "tag": "span",
+     "attrs": [
+      "class",
+      "style"
+     ],
+     "cls": "_36pO3"
+    },
+    {
+     "tag": "span",
+     "attrs": [
+      "class"
+     ],
+     "cls": "u_TP- fs-exclude FMPra"
+    },
+    {
+     "tag": "svg",
+     "attrs": [
+      "xmlns",
+      "xmlns:xlink",
+      "viewBox",
+      "width",
+      "height",
+      "preserveAspectRatio",
+      "style"
+     ],
+     "cls": ""
+    },
+    {
+     "tag": "defs",
+     "attrs": [],
+     "cls": ""
+    }
+   ],
+   "svg": {
+    "viewBox": "0 0 41 28",
+    "fill": "none",
+    "titleText": "",
+    "paths": [
+     {
+      "hash": "326efd0f5a54fe92",
+      "len": 320,
+      "fill": "currentColor"
+     }
+    ]
+   },
+   "img": null,
+   "disabled": false
+  },
+  {
+   "i": 1,
+   "text": "2",
+   "rect": {
+    "x": 641,
+    "y": 634,
+    "w": 172,
+    "h": 170
+   },
+   "classes": [
+    "_8dMUn",
+    "_2cKzl",
+    "FG-ts"
+   ],
+   "attrs": [
+    "aria-checked",
+    "aria-disabled",
+    "class",
+    "role",
+    "tabindex",
+    "data-test"
+   ],
+   "kids": [
+    {
+     "tag": "div",
+     "attrs": [
+      "class"
+     ],
+     "cls": "_9sDdl"
+    },
+    {
+     "tag": "div",
+     "attrs": [
+      "class"
+     ],
+     "cls": "PZbwQ"
+    },
+    {
+     "tag": "span",
+     "attrs": [
+      "class"
+     ],
+     "cls": "_1kZ3q _1JEsl"
+    },
+    {
+     "tag": "svg",
+     "attrs": [
+      "width",
+      "height",
+      "viewBox",
+      "fill",
+      "xmlns"
+     ],
+     "cls": ""
+    },
+    {
+     "tag": "path",
+     "attrs": [
+      "d",
+      "fill"
+     ],
+     "cls": ""
+    },
+    {
+     "tag": "div",
+     "attrs": [
+      "class"
+     ],
+     "cls": "-gzTf"
+    },
+    {
+     "tag": "span",
+     "attrs": [
+      "class",
+      "dir",
+      "lang"
+     ],
+     "cls": "AKwIn"
+    },
+    {
+     "tag": "span",
+     "attrs": [
+      "class"
+     ],
+     "cls": "_3zbIX _20AkF k-_wd"
+    },
+    {
+     "tag": "span",
+     "attrs": [
+      "class",
+      "style"
+     ],
+     "cls": "_36pO3"
+    },
+    {
+     "tag": "span",
+     "attrs": [
+      "class"
+     ],
+     "cls": "u_TP- fs-exclude FMPra"
+    },
+    {
+     "tag": "svg",
+     "attrs": [
+      "xmlns",
+      "xmlns:xlink",
+      "viewBox",
+      "width",
+      "height",
+      "preserveAspectRatio",
+      "style"
+     ],
+     "cls": ""
+    },
+    {
+     "tag": "defs",
+     "attrs": [],
+     "cls": ""
+    }
+   ],
+   "svg": {
+    "viewBox": "0 0 36 38",
+    "fill": "none",
+    "titleText": "",
+    "paths": [
+     {
+      "hash": "69997abe35386ab2",
+      "len": 529,
+      "fill": "currentColor"
+     }
+    ]
+   },
+   "img": null,
+   "disabled": false
+  }
+ ],
+ "buttons": [
+  {
+   "i": 0,
+   "test": "quit-button",
+   "aria": "",
+   "title": "",
+   "text": "",
+   "disabled": false,
+   "visible": true,
+   "rect": {
+    "x": 133,
+    "y": 57,
+    "w": 18,
+    "h": 18
+   },
+   "img": {
+    "file": "4af31393cf9dee6fd35c07fc7155d404.svg",
+    "ext": "svg",
+    "srcHash": "7d711723d1f71b7d",
+    "alt": "",
+    "cls": "_3X5b9 _9lHjd"
+   },
+   "svgPathHashes": [],
+   "parentText": "",
+   "parentTest": ""
+  },
+  {
+   "i": 1,
+   "test": "",
+   "aria": "",
+   "title": "",
+   "text": "",
+   "disabled": false,
+   "visible": true,
+   "rect": {
+    "x": 550,
+    "y": 798,
+    "w": 39,
+    "h": 48
+   },
+   "img": {
+    "file": "04f20658312d384e061b754e43195b65.svg",
+    "ext": "svg",
+    "srcHash": "3fc0f7a9e750c797",
+    "alt": "",
+    "cls": "_9lHjd"
+   },
+   "svgPathHashes": [],
+   "parentText": "",
+   "parentTest": ""
+  },
+  {
+   "i": 2,
+   "test": "",
+   "aria": "",
+   "title": "",
+   "text": "",
+   "disabled": false,
+   "visible": true,
+   "rect": {
+    "x": 613,
+    "y": 798,
+    "w": 39,
+    "h": 48
+   },
+   "img": {
+    "file": "a276b9a69cbe3d54a457d89354e774e3.svg",
+    "ext": "svg",
+    "srcHash": "bc7547debb5ebb90",
+    "alt": "",
+    "cls": "_9lHjd"
+   },
+   "svgPathHashes": [],
+   "parentText": "",
+   "parentTest": ""
+  },
+  {
+   "i": 3,
+   "test": "",
+   "aria": "",
+   "title": "",
+   "text": "",
+   "disabled": true,
+   "visible": true,
+   "rect": {
+    "x": 676,
+    "y": 802,
+    "w": 39,
+    "h": 48
+   },
+   "img": {
+    "file": "1197f5d009de6723df45564439c8181d.svg",
+    "ext": "svg",
+    "srcHash": "50b00ce98ca7acdb",
+    "alt": "",
+    "cls": "_9lHjd"
+   },
+   "svgPathHashes": [],
+   "parentText": "",
+   "parentTest": ""
+  }
+ ],
+ "note": "只读取证；未点判断题按钮；图片/tos 只留哈希与文件名；不含 URL 查询值、凭据、完整 HTML"
+}

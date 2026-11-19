@@ -1,10 +1,12 @@
-# 交接文档：多邻国答案标注器
+# 交接文档：多邻国答案标注器（历史，2026-10-31）
 
-代码位置：`/Users/fengzhao/duo-xp/`
+> **状态：历史记录。** 当前代码在 `/Users/fengzhao/Projects/duolingo`（旧写法的 `~/duo-xp` 链接已不存在）。
+> 当前以 [RUNBOOK.md](RUNBOOK.md) 为唯一运行手册；下文保留当时的设计与踩坑，不再代表现状。
+> 已过时：三文件架构、“全自动已废弃”、12/20 项测试计数、Node v24.22.1 环境。
 
-## 一、当前目标（已变更，别再按旧目标理解）
+## 一、当时的目标（现在两模式并存）
 
-**默认（2026-10-31 起）：半自动填充**
+**当时默认（2026-10-31 起）：半自动填充**
 
 - 脚本自动把答案**填上**（并标绿框/序号）
 - **开始 / 检查 / 继续 / 结束 全部由用户点**——流程控制权在用户
@@ -12,15 +14,17 @@
 
 三种模式：`node hint.js`（默认填充）、`--hint`（只标注不点）、`--auto`（连检查/继续也自动，验证/刷课用）。
 
-历史目标（全自动刷 XP）已废弃。
+当时把全自动刷 XP 标为废弃；后来 `auto-runner.js` 恢复了全自动并成为 RUNBOOK 主线，和半自动并存。
 
-## 二、架构（3 个文件，单一实现）
+## 二、当时架构（3 个文件；现已扩展）
 
 ```
 core.js        题池合并 / 选项提取 / 答案计划 / 严格匹配 / 标注分配   ← 纯函数，可离线测
 hint.js        浏览器入口：拦截响应、读 DOM、调 core、上标记          ← 不重复实现匹配逻辑
-test-core.js   离线测试，引用同一份 core.js                           ← 12 项断言
+test-core.js   离线测试，引用同一份 core.js                           ← 当时 12 项断言
 ```
+
+当前文件和测试套件见 [README.md](README.md) 的“文件”表和 [RUNBOOK.md](RUNBOOK.md)。
 
 交付脚本和测试**共用 core.js**，这是上一轮最大的工程问题（"改一份、测另一份"），已消除。
 
@@ -55,12 +59,12 @@ correctIndices / correctIndex + choices | options → 选项文本
 
 ## 四、诊断问题的修复对照
 
-来自 `~/Documents/ChatGPT/others/duo-xp-review/diagnosis.md`：
+来自 `~/Documents/ChatGPT/others/duo-xp-review/diagnosis.md`（历史引用，该目录已不存在）：
 
 | 诊断问题 | 修复 | 验证方式 |
 |---|---|---|
 | 只认 `challenge-tap-token`，无词块题型进不去 | `readDom` 三级选择器；匹配不再依赖 domType | `dialogue` 端到端标注成功 |
-| 用正确答案代替完整选项匹配，失败后猜 | `challengeOptions` 取完整选项；`matchChallenge` 不唯一返回 null | `test-core.js` 12/12 |
+| 用正确答案代替完整选项匹配，失败后猜 | `challengeOptions` 取完整选项；`matchChallenge` 不唯一返回 null | 当时 `test-core.js` 12/12 |
 | 三题池只搜一组 | `collectChallenges` 合并 | adaptive 池题目标注成功 |
 | `lastKey` 提前设，标 0 不重试 | 标 0 不写 lastKey；标记被抹掉自动重标 | 代码审查 |
 | 全页 button 子串误标 | `assignMarks` 完整文本优先 + 限定 challenge 容器 + 矩形去重 | 诊断的 `Japan`/`a` 场景单测通过 |
@@ -69,7 +73,7 @@ correctIndices / correctIndex + choices | options → 选项文本
 ## 五、已验证 / 未验证
 
 **已验证**
-- `node test-core.js` **20/20**
+- `node test-core.js` 当时 **20/20**（当前测试数与套件见 RUNBOOK）
 - 端到端传奇课：所有 `MARK n/计划数` 完全相等（`2/2`、`3/3`、`5/5`、`6/6`），**读取与标注索引一致**
 - 覆盖题型：`tapComplete` / `translate` / `dialogue` / `readComprehension`
 - 覆盖题池：`main` / `replacement` / `adaptive`
@@ -82,7 +86,7 @@ correctIndices / correctIndex + choices | options → 选项文本
 
 ## 六、2026-10-31 复核问题的修复
 
-复核报告：`~/Documents/ChatGPT/others/duo-xp-review/review-20261031.md`
+复核报告：`~/Documents/ChatGPT/others/duo-xp-review/review-20261031.md`（历史引用，该目录已不存在）
 
 | 复核问题 | 修复 | 验证 |
 |---|---|---|
@@ -120,7 +124,7 @@ node test-core.js          # 改 core.js 后必须先跑
 
 ## 九、环境
 
-- Node v24.22.1，playwright 1.64.1（Chromium 156 已缓存）
+- Node v23.9.0（2026-11-18 实测；旧记录 v24.22.1），playwright 1.64.1（Chromium 156 已缓存）
 - `profile/` 是有效登录态，**勿删**；失效跑 `node login.js`
 - 账号：有 Super（不掉心），英语课第 9 阶段，日语课保留未动
 - 浏览器是独立 Chromium，不影响本机 Chrome

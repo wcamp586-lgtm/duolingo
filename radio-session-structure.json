@@ -1,0 +1,399 @@
+{
+ "at": "2026-11-19T07:11:56.527Z",
+ "entryText": "听力练习 +30 经验",
+ "pairingShownAfterMs": 23000,
+ "sessions": [
+  {
+   "status": 200,
+   "ms": 2864,
+   "topKeys": [
+    "avatarNum",
+    "avatars",
+    "cefrLevel",
+    "challengePools",
+    "displayedTranslatedTitle",
+    "id",
+    "character",
+    "introLengthMillis",
+    "titleCardShowMillis",
+    "transcript",
+    "outroPoseShowMillis",
+    "elements",
+    "ttsAnnotations",
+    "wrapperName",
+    "schema_name",
+    "script_uuid",
+    "metadata",
+    "trackingProperties"
+   ],
+   "elementsCount": 13,
+   "elementKeysSample": [
+    [
+     "type",
+     "audioUrl",
+     "durationMillis",
+     "guestAudioRanges",
+     "hostAudioRanges",
+     "dialogId",
+     "audioType"
+    ],
+    [
+     "type",
+     "pairs",
+     "challengeID",
+     "correctIndex",
+     "challengeType"
+    ],
+    [
+     "type",
+     "audioUrl",
+     "durationMillis",
+     "guestAudioRanges",
+     "hostAudioRanges",
+     "dialogId",
+     "audioType"
+    ]
+   ],
+   "elementHasText": [
+    [
+     "type",
+     "audioUrl",
+     "dialogId",
+     "audioType"
+    ],
+    [
+     "type",
+     "pairs[0].learningWord",
+     "pairs[0].translation",
+     "pairs[0].tts",
+     "pairs[1].learningWord",
+     "pairs[1].translation",
+     "pairs[1].tts",
+     "pairs[2].learningWord",
+     "pairs[2].translation",
+     "pairs[2].tts",
+     "pairs[3].learningWord",
+     "pairs[3].translation",
+     "pairs[3].tts",
+     "challengeID",
+     "challengeType"
+    ],
+    [
+     "type",
+     "audioUrl",
+     "dialogId",
+     "audioType"
+    ]
+   ],
+   "transcriptShape": {
+    "type": "object",
+    "keys": {
+     "title": {
+      "type": "string",
+      "len": 21
+     },
+     "elements": {
+      "type": "array",
+      "len": 12,
+      "item": {
+       "type": "object",
+       "keys": {
+        "type": {
+         "type": "string",
+         "len": 4
+        },
+        "text": {
+         "type": "string",
+         "len": 74
+        }
+       }
+      }
+     }
+    }
+   },
+   "transcriptTextPaths": [
+    "title",
+    "elements[0].type",
+    "elements[0].text",
+    "elements[1].type",
+    "elements[1].text",
+    "elements[2].type",
+    "elements[2].text",
+    "elements[3].type",
+    "elements[3].text"
+   ],
+   "transcriptMaxStrLen": 125,
+   "challengePoolsShape": {
+    "type": "object",
+    "keys": {
+     "dialog_0": {
+      "type": "array",
+      "len": 1,
+      "item": {
+       "type": "object",
+       "keys": {
+        "type": {
+         "type": "string",
+         "len": 9
+        },
+        "pairs": {
+         "type": "array",
+         "len": 4
+        },
+        "challengeID": {
+         "type": "string",
+         "len": 36
+        },
+        "correctIndex": "number",
+        "challengeType": {
+         "type": "string",
+         "len": 11
+        }
+       }
+      }
+     },
+     "dialog_1": {
+      "type": "array",
+      "len": 1,
+      "item": {
+       "type": "object",
+       "keys": {
+        "type": {
+         "type": "string",
+         "len": 9
+        },
+        "prompt": {
+         "type": "string",
+         "len": 32
+        },
+        "isTrue": "boolean",
+        "challengeID": {
+         "type": "string",
+         "len": 36
+        },
+        "challengeType": {
+         "type": "string",
+         "len": 6
+        }
+       }
+      }
+     },
+     "dialog_2": {
+      "type": "array",
+      "len": 1,
+      "item": {
+       "type": "object",
+       "keys": {
+        "type": {
+         "type": "string",
+         "len": 9
+        },
+        "prompt": {
+         "type": "string",
+         "len": 11
+        },
+        "choices": {
+         "type": "array",
+         "len": 5
+        },
+        "correctIndices": {
+         "type": "array",
+         "len": 3
+        },
+        "audioUrl": {
+         "type": "string",
+         "len": 82
+        },
+        "durationMillis": "number",
+        "challengeID": {
+         "type": "string",
+         "len": 36
+        },
+        "challengeType": {
+         "type": "string",
+         "len": 15
+        }
+       }
+      }
+     },
+     "dialog_3": {
+      "type": "array",
+      "len": 1,
+      "item": {
+       "type": "object",
+       "keys": {
+        "type": {
+         "type": "string",
+         "len": 9
+        },
+        "prompt": {
+         "type": "string",
+         "len": 28
+        },
+        "choices": {
+         "type": "array",
+         "len": 3
+        },
+        "correctIndex": "number",
+        "challengeID": {
+         "type": "string",
+         "len": 36
+        },
+        "challengeType": {
+         "type": "string",
+         "len": 6
+        }
+       }
+      }
+     },
+     "dialog_4": {
+      "type": "array",
+      "len": 1,
+      "item": {
+       "type": "object",
+       "keys": {
+        "type": {
+         "type": "string",
+         "len": 9
+        },
+        "prompt": {
+         "type": "string",
+         "len": 11
+        },
+        "choices": {
+         "type": "array",
+         "len": 5
+        },
+        "correctIndices": {
+         "type": "array",
+         "len": 3
+        },
+        "audioUrl": {
+         "type": "string",
+         "len": 82
+        },
+        "durationMillis": "number",
+        "challengeID": {
+         "type": "string",
+         "len": 36
+        },
+        "challengeType": {
+         "type": "string",
+         "len": 15
+        }
+       }
+      }
+     },
+     "dialog_5": {
+      "type": "array",
+      "len": 1,
+      "item": {
+       "type": "object",
+       "keys": {
+        "type": {
+         "type": "string",
+         "len": 9
+        },
+        "prompt": {
+         "type": "string",
+         "len": 36
+        },
+        "choices": {
+         "type": "array",
+         "len": 3
+        },
+        "correctIndex": "number",
+        "challengeID": {
+         "type": "string",
+         "len": 36
+        },
+        "challengeType": {
+         "type": "string",
+         "len": 6
+        }
+       }
+      }
+     }
+    }
+   },
+   "ttsAnnotationsShape": {
+    "type": "object",
+    "count": 7,
+    "itemKeys": [
+     "visemes"
+    ]
+   },
+   "cefrLevelType": "string",
+   "titleType": "string",
+   "titleLen": 18,
+   "schema": "duoradio_shortened_intro_outro_a2@1778094746"
+  }
+ ],
+ "pairButtons": [
+  {
+   "test": "演出-challenge-tap-token",
+   "text": "1",
+   "enabled": true,
+   "x": 363,
+   "y": 614,
+   "w": 255
+  },
+  {
+   "test": "戏剧-challenge-tap-token",
+   "text": "2",
+   "enabled": true,
+   "x": 363,
+   "y": 682,
+   "w": 255
+  },
+  {
+   "test": "演员-challenge-tap-token",
+   "text": "3",
+   "enabled": true,
+   "x": 363,
+   "y": 750,
+   "w": 255
+  },
+  {
+   "test": "角色-challenge-tap-token",
+   "text": "4",
+   "enabled": true,
+   "x": 363,
+   "y": 818,
+   "w": 255
+  },
+  {
+   "test": "戏剧-challenge-tap-token",
+   "text": "5 戏剧",
+   "enabled": true,
+   "x": 648,
+   "y": 614,
+   "w": 255
+  },
+  {
+   "test": "角色-challenge-tap-token",
+   "text": "6 角色",
+   "enabled": true,
+   "x": 648,
+   "y": 682,
+   "w": 255
+  },
+  {
+   "test": "演员-challenge-tap-token",
+   "text": "7 演员",
+   "enabled": true,
+   "x": 648,
+   "y": 750,
+   "w": 255
+  },
+  {
+   "test": "演出-challenge-tap-token",
+   "text": "8 演出",
+   "enabled": true,
+   "x": 648,
+   "y": 818,
+   "w": 255
+  }
+ ],
+ "note": "只读结构；不存响应原文/请求体/凭据；未提交配对、未点跳级"
+}

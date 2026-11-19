@@ -1,0 +1,673 @@
+{
+ "at": "2026-11-19T08:58:47.220Z",
+ "nodes": [
+  {
+   "l": 0,
+   "guessPath": "/lesson/unit/72/legendary/1",
+   "path": "/lesson/unit/72/legendary/1",
+   "text": "20 40 前方高能！亮出实力才能拿下传奇等级哦～ 继续",
+   "startN": 0,
+   "startHref": "",
+   "anyLegendary": [],
+   "buttons": [
+    {
+     "test": "quit-button",
+     "text": "",
+     "path": ""
+    },
+    {
+     "test": "player-next",
+     "text": "继续",
+     "path": ""
+    }
+   ]
+  },
+  {
+   "l": 1,
+   "guessPath": "/lesson/unit/72/legendary/2",
+   "path": "/lesson/unit/72/legendary/2",
+   "text": "La pièce en finnois 开始读故事",
+   "startN": 0,
+   "startHref": "",
+   "anyLegendary": [],
+   "buttons": [
+    {
+     "test": "story-start",
+     "text": "开始读故事",
+     "path": ""
+    }
+   ]
+  },
+  {
+   "l": 2,
+   "guessPath": "/lesson/unit/72/legendary/3",
+   "path": "/learn",
+   "text": "学习 练习基地 排行榜 特别任务 宝石小店 个人档案 更多",
+   "startN": 0,
+   "startHref": "",
+   "anyLegendary": [],
+   "buttons": [
+    {
+     "test": "home-nav",
+     "text": "学习",
+     "path": "/learn"
+    },
+    {
+     "test": "practice-hub-nav",
+     "text": "练习基地",
+     "path": "/practice-hub"
+    },
+    {
+     "test": "leaderboard-nav",
+     "text": "排行榜",
+     "path": "/leaderboard"
+    },
+    {
+     "test": "quests-nav",
+     "text": "特别任务",
+     "path": "/quests"
+    },
+    {
+     "test": "shop-nav",
+     "text": "宝石小店",
+     "path": "/shop"
+    },
+    {
+     "test": "profile-tab",
+     "text": "个人档案",
+     "path": "/profile/fongzhua"
+    }
+   ]
+  },
+  {
+   "l": 3,
+   "guessPath": "/lesson/unit/72/legendary/4",
+   "path": "/lesson/unit/72/legendary/4",
+   "text": "20 40 前方高能！亮出实力才能拿下传奇等级哦～ 继续",
+   "startN": 0,
+   "startHref": "",
+   "anyLegendary": [],
+   "buttons": [
+    {
+     "test": "quit-button",
+     "text": "",
+     "path": ""
+    },
+    {
+     "test": "player-next",
+     "text": "继续",
+     "path": ""
+    }
+   ]
+  },
+  {
+   "l": 4,
+   "guessPath": "/lesson/unit/72/legendary/5",
+   "path": "/lesson/unit/72/legendary/5",
+   "text": "Lumières pour la planète… 开始读故事",
+   "startN": 0,
+   "startHref": "",
+   "anyLegendary": [],
+   "buttons": [
+    {
+     "test": "story-start",
+     "text": "开始读故事",
+     "path": ""
+    }
+   ]
+  },
+  {
+   "l": 5,
+   "guessPath": "/lesson/unit/72/legendary/6",
+   "path": "/learn",
+   "text": "学习 练习基地 排行榜 特别任务 宝石小店 个人档案 更多 323 4298 钻石等级 查看排行榜 你当前排在第 1 位 继续努力，坐稳前 3！ 每日特别任务 显示全部 获取 50 经验 50 / 50 50 / 50 3 个单元至少答对 90% 3 / 3 3 / 3 学习时长满 20 分钟 20",
+   "startN": 0,
+   "startHref": "",
+   "anyLegendary": [],
+   "buttons": [
+    {
+     "test": "home-nav",
+     "text": "学习",
+     "path": "/learn"
+    },
+    {
+     "test": "practice-hub-nav",
+     "text": "练习基地",
+     "path": "/practice-hub"
+    },
+    {
+     "test": "leaderboard-nav",
+     "text": "排行榜",
+     "path": "/leaderboard"
+    },
+    {
+     "test": "quests-nav",
+     "text": "特别任务",
+     "path": "/quests"
+    },
+    {
+     "test": "shop-nav",
+     "text": "宝石小店",
+     "path": "/shop"
+    },
+    {
+     "test": "profile-tab",
+     "text": "个人档案",
+     "path": "/profile/fongzhua"
+    },
+    {
+     "test": "leaderboards-open",
+     "text": "查看排行榜",
+     "path": "/leaderboard"
+    },
+    {
+     "test": "",
+     "text": "显示全部",
+     "path": "/quests"
+    },
+    {
+     "test": "",
+     "text": "关于我们",
+     "path": "/"
+    },
+    {
+     "test": "",
+     "text": "宝石小店",
+     "path": "/"
+    },
+    {
+     "test": "",
+     "text": "有效性",
+     "path": "/efficacy"
+    },
+    {
+     "test": "",
+     "text": "招聘贤才",
+     "path": "/"
+    },
+    {
+     "test": "",
+     "text": "投资者",
+     "path": "/"
+    },
+    {
+     "test": "",
+     "text": "条款",
+     "path": "/terms"
+    },
+    {
+     "test": "",
+     "text": "隐私",
+     "path": "/privacy"
+    }
+   ]
+  },
+  {
+   "l": 6,
+   "guessPath": "/lesson/unit/72/legendary/7",
+   "path": "/lesson/unit/72/legendary/7",
+   "text": "20 40 前方高能！亮出实力才能拿下传奇等级哦～ 继续",
+   "startN": 0,
+   "startHref": "",
+   "anyLegendary": [],
+   "buttons": [
+    {
+     "test": "quit-button",
+     "text": "",
+     "path": ""
+    },
+    {
+     "test": "player-next",
+     "text": "继续",
+     "path": ""
+    }
+   ]
+  },
+  {
+   "l": 7,
+   "guessPath": "/lesson/unit/72/legendary/8",
+   "path": "/learn",
+   "text": "学习 练习基地 排行榜 特别任务 宝石小店 个人档案 更多 31 323 4298 钻石等级 查看排行榜 你当前排在第 1 位 继续努力，坐稳前 3！ 每日特别任务 显示全部 获取 50 经验 50 / 50 50 / 50 3 个单元至少答对 90% 3 / 3 3 / 3 学习时长满 20 分钟",
+   "startN": 0,
+   "startHref": "",
+   "anyLegendary": [],
+   "buttons": [
+    {
+     "test": "home-nav",
+     "text": "学习",
+     "path": "/learn"
+    },
+    {
+     "test": "practice-hub-nav",
+     "text": "练习基地",
+     "path": "/practice-hub"
+    },
+    {
+     "test": "leaderboard-nav",
+     "text": "排行榜",
+     "path": "/leaderboard"
+    },
+    {
+     "test": "quests-nav",
+     "text": "特别任务",
+     "path": "/quests"
+    },
+    {
+     "test": "shop-nav",
+     "text": "宝石小店",
+     "path": "/shop"
+    },
+    {
+     "test": "profile-tab",
+     "text": "个人档案",
+     "path": "/profile/fongzhua"
+    },
+    {
+     "test": "leaderboards-open",
+     "text": "查看排行榜",
+     "path": "/leaderboard"
+    },
+    {
+     "test": "",
+     "text": "显示全部",
+     "path": "/quests"
+    },
+    {
+     "test": "",
+     "text": "关于我们",
+     "path": "/"
+    },
+    {
+     "test": "",
+     "text": "宝石小店",
+     "path": "/"
+    },
+    {
+     "test": "",
+     "text": "有效性",
+     "path": "/efficacy"
+    },
+    {
+     "test": "",
+     "text": "招聘贤才",
+     "path": "/"
+    },
+    {
+     "test": "",
+     "text": "投资者",
+     "path": "/"
+    },
+    {
+     "test": "",
+     "text": "条款",
+     "path": "/terms"
+    },
+    {
+     "test": "",
+     "text": "隐私",
+     "path": "/privacy"
+    }
+   ]
+  },
+  {
+   "l": 8,
+   "guessPath": "/lesson/unit/72/legendary/9",
+   "path": "/lesson/unit/72/legendary/9",
+   "text": "Une sieste sur scène… 开始读故事",
+   "startN": 0,
+   "startHref": "",
+   "anyLegendary": [],
+   "buttons": [
+    {
+     "test": "story-start",
+     "text": "开始读故事",
+     "path": ""
+    }
+   ]
+  },
+  {
+   "l": 9,
+   "guessPath": "/lesson/unit/72/legendary/10",
+   "path": "/learn",
+   "text": "学习 练习基地 排行榜 特别任务 宝石小店 个人档案 更多 31 323 4298 钻石等级 查看排行榜 你当前排在第 1 位 继续努力，坐稳前 3！ 每日特别任务 显示全部 获取 50 经验 50 / 50 50 / 50 3 个单元至少答对 90% 3 / 3 3 / 3 学习时长满 20 分钟",
+   "startN": 0,
+   "startHref": "",
+   "anyLegendary": [],
+   "buttons": [
+    {
+     "test": "home-nav",
+     "text": "学习",
+     "path": "/learn"
+    },
+    {
+     "test": "practice-hub-nav",
+     "text": "练习基地",
+     "path": "/practice-hub"
+    },
+    {
+     "test": "leaderboard-nav",
+     "text": "排行榜",
+     "path": "/leaderboard"
+    },
+    {
+     "test": "quests-nav",
+     "text": "特别任务",
+     "path": "/quests"
+    },
+    {
+     "test": "shop-nav",
+     "text": "宝石小店",
+     "path": "/shop"
+    },
+    {
+     "test": "profile-tab",
+     "text": "个人档案",
+     "path": "/profile/fongzhua"
+    },
+    {
+     "test": "leaderboards-open",
+     "text": "查看排行榜",
+     "path": "/leaderboard"
+    },
+    {
+     "test": "",
+     "text": "显示全部",
+     "path": "/quests"
+    },
+    {
+     "test": "",
+     "text": "关于我们",
+     "path": "/"
+    },
+    {
+     "test": "",
+     "text": "宝石小店",
+     "path": "/"
+    },
+    {
+     "test": "",
+     "text": "有效性",
+     "path": "/efficacy"
+    },
+    {
+     "test": "",
+     "text": "招聘贤才",
+     "path": "/"
+    },
+    {
+     "test": "",
+     "text": "投资者",
+     "path": "/"
+    },
+    {
+     "test": "",
+     "text": "条款",
+     "path": "/terms"
+    },
+    {
+     "test": "",
+     "text": "隐私",
+     "path": "/privacy"
+    }
+   ]
+  },
+  {
+   "l": 10,
+   "guessPath": "/lesson/unit/72/legendary/11",
+   "path": "/lesson/unit/72/legendary/11",
+   "text": "20 40 用法语写出这句话 你明白结局了吗？ ↓ À Â Æ È É Ê Ë Î Ï Ô Ù Û Ü Ç Œ 检查",
+   "startN": 0,
+   "startHref": "",
+   "anyLegendary": [],
+   "buttons": [
+    {
+     "test": "quit-button",
+     "text": "",
+     "path": ""
+    },
+    {
+     "test": "",
+     "text": "↓",
+     "path": ""
+    },
+    {
+     "test": "",
+     "text": "À",
+     "path": ""
+    },
+    {
+     "test": "",
+     "text": "Â",
+     "path": ""
+    },
+    {
+     "test": "",
+     "text": "Æ",
+     "path": ""
+    },
+    {
+     "test": "",
+     "text": "È",
+     "path": ""
+    },
+    {
+     "test": "",
+     "text": "É",
+     "path": ""
+    },
+    {
+     "test": "",
+     "text": "Ê",
+     "path": ""
+    },
+    {
+     "test": "",
+     "text": "Ë",
+     "path": ""
+    },
+    {
+     "test": "",
+     "text": "Î",
+     "path": ""
+    },
+    {
+     "test": "",
+     "text": "Ï",
+     "path": ""
+    },
+    {
+     "test": "",
+     "text": "Ô",
+     "path": ""
+    },
+    {
+     "test": "",
+     "text": "Ù",
+     "path": ""
+    },
+    {
+     "test": "",
+     "text": "Û",
+     "path": ""
+    },
+    {
+     "test": "",
+     "text": "Ü",
+     "path": ""
+    }
+   ]
+  },
+  {
+   "l": 11,
+   "guessPath": "/lesson/unit/72/legendary/12",
+   "path": "/learn",
+   "text": "学习 练习基地 排行榜 特别任务 宝石小店 个人档案 更多 323 4298 钻石等级 查看排行榜 你当前排在第 1 位 继续努力，坐稳前 3！ 每日特别任务 显示全部 获取 50 经验 50 / 50 50 / 50 3 个单元至少答对 90% 3 / 3 3 / 3 学习时长满 20 分钟 20",
+   "startN": 0,
+   "startHref": "",
+   "anyLegendary": [],
+   "buttons": [
+    {
+     "test": "home-nav",
+     "text": "学习",
+     "path": "/learn"
+    },
+    {
+     "test": "practice-hub-nav",
+     "text": "练习基地",
+     "path": "/practice-hub"
+    },
+    {
+     "test": "leaderboard-nav",
+     "text": "排行榜",
+     "path": "/leaderboard"
+    },
+    {
+     "test": "quests-nav",
+     "text": "特别任务",
+     "path": "/quests"
+    },
+    {
+     "test": "shop-nav",
+     "text": "宝石小店",
+     "path": "/shop"
+    },
+    {
+     "test": "profile-tab",
+     "text": "个人档案",
+     "path": "/profile/fongzhua"
+    },
+    {
+     "test": "leaderboards-open",
+     "text": "查看排行榜",
+     "path": "/leaderboard"
+    },
+    {
+     "test": "",
+     "text": "显示全部",
+     "path": "/quests"
+    },
+    {
+     "test": "",
+     "text": "关于我们",
+     "path": "/"
+    },
+    {
+     "test": "",
+     "text": "宝石小店",
+     "path": "/"
+    },
+    {
+     "test": "",
+     "text": "有效性",
+     "path": "/efficacy"
+    },
+    {
+     "test": "",
+     "text": "招聘贤才",
+     "path": "/"
+    },
+    {
+     "test": "",
+     "text": "投资者",
+     "path": "/"
+    },
+    {
+     "test": "",
+     "text": "条款",
+     "path": "/terms"
+    },
+    {
+     "test": "",
+     "text": "隐私",
+     "path": "/privacy"
+    }
+   ]
+  },
+  {
+   "l": 12,
+   "guessPath": "/lesson/unit/72/legendary/13",
+   "path": "/learn",
+   "text": "学习 练习基地 排行榜 特别任务 宝石小店 个人档案 更多 323 4298 钻石等级 查看排行榜 你当前排在第 1 位 继续努力，坐稳前 3！ 每日特别任务 显示全部 获取 50 经验 50 / 50 50 / 50 3 个单元至少答对 90% 3 / 3 3 / 3 学习时长满 20 分钟 20",
+   "startN": 0,
+   "startHref": "",
+   "anyLegendary": [],
+   "buttons": [
+    {
+     "test": "home-nav",
+     "text": "学习",
+     "path": "/learn"
+    },
+    {
+     "test": "practice-hub-nav",
+     "text": "练习基地",
+     "path": "/practice-hub"
+    },
+    {
+     "test": "leaderboard-nav",
+     "text": "排行榜",
+     "path": "/leaderboard"
+    },
+    {
+     "test": "quests-nav",
+     "text": "特别任务",
+     "path": "/quests"
+    },
+    {
+     "test": "shop-nav",
+     "text": "宝石小店",
+     "path": "/shop"
+    },
+    {
+     "test": "profile-tab",
+     "text": "个人档案",
+     "path": "/profile/fongzhua"
+    },
+    {
+     "test": "leaderboards-open",
+     "text": "查看排行榜",
+     "path": "/leaderboard"
+    },
+    {
+     "test": "",
+     "text": "显示全部",
+     "path": "/quests"
+    },
+    {
+     "test": "",
+     "text": "关于我们",
+     "path": "/"
+    },
+    {
+     "test": "",
+     "text": "宝石小店",
+     "path": "/"
+    },
+    {
+     "test": "",
+     "text": "有效性",
+     "path": "/efficacy"
+    },
+    {
+     "test": "",
+     "text": "招聘贤才",
+     "path": "/"
+    },
+    {
+     "test": "",
+     "text": "投资者",
+     "path": "/"
+    },
+    {
+     "test": "",
+     "text": "条款",
+     "path": "/terms"
+    },
+    {
+     "test": "",
+     "text": "隐私",
+     "path": "/privacy"
+    }
+   ]
+  }
+ ]
+}

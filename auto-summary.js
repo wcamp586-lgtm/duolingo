@@ -9,7 +9,7 @@ const lines = log.split('\n');
 const entries = lines.filter((l) => l.startsWith('ENTRY'));
 const settled = lines.filter((l) => l.startsWith('SETTLED'));
 const blocked = lines.filter((l) => l.startsWith('BLOCKED'));
-const end = lines.filter((l) => l.startsWith('END ')).pop();
+const end = lines.filter((l) => l.startsWith('STOP ') || l.startsWith('END ')).pop();
 
 const xps = settled.map((l) => {
   const m = l.match(/xp=(\d+)\s+delta=(-?\d+)/);
@@ -26,7 +26,13 @@ console.log(`卡住 BLOCKED   : ${blocked.length}`);
 if (xps.length) {
   console.log(`XP             : ${xps[xps.length - 1].xp}（累计 +${xps.reduce((a, b) => a + b.delta, 0)}）`);
 }
-if (end) console.log('结束行         : ' + end);
+if (end) {
+  console.log('结束行         : ' + end);
+  try {
+    const info = JSON.parse(end.slice(5));
+    if (Number.isFinite(info.xpGain)) console.log('本次 XP 增量   : ' + info.xpGain);
+  } catch (e) {}
+}
 
 if (blocked.length) {
   console.log('\n--- 卡住原因（去重） ---');

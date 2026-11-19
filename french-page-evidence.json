@@ -1,0 +1,374 @@
+{
+ "capturedAt": "2026-11-18T12:28:42.596Z",
+ "scope": "s3u69-72",
+ "out": [
+  {
+   "key": "s3u69l0",
+   "type": "skill",
+   "state": "legendary",
+   "name": "Fashion, Level 0",
+   "legendaryNode": false,
+   "legendaryStart": false
+  },
+  {
+   "key": "s3u69l1",
+   "type": "story",
+   "state": "legendary",
+   "name": "A Lively Outing",
+   "legendaryNode": false,
+   "legendaryStart": false
+  },
+  {
+   "key": "s3u69l2",
+   "type": "duo_radio",
+   "state": "passed",
+   "name": "La boutique mobile",
+   "legendaryNode": false,
+   "legendaryStart": false
+  },
+  {
+   "key": "s3u69l4",
+   "type": "skill",
+   "state": "passed",
+   "name": "Fashion, Level 1",
+   "legendaryNode": true,
+   "legendaryStart": false
+  },
+  {
+   "key": "s3u69l5",
+   "type": "story",
+   "state": "passed",
+   "name": "The Forgotten Beanie…",
+   "legendaryNode": true,
+   "legendaryStart": false
+  },
+  {
+   "key": "s3u69l6",
+   "type": "duo_radio",
+   "state": "passed",
+   "name": "La mode des chapeaux",
+   "legendaryNode": false,
+   "legendaryStart": false
+  },
+  {
+   "key": "s3u69l7",
+   "type": "practice",
+   "state": "passed",
+   "name": "Course Practice 67",
+   "legendaryNode": true,
+   "legendaryStart": false
+  },
+  {
+   "key": "s3u69l8",
+   "type": "story",
+   "state": "passed",
+   "name": "The Jacket That's Too Small…",
+   "legendaryNode": true,
+   "legendaryStart": false
+  },
+  {
+   "key": "s3u69l9",
+   "type": "duo_radio",
+   "state": "passed",
+   "name": "La cabine d'essayage",
+   "legendaryNode": false,
+   "legendaryStart": false
+  },
+  {
+   "key": "s3u69l10",
+   "type": "practice",
+   "state": "passed",
+   "name": "Unit Practice Level 70",
+   "legendaryNode": true,
+   "legendaryStart": false
+  },
+  {
+   "key": "s3u69l12",
+   "type": "duo_radio",
+   "state": "passed",
+   "name": "Problème au distributeur",
+   "legendaryNode": false,
+   "legendaryStart": false
+  },
+  {
+   "key": "s3u69l13",
+   "type": "unit_review",
+   "state": "passed",
+   "name": "Unit Review 69",
+   "legendaryNode": false,
+   "legendaryStart": false
+  },
+  {
+   "key": "s3u70l0",
+   "type": "skill",
+   "state": "legendary",
+   "name": "Help!, Level 0",
+   "legendaryNode": false,
+   "legendaryStart": false
+  },
+  {
+   "key": "s3u70l1",
+   "type": "story",
+   "state": "legendary",
+   "name": "The Croissant Mystery…",
+   "legendaryNode": false,
+   "legendaryStart": false
+  },
+  {
+   "key": "s3u70l2",
+   "type": "duo_radio",
+   "state": "passed",
+   "name": "Mauvais numéro",
+   "legendaryNode": false,
+   "legendaryStart": false
+  },
+  {
+   "key": "s3u70l3",
+   "type": "skill",
+   "state": "passed",
+   "name": "Help!, Level 1",
+   "legendaryNode": true,
+   "legendaryStart": false
+  },
+  {
+   "key": "s3u70l4",
+   "type": "story",
+   "state": "passed",
+   "name": "The Family Newspaper",
+   "legendaryNode": true,
+   "legendaryStart": false
+  },
+  {
+   "key": "s3u70l5",
+   "type": "duo_radio",
+   "state": "passed",
+   "name": "La police à cheval",
+   "legendaryNode": false,
+   "legendaryStart": false
+  },
+  {
+   "key": "s3u70l6",
+   "type": "practice",
+   "state": "passed",
+   "name": "Course Practice 68",
+   "legendaryNode": true,
+   "legendaryStart": false
+  },
+  {
+   "key": "s3u70l8",
+   "type": "story",
+   "state": "passed",
+   "name": "The Missing Painting",
+   "legendaryNode": true,
+   "legendaryStart": false
+  },
+  {
+   "key": "s3u70l9",
+   "type": "duo_radio",
+   "state": "passed",
+   "name": "Bruit au musée",
+   "legendaryNode": false,
+   "legendaryStart": false
+  },
+  {
+   "key": "s3u70l10",
+   "type": "practice",
+   "state": "passed",
+   "name": "Unit Practice Level 71",
+   "legendaryNode": true,
+   "legendaryStart": false
+  },
+  {
+   "key": "s3u70l11",
+   "type": "duo_radio",
+   "state": "passed",
+   "name": "Les montres des adultes",
+   "legendaryNode": false,
+   "legendaryStart": false
+  },
+  {
+   "key": "s3u70l12",
+   "type": "unit_review",
+   "state": "passed",
+   "name": "Unit Review 70",
+   "legendaryNode": false,
+   "legendaryStart": false
+  },
+  {
+   "key": "s3u71l0",
+   "type": "skill",
+   "state": "passed",
+   "name": "Theater, Level 0",
+   "legendaryNode": true,
+   "legendaryStart": false
+  },
+  {
+   "key": "s3u71l1",
+   "type": "story",
+   "state": "passed",
+   "name": "The Play in Finnish",
+   "legendaryNode": true,
+   "legendaryStart": false
+  },
+  {
+   "key": "s3u71l2",
+   "type": "duo_radio",
+   "state": "passed",
+   "name": "L'arbre magique",
+   "legendaryNode": false,
+   "legendaryStart": false
+  },
+  {
+   "key": "s3u71l3",
+   "type": "skill",
+   "state": "passed",
+   "name": "Theater, Level 1",
+   "legendaryNode": true,
+   "legendaryStart": false
+  },
+  {
+   "key": "s3u71l4",
+   "type": "story",
+   "state": "active",
+   "name": "Lights for the Planet…",
+   "legendaryNode": false,
+   "legendaryStart": false
+  },
+  {
+   "key": "s3u71l5",
+   "type": "duo_radio",
+   "state": "locked",
+   "name": "Le théâtre à Montréal",
+   "legendaryNode": false,
+   "legendaryStart": false
+  },
+  {
+   "key": "s3u71l6",
+   "type": "practice",
+   "state": "locked",
+   "name": "Course Practice 69",
+   "legendaryNode": false,
+   "legendaryStart": false
+  },
+  {
+   "key": "s3u71l8",
+   "type": "story",
+   "state": "locked",
+   "name": "A Nap on Stage",
+   "legendaryNode": false,
+   "legendaryStart": false
+  },
+  {
+   "key": "s3u71l9",
+   "type": "duo_radio",
+   "state": "locked",
+   "name": "Théâtre interactif",
+   "legendaryNode": false,
+   "legendaryStart": false
+  },
+  {
+   "key": "s3u71l10",
+   "type": "practice",
+   "state": "locked",
+   "name": "Unit Practice Level 72",
+   "legendaryNode": false,
+   "legendaryStart": false
+  },
+  {
+   "key": "s3u71l11",
+   "type": "duo_radio",
+   "state": "locked",
+   "name": "La fin des histoires",
+   "legendaryNode": false,
+   "legendaryStart": false
+  },
+  {
+   "key": "s3u71l12",
+   "type": "unit_review",
+   "state": "locked",
+   "name": "Unit Review 71",
+   "legendaryNode": false,
+   "legendaryStart": false
+  },
+  {
+   "key": "s3u72l1",
+   "type": "story",
+   "state": "locked",
+   "name": "The Giant Cookie",
+   "legendaryNode": false,
+   "legendaryStart": false
+  },
+  {
+   "key": "s3u72l3",
+   "type": "skill",
+   "state": "locked",
+   "name": "Meet Up, Level 1",
+   "legendaryNode": false,
+   "legendaryStart": false
+  },
+  {
+   "key": "s3u72l4",
+   "type": "story",
+   "state": "locked",
+   "name": "A Place in Line…",
+   "legendaryNode": false,
+   "legendaryStart": false
+  },
+  {
+   "key": "s3u72l5",
+   "type": "duo_radio",
+   "state": "locked",
+   "name": "Le club de cuisine",
+   "legendaryNode": false,
+   "legendaryStart": false
+  },
+  {
+   "key": "s3u72l6",
+   "type": "practice",
+   "state": "locked",
+   "name": "Course Practice 70",
+   "legendaryNode": false,
+   "legendaryStart": false
+  },
+  {
+   "key": "s3u72l7",
+   "type": "story",
+   "state": "locked",
+   "name": "A cardboard house",
+   "legendaryNode": false,
+   "legendaryStart": false
+  },
+  {
+   "key": "s3u72l8",
+   "type": "duo_radio",
+   "state": "locked",
+   "name": "Le travail des adultes",
+   "legendaryNode": false,
+   "legendaryStart": false
+  },
+  {
+   "key": "s3u72l9",
+   "type": "practice",
+   "state": "locked",
+   "name": "Unit Practice Level 73",
+   "legendaryNode": false,
+   "legendaryStart": false
+  },
+  {
+   "key": "s3u72l11",
+   "type": "duo_radio",
+   "state": "locked",
+   "name": "Restaurant de château",
+   "legendaryNode": false,
+   "legendaryStart": false
+  },
+  {
+   "key": "s3u72l12",
+   "type": "unit_review",
+   "state": "locked",
+   "name": "Unit Review 72",
+   "legendaryNode": false,
+   "legendaryStart": false
+  }
+ ]
+}

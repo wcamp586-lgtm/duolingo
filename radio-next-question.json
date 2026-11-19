@@ -1,0 +1,26 @@
+{
+  "at": "2026-11-19T21:35:00+08:00",
+  "source": "auto-radio-tap2.log",
+  "pairing": {
+    "result": "4 对全部反馈成功（ok=true）",
+    "keys": ["演员", "演出", "戏剧", "角色"]
+  },
+  "next_question": {
+    "url": "/lesson/unit/72/level/6",
+    "text": "LES VOYAGES DE BÉA Les acteurs improvisent souvent. 1 2",
+    "buttons": [
+      { "test": "quit-button", "text": "", "enabled": true },
+      { "test": "", "text": "", "enabled": true },
+      { "test": "", "text": "", "enabled": true },
+      { "test": "", "text": "", "enabled": false }
+    ],
+    "media": 0,
+    "note": "判断题外观：法语句子 + 两个无文本按钮；按钮的 aria-label/子元素/图标尚未取证，不能猜哪个是对/错"
+  },
+  "session_shape": {
+    "elements": "13 个；含判断题(prompt+isTrue)、单选(prompt+choices+correctIndex)、多选(choices+correctIndices)",
+    "transcript": "有文本，最长 125 字符",
+    "no_challenges": true
+  },
+  "window": "KEEP_OPEN：runner 99213 与专用 Chrome 仍保留在此页"
+}

@@ -1,5 +1,6 @@
 #!/bin/bash
-cd "$HOME/duo-xp" || { echo "找不到 ~/duo-xp"; read; exit 1; }
+# 项目目录：/Users/fengzhao/Projects/duolingo（旧 ~/duo-xp 链接已不存在）
+cd "$(dirname "$0")" || { echo "找不到项目目录"; read; exit 1; }
 clear
 echo "=============================="
 echo "  多邻国答案填充器"

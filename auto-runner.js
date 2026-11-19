@@ -5,7 +5,10 @@ const policy = require('./automation-policy.js');
 const core = require('./core.js');
 const storyRunner = require('./story-runner.js');
 const lessonRunner = require('./lesson-runner.js');
-const { prepareByUrl, prepareLegendary, findCourseLevel, LEARN, ORIGIN } = require('./legendary-entry.js');
+const lessonGuard = require('./lesson-guard.js');
+const radioTap = require('./radio-tap.js');
+const radioQuiz = require('./radio-quiz.js');
+const { prepareByUrl, findCourseLevel, LEARN, ORIGIN } = require('./legendary-entry.js');
 
 const nextSelector = '[data-test="player-next"]:visible';
 // 配对题兜底用的词表（practice-lexemes 响应），solve 和响应回调都要读
@@ -23,6 +26,11 @@ function numberArg(name, minimum) {
 }
 
 const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+
+// 页面签名只用于判断“点击后有没有真的换屏”，不参与认题。
+const screenSig = (snapshot) => snapshot
+  ? lessonGuard.classifyPage(snapshot) + '|' + snapshot.url + '|' + (snapshot.text || '').slice(0, 80)
+  : 'null';
 
 // 点按钮：React 会在点击瞬间重渲染，locator.click 常报 "element was detached"。
 // 退一步用真实鼠标坐标点，并允许重试。
@@ -49,12 +57,34 @@ async function solve(page, target, check) {
   let skippedCount = 0;
   let stalled = 0;
   let feedbackSince = null;
-  let storyFinished = false;
   let nodom = 0;
   let nomatchLogged = false;
+  const progress = lessonGuard.createProgressGuard();
+  // 电台专用：只有已确认的 radio-direct 入口才走配对分支，其他类型/入口不套
+  if (target.slot.type === 'duo_radio' && target.radioDirect) {
+    await check();
+    const tap = await radioTap.run(page, check);
+    if (tap.status === 'blocked') throw new Error(tap.error);
+    if (tap.status === 'not-match') throw new Error('RADIO_TAP_NOT_MATCH 页面没有出现「选择配对」');
+    // 配对完成即「一组题通过」：留在同一页面继续判断题/单选/多选，不回 /learn、不重进
+    const quiz = await radioQuiz.run(page, target.data, check);
+    if (quiz.status === 'blocked') throw new Error('RADIO_QUIZ_BLOCKED ' + quiz.error);
+    return answered + (quiz.answered || 0);
+  }
+  let sawData = !!target.data;
+  let screenSeen = '';
+  let coverClicked = false;
+  let storyDone = false;
   for (let round = 0; round < 400; round++) {
     await check();
     if (LEARN.test(page.url())) return answered;
+    if (!sawData && target.data) { sawData = true; progress.touch(); }
+    // 没收到匹配的 session 时不要一直空转：45 秒后把当前页面状态一起报出来
+    if (!target.data && target.startedAt && Date.now() - target.startedAt > 45000) {
+      const snapshot = await lessonGuard.readPageState(page);
+      throw new Error('未收到与目标节点匹配的课程数据；页面：' + lessonGuard.describePage(snapshot));
+    }
+
     // 普通课：这关的题答完（含跳过）就退出，别在"继续练习"页里死循环
     const total = Array.isArray(target.data?.challenges) ? target.data.challenges.length : 0;
     if (target.mode === 'normal' && total && answered + skippedCount >= total) return answered;
@@ -62,32 +92,51 @@ async function solve(page, target, check) {
     if (target.slot.type === 'story') {
       const finish = page.locator('[data-test="stories-player-done"]:visible');
       const cover = page.locator('[data-test="story-start"]:visible');
-      const lastNext = page.locator('[data-test="stories-player-continue"]:visible');
       if (await finish.count()) {
         await check();
         await clickSafe(page, finish);
+        progress.touch();
         await page.waitForURL(LEARN, { timeout: 45000 });
         return answered;
       }
-      if (await cover.count() && target.data) {
-        await check();
-        await clickSafe(page, cover);
-      } else if (storyFinished && await lastNext.count() && await lastNext.isEnabled()) {
-        await check();
-        await clickSafe(page, lastNext);
-        // 完成信号有两种：出现 stories-player-done，或者直接回到学习路径
-        await Promise.race([
-          finish.waitFor({ timeout: 45000 }).catch(() => {}),
-          page.waitForURL(LEARN, { timeout: 45000 }).catch(() => {}),
-        ]);
+      if (await cover.count()) {
+        // 故事封面必须点击「开始读故事」才会进入阅读器、请求 stories API；
+        // 原来要等 target.data 到了才点，形成死锁（不点封面就永远没有数据）。
+        if (!coverClicked) {
+          coverClicked = true;
+          await check();
+          await clickSafe(page, cover);
+          progress.touch();
+          await page.waitForTimeout(2000);
+        }
+        // 点完只等数据/页面变化，数据超时仍由循环开头 45 秒兜底，不无限重试
       } else if (target.data) {
         const result = await storyRunner.step(page, target.data, check);
         if (result.status === 'blocked') throw new Error(result.error);
         if (result.status === 'answered') answered++;
-        if (result.status === 'done') storyFinished = true;
+        if (result.status === 'done') storyDone = true;
+        if (['answered', 'next'].includes(result.status)) progress.touch();
+        if ((result.status === 'waiting' || result.status === 'outside') && progress.expired()) {
+          const snapshot = await lessonGuard.readPageState(page);
+          throw lessonGuard.noProgressError(snapshot, progress);
+        }
+      }
+      // 答完后只点明确识别到的常规结束/继续控件；点不动/变化不可见就保留窗口给用户
+      if (storyDone) {
+        const ending = await finishStory(page, check, target.data);
+        if (ending === 'advanced') return answered;
+        if (ending === 'questions') {
+          // 后续又出现实际题目：交回答题逻辑
+          storyDone = false;
+          if (typeof storyRunner.resetDone === 'function') storyRunner.resetDone(page);
+          progress.touch();
+          continue;
+        }
+        throw new Error('STORY_DONE_NEEDS_USER 故事已完成（' + ending + '），最后结束课程需用户点击');
       }
     } else {
       const dom = await lessonRunner.readDom(page);
+      if (dom) progress.touch();
       if (dom && target.data) {
         const result = await lessonRunner.step(page, target.data, check, lexemes);
         if (result.status === 'waiting') {
@@ -97,6 +146,7 @@ async function solve(page, target, check) {
           feedbackSince = null;
         }
         if (['answered', 'skipped', 'advanced'].includes(result.status)) {
+          progress.touch();
           if (result.status === 'answered') answered++;
           if (result.status === 'skipped') skippedCount++;
           console.log('LESSON_' + result.status.toUpperCase() + (result.type ? ' type=' + result.type : ''));
@@ -130,62 +180,348 @@ async function solve(page, target, check) {
           throw new Error('普通题停滞 ' + result.status + ' ' + (result.kind || '-') + ' ' + dom.type + ' ' + dom.boxText.slice(0, 120));
         }
       } else if (!dom) {
+        const snapshot = await lessonGuard.readPageState(page);
+        const kind = lessonGuard.classifyPage(snapshot);
+        const beforeSig = screenSig(snapshot);
         // 整页加载中：这不是停滞，等它加载完，别去点 next
-        if (await page.locator('[data-test="loading-screen"]').count().catch(() => 0)) {
-          if (nodom % 5 === 0) console.log('LESSON_LOADING');
+        if (kind === 'loading') {
+          const sig = 'loading|' + beforeSig;
+          if (screenSeen !== sig) {
+            screenSeen = sig;
+            console.log('LESSON_LOADING ' + (snapshot ? snapshot.url : ''));
+          }
           nodom++;
+          if (progress.expired()) throw lessonGuard.noProgressError(snapshot, progress);
           await page.waitForTimeout(2000);
           continue;
         }
         // 普通课的完成页按钮，名字和故事课不一样
         const endBtn = page.locator('[data-test="legendary-session-end-continue"]:visible');
         if (await endBtn.count().catch(() => 0)) {
+          const endSig = 'end|' + beforeSig;
+          if (screenSeen !== endSig) {
+            screenSeen = endSig;
+            console.log('LESSON_END');
+          }
           await clickSafe(page, endBtn);
-          console.log('LESSON_END');
           await page.waitForTimeout(1500);
+          const after = await lessonGuard.readPageState(page);
+          if (screenSig(after) !== beforeSig) progress.touch();
+          if (progress.expired()) throw lessonGuard.noProgressError(after || snapshot, progress);
           continue;
         }
         const next = page.locator(nextSelector);
         if (await next.count() && await next.isEnabled()) {
+          const nextSig = 'next|' + beforeSig;
           await check();
           await clickSafe(page, next);
           nodom++;
-          console.log('LESSON_CONTINUE #' + nodom);
-          // 连续多次推进都没进展，说明卡在结算，把现场打出来
-          if (nodom % 5 === 0) {
-            const dump = await page.evaluate(() => ({
-              url: location.pathname,
-              tests: [...new Set([...document.querySelectorAll('[data-test]')].map((e) => e.getAttribute('data-test')))].slice(0, 12),
-              text: (document.body.innerText || '').replace(/\s+/g, ' ').slice(0, 160),
-            })).catch(() => null);
-            console.log('LESSON_NODOM ' + JSON.stringify(dump));
+          if (screenSeen !== nextSig) {
+            screenSeen = nextSig;
+            console.log('LESSON_CONTINUE #' + nodom);
           }
           await page.waitForTimeout(1200);
+          const after = await lessonGuard.readPageState(page);
+          if (screenSig(after) !== beforeSig) progress.touch();
+          if (progress.expired()) throw lessonGuard.noProgressError(after || snapshot, progress);
           continue;
         }
-        // 没有题目容器、也没有可点的 next：结算动画或完成页
+        // 没有题目容器、也没有可点的 next：封面/非题目页/结算动画。
+        // 同一屏只记一次；超过无进展上限就抛错，原因里带页面状态，交给外层按单关故障处理。
         nodom++;
-        if (nodom % 3 === 0) {
-          const dump = await page.evaluate(() => ({
-            url: location.pathname + location.search,
-            tests: [...new Set([...document.querySelectorAll('[data-test]')].map((e) => e.getAttribute('data-test')))].slice(0, 14),
-            buttons: [...document.querySelectorAll('button')]
-              .filter((e) => { const r = e.getBoundingClientRect(); return r.width > 0 && r.height > 0; })
-              .map((e) => (e.innerText || '').trim().slice(0, 16)).filter(Boolean).slice(0, 8),
-            text: (document.body.innerText || '').replace(/\s+/g, ' ').slice(0, 160),
-          })).catch(() => null);
-          console.log('LESSON_IDLE ' + JSON.stringify(dump));
+        const sig = 'nodom|' + beforeSig;
+        if (screenSeen !== sig) {
+          screenSeen = sig;
+          console.log('LESSON_NODOM ' + JSON.stringify({ kind, ...(snapshot || {}) }));
         }
+        if (progress.expired()) throw lessonGuard.noProgressError(snapshot, progress);
         await page.waitForTimeout(1000);
         continue;
       }
     }
     await page.waitForTimeout(550);
-    if (!target.data && Date.now() - target.startedAt > 45000) {
-      throw new Error('未收到与目标节点匹配的课程数据');
-    }
   }
   throw new Error('课程未在步数上限内回到学习路径');
+}
+
+// 故事结束控件候选：只认已知 data-test 和「结束课程」文本，不按坐标猜。
+const STORY_END_SPECS = [
+  '[data-test="stories-player-done"]',
+  '[data-test="stories-player-continue"]',
+  '[data-test="legendary-session-end-continue"]',
+  'button:has-text("结束课程")',
+];
+
+// 诊断只在 --story-debug 时写临时文件；不记录 cookie/token/请求头。
+function storyDebugEnabled() {
+  return process.argv.includes('--story-debug');
+}
+
+function storyDiag(event) {
+  if (!storyDebugEnabled()) return;
+  try {
+    const file = path.join(__dirname, 'story-end-debug.json');
+    let prev = [];
+    try {
+      const old = JSON.parse(fs.readFileSync(file, 'utf8'));
+      if (Array.isArray(old)) prev = old;
+    } catch {}
+    prev.push({ at: new Date().toISOString(), ...event });
+    fs.writeFileSync(file, JSON.stringify(prev, null, 2));
+  } catch {}
+}
+
+// 同一时刻抓候选的 locator 计数 / 可见 / 启用 / 位置，用于区分
+// a（没候选）和 b（候选存在但被遮挡/不可交互）。
+async function probeStoryEnd(page) {
+  const state = await lessonGuard.readPageState(page);
+  const candidates = [];
+  for (const spec of STORY_END_SPECS) {
+    const loc = page.locator(spec);
+    const count = await loc.count().catch(() => -1);
+    let visible = null, enabled = null, box = null;
+    if (count > 0) {
+      const first = loc.first();
+      visible = await first.isVisible().catch(() => null);
+      enabled = await first.isEnabled().catch(() => null);
+      box = await first.boundingBox().catch(() => null);
+    }
+    candidates.push({ spec, count, visible, enabled, box });
+  }
+  return { state, candidates };
+}
+
+// 唯一可见且启用的候选才点；0 个 → 没找到；多个 → ambiguous，不盲点。
+async function pickStoryEndControl(page) {
+  const picks = [];
+  for (const spec of STORY_END_SPECS) {
+    const loc = page.locator(spec);
+    const n = await loc.count().catch(() => 0);
+    for (let i = 0; i < n; i++) {
+      const el = loc.nth(i);
+      if (!(await el.isVisible().catch(() => false))) continue;
+      if (!(await el.isEnabled().catch(() => false))) continue;
+      picks.push({ loc: el, spec });
+    }
+  }
+  if (picks.length === 1) return picks[0];
+  if (picks.length > 1) return { ambiguous: picks.map((p) => p.spec) };
+  return null;
+}
+
+// 页面签名：除了路由/前 80 字符/关键控件数量，还要带页面文本长度、stories-element 的
+// 尾部内容和按钮状态。故事阅读器在底部追加行时前 80 字符和按钮都可能不变，旧签名会漏判。
+async function storyUiSnapshot(page) {
+  const state = await lessonGuard.readPageState(page);
+  const extra = await page.evaluate(() => {
+    const visible = (e) => {
+      const r = e.getBoundingClientRect();
+      const s = getComputedStyle(e);
+      return r.width > 0 && r.height > 0 && s.visibility !== 'hidden' && s.display !== 'none';
+    };
+    const norm = (x) => (x || '').replace(/\s+/g, ' ').trim();
+    const body = norm(document.body.innerText);
+    const stories = [...document.querySelectorAll('[data-test="stories-element"]')].filter(visible);
+    const parts = stories.map((e) => norm(e.innerText));
+    const buttons = [...document.querySelectorAll('[data-test*="stories-player"]')].filter(visible)
+      .map((b) => (b.getAttribute('data-test') || '')
+        + (b.disabled || b.getAttribute('aria-disabled') === 'true' ? ':disabled' : ':enabled'));
+    return {
+      len: body.length,
+      tail: body.slice(-160),
+      storyCount: stories.length,
+      storyParts: parts.map((t) => t.slice(-200)),
+      buttons,
+      top: window.top === window,
+    };
+  }).catch(() => null);
+  const stateSig = lessonGuard.classifyPage(state) + '|' + ((state && state.url) || '') + '|'
+    + ((state && state.text) || '').slice(0, 80);
+  const presence = [];
+  for (const spec of STORY_END_SPECS) {
+    presence.push(await page.locator(spec).count().catch(() => -1));
+  }
+  const extraSig = extra && Array.isArray(extra.storyParts) && Array.isArray(extra.buttons)
+    ? [extra.len, extra.storyCount, extra.storyParts.join('~'), extra.buttons.join(',')].join('|')
+    : '';
+  return { sig: stateSig + '|' + presence.join(',') + '|' + extraSig, state, extra, presence };
+}
+
+async function storyUiSig(page) {
+  return (await storyUiSnapshot(page)).sig;
+}
+
+// 脱敏 DOM 诊断：只记控件语义（data-test / aria-label / 文本 / 容器），不记凭据。
+async function dumpStoryEndDom(page) {
+  if (!storyDebugEnabled()) return null;
+  const data = await page.evaluate(() => {
+    const visible = (e) => {
+      const r = e.getBoundingClientRect();
+      const s = getComputedStyle(e);
+      return r.width > 0 && r.height > 0 && s.visibility !== 'hidden' && s.display !== 'none';
+    };
+    const items = [];
+    const seen = new Set();
+    for (const el of document.querySelectorAll('button, a, [role="button"]')) {
+      if (!visible(el)) continue;
+      const text = (el.innerText || '').replace(/\s+/g, ' ').trim().slice(0, 80);
+      const test = el.dataset?.test || '';
+      const aria = el.getAttribute('aria-label') || '';
+      if (!text && !test && !aria) continue;
+      const key = test + '|' + text + '|' + aria;
+      if (seen.has(key)) continue;
+      seen.add(key);
+      const containers = [];
+      let p = el.parentElement;
+      for (let i = 0; p && i < 4; i++, p = p.parentElement) {
+        if (p.dataset && p.dataset.test) containers.push(p.dataset.test);
+      }
+      items.push({
+        tag: el.tagName.toLowerCase(),
+        test,
+        aria,
+        text,
+        disabled: !!el.disabled || el.getAttribute('aria-disabled') === 'true',
+        containers,
+      });
+    }
+    return { path: location.pathname, title: (document.title || '').slice(0, 80), items: items.slice(0, 100) };
+  }).catch(() => null);
+  if (!data || !Array.isArray(data.items)) return null;
+  storyDiag({ event: 'dom', ...data });
+  console.log('STORY_END_DOM controls=' + data.items.length + ' path=' + data.path);
+  return data;
+}
+
+// 已知结束控件的存在/启用状态：用来区分「按钮暂时 disabled」和「根本没有控件」。
+async function knownEndControl(page) {
+  for (const spec of STORY_END_SPECS) {
+    const loc = page.locator(spec);
+    const count = await loc.count().catch(() => 0);
+    if (!count) continue;
+    const el = loc.first();
+    if (!(await el.isVisible().catch(() => false))) continue;
+    return { spec, enabled: await el.isEnabled().catch(() => false) };
+  }
+  return null;
+}
+
+// 只读记录播放器状态（不导出音频地址、不改播放策略）。
+async function audioState(page) {
+  return await page.evaluate(() => {
+    const a = document.querySelector('audio, video');
+    if (!a) return null;
+    return {
+      tag: a.tagName.toLowerCase(),
+      paused: !!a.paused,
+      currentTime: Math.round(a.currentTime || 0),
+      duration: Number.isFinite(a.duration) ? Math.round(a.duration) : null,
+    };
+  }).catch(() => null);
+}
+
+// 收尾：用 locator.click（Playwright actionability：滚动、等可点、遮挡检测），
+// 不用坐标点击、不强制点击。点后签名（含控件存在性）必须变化才继续。
+async function finishStory(page, check, session) {
+  // 总边界：故事元素数量 + 少量余量；不靠无条件加次数。
+  const total = Array.isArray(session && session.elements) ? session.elements.length : 0;
+  const maxClicks = Math.min(Math.max(total + 5, 8), 60);
+  let clicks = 0;
+  let sig = await storyUiSig(page);
+  while (clicks < maxClicks) {
+    if (LEARN.test(page.url())) return 'advanced';
+    let probe = await probeStoryEnd(page);
+    let picked = await pickStoryEndControl(page);
+    // 已知按钮暂时禁用 ≠ 没有候选：禁用期间只等 enabled/结算信号，不点击。
+    if (!picked) {
+      const known = await knownEndControl(page);
+      if (known) {
+        let waited = 0;
+        let gone = false;
+        while (waited < 15 && !picked) {
+          await page.waitForTimeout(1000);
+          waited++;
+          if (LEARN.test(page.url())) return 'advanced';
+          picked = await pickStoryEndControl(page);
+          if (picked) break;
+          if (!(await knownEndControl(page))) { gone = true; break; }
+        }
+        if (!picked) {
+          const audio = await audioState(page);
+          storyDiag({ event: gone ? 'control-disappeared' : 'disabled-timeout', clicks, total, waited, spec: known.spec, audio });
+          await dumpStoryEndDom(page);
+          return gone ? 'manual control-disappeared' : 'manual disabled-timeout ' + waited + 's';
+        }
+        storyDiag({ event: 'control-enabled', clicks, total, waited, spec: picked.spec });
+      } else {
+        // 真没有控件：给渲染 5 秒，再判 no-candidate
+        for (let i = 0; i < 5 && !picked; i++) {
+          await page.waitForTimeout(1000);
+          if (LEARN.test(page.url())) return 'advanced';
+          probe = await probeStoryEnd(page);
+          picked = await pickStoryEndControl(page);
+        }
+        if (!picked) {
+          storyDiag({ event: 'no-candidate', clicks, total, route: probe.state && probe.state.url, candidates: probe.candidates });
+          await dumpStoryEndDom(page);
+          return 'manual no-candidate';
+        }
+      }
+    }
+    if (picked.ambiguous) {
+      storyDiag({ event: 'ambiguous', clicks, total, route: probe.state && probe.state.url, specs: picked.ambiguous, candidates: probe.candidates });
+      return 'manual ambiguous';
+    }
+    let clickError = null;
+    try {
+      await check();
+      await picked.loc.click({ timeout: 5000 });
+    } catch (e) {
+      clickError = e.message;
+    }
+    let afterPath = '';
+    try { afterPath = new URL(page.url()).pathname; } catch {}
+    storyDiag({
+      event: clickError ? 'click-failed' : 'clicked',
+      clicks,
+      total,
+      spec: picked.spec,
+      clickError,
+      before: { route: probe.state && probe.state.url, candidates: probe.candidates },
+      afterRoute: afterPath,
+    });
+    if (clickError) {
+      await dumpStoryEndDom(page);
+      return 'manual click-failed ' + picked.spec + ' ' + clickError.slice(0, 80);
+    }
+    // 每点一次都要看到真实推进（新尾部/活动行/按钮/URL），停滞一次即停
+    let changed = false;
+    let afterSnap = null;
+    for (let i = 0; i < 10; i++) {
+      await page.waitForTimeout(1000);
+      if (LEARN.test(page.url())) return 'advanced';
+      afterSnap = await storyUiSnapshot(page);
+      if (afterSnap.sig !== sig) { changed = true; sig = afterSnap.sig; break; }
+    }
+    storyDiag({
+      event: changed ? 'story-progress' : 'clicked-no-progress',
+      clicks,
+      total,
+      spec: picked.spec,
+      after: afterSnap && afterSnap.extra,
+      sigChanged: changed,
+    });
+    if (!changed) { await dumpStoryEndDom(page); return 'no-change ' + picked.spec; }
+    clicks++;
+    // 点击后出现后续实际题目：交回应答逻辑，别继续当阅读页
+    const choiceCount = await page.locator('[data-test="stories-choice"]:visible').count().catch(() => 0);
+    const challengeCount = await page.locator('[data-test*="challenge challenge-"]').count().catch(() => 0);
+    if (choiceCount || challengeCount) {
+      storyDiag({ event: 'questions-appeared', clicks, total, choiceCount, challengeCount });
+      return 'questions';
+    }
+  }
+  return LEARN.test(page.url()) ? 'advanced' : 'max-clicks';
 }
 
 // 普通课里 session 没有对应条目的题（如"新单词"教学题），点平台跳过
@@ -204,9 +540,32 @@ async function trySkip(page, check) {
   return true;
 }
 
+// radio 待处理/成功关键字：外层 catch 按前缀决定“本次运行不再重试这一关”。
+// 只有 RADIO_ADVANCED 是成功（console.log，不抛错）；其余都表示没拿到推进证据。
+const RADIO_PENDING = /^(RADIO_UNSUPPORTED|RADIO_SKIP_CLICK_FAILED|RADIO_SKIP_NO_CHANGE|RADIO_NO_PROGRESS|RADIO_NEXT_CLICK_FAILED|RADIO_NEXT_AMBIGUOUS|RADIO_WRONG_PAGE|RADIO_TAP_AMBIGUOUS|RADIO_TAP_NO_FEEDBACK|RADIO_TAP_NOT_MATCH)\b/;
+
+// 点「开始」之后等真正的课程界面：题目/挑战容器出现才算推进。
+// 不新发网络请求，只读页面状态；离开 /lesson（回首页/别的页面）立刻返回交给上层判误导航。
+async function waitForCourseScreen(page, tries = 12) {
+  let state = null;
+  let kind = 'unknown';
+  for (let i = 0; i < tries; i++) {
+    state = await lessonGuard.readPageState(page);
+    kind = lessonGuard.classifyPage(state);
+    if (kind === 'question') return { state, kind };
+    if (state && !/^\/lesson(?:\/|$)/.test((state.url || '').split('?')[0])) return { state, kind };
+    await page.waitForTimeout(1000);
+  }
+  return { state, kind };
+}
+
 // 普通课入口：/lesson 直接进当前 active 节点（不能像传奇那样构造 unit/level URL，那个 404）
 // 延后 radio：路径上点它 → 「稍后选择」 → 同一 unit 往后找第一个有「开始」入口的节点并进课。
 // 接口会把 radio 报 active、下一节点 locked，但网页上下一节点已有可点的开始（Codex 实测）。
+// 记录规则（验收补正）：点「稍后选择」本身不是成功证据，弹窗收起/URL 变化也不算。
+// 只有同一 unit 的正确后续节点打开、点「开始」成功、并且题目/挑战容器真的出现，
+// 才打唯一一条 RADIO_ADVANCED（带下一节点 id 和页面证据）。拿不到证据一律抛错，
+// 由外层按待处理记录（不记成功、本次运行不再重试这一关）。
 async function prepareDeferredRadio(page, check, slot) {
   await check();
   await page.goto(ORIGIN + '/learn', { waitUntil: 'domcontentloaded', timeout: 20000 }).catch(() => {});
@@ -219,38 +578,192 @@ async function prepareDeferredRadio(page, check, slot) {
   const radio = unit.locator('[data-test="skill-path-level-' + slot.levelIndex + ' skill-path-level-duo_radio"]').first();
   // 用 locator 点击而不是坐标：坐标会被已经展开的气泡挡住
   await radio.click({ timeout: 6000 }).catch(() => {});
-  await page.waitForTimeout(2500);
+  // 气泡/入口是客户端渲染，有时要 8-10 秒才出现；轮询等到真实入口，不按固定短等待下结论
   const later = page.locator('button:has-text("稍后选择"), [role="button"]:has-text("稍后选择")').filter({ visible: true }).first();
-  if (await later.count()) {
-    await later.click({ timeout: 5000 }).catch(() => {});
-    console.log('RADIO_LATER 点了稍后选择');
-    await page.waitForTimeout(2500);
-  } else {
-    // 按钮是一次性的（用过就不再出现）：再点一次节点把气泡关掉，否则会挡住下一节点
-    await radio.click({ timeout: 6000 }).catch(() => {});
-    await page.waitForTimeout(1500);
+  const selfAll = unit.locator('a[data-test*="skill-path-state"]').filter({ visible: true });
+  let picks = [];
+  let laterCount = 0;
+  for (let w = 0; w < 14; w++) {
+    await page.waitForTimeout(1000);
+    laterCount = await later.count().catch(() => 0);
+    if (laterCount) break;
+    const selfCount = await selfAll.count().catch(() => 0);
+    picks = [];
+    for (let i = 0; i < selfCount; i++) {
+      const el = selfAll.nth(i);
+      const text = String(await el.innerText().catch(() => '')).replace(/\s+/g, ' ').trim();
+      if (!text) continue;
+      if (!(await el.isEnabled().catch(() => false))) continue;
+      picks.push({ loc: el, text });
+    }
+    if (picks.length) break;
   }
+  if (!laterCount) {
+    // 没有「跳过内容」入口时走电台自己的常规入口（如「听力练习 +30 经验」），
+    // 只有唯一、有文本、标题与目标节点匹配的入口才点。
+    if (picks.length !== 1) throw new Error('RADIO_UNSUPPORTED 无跳过入口，电台自身入口不唯一 candidates=' + picks.length);
+    const unitText = String(await unit.evaluate((el) => (el.innerText || '').replace(/\s+/g, ' ').trim()).catch(() => ''));
+    if (!unitText.includes(String(slot.name || '').trim())) {
+      throw new Error('RADIO_UNSUPPORTED 电台自身入口标题不匹配目标节点 name=' + slot.name);
+    }
+    await check();
+    await picks[0].loc.click({ timeout: 5000 });
+    await page.waitForURL((url) => url.origin === ORIGIN && url.pathname === '/lesson', { timeout: 25000 }).catch(() => {});
+    await page.waitForTimeout(1000);
+    if (!/\/lesson/.test(page.url())) throw new Error('RADIO_NO_PROGRESS 电台自身入口未进入 /lesson');
+    console.log('RADIO_DIRECT id=' + slot.id + ' entry=' + JSON.stringify(picks[0].text));
+    return { url: new URL(page.url()), deferred: true, skipped: false, radioDirect: true };
+  }
+  const beforeUrl = page.url();
+  const beforeText = await page.evaluate(() => (document.body.innerText || '').replace(/\s+/g, ' ').slice(0, 300)).catch(() => '');
+  let clicked = false;
+  try {
+    await later.click({ timeout: 5000 });
+    clicked = true;
+  } catch (e) {}
+  if (!clicked) throw new Error('RADIO_SKIP_CLICK_FAILED 点击「稍后选择」失败');
+  await page.waitForTimeout(2500);
+  // 弹窗收起只是必要条件，不是推进证据。完全没变化才判 RADIO_SKIP_NO_CHANGE。
+  const afterUrl = page.url();
+  const afterText = await page.evaluate(() => (document.body.innerText || '').replace(/\s+/g, ' ').slice(0, 300)).catch(() => '');
+  const laterGone = (await later.count().catch(() => 1)) === 0;
+  if (!laterGone && afterUrl === beforeUrl && afterText === beforeText) {
+    throw new Error('RADIO_SKIP_NO_CHANGE 点击「稍后选择」后页面未变化');
+  }
+  // 复用路径 DOM 上的节点状态（不发新请求）：同一 unit 往后第一个能点开且有「开始」的节点。
   for (let li = slot.levelIndex + 1; li <= slot.levelIndex + 4; li++) {
+    const nextId = 's' + (slot.sectionIndex ?? 0) + 'u' + slot.unitIndex + 'l' + li;
     const node = unit.locator('[data-test^="skill-path-level-' + li + ' "]').first();
     if (!(await node.count())) continue;
-    await node.click({ timeout: 6000 }).catch(() => {});
-    await page.waitForTimeout(2000);
-    // 入口是 <a data-test="skill-path-state-active ...">开始 +10 经验</a>，不是按钮
-    const start = page.locator('a[data-test*="skill-path-state-active"]').filter({ hasText: '开始' }).filter({ visible: true }).first();
-    if (await start.count()) {
-      await start.click({ timeout: 5000 }).catch(() => {});
-      console.log('RADIO_NEXT level=' + li + ' 点了开始');
-      await page.waitForTimeout(4000);
-      return { url: new URL(page.url()), deferred: true };
+    try {
+      await node.click({ timeout: 6000 });
+    } catch (e) {
+      throw new Error('RADIO_NEXT_CLICK_FAILED next=' + nextId + ' step=node');
     }
-    await page.keyboard.press('Escape').catch(() => {});
-    await page.waitForTimeout(500);
+    await page.waitForTimeout(2000);
+    // 入口是 <a data-test="skill-path-state-active ...">开始 +10 经验</a>，不是按钮。
+    // 先数候选总数：多个「开始」同时可见时，现有 DOM 无法唯一对应到刚选中的节点，
+    // 盲点第一个可能点错节点，所以保守拦截为待处理（精确关联留阶段二）。
+    const starts = page.locator('a[data-test*="skill-path-state-active"]').filter({ hasText: '开始' }).filter({ visible: true });
+    const startCount = await starts.count();
+    if (!startCount) {
+      await page.keyboard.press('Escape').catch(() => {});
+      await page.waitForTimeout(500);
+      continue;
+    }
+    if (startCount > 1) {
+      throw new Error('RADIO_NEXT_AMBIGUOUS next=' + nextId + ' candidates=' + startCount);
+    }
+    const start = starts.first();
+    try {
+      await start.click({ timeout: 5000 });
+    } catch (e) {
+      throw new Error('RADIO_NEXT_CLICK_FAILED next=' + nextId + ' step=start');
+    }
+    // 成功判定顺序：先确认仍在课程路由，再确认题目/挑战容器出现；缺一不可。
+    const { state, kind } = await waitForCourseScreen(page);
+    if (state && !/^\/lesson\/?$/.test((state.url || '').split('?')[0])) {
+      throw new Error('RADIO_WRONG_PAGE next=' + nextId + ' url=' + (state.url || '未知'));
+    }
+    if (!state || kind !== 'question') {
+      throw new Error('RADIO_NO_PROGRESS next=' + nextId + ' reason=课程界面未出现题目容器 ' + lessonGuard.describePage(state));
+    }
+    console.log('RADIO_ADVANCED id=' + slot.id + ' next=' + nextId + ' evidence=question url=' + state.url);
+    return { url: new URL(page.url()), deferred: true, skipped: true, advanced: true, nextId };
   }
-  throw new Error('延后 radio 后没有找到下一节点的开始入口');
+  throw new Error('RADIO_NO_PROGRESS reason=弹窗已收起但未找到可进入的下一节点');
 }
 
-async function prepareNormal(page, check, slot) {
+const normalizeEllipsis = (s) => String(s || '')
+  .replace(/\u2026/g, '...')
+  .replace(/\s*\.\.\.\s*/g, '...')
+  .replace(/\s+/g, ' ')
+  .trim();
+
+// 普通故事换节点真实入口：/learn → 目标 unit → 目标 level 节点（token 匹配）→ 点开气泡 →
+// 核对气泡属于同一节点（同 unit、点后出现、标题匹配平台本地化 storyName）且只有唯一「开始」。
+// 任何一步证不出来就抛 NODE_ENTRY_*，一次收口、不回退直开 /lesson。
+async function prepareByStoryNode(page, check, slot, level) {
   await check();
+  const storyName = level?.pathLevelClientData?.storyName || '';
+  if (!storyName) throw new Error('NODE_ENTRY_UNSUPPORTED 缺少 pathLevelClientData.storyName');
+  await page.goto(ORIGIN + '/learn', { waitUntil: 'domcontentloaded', timeout: 20000 });
+  const unit = page.locator('[data-test~="skill-path-unit-' + slot.unitIndex + '"]').first();
+  await unit.waitFor({ timeout: 15000 }).catch(() => {});
+  await page.waitForTimeout(1500);
+  await unit.scrollIntoViewIfNeeded({ timeout: 6000 }).catch(() => {});
+  await page.waitForTimeout(500);
+  const nodes = unit.locator('[data-test~="skill-path-level-' + slot.levelIndex + '"]');
+  const nodeCount = await nodes.count();
+  if (nodeCount !== 1) throw new Error('NODE_ENTRY_AMBIGUOUS nodes=' + nodeCount);
+  const node = nodes.first();
+  const meta = await node.evaluate((el) => ({ test: el.getAttribute('data-test') || '' }));
+  const tokens = String(meta.test || '').split(/\s+/);
+  if (tokens.some((t) => /^skill-path-unit-test/.test(t))) {
+    throw new Error('NODE_ENTRY_UNMATCHED unit-test 候选 test=' + meta.test);
+  }
+  const typeOk = tokens.some((t) => t === 'skill-path-level-' + slot.type || t.startsWith('skill-path-level-' + slot.type));
+  if (!typeOk) throw new Error('NODE_ENTRY_UNMATCHED 类型不符 type=' + slot.type + ' test=' + meta.test);
+  const activeOk = tokens.includes('skill-path-state-active') || level.state === 'active';
+  if (!activeOk) throw new Error('NODE_ENTRY_UNMATCHED 非 active test=' + meta.test);
+  const before = await unit.evaluate(() => {
+    const visible = (e) => { const r = e.getBoundingClientRect(), s = getComputedStyle(e); return r.width > 0 && r.height > 0 && s.visibility !== 'hidden' && s.display !== 'none'; };
+    return { starts: [...document.querySelectorAll('a[data-test*="skill-path-state-active"]')].filter(visible).map((a) => a.getAttribute('data-test') || '') };
+  }).catch(() => null);
+  await node.click({ timeout: 6000 });
+  await page.waitForTimeout(1500);
+  const after = await unit.evaluate((el, name) => {
+    const visible = (e) => { const r = e.getBoundingClientRect(), s = getComputedStyle(e); return r.width > 0 && r.height > 0 && s.visibility !== 'hidden' && s.display !== 'none'; };
+    const norm = (s) => String(s || '').replace(/\s+/g, ' ').trim();
+    const starts = [...el.querySelectorAll('a[data-test*="skill-path-state-active"]')].filter(visible);
+    // 气泡里的「开始」data-test 可能带 skill-path-unit-test-71，它是这个单元的入口标识，
+    // 不是外来节点；归属已由“同 unit + 点后出现 + 标题匹配 storyName”证明。
+    // href 只记路径和参数名，不记查询参数的值。
+    return {
+      starts: starts.map((a) => {
+        let pathname = '', params = [];
+        try {
+          const u = new URL(a.getAttribute('href') || a.href, location.origin);
+          pathname = u.pathname;
+          params = [...u.searchParams.keys()];
+        } catch {}
+        const box = a.closest('[data-test]');
+        return {
+          test: a.getAttribute('data-test') || '',
+          text: norm(a.innerText).slice(0, 40),
+          pathname,
+          params,
+          box: box ? (box.getAttribute('data-test') || '') : '',
+        };
+      }),
+      text: norm(el.innerText).slice(0, 300),
+    };
+  }, storyName).catch(() => null);
+  const hasTitle = !!after && normalizeEllipsis(after.text).includes(normalizeEllipsis(storyName));
+  storyDiag({ event: 'story-node-entry', nodeTest: meta.test, type: slot.type, state: level.state, before, after, storyName, hasTitle });
+  if (!after) throw new Error('NODE_ENTRY_UNMATCHED 读不到气泡');
+  if (after.starts.length !== 1) throw new Error('NODE_ENTRY_AMBIGUOUS starts=' + after.starts.length);
+  if (!hasTitle) throw new Error('NODE_ENTRY_UNMATCHED 气泡标题不匹配 storyName=' + storyName);
+  // href 必须是正常课程入口；指向单元测试/跳级/确认页/无路径时不点
+  const hrefPath = after.starts[0].pathname || '';
+  if (!hrefPath || /unit-test|\/test\b|checkpoint|verify|confirm|skip/i.test(hrefPath)) {
+    throw new Error('NODE_ENTRY_UNSAFE href 指向异常 pathname=' + hrefPath);
+  }
+  const startTest = after.starts[0].test;
+  const start = unit.locator('[data-test="' + startTest + '"]').filter({ visible: true }).first();
+  if (!(await start.count())) throw new Error('NODE_ENTRY_UNMATCHED 找不到已确认的开始入口');
+  await check();
+  await start.click({ timeout: 5000 });
+  await page.waitForURL((url) => url.origin === ORIGIN && url.pathname === '/lesson', { timeout: 25000 }).catch(() => {});
+  await page.waitForTimeout(1000);
+  const url = new URL(page.url());
+  if (url.pathname !== '/lesson') throw new Error('NODE_ENTRY_NO_LESSON 点击开始后未进入 /lesson url=' + url.pathname);
+  return { button: null, url, nodeEntry: true };
+}
+
+async function prepareNormal(page, check, slot, level) {
+  await check();
+  if (slot && slot.type === 'story' && process.argv.includes('--node-entry')) return await prepareByStoryNode(page, check, slot, level);
   if (slot && slot.type === 'duo_radio') return await prepareDeferredRadio(page, check, slot);
   // 宝箱：/lesson 会回路径并显示「打开」，点掉就解锁下一节点（不给 XP）
   if (slot && slot.type === 'chest') {
@@ -284,8 +797,10 @@ async function main() {
   const mode = process.argv.includes('--normal') ? 'normal' : 'legendary';
   // 本次运行内确定进不去的节点（传奇入口已消失），不再重试
   const skipped = new Set();
+  // 节点维度与批次维度的失败计数分开：同节点 2 次失败换节点，5 个不同节点连续失败才停
+  const retry = policy.createRetryTracker();
   const select = course => (mode === 'normal' ? policy.planNormal(course) : policy.planCourse(course).candidates).filter(slot =>
-    !skipped.has(slot.id) && slot.sectionIndex >= fromSection && slot.unitIndex >= fromUnit
+    !skipped.has(slot.id) && !retry.skipped.has(slot.id) && slot.sectionIndex >= fromSection && slot.unitIndex >= fromUnit
     && (slot.unitIndex !== fromUnit || slot.levelIndex >= fromLevel));
   if (process.argv.includes('--dry-run')) {
     const course = JSON.parse(fs.readFileSync(path.join(__dirname, 'course-path.json'), 'utf8'));
@@ -303,12 +818,20 @@ async function main() {
     args: ['--no-proxy-server'],
   });
   const page = ctx.pages()[0] || await ctx.newPage();
+  // 故事走到必须人工点结束的情况：保留专用窗口和当前页面，不在 finally 里关浏览器
+  let keepOpen = false;
   let uid;
   let active;
   let restriction;
   let initialProgress;
   const seenSessions = new Set();
 
+  // 只读诊断：JS 错误种类（不记录页面内容/凭据）
+  if (storyDebugEnabled()) {
+    page.on('pageerror', (err) => {
+      console.log('STORY_JS_ERROR ' + (err && err.name ? err.name : 'Error') + ' ' + String(err && err.message || '').slice(0, 100));
+    });
+  }
   page.on('response', async response => {
     const url = new URL(response.url());
     const onSite = url.origin === ORIGIN;
@@ -322,6 +845,9 @@ async function main() {
       return;
     }
     const target = active;
+    if (storyDebugEnabled() && (document || story) && !/\/(login|verify|checkpoint)/.test(url.pathname)) {
+      console.log('STORY_HTTP ' + response.request().method() + ' ' + url.pathname + ' ' + response.status());
+    }
     if ((!user && !session && !story && !lexicon) || !response.ok()) return;
     try {
       const data = await response.json();
@@ -341,12 +867,18 @@ async function main() {
         }
       }
       if (!target || target !== active || target.data) return;
+      // 电台只用 elements 形状的 session；普通练习的 challenges session 不能占位，
+      // 否则第二次走 radio-direct 时真正的电台 session 会被 !target.data 挡掉
+      if (target.slot.type === 'duo_radio' && session && Array.isArray(data.elements)) {
+        target.data = data;
+        console.log('RADIO_SESSION elements=' + data.elements.length);
+      }
       if (target.slot.type === 'story' && story && Array.isArray(data.elements)
           && decodeURIComponent(url.pathname.split('/').at(-1)) === target.level.pathLevelMetadata?.storyId) {
         target.data = data;
         console.log('STORY_DATA elements=' + data.elements.length);
       }
-      if (target.slot.type !== 'story' && session && Array.isArray(data.challenges) && data.id && !seenSessions.has(data.id)) {
+      if (target.slot.type !== 'story' && target.slot.type !== 'duo_radio' && session && Array.isArray(data.challenges) && data.id && !seenSessions.has(data.id)) {
         const meta = target.level.pathLevelMetadata || {};
         let matched;
         if (mode === 'normal') {
@@ -413,6 +945,15 @@ async function main() {
     return result;
   };
 
+  // 链口径（2026-11-19）：链头已金 N 条 / 整链已金 N 条 / 继承失败待补清单
+  const logChains = (course) => {
+    try {
+      const r = policy.chainReport(course);
+      console.log('CHAIN_REPORT headsGold=' + r.headsGold + ' chainsGold=' + r.chainsGold + ' pending=' + r.pending.length);
+      if (r.pending.length) console.log('CHAIN_PENDING ' + JSON.stringify(r.pending.slice(0, 10)));
+    } catch (e) { console.log('CHAIN_REPORT_FAILED ' + e.message); }
+  };
+
   try {
     await page.goto(ORIGIN + '/learn', { waitUntil: 'domcontentloaded', timeout: 20000 });
     for (let attempt = 0; attempt < 30 && !initialProgress; attempt++) {
@@ -426,15 +967,15 @@ async function main() {
     const courseId = progress.course.id;
     const budget = () => policy.stopDecision({ startedAt, startXp, currentXp: progress.xp, minutes, xp });
     console.log('START xp=' + startXp + ' course=' + courseId);
-    let slotFails = 0;
     for (let completed = 0; completed < maxLessons;) {
       if (!budget().mayStartNext) {
-        console.log('STOP ' + JSON.stringify(budget()));
+        logChains(progress.course); console.log('STOP ' + JSON.stringify(budget()));
         return;
       }
       if (progress.course.id !== courseId) throw new Error('当前课程已切换');
       const slot = select(progress.course)[0];
       if (!slot) {
+        logChains(progress.course);
         console.log('STOP 没有待做节点');
         return;
       }
@@ -450,10 +991,11 @@ async function main() {
         console.log('SESSION_CACHED type=' + cached.type + ' n=' + cached.challenges.length);
       }
       try {
-      const entry = mode === 'normal' ? await prepareNormal(page, check, slot) : await prepareByUrl(page, slot, check);
-      console.log('ENTRY s' + slot.sectionIndex + 'u' + slot.unitIndex + 'l' + slot.levelIndex + ' ' + slot.name + ' → ' + entry.url.pathname + (entry.chest ? ' (chest)' : ''));
+      const entry = mode === 'normal' ? await prepareNormal(page, check, slot, level) : await prepareByUrl(page, slot, check);
+      console.log('ENTRY s' + slot.sectionIndex + 'u' + slot.unitIndex + 'l' + slot.levelIndex + ' ' + slot.name + ' → ' + entry.url.pathname + (entry.chest ? ' (chest)' : '') + (entry.skipped ? ' (radio-skip)' : '') + (entry.radioDirect ? ' (radio-direct)' : ''));
+      if (entry.radioDirect) active.radioDirect = true;
       if (!budget().mayStartNext) {
-        console.log('STOP ' + JSON.stringify(budget()));
+        logChains(progress.course); console.log('STOP ' + JSON.stringify(budget()));
         return;
       }
       await check();
@@ -488,16 +1030,48 @@ async function main() {
         throw new Error('未确认目标结算 id=' + slot.id + ' state=' + state + ' XP变化=' + (progress.xp - before));
       }
       completed++;
-      slotFails = 0;
+      retry.ok(slot.id);
       active = null;
-      console.log('SETTLED id=' + slot.id + ' state=' + state + ' xp=' + progress.xp + ' delta=' + (progress.xp - before) + ' answered=' + answered);
+      console.log('SETTLED id=' + slot.id + ' state=' + state + ' xp=' + progress.xp + ' delta=' + (progress.xp - before) + ' answered=' + answered + (entry.advanced ? ' radio=advanced next=' + entry.nextId : ''));
       } catch (error) {
+        // 故事题已全部答完、结束按钮不在或不可点：按用户约定收尾，不重试、不轮询
+        if (/RADIO_QUIZ_BLOCKED|RADIO_TAP_PARTIAL/.test(error.message)) {
+          keepOpen = true;
+          console.log('STOP radio-blocked（' + error.message.slice(0, 120) + '；窗口保留）');
+          return;
+        }
+        if (/STORY_DONE_NEEDS_USER/.test(error.message)) {
+          keepOpen = true;
+          console.log('STOP story-done（最后结束课程需用户点击）');
+          console.log('STORY_END_REASON ' + error.message.replace(/^STORY_DONE_NEEDS_USER\s*/, ''));
+          return;
+        }
         // 平台限制/验证一律终止；单关故障（超时、确认不到结算）只跳过这一关
         if (/restriction|验证|reCAPTCHA|\b(401|403|429)\b|登录/.test(error.message)) throw error;
         // 浏览器被关掉（手动关窗或崩溃）就没法继续了，干净退出而不是当单关故障重试
         if (/has been closed|Target page|Browser has been closed/i.test(error.message) || page.isClosed()) {
           console.log('BROWSER_CLOSED 停止（浏览器已关闭）');
           return;
+        }
+        // 节点入口证不出来（还没进课）：一次收口，不循环重试 8 次
+        const nodeFail = /^(NODE_ENTRY_UNSUPPORTED|NODE_ENTRY_AMBIGUOUS|NODE_ENTRY_UNMATCHED|NODE_ENTRY_NO_LESSON)\b/.exec(error.message);
+        if (nodeFail) {
+          const detail = error.message.replace(new RegExp('^' + nodeFail[1] + '\\s*'), '');
+          console.log(nodeFail[1] + ' id=' + slot.id + ' ' + detail);
+          console.log('NODE_ENTRY_STOP 一次收口，未进入课程');
+          return;
+        }
+        // radio 跳过失败/无推进证据：本次运行标记待处理，不再猜下一节点
+        const radioFail = RADIO_PENDING.exec(error.message);
+        if (radioFail) {
+          skipped.add(slot.id);
+          const detail = error.message.replace(new RegExp('^' + radioFail[1] + '\\s*'), '');
+          console.log(radioFail[1] + ' id=' + slot.id + ' ' + detail);
+          active = null;
+          progress = await readProgress().catch(() => progress);
+          await page.goto(ORIGIN + '/learn', { timeout: 45000 }).catch(() => {});
+          await page.waitForTimeout(2000);
+          continue;
         }
         // 传奇入口消失说明这关已经不是"passed 未传奇"（多半结算了但进度没读出来），本次运行别再重试
         if (/没有有效的传奇入口/.test(error.message)) {
@@ -509,25 +1083,38 @@ async function main() {
           await page.waitForTimeout(2000);
           continue;
         }
-        slotFails++;
-        console.log('SKIP_SLOT id=' + slot.id + ' (' + slotFails + '/8) ' + error.message.slice(0, 100));
+        const fail = retry.fail(slot.id);
+        console.log('NODE_FAIL id=' + slot.id + ' attempts=' + fail.attempts + ' streak=' + fail.streak + ' ' + error.message.slice(0, 100));
+        if (fail.action === 'skip-node') {
+          console.log('SKIP_NODE id=' + slot.id + ' 同一节点失败 ' + fail.attempts + ' 次，换下一个可达节点');
+        }
+        if (fail.stop === 'node-streak') throw new Error('连续 ' + fail.streak + ' 个不同节点失败，停止（最后：' + slot.id + '）');
+        if (fail.stop === 'total-attempts') throw new Error('总尝试 ' + fail.totalAttempts + ' 次失败，停止（最后：' + slot.id + '）');
         active = null;
-        if (slotFails >= 8) throw new Error('连续 8 关失败，停止（最后一关：' + error.message.slice(0, 80) + '）');
         progress = await readProgress().catch(() => progress);
         await page.goto(ORIGIN + '/learn', { timeout: 45000 }).catch(() => {});
         await page.waitForTimeout(2000);
       }
     }
+    logChains(progress.course);
     console.log('STOP max-lessons xpGain=' + (progress.xp - startXp));
   } catch (error) {
     await page.screenshot({ path: path.join(__dirname, 'auto-blocked.png'), timeout: 3000 }).catch(() => {});
     throw error;
   } finally {
-    await ctx.close();
+    if (keepOpen) {
+      console.log('KEEP_OPEN 专用窗口和当前页面已保留；处理完关闭窗口即可');
+    } else {
+      await ctx.close();
+    }
   }
 }
 
-main().catch(error => {
-  console.error('BLOCKED ' + error.message);
-  process.exitCode = 1;
-});
+if (require.main === module) {
+  main().catch(error => {
+    console.error('BLOCKED ' + error.message);
+    process.exitCode = 1;
+  });
+}
+
+module.exports = { solve, prepareDeferredRadio, prepareByStoryNode, storyUiSig, finishStory };

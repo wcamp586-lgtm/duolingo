@@ -1,0 +1,108 @@
+[
+  {
+    "at": "2026-11-19T05:28:55.221Z",
+    "path": "/lesson",
+    "title": "多邻国 - 学得轻松，学有所成的法语 课程！",
+    "items": [
+      {
+        "tag": "button",
+        "test": "stories-player-continue",
+        "aria": "",
+        "text": "继续",
+        "disabled": false,
+        "containers": []
+      }
+    ]
+  },
+  {
+    "at": "2026-11-19T05:30:41.637Z",
+    "url": "/lesson",
+    "hasChallenge": false,
+    "hasLoading": false,
+    "hasStoryCover": false,
+    "hasEndButton": false,
+    "hasQuitButton": false,
+    "nextEnabled": false,
+    "text": ""
+  },
+  {
+    "at": "2026-11-19T05:30:57.600Z",
+    "path": "blank",
+    "title": "",
+    "items": [
+      {
+        "tag": "button",
+        "test": "stories-choice",
+        "aria": "",
+        "text": "",
+        "disabled": false,
+        "containers": [
+          "stories-element"
+        ]
+      },
+      {
+        "tag": "button",
+        "test": "stories-player-continue",
+        "aria": "",
+        "text": "继续",
+        "disabled": false,
+        "containers": [
+          "stories-element"
+        ]
+      }
+    ]
+  },
+  {
+    "at": "2026-11-19T05:31:20.910Z",
+    "url": "/lesson",
+    "hasChallenge": false,
+    "hasLoading": false,
+    "hasStoryCover": false,
+    "hasEndButton": false,
+    "hasQuitButton": false,
+    "nextEnabled": false,
+    "text": ""
+  },
+  {
+    "at": "2026-11-19T05:31:42.129Z",
+    "path": "blank",
+    "title": "",
+    "items": [
+      {
+        "tag": "button",
+        "test": "stories-choice",
+        "aria": "",
+        "text": "",
+        "disabled": false,
+        "containers": [
+          "stories-element"
+        ]
+      },
+      {
+        "tag": "button",
+        "test": "stories-player-continue",
+        "aria": "",
+        "text": "继续",
+        "disabled": false,
+        "containers": [
+          "stories-element"
+        ]
+      }
+    ]
+  },
+  {
+    "at": "2026-11-19T05:33:52.673Z",
+    "path": "/lesson",
+    "title": "多邻国 - 学得轻松，学有所成的法语 课程！",
+    "items": [
+      {
+        "tag": "button",
+        "test": "stories-player-continue",
+        "aria": "",
+        "text": "继续",
+        "disabled": false,
+        "containers": []
+      }
+    ]
+  }
+]

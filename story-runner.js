@@ -135,4 +135,6 @@ async function step(page,sess,check = async () => {}) {
   }
 }
 
-module.exports={step,snapshot,matchQuestion,optionsFor,answer};
+function resetDone(page){const s=states.get(page);if(s)s.done=false;}
+
+module.exports={step,snapshot,matchQuestion,optionsFor,answer,resetDone};

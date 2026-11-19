@@ -1,0 +1,304 @@
+{
+ "at": "2026-11-19T08:30:03.841Z",
+ "sessions": [
+  {
+   "status": 200,
+   "topKeys": [
+    "avatarNum",
+    "avatars",
+    "cefrLevel",
+    "challengePools",
+    "character",
+    "displayedTranslatedTitle",
+    "elements",
+    "id",
+    "introLengthMillis",
+    "metadata",
+    "outroPoseShowMillis",
+    "schema_name",
+    "script_uuid",
+    "titleCardShowMillis",
+    "trackingProperties",
+    "transcript",
+    "ttsAnnotations",
+    "wrapperName"
+   ],
+   "wrapperName": "ideasWithBea",
+   "schema": "duoradio_shortened_intro_outro_a2@1778094746",
+   "elementsCount": 13,
+   "elements": [
+    {
+     "keys": [
+      "audioType",
+      "audioUrl",
+      "dialogId",
+      "durationMillis",
+      "guestAudioRanges",
+      "hostAudioRanges",
+      "type"
+     ],
+     "type": "audio",
+     "hasAudioUrl": true
+    },
+    {
+     "keys": [
+      "challengeID",
+      "challengeType",
+      "correctIndex",
+      "pairs",
+      "type"
+     ],
+     "type": "challenge",
+     "challengeType": "listenMatch"
+    },
+    {
+     "keys": [
+      "audioType",
+      "audioUrl",
+      "dialogId",
+      "durationMillis",
+      "guestAudioRanges",
+      "hostAudioRanges",
+      "type"
+     ],
+     "type": "audio",
+     "hasAudioUrl": true
+    },
+    {
+     "keys": [
+      "challengeID",
+      "challengeType",
+      "isTrue",
+      "prompt",
+      "type"
+     ],
+     "type": "challenge",
+     "challengeType": "binary",
+     "isTrue": false,
+     "prompt": "Hugo propose une idée de cinéma."
+    },
+    {
+     "keys": [
+      "audioType",
+      "audioUrl",
+      "dialogId",
+      "durationMillis",
+      "guestAudioRanges",
+      "hostAudioRanges",
+      "type"
+     ],
+     "type": "audio",
+     "hasAudioUrl": true
+    },
+    {
+     "keys": [
+      "audioUrl",
+      "challengeID",
+      "challengeType",
+      "choices",
+      "correctIndices",
+      "durationMillis",
+      "prompt",
+      "type"
+     ],
+     "type": "challenge",
+     "challengeType": "listenRecognize",
+     "prompt": "选择听到的 3 个单词",
+     "choicesN": 5,
+     "correctIndices": [
+      0,
+      1,
+      2
+     ],
+     "hasAudioUrl": true
+    },
+    {
+     "keys": [
+      "audioType",
+      "audioUrl",
+      "dialogId",
+      "durationMillis",
+      "guestAudioRanges",
+      "hostAudioRanges",
+      "type"
+     ],
+     "type": "audio",
+     "hasAudioUrl": true
+    },
+    {
+     "keys": [
+      "challengeID",
+      "challengeType",
+      "choices",
+      "correctIndex",
+      "prompt",
+      "type"
+     ],
+     "type": "challenge",
+     "challengeType": "select",
+     "prompt": "Hugo dit que le public...",
+     "choicesN": 3,
+     "correctIndex": 0
+    },
+    {
+     "keys": [
+      "audioType",
+      "audioUrl",
+      "dialogId",
+      "durationMillis",
+      "guestAudioRanges",
+      "hostAudioRanges",
+      "type"
+     ],
+     "type": "audio",
+     "hasAudioUrl": true
+    },
+    {
+     "keys": [
+      "audioUrl",
+      "challengeID",
+      "challengeType",
+      "choices",
+      "correctIndices",
+      "durationMillis",
+      "prompt",
+      "type"
+     ],
+     "type": "challenge",
+     "challengeType": "listenRecognize",
+     "prompt": "选择听到的 3 个单词",
+     "choicesN": 5,
+     "correctIndices": [
+      0,
+      1,
+      2
+     ],
+     "hasAudioUrl": true
+    },
+    {
+     "keys": [
+      "audioType",
+      "audioUrl",
+      "dialogId",
+      "durationMillis",
+      "guestAudioRanges",
+      "hostAudioRanges",
+      "type"
+     ],
+     "type": "audio",
+     "hasAudioUrl": true
+    },
+    {
+     "keys": [
+      "challengeID",
+      "challengeType",
+      "choices",
+      "correctIndex",
+      "prompt",
+      "type"
+     ],
+     "type": "challenge",
+     "challengeType": "select",
+     "prompt": "Quel était le sujet de cet épisode ?",
+     "choicesN": 3,
+     "correctIndex": 0
+    },
+    {
+     "keys": [
+      "audioType",
+      "audioUrl",
+      "dialogId",
+      "durationMillis",
+      "guestAudioRanges",
+      "hostAudioRanges",
+      "type"
+     ],
+     "type": "audio",
+     "hasAudioUrl": true
+    }
+   ],
+   "pools": [
+    {
+     "k": "dialog_0",
+     "items": [
+      {
+       "type": "challenge",
+       "challengeType": "listenMatch"
+      }
+     ]
+    },
+    {
+     "k": "dialog_1",
+     "items": [
+      {
+       "type": "challenge",
+       "challengeType": "binary",
+       "isTrue": false,
+       "prompt": "Hugo propose une idée de cinéma."
+      }
+     ]
+    },
+    {
+     "k": "dialog_2",
+     "items": [
+      {
+       "type": "challenge",
+       "challengeType": "listenRecognize",
+       "prompt": "选择听到的 3 个单词",
+       "choicesN": 5
+      }
+     ]
+    },
+    {
+     "k": "dialog_3",
+     "items": [
+      {
+       "type": "challenge",
+       "challengeType": "select",
+       "prompt": "Hugo dit que le public...",
+       "choicesN": 3
+      }
+     ]
+    },
+    {
+     "k": "dialog_4",
+     "items": [
+      {
+       "type": "challenge",
+       "challengeType": "listenRecognize",
+       "prompt": "选择听到的 3 个单词",
+       "choicesN": 5
+      }
+     ]
+    },
+    {
+     "k": "dialog_5",
+     "items": [
+      {
+       "type": "challenge",
+       "challengeType": "select",
+       "prompt": "Quel était le sujet de cet épisode ?",
+       "choicesN": 3
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "beforeTap": {
+  "url": "/lesson/unit/72/level/10",
+  "text": "加载中… 我们教濒危语言，包括夏威夷语和纳瓦霍语。",
+  "cards": [],
+  "tokens": 0
+ },
+ "tap": "partial",
+ "afterTap": {
+  "url": "/lesson/unit/72/level/10",
+  "text": "VOS IDÉES AVEC BÉA Hugo propose une idée de cinéma. 1 2",
+  "cards": [
+   "1",
+   "2"
+  ],
+  "tokens": 0
+ }
+}

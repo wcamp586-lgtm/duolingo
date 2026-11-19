@@ -1,0 +1,281 @@
+{
+ "at": "2026-11-19T09:15:17.095Z",
+ "nodeTest": "skill-path-level-0 skill-path-level-skill",
+ "bubble": {
+  "text": "学习 练习基地 排行榜 特别任务 宝石小店 个人档案 更多 31 323 4298 钻石等级 查看排行榜 你当前排在第 1 位 继续努力，坐稳前 3！ 每日特别任务 显示全部 获取 50 经验 50 / 50 50 / 50 3 个单元至少答对 90% 3 / 3 3 / 3 学习时长满 20 分钟 20 / 20 20 / 20 关于我们 宝石小店 有效性 招聘贤才 投资者 条款 隐私 第 4 阶段，第 4 部分 做比较 指南 讨论戏剧表演 做比较 做比较 第 1/6 单元 开始 +10 经验 制定健康计划 跳级",
+  "links": [
+   {
+    "test": "home-nav",
+    "text": "学习",
+    "path": "/learn"
+   },
+   {
+    "test": "practice-hub-nav",
+    "text": "练习基地",
+    "path": "/practice-hub"
+   },
+   {
+    "test": "leaderboard-nav",
+    "text": "排行榜",
+    "path": "/leaderboard"
+   },
+   {
+    "test": "quests-nav",
+    "text": "特别任务",
+    "path": "/quests"
+   },
+   {
+    "test": "shop-nav",
+    "text": "宝石小店",
+    "path": "/shop"
+   },
+   {
+    "test": "profile-tab",
+    "text": "个人档案",
+    "path": "/profile/fongzhua"
+   },
+   {
+    "test": "leaderboards-open",
+    "text": "查看排行榜",
+    "path": "/leaderboard"
+   },
+   {
+    "test": "",
+    "text": "显示全部",
+    "path": "/quests"
+   },
+   {
+    "test": "",
+    "text": "关于我们",
+    "path": "/"
+   },
+   {
+    "test": "",
+    "text": "宝石小店",
+    "path": "/"
+   },
+   {
+    "test": "",
+    "text": "有效性",
+    "path": "/efficacy"
+   },
+   {
+    "test": "",
+    "text": "招聘贤才",
+    "path": "/"
+   },
+   {
+    "test": "",
+    "text": "投资者",
+    "path": "/"
+   },
+   {
+    "test": "",
+    "text": "条款",
+    "path": "/terms"
+   },
+   {
+    "test": "",
+    "text": "隐私",
+    "path": "/privacy"
+   },
+   {
+    "test": "",
+    "text": "第 4 阶段，第 4 部分",
+    "path": "/sections"
+   },
+   {
+    "test": "guidebook-button-73",
+    "text": "指南",
+    "path": "/guidebook/fr/73"
+   },
+   {
+    "test": "skill-path-state-active skill-path-unit-test-72",
+    "text": "开始 +10 经验",
+    "path": "/lesson"
+   },
+   {
+    "test": "skill-path-state-unit_test skill-path-unit-test-73",
+    "text": "跳级到这儿？",
+    "path": "/lesson/unit/74/test"
+   }
+  ],
+  "buttons": [
+   {
+    "test": "skill-path-level-0 skill-path-level-skill",
+    "text": "",
+    "disabled": false
+   },
+   {
+    "test": "skill-path-level-1 skill-path-level-story",
+    "text": "",
+    "disabled": false
+   },
+   {
+    "test": "skill-path-level-2 skill-path-level-duo_radio",
+    "text": "",
+    "disabled": false
+   },
+   {
+    "test": "skill-path-level-3 skill-path-level-skill",
+    "text": "",
+    "disabled": false
+   },
+   {
+    "test": "skill-path-level-4 skill-path-level-story",
+    "text": "",
+    "disabled": false
+   },
+   {
+    "test": "skill-path-level-5 skill-path-level-duo_radio",
+    "text": "",
+    "disabled": false
+   },
+   {
+    "test": "skill-path-level-6 skill-path-level-practice",
+    "text": "",
+    "disabled": false
+   },
+   {
+    "test": "skill-path-level-8 skill-path-level-story",
+    "text": "",
+    "disabled": false
+   },
+   {
+    "test": "skill-path-level-9 skill-path-level-duo_radio",
+    "text": "",
+    "disabled": false
+   },
+   {
+    "test": "skill-path-level-10 skill-path-level-practice",
+    "text": "",
+    "disabled": false
+   },
+   {
+    "test": "skill-path-level-11 skill-path-level-duo_radio",
+    "text": "",
+    "disabled": false
+   },
+   {
+    "test": "skill-path-level-12 skill-path-level-unit_review",
+    "text": "",
+    "disabled": false
+   },
+   {
+    "test": "skill-path-level-0 skill-path-level-skill",
+    "text": "",
+    "disabled": false
+   },
+   {
+    "test": "skill-path-level-1 skill-path-level-story",
+    "text": "",
+    "disabled": false
+   },
+   {
+    "test": "skill-path-level-3 skill-path-level-skill",
+    "text": "",
+    "disabled": false
+   },
+   {
+    "test": "skill-path-level-4 skill-path-level-story",
+    "text": "",
+    "disabled": false
+   },
+   {
+    "test": "skill-path-level-5 skill-path-level-duo_radio",
+    "text": "",
+    "disabled": false
+   },
+   {
+    "test": "skill-path-level-6 skill-path-level-practice",
+    "text": "",
+    "disabled": false
+   },
+   {
+    "test": "skill-path-level-7 skill-path-level-story",
+    "text": "",
+    "disabled": false
+   },
+   {
+    "test": "skill-path-level-8 skill-path-level-duo_radio",
+    "text": "",
+    "disabled": false
+   },
+   {
+    "test": "skill-path-level-9 skill-path-level-practice",
+    "text": "",
+    "disabled": false
+   },
+   {
+    "test": "skill-path-level-11 skill-path-level-duo_radio",
+    "text": "",
+    "disabled": false
+   },
+   {
+    "test": "skill-path-level-12 skill-path-level-unit_review",
+    "text": "",
+    "disabled": false
+   },
+   {
+    "test": "skill-path-level-1 skill-path-level-story",
+    "text": "",
+    "disabled": false
+   },
+   {
+    "test": "skill-path-level-2 skill-path-level-duo_radio",
+    "text": "",
+    "disabled": false
+   },
+   {
+    "test": "skill-path-level-3 skill-path-level-skill",
+    "text": "",
+    "disabled": false
+   },
+   {
+    "test": "skill-path-level-4 skill-path-level-story",
+    "text": "",
+    "disabled": false
+   },
+   {
+    "test": "skill-path-level-5 skill-path-level-duo_radio",
+    "text": "",
+    "disabled": false
+   },
+   {
+    "test": "skill-path-level-6 skill-path-level-practice",
+    "text": "",
+    "disabled": false
+   },
+   {
+    "test": "skill-path-level-8 skill-path-level-story",
+    "text": "",
+    "disabled": false
+   },
+   {
+    "test": "skill-path-level-9 skill-path-level-duo_radio",
+    "text": "",
+    "disabled": false
+   },
+   {
+    "test": "skill-path-level-10 skill-path-level-practice",
+    "text": "",
+    "disabled": false
+   },
+   {
+    "test": "skill-path-level-11 skill-path-level-duo_radio",
+    "text": "",
+    "disabled": false
+   },
+   {
+    "test": "skill-path-level-12 skill-path-level-unit_review",
+    "text": "",
+    "disabled": false
+   },
+   {
+    "test": "",
+    "text": "跳级到这儿？",
+    "disabled": false
+   }
+  ]
+ }
+}

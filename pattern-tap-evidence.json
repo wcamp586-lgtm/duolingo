@@ -1,0 +1,1133 @@
+{
+ "at": "2026-11-19T09:32:58.898Z",
+ "attempts": [
+  {
+   "attempt": 1,
+   "state": {
+    "path": "/lesson",
+    "text": "阅读并回答 Après le mois de novembre, il y a le mois de décembre. “décembre”的意思你知道吗？ 1 le premier mois de l'année 2 le dernier mois de l'année 3 un jour de la semaine 跳过 检查",
+    "type": "definition",
+    "options": [
+     {
+      "test": "",
+      "text": "",
+      "disabled": false
+     },
+     {
+      "test": "challenge-choice",
+      "text": "1 le premier mois de l'année",
+      "disabled": false
+     },
+     {
+      "test": "challenge-choice",
+      "text": "2 le dernier mois de l'année",
+      "disabled": false
+     },
+     {
+      "test": "challenge-choice",
+      "text": "3 un jour de la semaine",
+      "disabled": false
+     }
+    ]
+   }
+  },
+  {
+   "attempt": 2,
+   "state": {
+    "path": "/lesson",
+    "text": "加载中… 无论你的水平是初级、中级或高级，在多邻国你总能找到适合自己的课程！",
+    "type": null,
+    "options": []
+   }
+  },
+  {
+   "attempt": 3,
+   "state": {
+    "path": "/lesson",
+    "text": "加载中… 在多邻国，学习语言的美国人比在整个美国的公立学校学习语言的人多。",
+    "type": null,
+    "options": []
+   }
+  },
+  {
+   "attempt": 4,
+   "state": {
+    "path": "/lesson",
+    "text": "加载中… 多邻国是世界上最大的语言学习者社区。",
+    "type": null,
+    "options": []
+   }
+  },
+  {
+   "attempt": 5,
+   "state": {
+    "path": "/lesson",
+    "text": "阅读并回答 Après le mois de novembre, il y a le mois de décembre. “décembre”的意思你知道吗？ 1 un jour de la semaine 2 le premier mois de l'année 3 le dernier mois de l'année 跳过 检查",
+    "type": "definition",
+    "options": [
+     {
+      "test": "",
+      "text": "",
+      "disabled": false
+     },
+     {
+      "test": "challenge-choice",
+      "text": "1 un jour de la semaine",
+      "disabled": false
+     },
+     {
+      "test": "challenge-choice",
+      "text": "2 le premier mois de l'année",
+      "disabled": false
+     },
+     {
+      "test": "challenge-choice",
+      "text": "3 le dernier mois de l'année",
+      "disabled": false
+     }
+    ]
+   }
+  },
+  {
+   "attempt": 6,
+   "state": {
+    "path": "/",
+    "text": "无法访问此网站 www.duolingo.com 意外终止了连接。 请试试以下办法： 检查网络连接 检查代理服务器和防火墙 ERR_CONNECTION_CLOSED 重新加载 详情",
+    "type": null,
+    "options": []
+   }
+  }
+ ],
+ "lastSession": {
+  "type": "LESSON",
+  "n": 17,
+  "types": {
+   "definition": 2,
+   "assist": 3,
+   "select": 1,
+   "patternTapComplete": 2,
+   "speak": 3,
+   "translate": 2,
+   "match": 2,
+   "listenTap": 2
+  },
+  "pattern": [
+   {
+    "keys": [
+     "blankRangeEnd",
+     "blankRangeStart",
+     "challengeGeneratorIdentifier",
+     "challengeResponseTrackingProperties",
+     "choices",
+     "correctIndex",
+     "id",
+     "indicatorType",
+     "metadata",
+     "patternSentences",
+     "progressUpdates",
+     "prompt",
+     "tokens",
+     "type"
+    ],
+    "type": "patternTapComplete",
+    "prompt": "Moi, je vais acheter un château !",
+    "correctIndex": 1,
+    "choices": [
+     "Toi",
+     "Moi"
+    ],
+    "tokens": [
+     {
+      "value": "Moi",
+      "tts": "https://d1vq87e9lcf771.cloudfront.net/danielle/bbedfc056261bb7c715d936ed9541463",
+      "hintTable": {
+       "headers": [],
+       "rows": [
+        [
+         {
+          "colspan": 1,
+          "hint": "我"
+         }
+        ],
+        [
+         {
+          "colspan": 1,
+          "hint": "给我"
+         }
+        ]
+       ]
+      }
+     },
+     {
+      "value": ","
+     },
+     {
+      "value": " "
+     },
+     {
+      "value": "je",
+      "tts": "https://d1vq87e9lcf771.cloudfront.net/danielle/bc9e4b13acbd7ff5019b443aa471b4de",
+      "hintTable": {
+       "headers": [],
+       "rows": [
+        [
+         {
+          "colspan": 1,
+          "hint": "我"
+         }
+        ],
+        [
+         {
+          "colspan": 1,
+          "hint": "i"
+         }
+        ],
+        [
+         {
+          "colspan": 1,
+          "hint": "们"
+         }
+        ]
+       ]
+      }
+     },
+     {
+      "value": " "
+     },
+     {
+      "value": "vais",
+      "tts": "https://d1vq87e9lcf771.cloudfront.net/danielle/59d5931cc5e0f0c0414423dbb6b62b2b",
+      "hintTable": {
+       "headers": [],
+       "rows": [
+        [
+         {
+          "colspan": 1,
+          "hint": "将要"
+         }
+        ],
+        [
+         {
+          "colspan": 1,
+          "hint": "我会"
+         }
+        ],
+        [
+         {
+          "colspan": 1,
+          "hint": "我往"
+         }
+        ]
+       ]
+      }
+     },
+     {
+      "value": " "
+     },
+     {
+      "value": "acheter",
+      "tts": "https://d1vq87e9lcf771.cloudfront.net/danielle/d4f57f741f1b028aa19b295f933fa9e3",
+      "hintTable": {
+       "headers": [],
+       "rows": [
+        [
+         {
+          "colspan": 1,
+          "hint": "买"
+         }
+        ],
+        [
+         {
+          "colspan": 1,
+          "hint": "想买"
+         }
+        ],
+        [
+         {
+          "colspan": 1,
+          "hint": "买房"
+         }
+        ]
+       ]
+      }
+     },
+     {
+      "value": " "
+     },
+     {
+      "value": "un",
+      "tts": "https://d1vq87e9lcf771.cloudfront.net/danielle/848ed0134fe5035cc26127d08f5412fe",
+      "hintTable": {
+       "headers": [],
+       "rows": [
+        [
+         {
+          "colspan": 1,
+          "hint": "一座"
+         }
+        ],
+        [
+         {
+          "colspan": 1,
+          "hint": "一"
+         }
+        ],
+        [
+         {
+          "colspan": 1,
+          "hint": "一辆"
+         }
+        ]
+       ]
+      }
+     },
+     {
+      "value": " "
+     },
+     {
+      "value": "château",
+      "tts": "https://d1vq87e9lcf771.cloudfront.net/danielle/e39e25b0601f35dc7d98d7b7920f4d01",
+      "hintTable": {
+       "headers": [],
+       "rows": [
+        [
+         {
+          "colspan": 1,
+          "hint": "城堡"
+         }
+        ],
+        [
+         {
+          "colspan": 1,
+          "hint": "古堡"
+         }
+        ]
+       ]
+      }
+     },
+     {
+      "value": " ",
+      "tts": "https://d1vq87e9lcf771.cloudfront.net/danielle/f3e71da36332dbe577c8a968c2755b89"
+     },
+     {
+      "value": "!"
+     }
+    ],
+    "patternSentences": [
+     {
+      "prompt": "Toi, tu déménages en juillet.",
+      "tokens": [
+       {
+        "value": "Toi",
+        "tts": "https://d1vq87e9lcf771.cloudfront.net/danielle/d700303771b8d4ab00d3424ce366f60d",
+        "hintTable": {
+         "headers": [],
+         "rows": [
+          [
+           {
+            "colspan": 1,
+            "hint": "你"
+           }
+          ],
+          [
+           {
+            "colspan": 1,
+            "hint": "妳"
+           }
+          ],
+          [
+           {
+            "colspan": 1,
+            "hint": "侬"
+           }
+          ]
+         ]
+        }
+       },
+       {
+        "value": ","
+       },
+       {
+        "value": " "
+       },
+       {
+        "value": "tu",
+        "tts": "https://d1vq87e9lcf771.cloudfront.net/danielle/108696c9e1fe68d2beb23bb6f937a618",
+        "hintTable": {
+         "headers": [],
+         "rows": [
+          [
+           {
+            "colspan": 1,
+            "hint": "你"
+           }
+          ]
+         ]
+        }
+       },
+       {
+        "value": " "
+       },
+       {
+        "value": "déménages",
+        "tts": "https://d1vq87e9lcf771.cloudfront.net/danielle/1b95ec2dccb504a02cb6c7ecb6f15d1c",
+        "hintTable": {
+         "headers": [],
+         "rows": [
+          [
+           {
+            "colspan": 1,
+            "hint": "搬家"
+           }
+          ]
+         ]
+        }
+       },
+       {
+        "value": " "
+       },
+       {
+        "value": "en",
+        "tts": "https://d1vq87e9lcf771.cloudfront.net/danielle/d78cc0266039b684b7f869230583dc45",
+        "hintTable": {
+         "headers": [],
+         "rows": [
+          [
+           {
+            "colspan": 1,
+            "hint": "en"
+           }
+          ],
+          [
+           {
+            "colspan": 1,
+            "hint": "对此"
+           }
+          ],
+          [
+           {
+            "colspan": 1,
+            "hint": "一些"
+           }
+          ]
+         ]
+        }
+       },
+       {
+        "value": " "
+       },
+       {
+        "value": "juillet",
+        "tts": "https://d1vq87e9lcf771.cloudfront.net/danielle/bb9dc52acd3581e4f63ea3ffeb851763",
+        "hintTable": {
+         "headers": [],
+         "rows": [
+          [
+           {
+            "colspan": 1,
+            "hint": "七月"
+           }
+          ],
+          [
+           {
+            "colspan": 1,
+            "hint": "七月份"
+           }
+          ]
+         ]
+        }
+       },
+       {
+        "value": "."
+       }
+      ],
+      "boldStartIndex": 0,
+      "boldEndIndex": 3,
+      "highlightStartIndex": 0,
+      "highlightEndIndex": 3,
+      "highlightSubstring": "Toi"
+     },
+     {
+      "prompt": "Moi, je déménage en mai.",
+      "tokens": [
+       {
+        "value": "Moi",
+        "tts": "https://d1vq87e9lcf771.cloudfront.net/danielle/bbedfc056261bb7c715d936ed9541463",
+        "hintTable": {
+         "headers": [],
+         "rows": [
+          [
+           {
+            "colspan": 1,
+            "hint": "我"
+           }
+          ],
+          [
+           {
+            "colspan": 1,
+            "hint": "给我"
+           }
+          ]
+         ]
+        }
+       },
+       {
+        "value": ","
+       },
+       {
+        "value": " "
+       },
+       {
+        "value": "je",
+        "tts": "https://d1vq87e9lcf771.cloudfront.net/danielle/bc9e4b13acbd7ff5019b443aa471b4de",
+        "hintTable": {
+         "headers": [],
+         "rows": [
+          [
+           {
+            "colspan": 1,
+            "hint": "我"
+           }
+          ],
+          [
+           {
+            "colspan": 1,
+            "hint": "i"
+           }
+          ],
+          [
+           {
+            "colspan": 1,
+            "hint": "们"
+           }
+          ]
+         ]
+        }
+       },
+       {
+        "value": " "
+       },
+       {
+        "value": "déménage",
+        "tts": "https://d1vq87e9lcf771.cloudfront.net/danielle/597dd4393ece6b95555757a4bd34bedc",
+        "hintTable": {
+         "headers": [],
+         "rows": [
+          [
+           {
+            "colspan": 1,
+            "hint": "搬家"
+           }
+          ]
+         ]
+        }
+       },
+       {
+        "value": " "
+       },
+       {
+        "value": "en",
+        "tts": "https://d1vq87e9lcf771.cloudfront.net/danielle/d78cc0266039b684b7f869230583dc45",
+        "hintTable": {
+         "headers": [],
+         "rows": [
+          [
+           {
+            "colspan": 1,
+            "hint": "en"
+           }
+          ],
+          [
+           {
+            "colspan": 1,
+            "hint": "对此"
+           }
+          ],
+          [
+           {
+            "colspan": 1,
+            "hint": "一些"
+           }
+          ]
+         ]
+        }
+       },
+       {
+        "value": " "
+       },
+       {
+        "value": "mai",
+        "tts": "https://d1vq87e9lcf771.cloudfront.net/danielle/1d100f64c870e07ece024d1a6e94d506",
+        "hintTable": {
+         "headers": [],
+         "rows": [
+          [
+           {
+            "colspan": 1,
+            "hint": "五月"
+           }
+          ],
+          [
+           {
+            "colspan": 1,
+            "hint": "五月份"
+           }
+          ]
+         ]
+        }
+       },
+       {
+        "value": "."
+       }
+      ],
+      "boldStartIndex": 0,
+      "boldEndIndex": 3,
+      "highlightStartIndex": 0,
+      "highlightEndIndex": 3,
+      "highlightSubstring": "Moi"
+     }
+    ],
+    "blankRangeStart": 0,
+    "blankRangeEnd": 3,
+    "indicatorType": "NEW_PATTERN",
+    "hasAudio": false,
+    "sampleKeys": {
+     "blankRangeEnd": "number",
+     "blankRangeStart": "number",
+     "challengeGeneratorIdentifier": "object",
+     "challengeResponseTrackingProperties": "object",
+     "choices": "array[2]",
+     "correctIndex": "number",
+     "id": "string",
+     "indicatorType": "string",
+     "metadata": "object",
+     "patternSentences": "array[2]",
+     "progressUpdates": "array[0]",
+     "prompt": "string",
+     "tokens": "array[14]",
+     "type": "string"
+    }
+   },
+   {
+    "keys": [
+     "blankRangeEnd",
+     "blankRangeStart",
+     "challengeGeneratorIdentifier",
+     "challengeResponseTrackingProperties",
+     "choices",
+     "correctIndex",
+     "id",
+     "indicatorType",
+     "metadata",
+     "patternSentences",
+     "progressUpdates",
+     "prompt",
+     "tokens",
+     "type"
+    ],
+    "type": "patternTapComplete",
+    "prompt": "Toi, tu adores cette ville !",
+    "correctIndex": 1,
+    "choices": [
+     "Moi",
+     "Toi"
+    ],
+    "tokens": [
+     {
+      "value": "Toi",
+      "tts": "https://d1vq87e9lcf771.cloudfront.net/victor/638c3ec79021dff62f56ff4c1d91faca",
+      "hintTable": {
+       "headers": [],
+       "rows": [
+        [
+         {
+          "colspan": 1,
+          "hint": "你"
+         }
+        ],
+        [
+         {
+          "colspan": 1,
+          "hint": "妳"
+         }
+        ],
+        [
+         {
+          "colspan": 1,
+          "hint": "侬"
+         }
+        ]
+       ]
+      }
+     },
+     {
+      "value": ","
+     },
+     {
+      "value": " "
+     },
+     {
+      "value": "tu",
+      "tts": "https://d1vq87e9lcf771.cloudfront.net/victor/fdea533c712d01ca0a31a73caefef093",
+      "hintTable": {
+       "headers": [],
+       "rows": [
+        [
+         {
+          "colspan": 1,
+          "hint": "你"
+         }
+        ]
+       ]
+      }
+     },
+     {
+      "value": " "
+     },
+     {
+      "value": "adores",
+      "tts": "https://d1vq87e9lcf771.cloudfront.net/victor/9310d7329108825d7f2bd6d60ed0bae6",
+      "hintTable": {
+       "headers": [],
+       "rows": [
+        [
+         {
+          "colspan": 1,
+          "hint": "喜爱"
+         }
+        ],
+        [
+         {
+          "colspan": 1,
+          "hint": "热爱"
+         }
+        ]
+       ]
+      }
+     },
+     {
+      "value": " "
+     },
+     {
+      "value": "cette",
+      "tts": "https://d1vq87e9lcf771.cloudfront.net/victor/8f8dcf2bcd4d7e0cb343e5523029bd28",
+      "hintTable": {
+       "headers": [],
+       "rows": [
+        [
+         {
+          "colspan": 1,
+          "hint": "这座"
+         }
+        ],
+        [
+         {
+          "colspan": 1,
+          "hint": "这"
+         }
+        ],
+        [
+         {
+          "colspan": 1,
+          "hint": "这只"
+         }
+        ]
+       ]
+      }
+     },
+     {
+      "value": " "
+     },
+     {
+      "value": "ville",
+      "tts": "https://d1vq87e9lcf771.cloudfront.net/victor/e854d64bfb588167baccc186c298c772",
+      "hintTable": {
+       "headers": [],
+       "rows": [
+        [
+         {
+          "colspan": 1,
+          "hint": "城市"
+         }
+        ],
+        [
+         {
+          "colspan": 1,
+          "hint": "市"
+         }
+        ],
+        [
+         {
+          "colspan": 1,
+          "hint": "城"
+         }
+        ]
+       ]
+      }
+     },
+     {
+      "value": " ",
+      "tts": "https://d1vq87e9lcf771.cloudfront.net/victor/9d73834724d459f5fb63cf90be1c0127"
+     },
+     {
+      "value": "!"
+     }
+    ],
+    "patternSentences": [
+     {
+      "prompt": "Moi, je préfère la campagne.",
+      "tokens": [
+       {
+        "value": "Moi",
+        "tts": "https://d1vq87e9lcf771.cloudfront.net/victor/f991477e3fd3be935ee28c3b888f90a3",
+        "hintTable": {
+         "headers": [],
+         "rows": [
+          [
+           {
+            "colspan": 1,
+            "hint": "我"
+           }
+          ],
+          [
+           {
+            "colspan": 1,
+            "hint": "给我"
+           }
+          ]
+         ]
+        }
+       },
+       {
+        "value": ","
+       },
+       {
+        "value": " "
+       },
+       {
+        "value": "je",
+        "tts": "https://d1vq87e9lcf771.cloudfront.net/victor/faa4fd79f942f68edff2b8c31b88cd7a",
+        "hintTable": {
+         "headers": [],
+         "rows": [
+          [
+           {
+            "colspan": 1,
+            "hint": "我"
+           }
+          ],
+          [
+           {
+            "colspan": 1,
+            "hint": "i"
+           }
+          ],
+          [
+           {
+            "colspan": 1,
+            "hint": "们"
+           }
+          ]
+         ]
+        }
+       },
+       {
+        "value": " "
+       },
+       {
+        "value": "préfère",
+        "tts": "https://d1vq87e9lcf771.cloudfront.net/victor/f7727497bb03a05bb8ca1c45c3d70dda",
+        "hintTable": {
+         "headers": [],
+         "rows": [
+          [
+           {
+            "colspan": 1,
+            "hint": "更喜欢"
+           }
+          ],
+          [
+           {
+            "colspan": 1,
+            "hint": "更爱"
+           }
+          ],
+          [
+           {
+            "colspan": 1,
+            "hint": "偏爱"
+           }
+          ]
+         ]
+        }
+       },
+       {
+        "value": " "
+       },
+       {
+        "value": "la",
+        "tts": "https://d1vq87e9lcf771.cloudfront.net/victor/908bae33b41eb82e60d1d4ab46f5d931",
+        "hintTable": {
+         "headers": [],
+         "rows": [
+          [
+           {
+            "colspan": 1,
+            "hint": "这个"
+           }
+          ],
+          [
+           {
+            "colspan": 1,
+            "hint": "那座"
+           }
+          ],
+          [
+           {
+            "colspan": 1,
+            "hint": "这辆"
+           }
+          ]
+         ]
+        }
+       },
+       {
+        "value": " "
+       },
+       {
+        "value": "campagne",
+        "tts": "https://d1vq87e9lcf771.cloudfront.net/victor/91f3ee25b2aec065bb910d01be619c65",
+        "hintTable": {
+         "headers": [],
+         "rows": [
+          [
+           {
+            "colspan": 1,
+            "hint": "乡下"
+           }
+          ],
+          [
+           {
+            "colspan": 1,
+            "hint": "乡"
+           }
+          ],
+          [
+           {
+            "colspan": 1,
+            "hint": "乡村"
+           }
+          ]
+         ]
+        }
+       },
+       {
+        "value": "."
+       }
+      ],
+      "boldStartIndex": 0,
+      "boldEndIndex": 3,
+      "highlightStartIndex": 0,
+      "highlightEndIndex": 3,
+      "highlightSubstring": "Moi"
+     },
+     {
+      "prompt": "Toi, tu habites dans un village.",
+      "tokens": [
+       {
+        "value": "Toi",
+        "tts": "https://d1vq87e9lcf771.cloudfront.net/victor/638c3ec79021dff62f56ff4c1d91faca",
+        "hintTable": {
+         "headers": [],
+         "rows": [
+          [
+           {
+            "colspan": 1,
+            "hint": "你"
+           }
+          ],
+          [
+           {
+            "colspan": 1,
+            "hint": "妳"
+           }
+          ],
+          [
+           {
+            "colspan": 1,
+            "hint": "侬"
+           }
+          ]
+         ]
+        }
+       },
+       {
+        "value": ","
+       },
+       {
+        "value": " "
+       },
+       {
+        "value": "tu",
+        "tts": "https://d1vq87e9lcf771.cloudfront.net/victor/fdea533c712d01ca0a31a73caefef093",
+        "hintTable": {
+         "headers": [],
+         "rows": [
+          [
+           {
+            "colspan": 1,
+            "hint": "你"
+           }
+          ]
+         ]
+        }
+       },
+       {
+        "value": " "
+       },
+       {
+        "value": "habites",
+        "tts": "https://d1vq87e9lcf771.cloudfront.net/victor/8dd87490c595d3ab3c133891be266aec",
+        "hintTable": {
+         "headers": [],
+         "rows": [
+          [
+           {
+            "colspan": 1,
+            "hint": "住在"
+           }
+          ],
+          [
+           {
+            "colspan": 1,
+            "hint": "住"
+           }
+          ]
+         ]
+        }
+       },
+       {
+        "value": " "
+       },
+       {
+        "value": "dans",
+        "tts": "https://d1vq87e9lcf771.cloudfront.net/victor/0f430e5474e969eb98d16f85dc7ef27d",
+        "hintTable": {
+         "headers": [],
+         "rows": [
+          [
+           {
+            "colspan": 1,
+            "hint": "在"
+           }
+          ],
+          [
+           {
+            "colspan": 1,
+            "hint": "里"
+           }
+          ],
+          [
+           {
+            "colspan": 1,
+            "hint": "里演"
+           }
+          ]
+         ]
+        }
+       },
+       {
+        "value": " "
+       },
+       {
+        "value": "un",
+        "tts": "https://d1vq87e9lcf771.cloudfront.net/victor/89b2511798ce14d843da0b80ee03093b",
+        "hintTable": {
+         "headers": [],
+         "rows": [
+          [
+           {
+            "colspan": 1,
+            "hint": "一个"
+           }
+          ],
+          [
+           {
+            "colspan": 1,
+            "hint": "一"
+           }
+          ],
+          [
+           {
+            "colspan": 1,
+            "hint": "一辆"
+           }
+          ]
+         ]
+        }
+       },
+       {
+        "value": " "
+       },
+       {
+        "value": "village",
+        "tts": "https://d1vq87e9lcf771.cloudfront.net/victor/11e317ec69e4c12ad7b854351c2b5d96",
+        "hintTable": {
+         "headers": [],
+         "rows": [
+          [
+           {
+            "colspan": 1,
+            "hint": "村子"
+           }
+          ],
+          [
+           {
+            "colspan": 1,
+            "hint": "村里"
+           }
+          ],
+          [
+           {
+            "colspan": 1,
+            "hint": "村"
+           }
+          ]
+         ]
+        }
+       },
+       {
+        "value": "."
+       }
+      ],
+      "boldStartIndex": 0,
+      "boldEndIndex": 3,
+      "highlightStartIndex": 0,
+      "highlightEndIndex": 3,
+      "highlightSubstring": "Toi"
+     }
+    ],
+    "blankRangeStart": 0,
+    "blankRangeEnd": 3,
+    "indicatorType": "NEW_PATTERN",
+    "hasAudio": false,
+    "sampleKeys": {
+     "blankRangeEnd": "number",
+     "blankRangeStart": "number",
+     "challengeGeneratorIdentifier": "object",
+     "challengeResponseTrackingProperties": "object",
+     "choices": "array[2]",
+     "correctIndex": "number",
+     "id": "string",
+     "indicatorType": "string",
+     "metadata": "object",
+     "patternSentences": "array[2]",
+     "progressUpdates": "array[0]",
+     "prompt": "string",
+     "tokens": "array[12]",
+     "type": "string"
+    }
+   }
+  ]
+ }
+}

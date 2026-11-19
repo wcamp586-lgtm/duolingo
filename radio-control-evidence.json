@@ -1,0 +1,245 @@
+{
+ "at": "2026-11-19T07:06:48.556Z",
+ "entryText": "听力练习 +30 经验",
+ "url": "/lesson/unit/72/level/6",
+ "title": "多邻国 - 学得轻松，学有所成的法语 课程！",
+ "textLen": 18,
+ "requests": [
+  {
+   "method": "GET",
+   "path": "/2017-06-30/friends/users/769346152/recommendations",
+   "ms": null
+  },
+  {
+   "method": "GET",
+   "path": "/2017-06-30/friends/users/769346152/profile",
+   "ms": null
+  },
+  {
+   "method": "GET",
+   "path": "/users/769346152/built-avatar-states",
+   "ms": null
+  },
+  {
+   "method": "GET",
+   "path": "/users/769346152/avatar-builder-config",
+   "ms": null
+  },
+  {
+   "method": "GET",
+   "path": "/2023-05-23/score-info/courses/DUOLINGO_FR_ZH-CN",
+   "ms": null
+  },
+  {
+   "method": "GET",
+   "path": "/2017-06-30/friends/users/769346152/matches",
+   "ms": null
+  },
+  {
+   "method": "GET",
+   "path": "/2017-06-30/friends/users/769346152/matches/potential-matches",
+   "ms": null
+  },
+  {
+   "method": "GET",
+   "path": "/2023-05-23/users/1022002876/xp_summaries",
+   "ms": null
+  },
+  {
+   "method": "GET",
+   "path": "/2023-05-23/users/1341964464/xp_summaries",
+   "ms": null
+  },
+  {
+   "method": "GET",
+   "path": "/2023-05-23/users/709193410940206/xp_summaries",
+   "ms": null
+  },
+  {
+   "method": "GET",
+   "path": "/users/769346152/streak-goal-current",
+   "ms": null
+  },
+  {
+   "method": "GET",
+   "path": "/users/769346152/streak-goal-next-options",
+   "ms": null
+  },
+  {
+   "method": "POST",
+   "path": "/api/1/sync/batch",
+   "ms": null
+  },
+  {
+   "method": "POST",
+   "path": "/api/1/sync/batch",
+   "ms": null
+  },
+  {
+   "method": "POST",
+   "path": "/api/1/sync/batch",
+   "ms": null
+  },
+  {
+   "method": "POST",
+   "path": "/api/1/sync/batch",
+   "ms": null
+  },
+  {
+   "method": "GET",
+   "path": "/friends-streak/matches",
+   "ms": null
+  },
+  {
+   "method": "GET",
+   "path": "/2017-06-30/users/769346152/family-plan/invites",
+   "ms": null
+  },
+  {
+   "method": "GET",
+   "path": "/2017-06-30/words-list/supported-courses",
+   "ms": null
+  },
+  {
+   "method": "POST",
+   "path": "/2017-06-30/users/769346152/courses/fr/zh/learned-lexemes/count",
+   "ms": null
+  },
+  {
+   "method": "POST",
+   "path": "/2017-06-30/users/769346152/courses/fr/zh/practice-lexemes",
+   "ms": null
+  },
+  {
+   "method": "GET",
+   "path": "/v2/mistakes/users/769346152/courses/DUOLINGO_FR_ZH-CN",
+   "ms": null
+  },
+  {
+   "method": "GET",
+   "path": "/v2/mistakes/users/769346152/courses/DUOLINGO_FR_ZH-CN",
+   "ms": null
+  },
+  {
+   "method": "POST",
+   "path": "/2017-06-30/messaging/get-messages/",
+   "ms": null
+  },
+  {
+   "method": "POST",
+   "path": "/api/1/sync/batch",
+   "ms": null
+  },
+  {
+   "method": "POST",
+   "path": "/api/1/sync/batch",
+   "ms": null
+  },
+  {
+   "method": "POST",
+   "path": "/api/1/sync/batch",
+   "ms": null
+  },
+  {
+   "method": "POST",
+   "path": "/api/1/sync/batch",
+   "ms": null
+  },
+  {
+   "method": "POST",
+   "path": "/api/1/sync/batch",
+   "ms": null
+  },
+  {
+   "method": "POST",
+   "path": "/api/1/sync/batch",
+   "ms": null
+  },
+  {
+   "method": "POST",
+   "path": "/api/1/sync/batch",
+   "ms": null
+  },
+  {
+   "method": "POST",
+   "path": "/api/1/sync/batch",
+   "ms": null
+  },
+  {
+   "method": "POST",
+   "path": "/api/1/sync/batch",
+   "ms": 70
+  },
+  {
+   "method": "POST",
+   "path": "/api/1/sync/batch",
+   "ms": 71
+  },
+  {
+   "method": "POST",
+   "path": "/2023-05-23/sessions",
+   "ms": 88
+  },
+  {
+   "method": "POST",
+   "path": "/api/1/sync/batch",
+   "ms": 643
+  },
+  {
+   "method": "POST",
+   "path": "/api/1/sync/batch",
+   "ms": 976
+  },
+  {
+   "method": "POST",
+   "path": "/api/1/sync/batch",
+   "ms": 3646
+  },
+  {
+   "method": "POST",
+   "path": "/api/1/sync/batch",
+   "ms": 3646
+  },
+  {
+   "method": "POST",
+   "path": "/api/1/sync/batch",
+   "ms": 3646
+  }
+ ],
+ "sessions": [
+  {
+   "status": 200,
+   "path": "/2023-05-23/sessions",
+   "ms": 1043
+  }
+ ],
+ "buttons": [
+  {
+   "tag": "button",
+   "test": "quit-button",
+   "aria": "",
+   "role": "",
+   "text": "",
+   "disabled": false,
+   "rect": {
+    "x": 133,
+    "y": 57,
+    "w": 18,
+    "h": 18
+   }
+  }
+ ],
+ "containers": [
+  "quit-button",
+  "drawer-backdrop"
+ ],
+ "media": [],
+ "textish": [],
+ "hasIframe": 2,
+ "hover": {
+  "test": "quit-button",
+  "aria": "",
+  "text": ""
+ },
+ "note": "只读取证；未点击任何配对按钮，未提交配对"
+}
