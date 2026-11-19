@@ -49,6 +49,8 @@
 
 **补充（2026-11-20，section 3）**：故事节点（`pathLevelMetadata.storyId`，`finishedSessions/totalSessions = 1/1`，快照里 type=other）**可以独立走传说课并结算 +40**，实测 `1d0616f9`、`9d910a8f`、`7b24736b`（unit 69/70 故事，各 +40，`answered≈5`）。所以第 6 节「1/1 只能连带」只适用于 **review / practice**，故事要单列——这也是 section 3 候选面比老段大的原因。
 
+**类型口径提醒（2026-11-20）**：宝箱节点 `type=chest` 的元数据里也有 `anchorSkillId/indexSinceAnchorSkill`，只按元数据判断会被误标成 practice/review（unit 72 的 `4841b436`、`dfdc272c` 就是 chest，不是 practice）。节点类型应直接读 API 的 `level.type`；chest 与 duo_radio 一样没有独立传说入口，只能连带。
+
 **TODO**
 - 连带触发时点没定：unit 34 的 unit_review `ac0ae2f8` 在 skill l0（`85bafd28`）还没金时就变金了，说明不是「整链所有可入口节点都金」才触发；可能与 anchor lesson 或平台后台任务有关，证据不足不下结论。
 - 「1 节 review 一定不渲染」目前只有 unit 39 两个样本 + 全老段 1/1 全是连带这两条间接证据，未逐单元验证。
