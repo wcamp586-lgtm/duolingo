@@ -1,0 +1,40 @@
+{
+ "at": "2026-11-19T13:23:20.033Z",
+ "nodeTest": "skill-path-level-11 skill-path-level-duo_radio",
+ "box": {
+  "x": 472.625,
+  "y": 734.40625,
+  "width": 70,
+  "height": 65
+ },
+ "frames": [
+  {
+   "s": 1,
+   "n": 65,
+   "hit": [
+    {
+     "tag": "a",
+     "test": "practice-hub-nav",
+     "text": "练习基地",
+     "path": "/practice-hub",
+     "disabled": false
+    },
+    {
+     "tag": "a",
+     "test": "skill-path-state-unit_test skill-path-unit-test-73",
+     "text": "跳级到这儿？",
+     "path": "/lesson/unit/74/test",
+     "disabled": false
+    },
+    {
+     "tag": "a",
+     "test": "skill-path-state-unit_test skill-path-unit-test-74",
+     "text": "跳级到这儿？",
+     "path": "/lesson/unit/75/test",
+     "disabled": false
+    }
+   ],
+   "text": "学习 练习基地 排行榜 特别任务 宝石小店 个人档案 更多 31 323 4318 钻石等级 查看排行榜 你当前排在第 1 位 继续努力，坐稳前 3！ 每日特别任务 显示全部 获取 50 经验 50 / 50 50 / 50 3 个单元至少"
+  }
+ ]
+}

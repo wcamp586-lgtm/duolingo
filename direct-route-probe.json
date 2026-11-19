@@ -1,0 +1,515 @@
+{
+ "at": "2026-11-19T14:10:55.929Z",
+ "sessions": [
+  {
+   "path": "/2023-05-23/sessions",
+   "method": "POST",
+   "status": 200,
+   "type": "LEXEME_SKILL_LEVEL_PRACTICE",
+   "skillId": null,
+   "levelIndex": null,
+   "n": 17,
+   "id": "dgmNrKxH2bJvypmz"
+  },
+  {
+   "path": "/2023-05-23/sessions",
+   "method": "POST",
+   "status": 200,
+   "type": "LEGENDARY_LEVEL",
+   "skillId": "b304dd10a977ad48e466dc061286708f",
+   "levelIndex": 0,
+   "n": 17,
+   "id": "F8L4GYswDgyXo5Mb"
+  }
+ ],
+ "docs": [
+  {
+   "path": "/learn",
+   "status": 200
+  },
+  {
+   "path": "/lesson/unit/32/level/1",
+   "status": 200
+  },
+  {
+   "path": "/lesson/unit/32/legendary/1",
+   "status": 200
+  }
+ ],
+ "errors": [],
+ "xp": 122533,
+ "scan": [
+  {
+   "section": 0,
+   "unit": 0,
+   "states": [
+    "legendary@0",
+    "legendary@1"
+   ]
+  },
+  {
+   "section": 0,
+   "unit": 1,
+   "states": [
+    "legendary@0",
+    "legendary@1"
+   ]
+  },
+  {
+   "section": 0,
+   "unit": 2,
+   "states": [
+    "legendary@0",
+    "legendary@1"
+   ]
+  },
+  {
+   "section": 0,
+   "unit": 3,
+   "states": [
+    "legendary@0",
+    "legendary@1"
+   ]
+  },
+  {
+   "section": 0,
+   "unit": 4,
+   "states": [
+    "legendary@0",
+    "legendary@1"
+   ]
+  },
+  {
+   "section": 0,
+   "unit": 5,
+   "states": [
+    "legendary@0",
+    "legendary@1"
+   ]
+  },
+  {
+   "section": 0,
+   "unit": 6,
+   "states": [
+    "legendary@0",
+    "legendary@1"
+   ]
+  },
+  {
+   "section": 0,
+   "unit": 7,
+   "states": [
+    "legendary@0",
+    "legendary@1"
+   ]
+  },
+  {
+   "section": 0,
+   "unit": 8,
+   "states": [
+    "legendary@0",
+    "legendary@1"
+   ]
+  },
+  {
+   "section": 0,
+   "unit": 9,
+   "states": [
+    "legendary@0",
+    "legendary@1"
+   ]
+  },
+  {
+   "section": 1,
+   "unit": 10,
+   "states": [
+    "legendary@0",
+    "legendary@1"
+   ]
+  },
+  {
+   "section": 1,
+   "unit": 11,
+   "states": [
+    "legendary@0",
+    "legendary@1"
+   ]
+  },
+  {
+   "section": 1,
+   "unit": 12,
+   "states": [
+    "legendary@0",
+    "legendary@1"
+   ]
+  },
+  {
+   "section": 1,
+   "unit": 13,
+   "states": [
+    "legendary@0",
+    "legendary@1"
+   ]
+  },
+  {
+   "section": 1,
+   "unit": 14,
+   "states": [
+    "legendary@0",
+    "legendary@1"
+   ]
+  },
+  {
+   "section": 1,
+   "unit": 15,
+   "states": [
+    "legendary@0",
+    "legendary@1"
+   ]
+  },
+  {
+   "section": 1,
+   "unit": 16,
+   "states": [
+    "legendary@0",
+    "legendary@1"
+   ]
+  },
+  {
+   "section": 1,
+   "unit": 17,
+   "states": [
+    "legendary@0",
+    "legendary@1"
+   ]
+  },
+  {
+   "section": 1,
+   "unit": 18,
+   "states": [
+    "legendary@0",
+    "legendary@1"
+   ]
+  },
+  {
+   "section": 1,
+   "unit": 19,
+   "states": [
+    "legendary@0",
+    "legendary@1"
+   ]
+  },
+  {
+   "section": 1,
+   "unit": 20,
+   "states": [
+    "legendary@0",
+    "legendary@1"
+   ]
+  },
+  {
+   "section": 1,
+   "unit": 21,
+   "states": [
+    "legendary@0",
+    "legendary@1"
+   ]
+  },
+  {
+   "section": 1,
+   "unit": 22,
+   "states": [
+    "legendary@0",
+    "legendary@1"
+   ]
+  },
+  {
+   "section": 1,
+   "unit": 23,
+   "states": [
+    "legendary@0",
+    "legendary@1"
+   ]
+  },
+  {
+   "section": 1,
+   "unit": 24,
+   "states": [
+    "legendary@0",
+    "legendary@1"
+   ]
+  },
+  {
+   "section": 1,
+   "unit": 25,
+   "states": [
+    "legendary@0",
+    "legendary@1"
+   ]
+  },
+  {
+   "section": 1,
+   "unit": 26,
+   "states": [
+    "legendary@0",
+    "legendary@1"
+   ]
+  },
+  {
+   "section": 1,
+   "unit": 27,
+   "states": [
+    "legendary@0",
+    "legendary@1"
+   ]
+  },
+  {
+   "section": 1,
+   "unit": 28,
+   "states": [
+    "legendary@0",
+    "legendary@1"
+   ]
+  },
+  {
+   "section": 1,
+   "unit": 29,
+   "states": [
+    "legendary@0",
+    "legendary@1"
+   ]
+  },
+  {
+   "section": 1,
+   "unit": 30,
+   "states": [
+    "legendary@0",
+    "legendary@1"
+   ]
+  },
+  {
+   "section": 1,
+   "unit": 31,
+   "states": [
+    "passed@0",
+    "passed@1"
+   ]
+  },
+  {
+   "section": 1,
+   "unit": 32,
+   "states": [
+    "passed@0",
+    "passed@1"
+   ]
+  },
+  {
+   "section": 1,
+   "unit": 33,
+   "states": [
+    "passed@0",
+    "passed@1"
+   ]
+  },
+  {
+   "section": 1,
+   "unit": 34,
+   "states": [
+    "passed@0",
+    "passed@1"
+   ]
+  },
+  {
+   "section": 1,
+   "unit": 35,
+   "states": [
+    "passed@0",
+    "passed@1"
+   ]
+  },
+  {
+   "section": 1,
+   "unit": 36,
+   "states": [
+    "passed@0",
+    "passed@1"
+   ]
+  },
+  {
+   "section": 1,
+   "unit": 37,
+   "states": [
+    "passed@0",
+    "passed@1"
+   ]
+  },
+  {
+   "section": 1,
+   "unit": 38,
+   "states": [
+    "passed@0",
+    "passed@1"
+   ]
+  },
+  {
+   "section": 1,
+   "unit": 39,
+   "states": [
+    "passed@0",
+    "passed@1"
+   ]
+  }
+ ],
+ "unit30": {
+  "sectionIndex": 1,
+  "unitIndex": 31,
+  "levels": [
+   {
+    "id": "e2203506362994552bc4b625be0142b2",
+    "state": "passed",
+    "fin": 6,
+    "tot": 6,
+    "skillId": "b304dd10a977ad48e466dc061286708f",
+    "crown": 0
+   },
+   {
+    "id": "c789079e7554c95a3be4d4a207aab135",
+    "state": "passed",
+    "fin": 1,
+    "tot": 1,
+    "skillId": null,
+    "crown": null
+   },
+   {
+    "id": "16d6776d6bf109daf0b7ef97503980ac",
+    "state": "passed",
+    "fin": 6,
+    "tot": 6,
+    "skillId": "b304dd10a977ad48e466dc061286708f",
+    "crown": 1
+   },
+   {
+    "id": "a51f6cbd18773a150aeff93f369f0540",
+    "state": "passed",
+    "fin": 1,
+    "tot": 1,
+    "skillId": null,
+    "crown": null
+   },
+   {
+    "id": "dc17bb8b72f2cecc7a535788e83d2327",
+    "state": "passed",
+    "fin": 3,
+    "tot": 3,
+    "skillId": null,
+    "crown": null
+   },
+   {
+    "id": "21a7a1ae1ccaf80aef2335f9dc370566",
+    "state": "passed",
+    "fin": 1,
+    "tot": 1,
+    "skillId": null,
+    "crown": null
+   },
+   {
+    "id": "43781f2220cd82c90e68e8bc213de6fa",
+    "state": "passed",
+    "fin": 1,
+    "tot": 1,
+    "skillId": null,
+    "crown": null
+   },
+   {
+    "id": "b1586d4da32da2d8ad38c4f02a6a429c",
+    "state": "passed",
+    "fin": 3,
+    "tot": 3,
+    "skillId": null,
+    "crown": null
+   },
+   {
+    "id": "7d113b8284942eed196d97de740f0085",
+    "state": "passed",
+    "fin": 1,
+    "tot": 1,
+    "skillId": null,
+    "crown": null
+   },
+   {
+    "id": "329229496749b391a95de248b28e6a38",
+    "state": "passed",
+    "fin": 0,
+    "tot": 1,
+    "skillId": null,
+    "crown": null
+   }
+  ]
+ },
+ "target": {
+  "id": "e2203506362994552bc4b625be0142b2",
+  "state": "passed",
+  "fin": 6,
+  "tot": 6,
+  "skillId": "b304dd10a977ad48e466dc061286708f",
+  "crown": 0,
+  "unitIndex": 31,
+  "sectionIndex": 1
+ },
+ "normal": {
+  "url": "/lesson/unit/32/level/1",
+  "title": "多邻国 - 学得轻松，学有所成的法语 课程！",
+  "body": "填空 C'est une super soirée , non ? J'adore la ! gare voiture musique boulangerie 跳过 检查",
+  "hasChallenge": true,
+  "controls": [
+   {
+    "test": "quit-button",
+    "text": ""
+   },
+   {
+    "test": "gare-challenge-tap-token",
+    "text": "gare"
+   },
+   {
+    "test": "voiture-challenge-tap-token",
+    "text": "voiture"
+   },
+   {
+    "test": "musique-challenge-tap-token",
+    "text": "musique"
+   },
+   {
+    "test": "boulangerie-challenge-tap-token",
+    "text": "boulangerie"
+   },
+   {
+    "test": "player-skip",
+    "text": "跳过"
+   },
+   {
+    "test": "player-next",
+    "text": "检查"
+   }
+  ],
+  "errorLike": false
+ },
+ "legendary": {
+  "url": "/lesson/unit/32/legendary/1",
+  "title": "多邻国 - 学得轻松，学有所成的法语 课程！",
+  "body": "20 40 前方高能！亮出实力才能拿下传奇等级哦～ 继续",
+  "startButton": false,
+  "legendaryEls": [],
+  "hasChallenge": false,
+  "controls": [
+   {
+    "test": "quit-button",
+    "text": ""
+   },
+   {
+    "test": "player-next",
+    "text": "继续"
+   }
+  ],
+  "errorLike": false
+ }
+}

@@ -1,0 +1,306 @@
+{
+ "at": "2026-11-19T12:57:39.206Z",
+ "nodeTest": "skill-path-level-1 skill-path-level-story",
+ "nodeBox": {
+  "x": 472.625,
+  "y": -135.21875,
+  "width": 70,
+  "height": 65
+ },
+ "before": {
+  "legendary": [],
+  "unitText": "做比较 开始"
+ },
+ "after": {
+  "legendary": [
+   {
+    "test": "legendary-node-button",
+    "text": "晋升传奇 +40 经验",
+    "vis": true
+   }
+  ],
+  "els": [
+   {
+    "tag": "a",
+    "test": "home-nav",
+    "text": "学习",
+    "path": "/learn",
+    "disabled": false
+   },
+   {
+    "tag": "a",
+    "test": "practice-hub-nav",
+    "text": "练习基地",
+    "path": "/practice-hub",
+    "disabled": false
+   },
+   {
+    "tag": "a",
+    "test": "leaderboard-nav",
+    "text": "排行榜",
+    "path": "/leaderboard",
+    "disabled": false
+   },
+   {
+    "tag": "a",
+    "test": "quests-nav",
+    "text": "特别任务",
+    "path": "/quests",
+    "disabled": false
+   },
+   {
+    "tag": "a",
+    "test": "shop-nav",
+    "text": "宝石小店",
+    "path": "/shop",
+    "disabled": false
+   },
+   {
+    "tag": "a",
+    "test": "profile-tab",
+    "text": "个人档案",
+    "path": "/profile/fongzhua",
+    "disabled": false
+   },
+   {
+    "tag": "a",
+    "test": "leaderboards-open",
+    "text": "查看排行榜",
+    "path": "/leaderboard",
+    "disabled": false
+   },
+   {
+    "tag": "a",
+    "test": "",
+    "text": "显示全部",
+    "path": "/quests",
+    "disabled": false
+   },
+   {
+    "tag": "a",
+    "test": "",
+    "text": "关于我们",
+    "path": "/",
+    "disabled": false
+   },
+   {
+    "tag": "a",
+    "test": "",
+    "text": "宝石小店",
+    "path": "/",
+    "disabled": false
+   },
+   {
+    "tag": "a",
+    "test": "",
+    "text": "有效性",
+    "path": "/efficacy",
+    "disabled": false
+   },
+   {
+    "tag": "a",
+    "test": "",
+    "text": "招聘贤才",
+    "path": "/",
+    "disabled": false
+   },
+   {
+    "tag": "a",
+    "test": "",
+    "text": "投资者",
+    "path": "/",
+    "disabled": false
+   },
+   {
+    "tag": "a",
+    "test": "",
+    "text": "条款",
+    "path": "/terms",
+    "disabled": false
+   },
+   {
+    "tag": "a",
+    "test": "",
+    "text": "隐私",
+    "path": "/privacy",
+    "disabled": false
+   },
+   {
+    "tag": "a",
+    "test": "",
+    "text": "第 4 阶段，第 3 部分",
+    "path": "/sections",
+    "disabled": false
+   },
+   {
+    "tag": "a",
+    "test": "guidebook-button-72",
+    "text": "指南",
+    "path": "/guidebook/fr/72",
+    "disabled": false
+   },
+   {
+    "tag": "button",
+    "test": "skill-path-level-0 skill-path-level-skill",
+    "text": "",
+    "path": "",
+    "disabled": false
+   },
+   {
+    "tag": "button",
+    "test": "skill-path-level-1 skill-path-level-story",
+    "text": "",
+    "path": "",
+    "disabled": false
+   },
+   {
+    "tag": "button",
+    "test": "skill-path-level-2 skill-path-level-duo_radio",
+    "text": "",
+    "path": "",
+    "disabled": false
+   },
+   {
+    "tag": "button",
+    "test": "skill-path-level-3 skill-path-level-skill",
+    "text": "",
+    "path": "",
+    "disabled": false
+   },
+   {
+    "tag": "button",
+    "test": "skill-path-level-4 skill-path-level-story",
+    "text": "",
+    "path": "",
+    "disabled": false
+   },
+   {
+    "tag": "button",
+    "test": "skill-path-level-5 skill-path-level-duo_radio",
+    "text": "",
+    "path": "",
+    "disabled": false
+   },
+   {
+    "tag": "button",
+    "test": "skill-path-level-6 skill-path-level-practice",
+    "text": "",
+    "path": "",
+    "disabled": false
+   },
+   {
+    "tag": "button",
+    "test": "skill-path-level-8 skill-path-level-story",
+    "text": "",
+    "path": "",
+    "disabled": false
+   },
+   {
+    "tag": "button",
+    "test": "skill-path-level-9 skill-path-level-duo_radio",
+    "text": "",
+    "path": "",
+    "disabled": false
+   },
+   {
+    "tag": "button",
+    "test": "skill-path-level-10 skill-path-level-practice",
+    "text": "",
+    "path": "",
+    "disabled": false
+   },
+   {
+    "tag": "button",
+    "test": "skill-path-level-11 skill-path-level-duo_radio",
+    "text": "",
+    "path": "",
+    "disabled": false
+   },
+   {
+    "tag": "button",
+    "test": "skill-path-level-12 skill-path-level-unit_review",
+    "text": "",
+    "path": "",
+    "disabled": false
+   },
+   {
+    "tag": "button",
+    "test": "skill-path-level-0 skill-path-level-skill",
+    "text": "",
+    "path": "",
+    "disabled": false
+   },
+   {
+    "tag": "button",
+    "test": "skill-path-level-1 skill-path-level-story",
+    "text": "",
+    "path": "",
+    "disabled": false
+   },
+   {
+    "tag": "button",
+    "test": "skill-path-level-2 skill-path-level-duo_radio",
+    "text": "",
+    "path": "",
+    "disabled": false
+   },
+   {
+    "tag": "button",
+    "test": "skill-path-level-3 skill-path-level-skill",
+    "text": "",
+    "path": "",
+    "disabled": false
+   },
+   {
+    "tag": "button",
+    "test": "skill-path-level-4 skill-path-level-story",
+    "text": "",
+    "path": "",
+    "disabled": false
+   },
+   {
+    "tag": "button",
+    "test": "skill-path-level-5 skill-path-level-duo_radio",
+    "text": "",
+    "path": "",
+    "disabled": false
+   },
+   {
+    "tag": "button",
+    "test": "skill-path-level-6 skill-path-level-practice",
+    "text": "",
+    "path": "",
+    "disabled": false
+   },
+   {
+    "tag": "button",
+    "test": "skill-path-level-8 skill-path-level-story",
+    "text": "",
+    "path": "",
+    "disabled": false
+   },
+   {
+    "tag": "button",
+    "test": "skill-path-level-9 skill-path-level-duo_radio",
+    "text": "",
+    "path": "",
+    "disabled": false
+   },
+   {
+    "tag": "button",
+    "test": "skill-path-level-10 skill-path-level-practice",
+    "text": "",
+    "path": "",
+    "disabled": false
+   },
+   {
+    "tag": "button",
+    "test": "skill-path-level-11 skill-path-level-duo_radio",
+    "text": "",
+    "path": "",
+    "disabled": false
+   }
+  ],
+  "bodyHasLegendaryText": true
+ }
+}

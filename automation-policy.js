@@ -9,59 +9,73 @@ function classifyLevel(level) {
   return 'check-legendary-entry';
 }
 
-// 链头策略（2026-11-19 新口径）：每个 unit 是一条链，链头是 l0，传奇只挑链头。
-// 第 1 步实验（s3u72l0 传奇）：l0 变 legendary，l1 story 仍 passed —— story 不靠链头立即继承；
-// practice / unit_review 该实验未覆盖（l3 未 passed、l12 locked），标 TODO，不猜。
-// 已知：duo_radio / chest 无独立入口，整链金后连带（s3u71 实证）。
-// TARGET_TYPES 仍保留给 planNormal 与历史口径；链头本身类型不限，但只有可传奇类型才会进候选。
+// 选关（2026-11-19 修正）：链内 passed 的 skill/story/practice/unit_review 都进候选，
+// 运行时要看到 /learn 节点气泡里真实出现的 legendary-node-button 才算有入口，不构造 URL 当证据。
+// 实测（s3u72）：l0 传奇后 l1 story 仍 passed，但 story 气泡有「晋升传奇 +40 经验」入口，
+// 说明 story 要单独打，不靠链头立即继承；继承机制标「待验证」。
+// 已知无独立入口：duo_radio / chest（s3u71 整链金后连带）；unit_review 按实见入口决定（s3u71 实测无入口）。
 function planCourse(course) {
   const candidates=[];
   const counts={};
   for(const section of course.pathSectioned||[]) {
     if(section.type!=='learning')continue;
-    for(const unit of section.units||[]) {
-      const levels=unit.levels||[];
-      if(!levels.length)continue;
-      // 每个 unit 只取 l0：后续节点靠整链连带，没跟上的进「继承失败待补」清单
-      const level=levels[0];
+    for(const unit of section.units||[])for(const [levelIndex,level] of (unit.levels||[]).entries()) {
       const reason=classifyLevel(level);
       counts[reason]=(counts[reason]||0)+1;
       if(reason==='check-legendary-entry')candidates.push({
         courseId:course.id,sectionIndex:section.index,unitIndex:unit.unitIndex,
-        levelIndex:0,id:level.id,type:level.type,name:level.debugName,state:level.state,
+        levelIndex,id:level.id,type:level.type,name:level.debugName,state:level.state,
       });
     }
   }
   return {courseId:course.id,candidates,counts};
 }
 
-// 链口径：链头已金 N 条 / 整链已金 N 条 / 继承失败待补清单（链头已金但单元内还有非 legendary 节点）。
-function chainReport(course) {
+// 链口径（2026-11-19 口径修正）：
+// - headsGold / chainsGold：链头已金 / 整链已金
+// - pending：链头已金单元内的非金节点（逐节点，state 如实），不等同「全课程剩余关卡」
+// - entryEvidence 三态：observed-present / observed-absent / unknown（默认 unknown，不靠类型猜）
+// - 只有 state=passed 且 entryEvidence=observed-present 才算「已确认可刷」
+// - unit_review 没有逐关页面证据时保留 unknown
+function chainReport(course, entryEvidence) {
   const isGold=(level)=>level&&(level.state==='legendary'||level.pathLevelMetadata?.nodeState==='legendary');
+  const rawEvidence=(id)=>{
+    if(!entryEvidence)return 'unknown';
+    const v=entryEvidence instanceof Map?entryEvidence.get(id):entryEvidence[id];
+    return v==='observed-present'||v==='observed-absent'?v:'unknown';
+  };
   const pending=[];
-  let headsGold=0,chainsGold=0;
+  let headsGold=0,chainsGold=0,courseNotGold=0,chainsHeadNotGold=0;
   for(const section of course.pathSectioned||[]) {
     if(section.type!=='learning')continue;
     for(const unit of section.units||[]) {
       const levels=unit.levels||[];
       if(!levels.length)continue;
       const head=levels[0];
-      if(!isGold(head))continue;
+      courseNotGold+=levels.filter((l)=>!isGold(l)).length;
+      if(!isGold(head)){chainsHeadNotGold++;continue;}
       headsGold++;
       const rest=levels.slice(1);
-      const notGold=rest.filter((l)=>!isGold(l));
-      if(!notGold.length){chainsGold++;continue;}
+      if(!rest.some((l)=>!isGold(l))){chainsGold++;continue;}
       for(const [levelIndex,level] of rest.entries()) {
         if(isGold(level))continue;
-        pending.push({unitIndex:unit.unitIndex,levelIndex:levelIndex+1,id:level.id,type:level.type,state:level.state});
+        pending.push({
+          unitIndex:unit.unitIndex,levelIndex:levelIndex+1,id:level.id,type:level.type,state:level.state,
+          entryEvidence:level.state==='passed'?rawEvidence(level.id):'unknown',
+        });
       }
     }
   }
-  return {headsGold,chainsGold,pending};
+  const ready=pending.filter((p)=>p.state==='passed'&&p.entryEvidence==='observed-present');
+  const absent=pending.filter((p)=>p.entryEvidence==='observed-absent');
+  const unknown=pending.filter((p)=>p.entryEvidence==='unknown');
+  return {
+    headsGold,chainsGold,pending,ready,absent,unknown,
+    courseNotGold,chainsHeadNotGold,
+    note:'pending 是链头已金单元内的非金节点列表，不等于全课程剩余关卡；全课程剩余用 courseNotGold/headsNotGold',
+  };
 }
 
-// 普通课：前沿节点可能是 chest（宝箱，点「打开」）或 duo_radio（对话课，可能要「稍后选择」），
-// 都要返回，由 auto-runner 按类型决定入口；否则解锁链会卡在它们身上。
 function planNormal(course) {
   const out=[];
   for(const section of course.pathSectioned||[]) {

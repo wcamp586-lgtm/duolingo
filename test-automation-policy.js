@@ -16,8 +16,8 @@ test('locked and unfinished nodes are not opened',()=>{
 });
 test('path ordering and identities survive duplicate display names',()=>{
   const result=policy.planCourse({id:'en',pathSectioned:[{index:0,type:'learning',units:[{unitIndex:2,levels:[{id:'a',type:'skill',state:'passed'},{id:'b',type:'story',state:'passed'},{id:'c',type:'skill',state:'passed'}]}]}]});
-  // 链头口径：只取 l0，其余节点不再进候选
-  assert.deepEqual(result.candidates.map(l=>l.id),['a']);assert.equal(result.candidates[0].levelIndex,0);
+  // 候选恢复：链内 passed 的 skill/story 都进，按 levelIndex 排序
+  assert.deepEqual(result.candidates.map(l=>l.id),['a','b','c']);assert.equal(result.candidates[0].levelIndex,0);
 });
 const base={startedAt:0,startXp:100,currentXp:100,now:0,minutes:15,xp:40};
 test('time limit blocks a new lesson, but lets the current lesson settle',()=>{
@@ -89,35 +89,53 @@ test('熔断：成功后重置连续失败，另有总尝试次数兜底', () =>
   capped.fail('a'); capped.fail('b');
   assert.equal(capped.fail('c').stop, 'total-attempts');
 });
-test('链头策略：每个 unit 只取 l0，l1 story 不单独进候选', () => {
+test('候选恢复：链内 passed 的 skill/story/practice 都进候选（不再只取 l0）', () => {
   const course = { id: 'fr', pathSectioned: [{ index: 3, type: 'learning', units: [{
     unitIndex: 72,
     levels: [
-      { id: 's3u72l0', type: 'skill', state: 'passed', levelIndex: 0 },
+      { id: 's3u72l0', type: 'skill', state: 'legendary', levelIndex: 0 },
       { id: 's3u72l1', type: 'story', state: 'passed', levelIndex: 1 },
       { id: 's3u72l3', type: 'skill', state: 'passed', levelIndex: 3 },
+      { id: 's3u72l5', type: 'duo_radio', state: 'passed', levelIndex: 5 },
+      { id: 's3u72l6', type: 'practice', state: 'passed', levelIndex: 6 },
     ] }] }] };
   const r = policy.planCourse(course);
-  assert.deepEqual(r.candidates.map((c) => c.id), ['s3u72l0']);
-  assert.equal(r.candidates[0].levelIndex, 0);
+  assert.deepEqual(r.candidates.map((c) => c.id), ['s3u72l1', 's3u72l3', 's3u72l6'], 'story/skill/practice 都进，radio 不进');
 });
-test('链头策略：链头已传奇的单元不再进候选', () => {
-  const course = { id: 'fr', pathSectioned: [{ index: 3, type: 'learning', units: [
-    { unitIndex: 72, levels: [{ id: 's3u72l0', type: 'skill', state: 'legendary' }, { id: 's3u72l1', type: 'story', state: 'passed' }] },
-    { unitIndex: 73, levels: [{ id: 's3u73l0', type: 'skill', state: 'passed' }] },
-  ] }] };
-  const r = policy.planCourse(course);
-  assert.deepEqual(r.candidates.map((c) => c.id), ['s3u73l0']);
-});
-test('链口径：链头已金 / 整链已金 / 待补清单分开统计', () => {
+test('链口径：链头已金/整链已金/pending 逐节点如实 state', () => {
   const course = { id: 'fr', pathSectioned: [{ index: 3, type: 'learning', units: [
     { unitIndex: 71, levels: [{ id: 'a', type: 'skill', state: 'legendary' }, { id: 'b', type: 'story', state: 'legendary' }, { id: 'c', type: 'duo_radio', state: 'legendary' }] },
-    { unitIndex: 72, levels: [{ id: 'd', type: 'skill', state: 'legendary' }, { id: 'e', type: 'story', state: 'passed' }] },
+    { unitIndex: 72, levels: [{ id: 'h', type: 'skill', state: 'legendary' }, { id: 'e', type: 'story', state: 'passed' }, { id: 'r', type: 'duo_radio', state: 'passed' }, { id: 'u', type: 'unit_review', state: 'passed' }, { id: 's', type: 'skill', state: 'active' }] },
     { unitIndex: 73, levels: [{ id: 'f', type: 'skill', state: 'passed' }] },
   ] }] };
   const r = policy.chainReport(course);
   assert.equal(r.headsGold, 2, '71 和 72 的链头已金');
   assert.equal(r.chainsGold, 1, '只有 71 整链已金');
-  assert.deepEqual(r.pending.map((p) => p.id), ['e'], '72 的 l1 story 是继承失败待补');
+  assert.deepEqual(r.pending.map((p) => p.id), ['e', 'r', 'u', 's']);
+  assert.equal(r.pending.find((p) => p.id === 'e').state, 'passed');
+  assert.equal(r.pending.find((p) => p.id === 's').state, 'active', 'active 如实输出，不写成 passed');
+  assert.ok(r.pending.every((p) => p.entryEvidence === 'unknown'), '没有页面证据一律 unknown');
+  assert.equal(r.ready.length, 0);
+  assert.equal(r.unknown.length, 4);
+  assert.match(r.note, /不等于全课程剩余关卡/);
+  assert.equal(r.courseNotGold, 5, '全课程非金节点另算（71 全金、72 四个非金、73 一个）');
 });
+
+test('链口径：入口证据三态分流，只有 passed+observed-present 算可刷', () => {
+  const course = { id: 'fr', pathSectioned: [{ index: 3, type: 'learning', units: [{
+    unitIndex: 72,
+    levels: [
+      { id: 'h', type: 'skill', state: 'legendary' },
+      { id: 'a', type: 'skill', state: 'passed' },
+      { id: 'b', type: 'story', state: 'passed' },
+      { id: 'c', type: 'duo_radio', state: 'passed' },
+      { id: 'd', type: 'skill', state: 'active' },
+    ] }] }] };
+  const evidence = { a: 'observed-present', c: 'observed-absent', d: 'observed-present' };
+  const r = policy.chainReport(course, evidence);
+  assert.deepEqual(r.ready.map((p) => p.id), ['a'], '只有 passed+observed-present 才算已确认可刷');
+  assert.deepEqual(r.absent.map((p) => p.id), ['c'], 'observed-absent 单列');
+  assert.deepEqual(r.unknown.map((p) => p.id), ['b', 'd'], 'unknown 不算，active 即使见过也仍是 unknown');
+});
+
 console.log(`结果: ${passed} 通过, 0 失败`);

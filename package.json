@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "node test-core.js && node test-stories.js && node test-automation-policy.js && node test-lesson-runner.js && node test-lesson-guard.js && node test-story-done.js && node test-progress-touch.js && node test-story-done-main.js && node test-story-flow.js && node test-node-entry.js && node test-story-sig.js && node test-story-finish.js && node test-radio-skip.js && node test-radio-tap.js && node test-radio-quiz.js",
+    "test": "node test-core.js && node test-stories.js && node test-automation-policy.js && node test-lesson-runner.js && node test-lesson-guard.js && node test-story-done.js && node test-progress-touch.js && node test-story-done-main.js && node test-story-flow.js && node test-node-entry.js && node test-story-sig.js && node test-story-finish.js && node test-radio-skip.js && node test-radio-tap.js && node test-radio-quiz.js && node test-lesson-settle.js && node test-legendary-scroll.js",
     "test:automation": "node test-automation-policy.js"
   },
   "keywords": [],

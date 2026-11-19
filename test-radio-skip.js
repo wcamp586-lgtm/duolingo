@@ -27,6 +27,7 @@ function makePage({
   selfCount = 0,
   selfText = '',
   unitText = '',
+  practiceIntro = false,
 } = {}) {
   let laterVisible = hasLater;
   let stage = 'learn';
@@ -65,8 +66,12 @@ function makePage({
     click: async () => {
       if (startClickThrows) throw new Error('start click timeout');
       startClicked = true;
-      stage = wrongNav ? 'learn' : (wrongRouteWithContainer ? 'other' : 'lesson');
+      stage = practiceIntro ? 'intro' : (wrongNav ? 'learn' : (wrongRouteWithContainer ? 'other' : 'lesson'));
     },
+  });
+  const practiceStart = makeLocator({
+    count: () => (stage === 'intro' ? 1 : 0),
+    click: async () => { stage = 'lesson'; },
   });
   const self = {
     first() { return self; },
@@ -79,6 +84,7 @@ function makePage({
     innerText: async () => selfText,
     click: async () => { stage = 'lesson'; },
   };
+  node.getAttribute = async () => 'skill-path-level-1 skill-path-level-practice';
   const unit = {
     first() { return unit; },
     waitFor: async () => {},
@@ -103,6 +109,7 @@ function makePage({
     keyboard: { press: async () => {} },
     locator(selector) {
       if (selector.includes('稍后选择')) return later;
+      if (/开始练习/.test(selector)) return practiceStart;
       if (selector.includes('skill-path-unit-')) return unit;
       if (selector.includes('skill-path-state-active')) return start;
       return node;
@@ -122,6 +129,13 @@ function makePage({
         hasQuitButton: false,
         nextEnabled: false,
         text: '别的页面',
+      };
+    }
+    if (stage === 'intro') {
+      return {
+        url: '/lesson', hasChallenge: false, hasLoading: false, hasStoryCover: false,
+        hasEndButton: false, hasQuitButton: false, nextEnabled: false,
+        text: '来巩固一下你最薄弱的语法知识点吧！ 包含介词的动词 开始练习',
       };
     }
     const lesson = stage === 'lesson';
@@ -149,9 +163,10 @@ async function runCase(options) {
   let result = null;
   let error = null;
   try {
+    const onTarget = (li) => ({ courseId: 'C', sectionIndex: 3, unitIndex: 71, levelIndex: li, id: 'uuid-practice-71-' + li, type: 'practice', name: 'Course Practice 70' });
     result = await autoRunner.prepareDeferredRadio(page, async () => {}, {
       sectionIndex: 3, unitIndex: 71, levelIndex: 0, id: 's3u71l0', name: 'Le théâtre à Montréal',
-    });
+    }, onTarget);
   } catch (e) {
     error = e;
   } finally {
@@ -162,15 +177,23 @@ async function runCase(options) {
 }
 
 async function main() {
+  await t('练习介绍页：点唯一「开始练习」后出现题目容器 → RADIO_ADVANCED + 后继节点身份', async () => {
+    const { result, error, logs } = await runCase({ practiceIntro: true });
+    assert.equal(error, null);
+    assert.ok(logs.some((l) => /RADIO_NEXT_PRACTICE_INTRO/.test(l)), '应识别练习介绍页');
+    assert.equal(result.advanced, true);
+    assert.equal(result.nextId, 'uuid-practice-71-1');
+    assert.equal(result.nextSlot.type, 'practice');
+  });
   await t('真推进：后续节点打开、开始点击成功、挑战容器出现 → 只记一条 RADIO_ADVANCED', async () => {
     const r = await runCase({});
     assert.equal(r.error, null);
     assert.equal(r.result.advanced, true);
-    assert.equal(r.result.nextId, 's3u71l1');
+    assert.equal(r.result.nextId, 'uuid-practice-71-1');
     assert.equal(r.counters.startClicked(), true);
     const advanced = r.logs.filter((line) => line.includes('RADIO_ADVANCED'));
     assert.equal(advanced.length, 1);
-    assert.match(advanced[0], /id=s3u71l0 next=s3u71l1 evidence=question url=\/lesson/);
+    assert.match(advanced[0], /id=s3u71l0 next=uuid-practice-71-1 type=practice evidence=question url=\/lesson/);
     assert.ok(!r.logs.some((line) => line.includes('RADIO_SKIPPED')));
     assert.ok(!r.logs.some((line) => line.includes('RADIO_NEXT')));
   });

@@ -1,0 +1,57 @@
+{
+ "at": "2026-11-19T14:13:23.533Z",
+ "afterClick": {
+  "url": "/learn",
+  "units": [
+   28,
+   29,
+   30,
+   31
+  ],
+  "historyState": {
+   "usr": null,
+   "key": "cb8fyx2v",
+   "idx": 1
+  },
+  "sessionStorage": {
+   "_tup": "{\"trk\":{}}",
+   "location@cb8fyx2v:path:scrollPosition": "{\"levelId\":\"c78d7dd66e8e4c809ae30310d7564823\",\"offset\":2076.8028465991956}"
+  },
+  "docH": 30433,
+  "y": 19764
+ },
+ "unit31Count": 1,
+ "lvCount": 1,
+ "bubble": {
+  "lvTest": "skill-path-level-1 skill-path-level-duo_radio",
+  "box": {
+   "x": 562.375,
+   "y": 162.21875,
+   "width": 70,
+   "height": 65
+  },
+  "frames": [
+   {
+    "s": 1,
+    "n": 47,
+    "hit": [
+     {
+      "tag": "a",
+      "test": "practice-hub-nav",
+      "text": "练习基地"
+     },
+     {
+      "tag": "a",
+      "test": "skill-path-state-passed skill-path-unit-test-31",
+      "text": "开始复习 +15 经验"
+     },
+     {
+      "tag": "button",
+      "test": "",
+      "text": "继续"
+     }
+    ]
+   }
+  ]
+ }
+}
