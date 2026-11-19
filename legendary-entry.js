@@ -59,6 +59,14 @@ async function ensureUnitVisible(page, unit, { maxScreens = 120, maxMs = 90000 }
   await page.evaluate(() => window.scrollTo(0, 0)).catch(() => {});
   await page.keyboard.press('Home').catch(() => {});
   await page.waitForTimeout(800);
+  // 冷启动时 /learn 可能还没渲染出任何 unit：先等首帧，等不到就快速失败让上层重试，
+  // 不要对着空页面空滚 120 屏（2026-11-20 section 3 首批就这么白耗过）。
+  let firstPaint = await renderedUnitIndexes(page);
+  for (let w = 0; w < 10 && !firstPaint.length; w++) {
+    await page.waitForTimeout(1000);
+    firstPaint = await renderedUnitIndexes(page);
+  }
+  if (!firstPaint.length) return { ok: false, screens: 0, stats: [], reason: 'no-render' };
   await page.mouse.move(640, 450).catch(() => {});
   const stats = [];
   for (let i = 0; i < maxScreens; i++) {
@@ -181,6 +189,9 @@ async function prepareByNode(page, slot, check) {
     }
   }
   const pos = await ensureUnitVisible(page, unit).catch(() => ({ ok: false, screens: 0, stats: [] }));
+  if (!pos.ok && pos.reason === 'no-render') {
+    throw new Error('LEGENDARY_ENTRY_NO_RENDER id=' + slot.id + ' unit=' + slot.unitIndex);
+  }
   if (!pos.ok) {
     const last = pos.stats && pos.stats.length ? pos.stats[pos.stats.length - 1].seen : [];
     throw new Error('LEGENDARY_ENTRY_SCROLL_LIMIT id=' + slot.id + ' unit=' + slot.unitIndex

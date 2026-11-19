@@ -47,6 +47,8 @@
 
 **样本对照（section 0–2，快照 `u35-before/after.json`、`u37-before/after.json`）**：所有 1/1 的 practice/review 都是连带（无例外）；所有我们实际打过的 3/3 practice 都走独立结算 +40（含两次 `NODE_FAIL` 但服务器侧已结算的补记）。
 
+**补充（2026-11-20，section 3）**：故事节点（`pathLevelMetadata.storyId`，`finishedSessions/totalSessions = 1/1`，快照里 type=other）**可以独立走传说课并结算 +40**，实测 `1d0616f9`、`9d910a8f`、`7b24736b`（unit 69/70 故事，各 +40，`answered≈5`）。所以第 6 节「1/1 只能连带」只适用于 **review / practice**，故事要单列——这也是 section 3 候选面比老段大的原因。
+
 **TODO**
 - 连带触发时点没定：unit 34 的 unit_review `ac0ae2f8` 在 skill l0（`85bafd28`）还没金时就变金了，说明不是「整链所有可入口节点都金」才触发；可能与 anchor lesson 或平台后台任务有关，证据不足不下结论。
 - 「1 节 review 一定不渲染」目前只有 unit 39 两个样本 + 全老段 1/1 全是连带这两条间接证据，未逐单元验证。

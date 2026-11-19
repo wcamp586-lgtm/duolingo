@@ -10,7 +10,7 @@ const t = async (name, fn) => {
   catch (e) { fail++; console.log('  ✗ ' + name + ' -> ' + e.message); }
 };
 
-function mockPage({ appearAfter = 3, units = [] } = {}) {
+function mockPage({ appearAfter = 3, units = [69, 70, 71, 72] } = {}) {
   let wheels = 0;
   const unit = {
     async count() { return wheels >= appearAfter ? 1 : 0; },
@@ -137,6 +137,21 @@ function mockPage({ appearAfter = 3, units = [] } = {}) {
     assert.equal(nodeClickOffset({ y: 300 }), 0, '正常位置不额外滚');
     assert.equal(nodeClickOffset(null), 0);
     assert.equal(nodeClickOffset({ y: 100 }, 160, 120), -60, '可按阈值调整');
+  });
+
+  await t('冷启动没渲染出任何 unit：快速失败 no-render，不空滚 120 屏', async () => {
+    const page = {
+      mouse: { async move() {}, async wheel() { wheels++; throw new Error('不该滚'); } },
+      keyboard: { async press() {} },
+      async evaluate() { return []; },
+      async waitForTimeout() {},
+    };
+    let wheels = 0;
+    const unit = { async count() { return 0; }, first() { return { async isVisible() { return false; } }; } };
+    const pos = await ensureUnitVisible(page, unit);
+    assert.equal(pos.ok, false);
+    assert.equal(pos.reason, 'no-render');
+    assert.equal(wheels, 0, '没首帧就不该滚');
   });
 
   console.log('\n' + pass + ' passed, ' + fail + ' failed');
