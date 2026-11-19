@@ -27,11 +27,29 @@
 
 ## 5. 平台连带（链路授予）
 
-- 现象：一个 unit 链内所有**有独立入口**的节点都金之后，没有独立入口的 radio / practice / unit_review 会被平台**连带授予** legendary。
+- 现象：一个 unit 里可入口的节点陆续完成后，没有独立入口的 radio / 1 节 review / unit_review 会被平台**连带授予** legendary（精确触发条件未定，见第 6 节 TODO）。
 - 特征：连带节点 `finishedSessions/totalSessions` 不涨（radio 常是 1/1，unit_test 是 0/1），**不产生 XP、不产生独立结算**。
 - 实测：
   - `ac0ae2f8`（unit 34 unit_review，0/1）在 unit 34 链完成后变 legendary。
-  - u35 批（`auto-legendary-u35a.log`）：独立结算 10 关（+400 XP），同批连带 15 个节点变金（unit 35 六个、unit 36 九个，含两个 unit_test 0/1），XP 只按 10 关计入。
+  - u35 批（`auto-legendary-u35a.log`）：独立结算 10 关（+400 XP），同批连带 15 个节点变金（unit 35 七个、unit 36 八个，含两个 unit_test 0/1），XP 只按 10 关计入。
 - 记录口径：连带**单独列**，不混进独立结算数；判定方式 = 每批前后各回读一次老段整链 state，`state` 由非 legendary 变 legendary 且不在本批结算 id 里的，就是平台连带。
 - 副作用：新变金的链头会把链内其它节点计入 pending，所以 pending 不是单调下降（u35 批 50→59）。
+
+## 6. 连带条件（实测归纳，机制未定）
+
+**观察到的判据（页面事实）**：unit 39 的路径 DOM 只渲染 9 个节点——level 0/1/3/4/5/6/7/9/10（skill、radio、3 节 practice、unit_review），**level 2、8 缺失**；而 API 里这两个正是 1/1 的 review 节点。也就是说：
+
+- **1 节 review 节点（`learningUnitType` 存在、`finishedSessions/totalSessions = 1/1`）不渲染成路径节点**，点不到、也就没有 `legendary-node-button`，只能由平台连带变金。
+- **3 节的 practice 是真实渲染的节点**，气泡里有「晋升传奇 +40 经验」，得自己打（每关 +40）。
+- radio / unit_test / 1 节 review：老段实测**全部是连带**，`fin` 不变、无 XP。
+
+**为什么 s3u72 l6 要自己打**：它是 `Course Practice 70`，`fin=3/3`，属于上面第二类（真实 practice 节点）；而 u35 批里的 `05be99dd`、u36 的 `a971dec5` 是 `1/1` 的 review 节点，属于第一类，所以只被连带。
+
+**样本对照（section 0–2，快照 `u35-before/after.json`、`u37-before/after.json`）**：所有 1/1 的 practice/review 都是连带（无例外）；所有我们实际打过的 3/3 practice 都走独立结算 +40（含两次 `NODE_FAIL` 但服务器侧已结算的补记）。
+
+**TODO**
+- 连带触发时点没定：unit 34 的 unit_review `ac0ae2f8` 在 skill l0（`85bafd28`）还没金时就变金了，说明不是「整链所有可入口节点都金」才触发；可能与 anchor lesson 或平台后台任务有关，证据不足不下结论。
+- 「1 节 review 一定不渲染」目前只有 unit 39 两个样本 + 全老段 1/1 全是连带这两条间接证据，未逐单元验证。
+- units 0–21 的 3/3 practice 也是连带（账号早期进度），无法区分是用户自己打过的还是被连带，未纳入判据。
+
 

@@ -1,0 +1,213 @@
+{
+ "levels": [
+  {
+   "i": 0,
+   "id": "0a2bd59845841b87dbdb44e728e8fd44",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  {
+   "i": 1,
+   "id": "06d7191c648f41d3ecbcdfe3585c128d",
+   "state": "passed",
+   "fin": 1,
+   "tot": 1
+  },
+  {
+   "i": 2,
+   "id": "2b519bdffaaf774d3adae19d345b9bc6",
+   "state": "passed",
+   "fin": 1,
+   "tot": 1
+  },
+  {
+   "i": 3,
+   "id": "a12861ba0f53ac0adac99d69b70c8ac7",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  {
+   "i": 4,
+   "id": "7b323f4781a4e75b587bf09f046d0b49",
+   "state": "passed",
+   "fin": 1,
+   "tot": 1
+  },
+  {
+   "i": 5,
+   "id": "dcf966d9034281f35b610a9da4299e7f",
+   "state": "passed",
+   "fin": 3,
+   "tot": 3
+  },
+  {
+   "i": 6,
+   "id": "00c75e112e3c510cd6e6aed03fff561d",
+   "state": "passed",
+   "fin": 1,
+   "tot": 1
+  },
+  {
+   "i": 7,
+   "id": "55fd20bbf4f112116d25ca97a474f20d",
+   "state": "passed",
+   "fin": 3,
+   "tot": 3
+  },
+  {
+   "i": 8,
+   "id": "fa79507723df948ed846badd525fa57d",
+   "state": "passed",
+   "fin": 1,
+   "tot": 1
+  },
+  {
+   "i": 9,
+   "id": "84fb6998cda81965411b2f062f416332",
+   "state": "passed",
+   "fin": 1,
+   "tot": 1
+  },
+  {
+   "i": 10,
+   "id": "8c4fe3258cf469955e2a410222591ca7",
+   "state": "passed",
+   "fin": 0,
+   "tot": 1
+  }
+ ],
+ "unitCount": 1,
+ "rendered": [
+  37,
+  38,
+  39
+ ],
+ "frames": [
+  {
+   "s": 1,
+   "n": 51,
+   "hits": [
+    {
+     "tag": "a",
+     "test": "practice-hub-nav",
+     "text": "练习基地"
+    }
+   ],
+   "legendary": false
+  },
+  {
+   "s": 2,
+   "n": 51,
+   "hits": [
+    {
+     "tag": "a",
+     "test": "practice-hub-nav",
+     "text": "练习基地"
+    }
+   ],
+   "legendary": false
+  },
+  {
+   "s": 3,
+   "n": 51,
+   "hits": [
+    {
+     "tag": "a",
+     "test": "practice-hub-nav",
+     "text": "练习基地"
+    }
+   ],
+   "legendary": false
+  },
+  {
+   "s": 4,
+   "n": 51,
+   "hits": [
+    {
+     "tag": "a",
+     "test": "practice-hub-nav",
+     "text": "练习基地"
+    }
+   ],
+   "legendary": false
+  },
+  {
+   "s": 5,
+   "n": 51,
+   "hits": [
+    {
+     "tag": "a",
+     "test": "practice-hub-nav",
+     "text": "练习基地"
+    }
+   ],
+   "legendary": false
+  },
+  {
+   "s": 6,
+   "n": 51,
+   "hits": [
+    {
+     "tag": "a",
+     "test": "practice-hub-nav",
+     "text": "练习基地"
+    }
+   ],
+   "legendary": false
+  },
+  {
+   "s": 7,
+   "n": 51,
+   "hits": [
+    {
+     "tag": "a",
+     "test": "practice-hub-nav",
+     "text": "练习基地"
+    }
+   ],
+   "legendary": false
+  },
+  {
+   "s": 8,
+   "n": 51,
+   "hits": [
+    {
+     "tag": "a",
+     "test": "practice-hub-nav",
+     "text": "练习基地"
+    }
+   ],
+   "legendary": false
+  },
+  {
+   "s": 9,
+   "n": 51,
+   "hits": [
+    {
+     "tag": "a",
+     "test": "practice-hub-nav",
+     "text": "练习基地"
+    }
+   ],
+   "legendary": false
+  },
+  {
+   "s": 10,
+   "n": 51,
+   "hits": [
+    {
+     "tag": "a",
+     "test": "practice-hub-nav",
+     "text": "练习基地"
+    }
+   ],
+   "legendary": false
+  }
+ ],
+ "lvCount": 0,
+ "lvTest": "",
+ "box": null,
+ "clickErr": "locator.click: Timeout 8000ms exceeded.\nCall log:\n  - waitin"
+}
