@@ -100,16 +100,13 @@ function nodeClickOffset(box, clearance = 160, minY = 120) {
   return box.y - clearance;
 }
 
-// 目标 unit 比当前已渲染段更早 ⇒ 老段（/learn 当前段不含它），需要走阶段入口
-function isOldSegment(rendered, unitIndex) {
-  return Array.isArray(rendered) && rendered.length > 0 && unitIndex < Math.min(...rendered);
-}
-
-// 该不该先试阶段入口：老段必须试；渲染列表还没出来（空）也先试一次，
-// 不能因为一次取样为空就退化成滚 120 屏（2026-11-19 unit 34 就这么误跳过一关）。
-function shouldTrySectionJump(rendered, unitIndex) {
-  if (!Array.isArray(rendered) || rendered.length === 0) return true;
-  return isOldSegment(rendered, unitIndex);
+// 该不该走 /sections 阶段入口：只有「目标阶段早于当前渲染阶段」才走。
+// 同段（靠前或靠后）与更晚阶段一律走滚动——2026-11-20 section 3 的 unit 69/70
+// 曾被「小于最小渲染 unit」误判成老段，导致 SECTION_JUMP_UNMATCHED。
+// 当前阶段未知（页面还没渲染出标题）时也走滚动，不猜。
+function shouldJumpToSection(targetSection, currentSection) {
+  if (!Number.isInteger(targetSection) || !Number.isInteger(currentSection)) return false;
+  return targetSection < currentSection;
 }
 
 // 当前 /learn 路径属哪个阶段：页面标题「第 N 阶段，第 X 部分」（N 从 1 起）
@@ -160,29 +157,24 @@ async function prepareByNode(page, slot, check) {
   // /learn 客户端渲染：早先 3 秒时节点/气泡还没就绪，等 8 秒再定位
   await page.waitForTimeout(8000);
   let unit = page.locator('[data-test~="skill-path-unit-' + slot.unitIndex + '"]').first();
-  // 目标 unit 不在当前段里（老单元）时，先走平台阶段入口把它渲染出来。
-  // 渲染列表偶尔一次取样为空（客户端还没渲染完），先轮询等它出来，不急着滚 120 屏。
+  // 目标 unit 不在当前渲染视图里时：只有「目标阶段早于当前阶段」才走 /sections 阶段入口，
+  // 同段/更晚段一律走滚动（section 3 的 unit 69/70 曾被旧判断误跳）。
   if (!(await unit.count().catch(() => 0))) {
-    let rendered = await renderedUnitIndexes(page);
-    for (let i = 0; i < 5 && !rendered.length; i++) {
-      await page.waitForTimeout(2000);
-      rendered = await renderedUnitIndexes(page);
-    }
-    const oldSegment = isOldSegment(rendered, slot.unitIndex);
-    if (shouldTrySectionJump(rendered, slot.unitIndex)) {
+    const stage = await currentPathStage(page).catch(() => null);
+    const currentSection = stage ? stage.stage - 1 : null;
+    console.log('LEGENDARY_ENTRY_SEGMENT targetUnit=' + slot.unitIndex + ' targetSection=' + slot.sectionIndex
+      + ' currentSection=' + currentSection + ' jump=' + shouldJumpToSection(slot.sectionIndex, currentSection));
+    if (shouldJumpToSection(slot.sectionIndex, currentSection)) {
       const jump = await openOldSectionPath(page, slot.sectionIndex, slot.unitIndex, { check }).catch(() => ({ ok: false, rendered: [] }));
       console.log('LEGENDARY_ENTRY_SECTION_JUMP section=' + slot.sectionIndex + ' unit=' + slot.unitIndex
         + ' ok=' + jump.ok + ' tab=' + jump.tab + ' rendered=' + JSON.stringify(jump.rendered).slice(0, 120)
         + (jump.reason ? ' reason=' + jump.reason : '')
         + (jump.diag ? ' diag=' + JSON.stringify(jump.diag).slice(0, 160) : ''));
       if (!jump.ok) {
-        // 老段进不去就直说不可达（unknown），不去滚 120 屏空耗；
-        // 渲染列表为空只是没取样到，跳转失败就继续走原有滚动兜底。
-        if (oldSegment) {
-          throw new Error('LEGENDARY_ENTRY_SECTION_UNREACHABLE id=' + slot.id + ' unit=' + slot.unitIndex
-            + ' section=' + slot.sectionIndex + ' rendered=' + JSON.stringify(jump.rendered).slice(0, 120)
-            + ' reason=' + (jump.reason || 'SECTION_JUMP_UNMATCHED'));
-        }
+        // 目标阶段更早却进不去：直说不可达（unknown），不去滚 120 屏空耗。
+        throw new Error('LEGENDARY_ENTRY_SECTION_UNREACHABLE id=' + slot.id + ' unit=' + slot.unitIndex
+          + ' section=' + slot.sectionIndex + ' rendered=' + JSON.stringify(jump.rendered).slice(0, 120)
+          + ' reason=' + (jump.reason || 'SECTION_JUMP_UNMATCHED'));
       } else {
         unit = page.locator('[data-test~="skill-path-unit-' + slot.unitIndex + '"]').first();
       }
@@ -274,4 +266,4 @@ function findCourseLevel(course, slot) {
   return unit?.levels.find(level => level.id === slot.id) ?? null;
 }
 
-module.exports = { prepareByUrl, prepareByNode, ensureUnitVisible, openOldSectionPath, isOldSegment, shouldTrySectionJump, nodeClickOffset, parseLegendaryEntry, findCourseLevel, LEARN, ORIGIN };
+module.exports = { prepareByUrl, prepareByNode, ensureUnitVisible, openOldSectionPath, shouldJumpToSection, currentPathStage, nodeClickOffset, parseLegendaryEntry, findCourseLevel, LEARN, ORIGIN };

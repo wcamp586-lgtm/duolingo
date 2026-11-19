@@ -2,7 +2,7 @@
 // 上限 120 屏/90 秒，超限返回 ok:false（上层记 SCROLL_LIMIT/unknown，不当 absent）。
 // 不联网、不使用 profile/；只 mock page 与 unit locator。
 const assert = require('node:assert/strict');
-const { ensureUnitVisible, openOldSectionPath, isOldSegment, shouldTrySectionJump, nodeClickOffset } = require('./legendary-entry.js');
+const { ensureUnitVisible, openOldSectionPath, shouldJumpToSection, nodeClickOffset } = require('./legendary-entry.js');
 
 let pass = 0, fail = 0;
 const t = async (name, fn) => {
@@ -105,18 +105,15 @@ function mockPage({ appearAfter = 3, units = [] } = {}) {
     assert.equal(r.reason, 'NO_REVIEW_ENTRY');
   });
 
-  await t('老段判定：目标比当前渲染段更早才算老段（当前段靠下的仍走滚动）', async () => {
-    assert.equal(isOldSegment([69, 70, 72], 30), true);
-    assert.equal(isOldSegment([69, 70, 72], 127), false);
-    assert.equal(isOldSegment([], 30), false, '没渲染信息时不猜老段');
-    assert.equal(isOldSegment([28, 29, 30, 31], 31), false);
+  await t('跳段判定：只有更早的阶段才走 /sections（同段靠前/靠后、更晚段都走滚动）', async () => {
+    assert.equal(shouldJumpToSection(1, 3), true, '更早段（unit 30 vs 当前 section 3）');
+    assert.equal(shouldJumpToSection(3, 3), false, '同段靠前（unit 69/70，曾误跳）');
+    assert.equal(shouldJumpToSection(3, 3), false, '同段靠后（unit 127）');
+    assert.equal(shouldJumpToSection(4, 3), false, '更晚段不跳');
+    assert.equal(shouldJumpToSection(3, null), false, '当前段未知时走滚动，不猜');
   });
 
-  await t('渲染列表为空时不退缩：先试阶段入口（unit 34 曾因空取样误跳过一关）', async () => {
-    assert.equal(shouldTrySectionJump([], 34), true);
-    assert.equal(shouldTrySectionJump([69, 70, 72], 34), true);
-    assert.equal(shouldTrySectionJump([69, 70, 72], 127), false, '当前段靠下的 unit 仍走滚动');
-  });
+
 
   await t('段首只渲染邻近几屏时：页面标题已是对应阶段就算跳对（交给滚动定位）', async () => {
     const { page } = mockSectionPage({ unitsByTab: { 2: [40, 41] }, headerByTab: { 2: { stage: 3, part: 1 } } });
