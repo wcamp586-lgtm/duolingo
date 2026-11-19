@@ -1,0 +1,5935 @@
+{
+ "at": "2026-11-19T18:43:11.108Z",
+ "xp": 127693,
+ "nodes": {
+  "b4a4c71c00451993638df91461ce8936": {
+   "unit": 0,
+   "sec": 0,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 4,
+   "tot": 4
+  },
+  "3b09b9154179b09a015e33c3297bb1df": {
+   "unit": 0,
+   "sec": 0,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 4,
+   "tot": 4
+  },
+  "b6f4a29ae666bac604cd8f281c920512": {
+   "unit": 0,
+   "sec": 0,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "ae03c94b0057563df6cbfac7cf187050": {
+   "unit": 0,
+   "sec": 0,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 2,
+   "tot": 2
+  },
+  "237a8ab5854cff96aec477f94e161e0d": {
+   "unit": 0,
+   "sec": 0,
+   "type": "unit_test",
+   "state": "legendary",
+   "fin": 0,
+   "tot": 1
+  },
+  "f18cbbd057193579aef78e2850bb82d3": {
+   "unit": 1,
+   "sec": 0,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 4,
+   "tot": 4
+  },
+  "332d6d3e49628e5d1e0185dae1a9e66f": {
+   "unit": 1,
+   "sec": 0,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 4,
+   "tot": 4
+  },
+  "b6391fd196fd3fdd7952d4c9babfea0e": {
+   "unit": 1,
+   "sec": 0,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "6855f1755e08d34799f76880e66f29cf": {
+   "unit": 1,
+   "sec": 0,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 2,
+   "tot": 2
+  },
+  "a4af467b733a97397856ba59f80b3d7f": {
+   "unit": 1,
+   "sec": 0,
+   "type": "unit_test",
+   "state": "legendary",
+   "fin": 0,
+   "tot": 1
+  },
+  "5d492d0fa884e0e6826e405fdb4f8acb": {
+   "unit": 2,
+   "sec": 0,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 5,
+   "tot": 5
+  },
+  "fdf2f4f4fec447c737d4f1eccba53bf8": {
+   "unit": 2,
+   "sec": 0,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 5,
+   "tot": 5
+  },
+  "a5629452e441f05191c649a03e87e15c": {
+   "unit": 2,
+   "sec": 0,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "3d8c8e701ed2f874716c30ae0af031ab": {
+   "unit": 2,
+   "sec": 0,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 2,
+   "tot": 2
+  },
+  "442a1e965312030978934b4a3510caef": {
+   "unit": 2,
+   "sec": 0,
+   "type": "unit_test",
+   "state": "legendary",
+   "fin": 0,
+   "tot": 1
+  },
+  "811833f4791718524f81e3de97df209d": {
+   "unit": 3,
+   "sec": 0,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 5,
+   "tot": 5
+  },
+  "1af6ced1946532744630056a7ba064f7": {
+   "unit": 3,
+   "sec": 0,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "a7ed123e529ead4303a4c4d7877df2b4": {
+   "unit": 3,
+   "sec": 0,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "4548d32641faec176ab195b02bbcc265": {
+   "unit": 3,
+   "sec": 0,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 5,
+   "tot": 5
+  },
+  "e2af0172e5476686f4bac21edaea0128": {
+   "unit": 3,
+   "sec": 0,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "8ddcf4259d362999a076940440dc0c67": {
+   "unit": 3,
+   "sec": 0,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 2,
+   "tot": 2
+  },
+  "1aa16658ab28647cc0ff6e07de2737d9": {
+   "unit": 3,
+   "sec": 0,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "09881ee7583f26f516d7e0bb0a1861d8": {
+   "unit": 3,
+   "sec": 0,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 2,
+   "tot": 2
+  },
+  "958eff1d6418491a0bf1421354af6154": {
+   "unit": 3,
+   "sec": 0,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "9d868531004bbe93bba49df2e4495c98": {
+   "unit": 3,
+   "sec": 0,
+   "type": "unit_test",
+   "state": "legendary",
+   "fin": 0,
+   "tot": 1
+  },
+  "03140a76817a9cc85ebddd46fc4cb4c7": {
+   "unit": 4,
+   "sec": 0,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 5,
+   "tot": 5
+  },
+  "af19db50ca4d197d07e2805d5f871c75": {
+   "unit": 4,
+   "sec": 0,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 5,
+   "tot": 5
+  },
+  "a5f57f338a97ee62a1c9fae191f83224": {
+   "unit": 4,
+   "sec": 0,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "f4c5663d40b95c9f7d5556b317b3b1aa": {
+   "unit": 4,
+   "sec": 0,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 2,
+   "tot": 2
+  },
+  "16d7b1607dead0a10a8c12ad214260cd": {
+   "unit": 4,
+   "sec": 0,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "e283405357bcf64f8fb61ad0eb388d09": {
+   "unit": 4,
+   "sec": 0,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "a12b260ca941e33352739cab71bc6747": {
+   "unit": 4,
+   "sec": 0,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 2,
+   "tot": 2
+  },
+  "d52fac74bb5c3254e5aac245a9edcea3": {
+   "unit": 4,
+   "sec": 0,
+   "type": "unit_test",
+   "state": "legendary",
+   "fin": 0,
+   "tot": 1
+  },
+  "90fa8b37f2c5eecedb45c1739d275945": {
+   "unit": 5,
+   "sec": 0,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 5,
+   "tot": 5
+  },
+  "e3f32a478fdb8503df1e27bf2bb109ac": {
+   "unit": 5,
+   "sec": 0,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "96331e295ec9006e2f0f11121a1d8db7": {
+   "unit": 5,
+   "sec": 0,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 5,
+   "tot": 5
+  },
+  "c305b96e345cce35df3b53388e86b564": {
+   "unit": 5,
+   "sec": 0,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 2,
+   "tot": 2
+  },
+  "48b75776d92375a4d88ce748c3de3464": {
+   "unit": 5,
+   "sec": 0,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "c9a6b2aef0096643b39d35638a555893": {
+   "unit": 5,
+   "sec": 0,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "ae0926d9b0c2e2c4c7aba6f6e5142a95": {
+   "unit": 5,
+   "sec": 0,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 2,
+   "tot": 2
+  },
+  "5573f6154bc7c60088ac89d92a6b6e45": {
+   "unit": 5,
+   "sec": 0,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "f1ef5d1f63764764a704b257d9d73a63": {
+   "unit": 5,
+   "sec": 0,
+   "type": "unit_test",
+   "state": "legendary",
+   "fin": 0,
+   "tot": 1
+  },
+  "f13d8d45b3055d4cc1f1e69b7879d33a": {
+   "unit": 6,
+   "sec": 0,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "e63fcc642328efedc74d67d66b128f54": {
+   "unit": 6,
+   "sec": 0,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "1da49d4eac0ab7982cbdcb2408b5a9d4": {
+   "unit": 6,
+   "sec": 0,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "6b70834341bd526847730dd5bc8a70cd": {
+   "unit": 6,
+   "sec": 0,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "74bc05d3bff1bf504a6c540edea4463c": {
+   "unit": 6,
+   "sec": 0,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "ceeb06e15bf6e83c04db8ab1ed4d2a22": {
+   "unit": 6,
+   "sec": 0,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 2,
+   "tot": 2
+  },
+  "883d4e0081eb182b94fd657bc011e673": {
+   "unit": 6,
+   "sec": 0,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "deaece363bf366534e15add60b746276": {
+   "unit": 6,
+   "sec": 0,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "0805842a8d8d931923d326ced76cd15b": {
+   "unit": 6,
+   "sec": 0,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "3eee9695bee4e2b50697d9bb528305cc": {
+   "unit": 6,
+   "sec": 0,
+   "type": "unit_test",
+   "state": "legendary",
+   "fin": 0,
+   "tot": 1
+  },
+  "7ae7a42280e78b625b0b602efa1fa594": {
+   "unit": 7,
+   "sec": 0,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "8aa44b11c22c3a6692e9b8d213cfef09": {
+   "unit": 7,
+   "sec": 0,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "e437e5d4bfd827e070fd233f4080ee06": {
+   "unit": 7,
+   "sec": 0,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "25d2cf5bc8383e2f31228848f5c9b47c": {
+   "unit": 7,
+   "sec": 0,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "6043d59d147b530f70d05917d1ef4965": {
+   "unit": 7,
+   "sec": 0,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "76fff7ab9f249225abd73ffe600102c8": {
+   "unit": 7,
+   "sec": 0,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 2,
+   "tot": 2
+  },
+  "de08aec3d18f24e0131f2125314ae356": {
+   "unit": 7,
+   "sec": 0,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "2cdb7e305ce1fb992c4131281fceee70": {
+   "unit": 7,
+   "sec": 0,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "cd291ef0222b0fefa5fe0ab471d49273": {
+   "unit": 7,
+   "sec": 0,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "10ca430dac742eceda9eaa74e971468b": {
+   "unit": 7,
+   "sec": 0,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "9fc8b0b025d452ab0f1dc9b4acc54fa7": {
+   "unit": 7,
+   "sec": 0,
+   "type": "unit_test",
+   "state": "legendary",
+   "fin": 0,
+   "tot": 1
+  },
+  "a96fafee8f90b571359f9022aa43d2a7": {
+   "unit": 8,
+   "sec": 0,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "fb69129ace3fbdc70071fd1cb6064606": {
+   "unit": 8,
+   "sec": 0,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "103f5f1dc0f8bde0de2b51b8a19dc53e": {
+   "unit": 8,
+   "sec": 0,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "4f0038048623f09a11474c0b2bb80c9e": {
+   "unit": 8,
+   "sec": 0,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "66d5c13bdb43d9ed25805d584c7ec5d6": {
+   "unit": 8,
+   "sec": 0,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "3ba4c2e45a56a496a23de5edc3ff00d0": {
+   "unit": 8,
+   "sec": 0,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 2,
+   "tot": 2
+  },
+  "61d144f3cf43352673278cf9ccb1ecee": {
+   "unit": 8,
+   "sec": 0,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "c5186ede0cd42860928c2132b8e73ed8": {
+   "unit": 8,
+   "sec": 0,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "aa6f7f45f1956d6393e5597aa41fb158": {
+   "unit": 8,
+   "sec": 0,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "aa26d3ea0727869fb7bee488f315adc1": {
+   "unit": 8,
+   "sec": 0,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "ab97404f17ecac610e4e26d3be4154d6": {
+   "unit": 8,
+   "sec": 0,
+   "type": "unit_test",
+   "state": "legendary",
+   "fin": 0,
+   "tot": 1
+  },
+  "b5bfd0295bf93d7aac2404c473eda5e9": {
+   "unit": 9,
+   "sec": 0,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "a4aec2dd22ccf1f9b770b4067feab8c8": {
+   "unit": 9,
+   "sec": 0,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "4a0a26a165852506ed4191b6bf44fe69": {
+   "unit": 9,
+   "sec": 0,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "cee28ecfadc1c6c221c44c8be120d429": {
+   "unit": 9,
+   "sec": 0,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "f41b38595acbcbd1272793ec305ee780": {
+   "unit": 9,
+   "sec": 0,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "ea382d027c69e7a015877bc393b2fd39": {
+   "unit": 9,
+   "sec": 0,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 2,
+   "tot": 2
+  },
+  "325a2266942d996c5fb2b4a0680df331": {
+   "unit": 9,
+   "sec": 0,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "0f35abbabfdd3cc4d831f18ce2d58ca7": {
+   "unit": 9,
+   "sec": 0,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "879674a24b4f562533940d896e5bb1ef": {
+   "unit": 9,
+   "sec": 0,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "2274b4eda4148239f00a3b407f7329aa": {
+   "unit": 9,
+   "sec": 0,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "e9b348ea84f7f7b1a159d4dfd2627e65": {
+   "unit": 9,
+   "sec": 0,
+   "type": "unit_test",
+   "state": "legendary",
+   "fin": 0,
+   "tot": 1
+  },
+  "36b65ae89f9822fb1d4e9f4868599fe0": {
+   "unit": 10,
+   "sec": 1,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 5,
+   "tot": 5
+  },
+  "365f60e3e1bed513e92cc8b4aad17c53": {
+   "unit": 10,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "982ddd3d0a0908c32ab493402d571d9b": {
+   "unit": 10,
+   "sec": 1,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 5,
+   "tot": 5
+  },
+  "28f8b083dd20f8b1b8748ebe5f1a2fa4": {
+   "unit": 10,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "edc667cc9e65364cb776e158208b26a7": {
+   "unit": 10,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "55bd23068f5d86722d44fa78c11efad9": {
+   "unit": 10,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "37f19c2a6ccf4fcb648089f459ced3e1": {
+   "unit": 10,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "7f823ec053351d16113a4d8d78689e15": {
+   "unit": 10,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 2,
+   "tot": 2
+  },
+  "1f65d3f9e8e7163e4f60baba9c219038": {
+   "unit": 10,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "d36e213428e916b1620efd7edc3aec1c": {
+   "unit": 10,
+   "sec": 1,
+   "type": "unit_test",
+   "state": "legendary",
+   "fin": 0,
+   "tot": 1
+  },
+  "8a75bacb7519d385b2785d2ac33a57b7": {
+   "unit": 11,
+   "sec": 1,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "8c3147d325cf545ecd69b5cb5c9d90b5": {
+   "unit": 11,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "0c1a3315d4007ca4501605a134bdb3fd": {
+   "unit": 11,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "169e0c8456b79decd2ff60dcd9212c27": {
+   "unit": 11,
+   "sec": 1,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "d3a3d166becada73f83a14909d6f170e": {
+   "unit": 11,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "42041d35df5ee237af8fc4696d5cd296": {
+   "unit": 11,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "f62371dc25389ae2e70c9c249cb1ff5e": {
+   "unit": 11,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "91bbb5d3d18b9d1b28a45f46b073351c": {
+   "unit": 11,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "140952ffe167641f401089c3ad281804": {
+   "unit": 11,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "25aed9813dc7330b7024cd097bf1a264": {
+   "unit": 11,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "0e1441879f2e22e41488f30a259cfa8f": {
+   "unit": 11,
+   "sec": 1,
+   "type": "unit_test",
+   "state": "legendary",
+   "fin": 0,
+   "tot": 1
+  },
+  "149cf680337848f659cb659da6c30159": {
+   "unit": 12,
+   "sec": 1,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "fcf741aa08f0d6c16690f43bbef826e7": {
+   "unit": 12,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "7cee5cfe51b32ac9dc7afd06a6a8f14e": {
+   "unit": 12,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "df6069066c33ec4a5a43440ce288cf9b": {
+   "unit": 12,
+   "sec": 1,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "e7e00300199f1469882340c6e523e1db": {
+   "unit": 12,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "a68893b01fa218c0ef0e4e9a87b45710": {
+   "unit": 12,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "947403412efa0df1a64b8a9e0cce25b0": {
+   "unit": 12,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "f284052e467c1725f195f3e371bea19b": {
+   "unit": 12,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "19b0fb6b22020d44f7ea3d2f66bb4905": {
+   "unit": 12,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "263470b9397cc69691badac83fef2a03": {
+   "unit": 12,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "4cac5d039043c3928d1e0bdeac19ad87": {
+   "unit": 12,
+   "sec": 1,
+   "type": "unit_test",
+   "state": "legendary",
+   "fin": 0,
+   "tot": 1
+  },
+  "cba3ab45c1e3a8ffa94ec4cb1420851c": {
+   "unit": 13,
+   "sec": 1,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "6b03176d9b9759c7e9e9360a0babbefc": {
+   "unit": 13,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "9280c0dcf42479bc07ab2ac0933c8ab7": {
+   "unit": 13,
+   "sec": 1,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "c67c54995da5d1034ab24b7c623c41eb": {
+   "unit": 13,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "7f4e6e86b06717d217b9605b0ddffff9": {
+   "unit": 13,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "1c53f2f319b999242ceab39711cc3ecc": {
+   "unit": 13,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "07db68dac374169cd5c51baba3b2bfe7": {
+   "unit": 13,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "cd9bd6431ffcb9f96c367209fc513fc1": {
+   "unit": 13,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "19546614a7bff19ec1ae32b2c91572c4": {
+   "unit": 13,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "7045f3228f8aaaba50232b68b2837d6c": {
+   "unit": 13,
+   "sec": 1,
+   "type": "unit_test",
+   "state": "legendary",
+   "fin": 0,
+   "tot": 1
+  },
+  "c1c4fbdf230cc4d2dfadc08fa1b2cb0f": {
+   "unit": 14,
+   "sec": 1,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "d91a331e108028ef02440134f6775964": {
+   "unit": 14,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "09bdf1414c204b3526ed3deae10b8947": {
+   "unit": 14,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "af93d56645445acc93d6f044d2f99b68": {
+   "unit": 14,
+   "sec": 1,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "1af16e8951cc1ce102567940d69bfbc1": {
+   "unit": 14,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "c6a4f16f5c47070d6d0811782152a1ff": {
+   "unit": 14,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "5b9a59057f3d696cb5b699d01bc15dcf": {
+   "unit": 14,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "4a125d9f67e396289ea87788d6b50c22": {
+   "unit": 14,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "a752a2ae2d23be83e040d3911ab8f08a": {
+   "unit": 14,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "94a47f1a98a4c2b01bf38a0debf4509b": {
+   "unit": 14,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "2f5212800833b72f45b10392a45ad23a": {
+   "unit": 14,
+   "sec": 1,
+   "type": "unit_test",
+   "state": "legendary",
+   "fin": 0,
+   "tot": 1
+  },
+  "033e31460293aba3ffcc217e3d58af00": {
+   "unit": 15,
+   "sec": 1,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "8e4ac58bfaaac81132fe4ec7177e732d": {
+   "unit": 15,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "0bd076b3dc57aab552fa5e47cdabde07": {
+   "unit": 15,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "6c3b85479896a0447574a33157c9b79b": {
+   "unit": 15,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "9538fe6545d6dda05aa5e8d1c13f4486": {
+   "unit": 15,
+   "sec": 1,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "6d33e5450ba03bd8393c246ce1c9a4e6": {
+   "unit": 15,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "ee163a184e5a7d674a036a8eb35869e3": {
+   "unit": 15,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "5d1ed5fe84e87e843bade38ba73d5e27": {
+   "unit": 15,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "224d477e58f563350dd840c35292c113": {
+   "unit": 15,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "4f3de46f08a9e5fc9a038020eb7de14b": {
+   "unit": 15,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "2277bb1f307a2aa1c1cce7e445798516": {
+   "unit": 15,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "8c872456d1f861eb14f76471e1168026": {
+   "unit": 15,
+   "sec": 1,
+   "type": "unit_test",
+   "state": "legendary",
+   "fin": 0,
+   "tot": 1
+  },
+  "3b200125c26811161109cbab6a52e953": {
+   "unit": 16,
+   "sec": 1,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "a0da52e034dcb7545e8aae75c11ac012": {
+   "unit": 16,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "f5ba54150f293ce68c745d125f2d16be": {
+   "unit": 16,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "b060dfce7d32ff62001f9b8e4b206d97": {
+   "unit": 16,
+   "sec": 1,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "6af57ef91522bed6a43c68fba946cda9": {
+   "unit": 16,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "f5963ef6d4b3d5aed779d5b9e5a8d9ce": {
+   "unit": 16,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "572cf3bb6e9b22649cf6105bd4571bde": {
+   "unit": 16,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "91dc02d360dc1658797eebb3306133b1": {
+   "unit": 16,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "e63a622944e80dd9f2a694cd3daceaf0": {
+   "unit": 16,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "d582f2f67d655546c71ce18689746ea7": {
+   "unit": 16,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "ddf7f0c94b371c16396ddf711156a606": {
+   "unit": 16,
+   "sec": 1,
+   "type": "unit_test",
+   "state": "legendary",
+   "fin": 0,
+   "tot": 1
+  },
+  "eb43c5a9d1f4fe38a51e9b4ff5d15260": {
+   "unit": 17,
+   "sec": 1,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "e7fa6579df39b2f82189a4c06abcebe0": {
+   "unit": 17,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "9098b7d4222ced86e6bb638365192689": {
+   "unit": 17,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "41f455093e1526bddff785106043c758": {
+   "unit": 17,
+   "sec": 1,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "c196b611ba977ec06f64fa1f379bdfba": {
+   "unit": 17,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "b1628f5d0afc1861fb84df872822a21d": {
+   "unit": 17,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "d2c8d7abe786bbfa4869604b251e57eb": {
+   "unit": 17,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "e08be6bed54466113cc68618e18b11ac": {
+   "unit": 17,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "dbc029887387ed14ebd242c3c1c93b1e": {
+   "unit": 17,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "9231cf91d87453a5ac0c842c273937cd": {
+   "unit": 17,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "62367774c2c57a47379f2ea54cc64b72": {
+   "unit": 17,
+   "sec": 1,
+   "type": "unit_test",
+   "state": "legendary",
+   "fin": 0,
+   "tot": 1
+  },
+  "72ef10c6dd5a1afa1b3b8f8a687688bc": {
+   "unit": 18,
+   "sec": 1,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "69a306da7d16a23a3353861793f68bb2": {
+   "unit": 18,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "2ee2197cb4704c90e11094e745dccb62": {
+   "unit": 18,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "ca1d11f32d073bfa68052d7a9d4c556e": {
+   "unit": 18,
+   "sec": 1,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "f513ec07e419ba988c057d1dcaf967ca": {
+   "unit": 18,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "3a495b453e08a8229a58dbe58185183d": {
+   "unit": 18,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "1e37baaa29c6c52dc20e5d0b4374448e": {
+   "unit": 18,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "609dfc65e9ad86ad671a65475d2120c3": {
+   "unit": 18,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "40a6a747088a5ad62d10087aa1372a8e": {
+   "unit": 18,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "96fd5ba11d206294ce8a95444ad32114": {
+   "unit": 18,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "5723df3f37bfb1d30e4dd88e410e77ac": {
+   "unit": 18,
+   "sec": 1,
+   "type": "unit_test",
+   "state": "legendary",
+   "fin": 0,
+   "tot": 1
+  },
+  "a87f48d6ed622e347c419fb7c032429f": {
+   "unit": 19,
+   "sec": 1,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "2dc5e36127fb96a602ae8c0fd9ff9ca5": {
+   "unit": 19,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "92320a2a42f472f7342e269cebc80e5e": {
+   "unit": 19,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "e9193156371b285fac28cf0ab4fd2b46": {
+   "unit": 19,
+   "sec": 1,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "b0d98205edc4cfdbecd4454500f87445": {
+   "unit": 19,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "4869c9482700be884eb269e7246cd2df": {
+   "unit": 19,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "99799c35228055c7f63715cc202aab0a": {
+   "unit": 19,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "258b070cf743f8132a9ab35be2a5622a": {
+   "unit": 19,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "e800631479e26cb424949acd64bab8bf": {
+   "unit": 19,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "5e9c8b14192d463c5cd23c2040e33040": {
+   "unit": 19,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "f81120d84986445627e3c5c98c2aaf9f": {
+   "unit": 19,
+   "sec": 1,
+   "type": "unit_test",
+   "state": "legendary",
+   "fin": 0,
+   "tot": 1
+  },
+  "a8f8e8b73f4be44f0325752fab2d456e": {
+   "unit": 20,
+   "sec": 1,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "089950e8f3956206d25f97d3e25816c4": {
+   "unit": 20,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "c6ac7671c78de6bb6b55700277975d6d": {
+   "unit": 20,
+   "sec": 1,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "7be2871534895f1bfa4888f0b95ac850": {
+   "unit": 20,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "56e03c5e8b4e1ca340df932eb06dd8fb": {
+   "unit": 20,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "17d3ae29eae8f1574977800db15aec23": {
+   "unit": 20,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "8bc32d6b02390741535732d56debacb0": {
+   "unit": 20,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "e43b622211ea08ee17335c1bbef1e45d": {
+   "unit": 20,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "7a87c73bd466a1a2eed173d0be748463": {
+   "unit": 20,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "a9cd82208aadb304677376f71c6d407e": {
+   "unit": 20,
+   "sec": 1,
+   "type": "unit_test",
+   "state": "legendary",
+   "fin": 0,
+   "tot": 1
+  },
+  "678a0edeafb46376a270cf39e879a2d5": {
+   "unit": 21,
+   "sec": 1,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "c5b4672e3795bcb6e16fbeb3cb80af33": {
+   "unit": 21,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "9957e053d709ef0ddaef06775469305d": {
+   "unit": 21,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "e549b98e95e6541356f14277f0062958": {
+   "unit": 21,
+   "sec": 1,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "4b2d963018e00ee5880c78d2e6d6ce4b": {
+   "unit": 21,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "722dcd2f77e3490895dd4f4a7c291853": {
+   "unit": 21,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "9d46e96714ae6d2aa157b9d1568b787e": {
+   "unit": 21,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "d8635d2bc314a5c9567cae0717e643d5": {
+   "unit": 21,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "8e1495ef2d25651f4108eeeff600fb79": {
+   "unit": 21,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "9ca7c7611fa6666b67096e5bed2a39d3": {
+   "unit": 21,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "c10f72ca64e9215d605c8f2c08490fdd": {
+   "unit": 21,
+   "sec": 1,
+   "type": "unit_test",
+   "state": "legendary",
+   "fin": 0,
+   "tot": 1
+  },
+  "357405e84e5d934f8d580b6b47e932e4": {
+   "unit": 22,
+   "sec": 1,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "7b984f5bbbba77f0c7b23a0d154771c4": {
+   "unit": 22,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "6ec0d47cfad82fb6f16aca536bd34645": {
+   "unit": 22,
+   "sec": 1,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "6b3ea08c4cd3ee3ac655beff3bedf711": {
+   "unit": 22,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "1a85669ac81ee460bd7aacdae0c2f4ad": {
+   "unit": 22,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "1bc61b4c5a331a138df3e0e546c90a95": {
+   "unit": 22,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "470ccc403209b8c0de58223135ca24fd": {
+   "unit": 22,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "c32be6bbfd25f2572a3d6bbada09264c": {
+   "unit": 22,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "5d6455f966db8785099e54724016eee2": {
+   "unit": 22,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "d295e7d9daf2e8d1a32b6973066f40a8": {
+   "unit": 22,
+   "sec": 1,
+   "type": "unit_test",
+   "state": "legendary",
+   "fin": 0,
+   "tot": 1
+  },
+  "889e984377fb6b389956144efcefe933": {
+   "unit": 23,
+   "sec": 1,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "ef2d91615cb369086ec542fcee71e23d": {
+   "unit": 23,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "66136f3386f3a2d80ad3776e88898678": {
+   "unit": 23,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "32639e8e9b69577e1e1f0b4d2537dea7": {
+   "unit": 23,
+   "sec": 1,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "c3503680e16aba60443bf7e6e596a7ea": {
+   "unit": 23,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "b007c89f2ff524cc129d4136a7a6e8fe": {
+   "unit": 23,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "b7aa0bd097ff4b42f18d8c656c90320e": {
+   "unit": 23,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "7fd68fb396edb611442cbdd84ac2c7e1": {
+   "unit": 23,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "9fabf5c3f3eb7e4abf3ed8964b5f11fc": {
+   "unit": 23,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "c6fa1bc9041cba6819a4df9fa25e33a8": {
+   "unit": 23,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "90d3b03bbb2affdfd985232ac85ab226": {
+   "unit": 23,
+   "sec": 1,
+   "type": "unit_test",
+   "state": "legendary",
+   "fin": 0,
+   "tot": 1
+  },
+  "d222b32e464b3b23e6d0e674d935f9a6": {
+   "unit": 24,
+   "sec": 1,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "098fab392a873868dd7ef689c8fa6d6a": {
+   "unit": 24,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "83eac64d77113beda124b45fdb3803cd": {
+   "unit": 24,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "f6fdc69c005fcf107c8183b585db7839": {
+   "unit": 24,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "9a72c9af70ddb422bb5ea878a284f87d": {
+   "unit": 24,
+   "sec": 1,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "7c5f06525cd1cdd5a081adb902e0ce0a": {
+   "unit": 24,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "f5da297bf17961634a33d1d9a28a3a5e": {
+   "unit": 24,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "d3f717961ca13dddf2ad38a3ccff649e": {
+   "unit": 24,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "1c66b347a66f83619c4713f7c45011f9": {
+   "unit": 24,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "f510ff229cbe838f8b6a82c942206a92": {
+   "unit": 24,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "8bfcd33bf9b7faddab9e3d9db27f8b6b": {
+   "unit": 24,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "72301f581fc1f033c93628326f064e25": {
+   "unit": 24,
+   "sec": 1,
+   "type": "unit_test",
+   "state": "legendary",
+   "fin": 0,
+   "tot": 1
+  },
+  "290689c4c2df6c9504619b59c1a4a64b": {
+   "unit": 25,
+   "sec": 1,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "f6ed23c0f387170faf5d6085e7a7702b": {
+   "unit": 25,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "db62c95ec468641a9de71e7fed225304": {
+   "unit": 25,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "5d9140275ec5c0bf3606fa5b9c9305da": {
+   "unit": 25,
+   "sec": 1,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "ece062e0231fdb1eea56dc60dd2025b6": {
+   "unit": 25,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "7e126ffc76441f77e02f775deffa31ee": {
+   "unit": 25,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "aa4624f244e6cfe130531d8924e63db0": {
+   "unit": 25,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "14d99b5b2ba49c5247ffcaac8cd8f051": {
+   "unit": 25,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "eeb09316fe28051578525013eac749a0": {
+   "unit": 25,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "74e7c85cbe000cf03b24ec55b0bee463": {
+   "unit": 25,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "c0635a59bc9cf4b4ecc7ce478141c95f": {
+   "unit": 25,
+   "sec": 1,
+   "type": "unit_test",
+   "state": "legendary",
+   "fin": 0,
+   "tot": 1
+  },
+  "33977e3a22fdfcd1d4dbdffdb43ffeec": {
+   "unit": 26,
+   "sec": 1,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "edecad3926689d1edf9b3116629d06b9": {
+   "unit": 26,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "b515c68f2bdb3a224536537c5f1cadcc": {
+   "unit": 26,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "adc7fe666437ff2a05d7e3b21e5c0d3c": {
+   "unit": 26,
+   "sec": 1,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "8490df2bc839007320ca58b22ee3ff7c": {
+   "unit": 26,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "9d7591cdaef65723f62e6cf47dd221fc": {
+   "unit": 26,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "d0b70a23e843c8e8d38bf21fa04fb203": {
+   "unit": 26,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "963c54231e54917ad01811a06fbd5b94": {
+   "unit": 26,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "fd499126608f8065fa9f1a320e32691c": {
+   "unit": 26,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "0dda227678b446aee8234fe2396831b8": {
+   "unit": 26,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "2fe1abb6ccd61daa30c191976da81cfb": {
+   "unit": 26,
+   "sec": 1,
+   "type": "unit_test",
+   "state": "legendary",
+   "fin": 0,
+   "tot": 1
+  },
+  "9031fbfad380a5cab3881d672bac331c": {
+   "unit": 27,
+   "sec": 1,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "3a736fa45cc9ace4d6d1cd431ed63fb2": {
+   "unit": 27,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "fa3e69e50902cda7b7bcb672649b111f": {
+   "unit": 27,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "c5fd988131cfb4ebee0e8ef45ee284d9": {
+   "unit": 27,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "4f5c29abe4c3df35e7867ef25f41d992": {
+   "unit": 27,
+   "sec": 1,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "829da17b2579da1abdb7dbd7140ac70a": {
+   "unit": 27,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "a4e5db16ece762aae05daf96a2571a85": {
+   "unit": 27,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "bdc18d2d4abc1ce1826fb7699fb4556e": {
+   "unit": 27,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "8cc320fdf17868016130511a85a106be": {
+   "unit": 27,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "0169c8a4c801c9f591eda247f471e958": {
+   "unit": 27,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "008150be086c7c12cef740743b340715": {
+   "unit": 27,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "8abd0703a9f02f010c92b3d29740fcd5": {
+   "unit": 27,
+   "sec": 1,
+   "type": "unit_test",
+   "state": "legendary",
+   "fin": 0,
+   "tot": 1
+  },
+  "c78d7dd66e8e4c809ae30310d7564823": {
+   "unit": 28,
+   "sec": 1,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "ad6db590ad94230d96e4c347d50d4ad5": {
+   "unit": 28,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "2677c19f8e554be64c68f548fab21516": {
+   "unit": 28,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "dfb00a3642fbea5cf75939d083625d31": {
+   "unit": 28,
+   "sec": 1,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "65cda4adb0129290add9849efcf67ab2": {
+   "unit": 28,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "d0ed11d5a1ce950c66350f0b293aef6c": {
+   "unit": 28,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "6e5d6abec196753fa84b7859e846c04a": {
+   "unit": 28,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "0c1f457bf9aec0e283ce1a036a769259": {
+   "unit": 28,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "67fbdead884e0cbc19d2a76ac23fb9fc": {
+   "unit": 28,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "ce0ef812c6610adbb9abfce885232895": {
+   "unit": 28,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "4f9b1703eeda70996933ee8dbc551858": {
+   "unit": 28,
+   "sec": 1,
+   "type": "unit_test",
+   "state": "legendary",
+   "fin": 0,
+   "tot": 1
+  },
+  "68efd82624ed7a7c15b10438e17f136e": {
+   "unit": 29,
+   "sec": 1,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "f89bba57cebe2d88999eefcb0bb87309": {
+   "unit": 29,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "33f24a9bafecd90bbad86e1b54f44bc0": {
+   "unit": 29,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "4e88e5204ad82171d384f7dc6b6c3ac3": {
+   "unit": 29,
+   "sec": 1,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "3f2267fafdb58a6d4b9815cd0b5d7578": {
+   "unit": 29,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "a6ba2bd24029a66b3e7b623dac1fa7e8": {
+   "unit": 29,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "1120362630842c5bc59d5145e15e4b4c": {
+   "unit": 29,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "ce1b989e8822f27910e57cccff9c9559": {
+   "unit": 29,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "378ac98e05170cb8b1643ca4fd280b1e": {
+   "unit": 29,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "1267f793e811c847b47cd6c3db41634d": {
+   "unit": 29,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "df636ad738eec8acddd393205c31f271": {
+   "unit": 29,
+   "sec": 1,
+   "type": "unit_test",
+   "state": "legendary",
+   "fin": 0,
+   "tot": 1
+  },
+  "06029965c5c5eb90ee6698b143c6c17f": {
+   "unit": 30,
+   "sec": 1,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "4e381b81934a7f4cf7f41a3a9381e3d5": {
+   "unit": 30,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "509e3ccb08a0929f4d38f6bba132eaf9": {
+   "unit": 30,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "e0a661ba082e520faa231e9356b8cb78": {
+   "unit": 30,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "2e11e8ec74af334a0cd6556f560c5511": {
+   "unit": 30,
+   "sec": 1,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "8d7def4a493758bdfeaf0cde9a9efa23": {
+   "unit": 30,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "a9719c5b10d4b2454c14cf7d3ca90a4e": {
+   "unit": 30,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "93bbe3e6e757448b9dae277cf5b473ed": {
+   "unit": 30,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "629b53a00e44dae9d57b9010d09be370": {
+   "unit": 30,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "0a7c42556411a8292c08db829218be81": {
+   "unit": 30,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "86eb6abe3856d9c96308e65cd67420ce": {
+   "unit": 30,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "b498f4d8c9c622d417af0c37c636de4a": {
+   "unit": 30,
+   "sec": 1,
+   "type": "unit_test",
+   "state": "legendary",
+   "fin": 0,
+   "tot": 1
+  },
+  "e2203506362994552bc4b625be0142b2": {
+   "unit": 31,
+   "sec": 1,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "c789079e7554c95a3be4d4a207aab135": {
+   "unit": 31,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "16d6776d6bf109daf0b7ef97503980ac": {
+   "unit": 31,
+   "sec": 1,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "a51f6cbd18773a150aeff93f369f0540": {
+   "unit": 31,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "dc17bb8b72f2cecc7a535788e83d2327": {
+   "unit": 31,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "21a7a1ae1ccaf80aef2335f9dc370566": {
+   "unit": 31,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "43781f2220cd82c90e68e8bc213de6fa": {
+   "unit": 31,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "b1586d4da32da2d8ad38c4f02a6a429c": {
+   "unit": 31,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "7d113b8284942eed196d97de740f0085": {
+   "unit": 31,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "329229496749b391a95de248b28e6a38": {
+   "unit": 31,
+   "sec": 1,
+   "type": "unit_test",
+   "state": "legendary",
+   "fin": 0,
+   "tot": 1
+  },
+  "edbc9f24deedac3ef37270b0a2c0105b": {
+   "unit": 32,
+   "sec": 1,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "12c32bcf5341c681322864cb6fa60c0b": {
+   "unit": 32,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "50857482e37e398613edd31fc2e1fa50": {
+   "unit": 32,
+   "sec": 1,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "9705027e62ecae25103ad871985edf4c": {
+   "unit": 32,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "efc21ce8cbc91f878a0fa72403110a58": {
+   "unit": 32,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "b10053238e43861e51cc72de5645c799": {
+   "unit": 32,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "13d69338ec26979a8c9829c30ac0275e": {
+   "unit": 32,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "c24fb77aa0f8ae8ccb1df3aee0a8cc83": {
+   "unit": 32,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "bae36963fd0e5f361f69971d6e5385f6": {
+   "unit": 32,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "1e9cc246bce53f2f4c6744837248df76": {
+   "unit": 32,
+   "sec": 1,
+   "type": "unit_test",
+   "state": "legendary",
+   "fin": 0,
+   "tot": 1
+  },
+  "28082126219ebc93d2bace7ea1ef0c61": {
+   "unit": 33,
+   "sec": 1,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "44bc5b129a39f41ef061e8cb3d1968d2": {
+   "unit": 33,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "60e4d1f07867f3e5e9bf2bac8d43c899": {
+   "unit": 33,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "d8524149fec47e91f6dd8b10f99b74cb": {
+   "unit": 33,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "124d739d38d454b3cc8cd1979adfbe3d": {
+   "unit": 33,
+   "sec": 1,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "cdca5b46e8fcb976b7eaa43949e6400e": {
+   "unit": 33,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "70cf01a00f72d2e1eda662f6097dafd1": {
+   "unit": 33,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "8545202be984a64043de98d48d434f3f": {
+   "unit": 33,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "d5032f93eae2942f3443b77859dc90a4": {
+   "unit": 33,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "e80fcac24db034bbab9fd1f15f6b73b1": {
+   "unit": 33,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "15f8baf25246761080574d7bb4fa6a28": {
+   "unit": 33,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "f9ec3c548e7a2c580b3ec2ce8362ec0b": {
+   "unit": 33,
+   "sec": 1,
+   "type": "unit_test",
+   "state": "legendary",
+   "fin": 0,
+   "tot": 1
+  },
+  "85bafd2871c159eb69ba9175d58b05b1": {
+   "unit": 34,
+   "sec": 1,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "2635da3b25e0871c1a7915a7ecad1347": {
+   "unit": 34,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "614d25e87b2f20cde0625bd3716d92ad": {
+   "unit": 34,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "a42664ede24983dac7c21dc993b93a6e": {
+   "unit": 34,
+   "sec": 1,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "601e2f3f4f64112dfa746c482c2c8356": {
+   "unit": 34,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "29a0a47072d72625fff64b59cc8a003d": {
+   "unit": 34,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "7bb2cbcb27d2e305da5b3aef00e424c2": {
+   "unit": 34,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "cda10ff2772e597bf4f096a263254b8d": {
+   "unit": 34,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "88f8ca463edbca6b2e71f541ff115cdd": {
+   "unit": 34,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "c8255125c6df0f17172fd72b646625a5": {
+   "unit": 34,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "ac0ae2f830aafcd53bc457b41e1054e5": {
+   "unit": 34,
+   "sec": 1,
+   "type": "unit_test",
+   "state": "legendary",
+   "fin": 0,
+   "tot": 1
+  },
+  "54ae59c077cf757c9dcf2acdfb8407fa": {
+   "unit": 35,
+   "sec": 1,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "ac10f2c2b4425a639d8175afe1cc820a": {
+   "unit": 35,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "b8f7797ef61e2dbb0c1860e1faca33f7": {
+   "unit": 35,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "b4a9dfbf94271ea5a80a59eb329e2173": {
+   "unit": 35,
+   "sec": 1,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "4a273771fb2b7558788d9d2b908a619f": {
+   "unit": 35,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "b0837030815842660b081a8efbb567ac": {
+   "unit": 35,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "05be99dd16c99124d063799fc4da46a1": {
+   "unit": 35,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "ccf0644ff40c5d51908036f2ac3a0a1d": {
+   "unit": 35,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "7751529e816f29294164b8e5b61a0228": {
+   "unit": 35,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "151cc31f6dacb03e6ed068cc4b7db533": {
+   "unit": 35,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "410d69f30ccf4c7ce403c90f5707a4d9": {
+   "unit": 35,
+   "sec": 1,
+   "type": "unit_test",
+   "state": "legendary",
+   "fin": 0,
+   "tot": 1
+  },
+  "8c63a93be347b4f3b64826ac6971e0bf": {
+   "unit": 36,
+   "sec": 1,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "734ca10a596664cf5739e05f1630967d": {
+   "unit": 36,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "dfae120b286913a1187a5adc2322397f": {
+   "unit": 36,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "4fc730a6048513b0f8c564d80e1c12c6": {
+   "unit": 36,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "589335d10f8b51769dcf5695a076e0d2": {
+   "unit": 36,
+   "sec": 1,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "73695abbf03c3e88375540e63e050923": {
+   "unit": 36,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "09a6ee337a7a47329671efac11800c2c": {
+   "unit": 36,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "850dd1dc9e51b56c9057feb83634ed6c": {
+   "unit": 36,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "c67ccc51a9f29e9f8b47b793a0d141a8": {
+   "unit": 36,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "a971dec59e058cbac89dab80f30bef45": {
+   "unit": 36,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "6105209f8f1d4a7aab6babee85e5ce7f": {
+   "unit": 36,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "dfdb87d108aaccff5233a990019bd421": {
+   "unit": 36,
+   "sec": 1,
+   "type": "unit_test",
+   "state": "legendary",
+   "fin": 0,
+   "tot": 1
+  },
+  "03370969f7d94d82e27e3e6bce87d5ef": {
+   "unit": 37,
+   "sec": 1,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "a514447c02f7f1722aa58586f540d552": {
+   "unit": 37,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "1ad4cfd08aedeba14dd97ac3253e84a4": {
+   "unit": 37,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "b805fb09a4aabf90c7ba4c3e9c0626f0": {
+   "unit": 37,
+   "sec": 1,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "61cba1d5861ff20cf479d2acbd5fe084": {
+   "unit": 37,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "549b4ebe03bfe025e41301d8b7a0bfc6": {
+   "unit": 37,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "41bdb2e85bb2c939d117625621fb7736": {
+   "unit": 37,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "edf6d51d6810b73318b116bb47eaf7cf": {
+   "unit": 37,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "3f15a8b64c86ef91375a0674b671cd98": {
+   "unit": 37,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "aa58a9b81b2b61327ded1feff3f20c09": {
+   "unit": 37,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "d7181a33d20021aa255f5ffafe75001b": {
+   "unit": 37,
+   "sec": 1,
+   "type": "unit_test",
+   "state": "legendary",
+   "fin": 0,
+   "tot": 1
+  },
+  "f84de6de3ab049a3aafce1ae5f634b67": {
+   "unit": 38,
+   "sec": 1,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "b007a70c373ad359123139577c04630d": {
+   "unit": 38,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "5291744d5167512cbdff94c00bc92233": {
+   "unit": 38,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "781f7334b6d844e74b01d01a4bf6500c": {
+   "unit": 38,
+   "sec": 1,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "90cf5e1620b4cccce7f37aa9899800f4": {
+   "unit": 38,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "5201b63930fb380d53c77468e8acdce3": {
+   "unit": 38,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "a15ced2afd2ff2bfca06e76b6f53d671": {
+   "unit": 38,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "365249d85d055fbdbf28936a5125c1c0": {
+   "unit": 38,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "6e57c9a121c38c06722203fda4aecc3e": {
+   "unit": 38,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "a5cd3ba0f9a3c381594f78d722bf6a8b": {
+   "unit": 38,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "76ea44f9d6556998304ed6bc49d87e50": {
+   "unit": 38,
+   "sec": 1,
+   "type": "unit_test",
+   "state": "legendary",
+   "fin": 0,
+   "tot": 1
+  },
+  "0a2bd59845841b87dbdb44e728e8fd44": {
+   "unit": 39,
+   "sec": 1,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "06d7191c648f41d3ecbcdfe3585c128d": {
+   "unit": 39,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "2b519bdffaaf774d3adae19d345b9bc6": {
+   "unit": 39,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "a12861ba0f53ac0adac99d69b70c8ac7": {
+   "unit": 39,
+   "sec": 1,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "7b323f4781a4e75b587bf09f046d0b49": {
+   "unit": 39,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "dcf966d9034281f35b610a9da4299e7f": {
+   "unit": 39,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "00c75e112e3c510cd6e6aed03fff561d": {
+   "unit": 39,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "55fd20bbf4f112116d25ca97a474f20d": {
+   "unit": 39,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "fa79507723df948ed846badd525fa57d": {
+   "unit": 39,
+   "sec": 1,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "84fb6998cda81965411b2f062f416332": {
+   "unit": 39,
+   "sec": 1,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "8c4fe3258cf469955e2a410222591ca7": {
+   "unit": 39,
+   "sec": 1,
+   "type": "unit_test",
+   "state": "legendary",
+   "fin": 0,
+   "tot": 1
+  },
+  "f04fde7a0570e21e134419656d477022": {
+   "unit": 40,
+   "sec": 2,
+   "type": "skill",
+   "state": "passed",
+   "fin": 6,
+   "tot": 6
+  },
+  "6cfeca2dd781ded941bbd408e223e7d3": {
+   "unit": 40,
+   "sec": 2,
+   "type": "radio",
+   "state": "passed",
+   "fin": 1,
+   "tot": 1
+  },
+  "c485be73b2920baed285cfae41e0f6f3": {
+   "unit": 40,
+   "sec": 2,
+   "type": "radio",
+   "state": "passed",
+   "fin": 1,
+   "tot": 1
+  },
+  "ad01ab772ba0d48760049066566def8f": {
+   "unit": 40,
+   "sec": 2,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "fce8c43f9a05abb001d64e91cc3c401f": {
+   "unit": 40,
+   "sec": 2,
+   "type": "radio",
+   "state": "passed",
+   "fin": 1,
+   "tot": 1
+  },
+  "c3ba5aa8c13988a1fc3f6758ed1ec1e0": {
+   "unit": 40,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "2808b40318550cd4ced21005cc063b2d": {
+   "unit": 40,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "passed",
+   "fin": 1,
+   "tot": 1
+  },
+  "e80fea0b302b16f3b4e7763246500fe0": {
+   "unit": 40,
+   "sec": 2,
+   "type": "radio",
+   "state": "passed",
+   "fin": 1,
+   "tot": 1
+  },
+  "2b8a81de9237c0f27494151b86bcf2a1": {
+   "unit": 40,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "346489346c2b5b95bf86bc4d808ad342": {
+   "unit": 40,
+   "sec": 2,
+   "type": "radio",
+   "state": "passed",
+   "fin": 1,
+   "tot": 1
+  },
+  "c64d2ff11ce2993f879bbf371ac5c20a": {
+   "unit": 40,
+   "sec": 2,
+   "type": "unit_test",
+   "state": "passed",
+   "fin": 0,
+   "tot": 1
+  },
+  "2d50e2fe91b45abe773a864421543f4c": {
+   "unit": 41,
+   "sec": 2,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "9adb8b52cef368cd5fcf95196a747d95": {
+   "unit": 41,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "1cc195edbee3421774b2240b83140a08": {
+   "unit": 41,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "3b8fa5a383c6d5fad5048a30170a790a": {
+   "unit": 41,
+   "sec": 2,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "4fd3a4e97628146a51fba6ac1e822707": {
+   "unit": 41,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "172005187dafc359cff6963e034044e2": {
+   "unit": 41,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "cccf86b8b32c39839c6fa2f14bd4da18": {
+   "unit": 41,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "3d9e355b4698427a225b074681eacf98": {
+   "unit": 41,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "95e9b39b7e61b0e50db92ebd2f8f51d5": {
+   "unit": 41,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "9c4b4ec9a06965100bfcc29acf9582a8": {
+   "unit": 41,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "dda844a012aaa177ec8c765db677ccdd": {
+   "unit": 41,
+   "sec": 2,
+   "type": "unit_test",
+   "state": "legendary",
+   "fin": 0,
+   "tot": 1
+  },
+  "146d49bcbbba158396d442d92dddb770": {
+   "unit": 42,
+   "sec": 2,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "7ddeb45d15304bfbf0d7cd7a3d98faf9": {
+   "unit": 42,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "8e2d2e0c26614477e274c024b0e60bf5": {
+   "unit": 42,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "004e12a0239cc669ba7a16902fb56266": {
+   "unit": 42,
+   "sec": 2,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "ef9be1d9b4cce455ada7a28c8c450b81": {
+   "unit": 42,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "0211f929f91a91d8897463a321672807": {
+   "unit": 42,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "41c59ff17b30faa78d4bae4fd586551d": {
+   "unit": 42,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "23c9da5c8e984f531d361616f64153ac": {
+   "unit": 42,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "f2777da085522fa74989d9fdbbcc31c1": {
+   "unit": 42,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "77809fa5d6bca46516c4e365b7392795": {
+   "unit": 42,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "d42932559fbc9d980b707099717f809e": {
+   "unit": 42,
+   "sec": 2,
+   "type": "unit_test",
+   "state": "legendary",
+   "fin": 0,
+   "tot": 1
+  },
+  "9fb78d73dd3db3496e78c0dd5d5f4430": {
+   "unit": 43,
+   "sec": 2,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "b08b962c8efff8c7ebc6b0304771d043": {
+   "unit": 43,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "8f3c3476e38910b1458f44b5fb95ab60": {
+   "unit": 43,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "19c6ea0ee3b9e9b01229c47d4bdc9ef8": {
+   "unit": 43,
+   "sec": 2,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "09f2dc28c01f8e77d5d6d95e8855185e": {
+   "unit": 43,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "27443265924a5b4d0827305ede79c80d": {
+   "unit": 43,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "29de25dd22306b164f102aa7cf377460": {
+   "unit": 43,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "892651e102024e0344e86c4e8bd0d068": {
+   "unit": 43,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "d5f2651124d75b4a6cecb192c1a4b1a6": {
+   "unit": 43,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "033db910709b644cde9b64698e63dbda": {
+   "unit": 43,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "25fbd02aac8e3c686eb300bba52e406a": {
+   "unit": 43,
+   "sec": 2,
+   "type": "unit_test",
+   "state": "legendary",
+   "fin": 0,
+   "tot": 1
+  },
+  "1b7faa0cf29d9d8c5614094455e26c57": {
+   "unit": 44,
+   "sec": 2,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "bbcae101071dca0386890ae24d91c2c4": {
+   "unit": 44,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "d47cffbefdf052987b50e495d338b560": {
+   "unit": 44,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "11a19e9e2194f7978dec25776402a1dc": {
+   "unit": 44,
+   "sec": 2,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "9cd5c9761cecb194405f213fcd847802": {
+   "unit": 44,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "76a232c3f735e3161527f2e0813004dd": {
+   "unit": 44,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "dfafa8a53de8ae5c4805d0a3f4b6833d": {
+   "unit": 44,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "71085c84a2890aa10db51e4d8280fa9c": {
+   "unit": 44,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "ce38955c2b990dfaa6f630f41cfbdf14": {
+   "unit": 44,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "220c3c082eb418970f8ebe4f013193de": {
+   "unit": 44,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "fc248be1f4c44f03c68f82668d5aa642": {
+   "unit": 44,
+   "sec": 2,
+   "type": "unit_test",
+   "state": "legendary",
+   "fin": 0,
+   "tot": 1
+  },
+  "12adcde6fd68bb29f43774e66288b761": {
+   "unit": 45,
+   "sec": 2,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "6ec004b4eb4bc58885a81d04bdc85eb7": {
+   "unit": 45,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "db10987729d8660408bef2b9599e5ecf": {
+   "unit": 45,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "9bd6ab3b855f6da8127676c96b58bdd4": {
+   "unit": 45,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "a8a19dbd903d89c79f4fa07b73f7896c": {
+   "unit": 45,
+   "sec": 2,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "09bc55f7894db81eb82a84b4229f0b1b": {
+   "unit": 45,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "8de6fa6d4070c95cdbf2d861f6dc5e4a": {
+   "unit": 45,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "b2f7c5a9d9b5382a9ea68985c4d7f505": {
+   "unit": 45,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "ef9349bea540e2af8552d2568993e568": {
+   "unit": 45,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "acd3dda55a08ded88e06e624815ad1e0": {
+   "unit": 45,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "488b3758159d087ffb23e20b096cb673": {
+   "unit": 45,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "3625a4f09af41eec4388988b22aeef32": {
+   "unit": 45,
+   "sec": 2,
+   "type": "unit_test",
+   "state": "legendary",
+   "fin": 0,
+   "tot": 1
+  },
+  "ae5e6ecad92f7822cec6a8ee31004dc9": {
+   "unit": 46,
+   "sec": 2,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "ccdb4fef63d8ddd668cb0f20c3f11755": {
+   "unit": 46,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "8a8daa08e3b186dc5e3dffe56a2c470c": {
+   "unit": 46,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "c1af968df6137cea7329f9deaedab5dc": {
+   "unit": 46,
+   "sec": 2,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "1b5986490abe38613589e9c4e8cc85a7": {
+   "unit": 46,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "78b297032e66333820115d3cdd72d575": {
+   "unit": 46,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "c3dc9031850158be905ada7130586f44": {
+   "unit": 46,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "ebb8037b93060b2bc61c4874b03fb040": {
+   "unit": 46,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "eb149d16e2a12750d65a3b14ac8cce1b": {
+   "unit": 46,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "3a3f3833b7ebe25a9ee86b8dbc527caa": {
+   "unit": 46,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "3fe9a5c519a56967ad932c9a585557b7": {
+   "unit": 46,
+   "sec": 2,
+   "type": "unit_test",
+   "state": "legendary",
+   "fin": 0,
+   "tot": 1
+  },
+  "ccb330d737e9d048eaec3b80197a61b4": {
+   "unit": 47,
+   "sec": 2,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "4837aa31c4252895e2e077851442ccaa": {
+   "unit": 47,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "576d3281bf02d565207a13bf9c432d02": {
+   "unit": 47,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "2d09359a0e9090d2950a7dae50db31d2": {
+   "unit": 47,
+   "sec": 2,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "af73d3e859364c382e28fe082ddacb32": {
+   "unit": 47,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "264c52e20e69c1b85c5a6a547747d5a2": {
+   "unit": 47,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "8bbf5a466e9a5d2b4bee5408ae67431b": {
+   "unit": 47,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "94fd823596f7bbdafe32ac3a50731daa": {
+   "unit": 47,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "c7ab3a791c8f347d5973d3d3e7fda302": {
+   "unit": 47,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "a851f6c9c1c84db30753456ed89f1d8a": {
+   "unit": 47,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "98860337665bc2645c496ff8044c6b56": {
+   "unit": 47,
+   "sec": 2,
+   "type": "unit_test",
+   "state": "legendary",
+   "fin": 0,
+   "tot": 1
+  },
+  "fdb68f6b899cb27e165a6f12d9e71615": {
+   "unit": 48,
+   "sec": 2,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "407611e16b12efd36e5b94818c85d757": {
+   "unit": 48,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "ada75e18b37e923e5adf34155fc0000f": {
+   "unit": 48,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "3dbfcb40f84865d37bb93f59a573964a": {
+   "unit": 48,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "8a7dbd3c96628ac5b8eb6c7339ab676b": {
+   "unit": 48,
+   "sec": 2,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "003ae3fcbda2fac333e65a5fecd34602": {
+   "unit": 48,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "88ff08ad2b2ad77f6c84ae7403cc90b6": {
+   "unit": 48,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "511e92ba8787560ad2430369c4576136": {
+   "unit": 48,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "3c80b6e0d84447570cf60a64dc9652cc": {
+   "unit": 48,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "a1aea8aeb64c2871ac4aaac57adef0df": {
+   "unit": 48,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "4e57edf4622c05ae3f18f212a9e3d332": {
+   "unit": 48,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "91b45626d4404a45edac3065d4cba55a": {
+   "unit": 48,
+   "sec": 2,
+   "type": "unit_test",
+   "state": "legendary",
+   "fin": 0,
+   "tot": 1
+  },
+  "c042659b39b45ae1f868c337b9b85ebe": {
+   "unit": 49,
+   "sec": 2,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "3c6c5015b74bbffc31d37f495c2ae00e": {
+   "unit": 49,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "867a4b4aff063f106dbb884ecc651a9e": {
+   "unit": 49,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "7ed3edf4269bdf00eb5860a8c47009ac": {
+   "unit": 49,
+   "sec": 2,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "41114548b15390634f834bd2c7c7d17d": {
+   "unit": 49,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "db335e16076473758450f72cc74fac89": {
+   "unit": 49,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "22affd3935f2853b061a015aac00088e": {
+   "unit": 49,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "984a42314654609e879d918d74b0c0a6": {
+   "unit": 49,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "ec173bad3b9063ad69060afff23271dc": {
+   "unit": 49,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "19abba30deb6a622de0667485b706422": {
+   "unit": 49,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "82ab851ded59158bbbd38efa9e5ffa70": {
+   "unit": 49,
+   "sec": 2,
+   "type": "unit_test",
+   "state": "legendary",
+   "fin": 0,
+   "tot": 1
+  },
+  "b7834bba24064021183f331b25bd2016": {
+   "unit": 50,
+   "sec": 2,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "c7413f0c98f7ecbf8c633c0e2bc89cbc": {
+   "unit": 50,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "eca7218cf41bb9badb2f0c7c04a5cef9": {
+   "unit": 50,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "a460c1f27769b9cf249cb0b9074f520c": {
+   "unit": 50,
+   "sec": 2,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "0d4be025ff5a975a103a0f9f36c07929": {
+   "unit": 50,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "2e4cad08f486e2a9b3a2ce8321af9c01": {
+   "unit": 50,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "6f8a846da1d5a9e8a992d155cb8c962d": {
+   "unit": 50,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "b0b3ef0ef31950ddcd9a266fc23c5e39": {
+   "unit": 50,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "f23cb22c9c0715e91564a1cc106e26c7": {
+   "unit": 50,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "95a7c72cb50b81a966f332e7978220e4": {
+   "unit": 50,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "7daa9c8c7977fa997675ed2f7f3ce949": {
+   "unit": 50,
+   "sec": 2,
+   "type": "unit_test",
+   "state": "legendary",
+   "fin": 0,
+   "tot": 1
+  },
+  "67fbfd10323b0a9d890f648b163d6b0d": {
+   "unit": 51,
+   "sec": 2,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "e996d96333e1e630d6a563f222eb8444": {
+   "unit": 51,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "5d0fd1b52042816243dbe0f64a176aaf": {
+   "unit": 51,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "f30f216bf2b52934dc0a35e6fa0d5a96": {
+   "unit": 51,
+   "sec": 2,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "85b50959a7f5d6c69d52c4fe12d9b451": {
+   "unit": 51,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "cdcd182ca3d041956ee89602a4341518": {
+   "unit": 51,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "2877e054e2bdcb325932883659c2a8c3": {
+   "unit": 51,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "b6a61653621467229436dbf2182518e0": {
+   "unit": 51,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "1da4d3ae5e75b6b07c482a973b3fde7e": {
+   "unit": 51,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "a50838572d9005923b2952bb874fba2b": {
+   "unit": 51,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "33779f143dae46a55e6db97c22165f88": {
+   "unit": 51,
+   "sec": 2,
+   "type": "unit_test",
+   "state": "legendary",
+   "fin": 0,
+   "tot": 1
+  },
+  "11b6c18a3e1bb824c0fc1ed6e6973b24": {
+   "unit": 52,
+   "sec": 2,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "8c39c5f340079428c222e85d10ba77ad": {
+   "unit": 52,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "26671e084183193e4d2a3880c48fe6b0": {
+   "unit": 52,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "770c4db348ab97bd4e406c84257e6cf2": {
+   "unit": 52,
+   "sec": 2,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "792f1bcab3b140ce2238991ab81f35fc": {
+   "unit": 52,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "e7ca131c82edd524b757a98bf5d1cba7": {
+   "unit": 52,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "247411299b868a866aa019d1571b8274": {
+   "unit": 52,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "fc7d6d660d5519fa8ebf7b57c6c05da0": {
+   "unit": 52,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "c50efb83920e9dda85a86abe2da07d02": {
+   "unit": 52,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "6da1ff1dcc77fd3ed2166d198d9ac3d2": {
+   "unit": 52,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "c53a2b390b174fc367cbabf7ece26a91": {
+   "unit": 52,
+   "sec": 2,
+   "type": "unit_test",
+   "state": "legendary",
+   "fin": 0,
+   "tot": 1
+  },
+  "2e837df30340d20a2604cf78cf7e5e9b": {
+   "unit": 53,
+   "sec": 2,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "ac1ed5a3320972ae15e2dfbd2f9d52ce": {
+   "unit": 53,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "86ec45e7a47329c2112506bf913120df": {
+   "unit": 53,
+   "sec": 2,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "b831d0079b5168977a1dc8e5f8994eb4": {
+   "unit": 53,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "49a9a317ba0ff04a137c77827a463e10": {
+   "unit": 53,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "714dcd441af9cb870c9e33b258a8f74d": {
+   "unit": 53,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "3c8d936848b08acd75d33ab5182010c8": {
+   "unit": 53,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "5f48e795b5397afd5312c26e0bb4034f": {
+   "unit": 53,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "ebf274612b63da207d1d26be708e93d7": {
+   "unit": 53,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "a41de3e04bc543a18d9459b6198d3609": {
+   "unit": 53,
+   "sec": 2,
+   "type": "unit_test",
+   "state": "legendary",
+   "fin": 0,
+   "tot": 1
+  },
+  "58dc610b36b09011d501d8aa17546f89": {
+   "unit": 54,
+   "sec": 2,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "58da3068d11c08981d52cac069d48bfe": {
+   "unit": 54,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "9e95171e7ef26465c2662dee45e7e1f7": {
+   "unit": 54,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "29de5b7057794fc7401d3f3a3e22d29b": {
+   "unit": 54,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "5e40b48029f51af0a32a7149d7bcd3b5": {
+   "unit": 54,
+   "sec": 2,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "0ada33fef340d26daf7c7fa244a2df99": {
+   "unit": 54,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "905ba96507c5eb7d4a18b28090933cf1": {
+   "unit": 54,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "9db0b14e52d20ddfa6f93c2d296e7fd1": {
+   "unit": 54,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "f2fe64ead71d500b4ecc0625bc139dc5": {
+   "unit": 54,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "7b5f26fe839e8aafef2f98cef503955d": {
+   "unit": 54,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "098804dac3e0bb7bb1e891ff8390e767": {
+   "unit": 54,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "5a19be08cdd0b20a0e10a1a9e902b220": {
+   "unit": 54,
+   "sec": 2,
+   "type": "unit_test",
+   "state": "legendary",
+   "fin": 0,
+   "tot": 1
+  },
+  "3f8c4a832656c11ddb225006ac60c564": {
+   "unit": 55,
+   "sec": 2,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "d26ac3bc5cafb84586535eeddddc9dc6": {
+   "unit": 55,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "3a68bd77adef58f58d27c94abf598bce": {
+   "unit": 55,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "ca9acb900b0503344e6700def2693742": {
+   "unit": 55,
+   "sec": 2,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "a52b8225561d836b5f64488b4d6bd063": {
+   "unit": 55,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "ef56dcbc67fdee206409ec9bbfaef352": {
+   "unit": 55,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "6ba5549e8d5c5a73d07ae79d22353574": {
+   "unit": 55,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "9abc10cede416126f2e18227a5c969ea": {
+   "unit": 55,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "7c052f30b3440407031f9045788824c7": {
+   "unit": 55,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "8d779e512d37c863f983e718f098eea0": {
+   "unit": 55,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "2a737449dddbfc547fac70cc767ad0e7": {
+   "unit": 55,
+   "sec": 2,
+   "type": "unit_test",
+   "state": "legendary",
+   "fin": 0,
+   "tot": 1
+  },
+  "e37b6ac4849463dcdece0b3de8f91abf": {
+   "unit": 56,
+   "sec": 2,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "464f1ebc3d8f18529c98de823f03402b": {
+   "unit": 56,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "3bd5e3f31124a6231ab0878e50e7266e": {
+   "unit": 56,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "dee9a10d9e28f2bbdee63dbe5916c5ac": {
+   "unit": 56,
+   "sec": 2,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "c50f8106262e83f8efe4ebe32e455491": {
+   "unit": 56,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "7d622a0494ebf3794ff31efcb6b267a5": {
+   "unit": 56,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "28f60421989c780445021a84f1812584": {
+   "unit": 56,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "b4cffbac58300cc95999fa2b89ee54ff": {
+   "unit": 56,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "e2641e5eff06460eaddebc220041ccef": {
+   "unit": 56,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "910a666265fc6e188748a456c71e0b81": {
+   "unit": 56,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "35180ba4f038ddced9110ad6bc09fe9c": {
+   "unit": 56,
+   "sec": 2,
+   "type": "unit_test",
+   "state": "legendary",
+   "fin": 0,
+   "tot": 1
+  },
+  "798f5d34e54a8dfd05d2e8ac99372685": {
+   "unit": 57,
+   "sec": 2,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "7731df3fd9a9c2f66eee0a4fb201bccb": {
+   "unit": 57,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "f25a65c2c7862a628ec3bf002a96f0d2": {
+   "unit": 57,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "77f9e8ab6e1f69376602d6bc3eec27f6": {
+   "unit": 57,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "3de1d60865fc19355728a57ea3715e59": {
+   "unit": 57,
+   "sec": 2,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "166228a3192a8d579cee119f1a019061": {
+   "unit": 57,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "d667b5ebeb4a290e570d18c4d9957b56": {
+   "unit": 57,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "c521a7d8a448ad796e52064aa18235c4": {
+   "unit": 57,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "c93b47fbefa70178afa8352930620ade": {
+   "unit": 57,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "28f93497af9f9d633e7aa249ba587e2e": {
+   "unit": 57,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "61bb4c04cb2069339f729d830bfdd280": {
+   "unit": 57,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "af34a7f051240e73f838b8d2bb7db46c": {
+   "unit": 57,
+   "sec": 2,
+   "type": "unit_test",
+   "state": "legendary",
+   "fin": 0,
+   "tot": 1
+  },
+  "d3188a958dad7ccf9c4f78b52fa13aba": {
+   "unit": 58,
+   "sec": 2,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "3535b373f416bfdb0dc564980127f583": {
+   "unit": 58,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "f91770c0e8357cdff665b45a560426eb": {
+   "unit": 58,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "1f1a173266db0080c73fb3c0754c038b": {
+   "unit": 58,
+   "sec": 2,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "48b1825a332a1b62822cf348d51d0148": {
+   "unit": 58,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "41167290afb4252ad5f0dbe041cc2c6f": {
+   "unit": 58,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "65752b09e3a4e40888b233d85b53ceb8": {
+   "unit": 58,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "39e53a176e5d978b771fe8a49e0eadd2": {
+   "unit": 58,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "800c85a0aa0a1fd95aaf410439e91d11": {
+   "unit": 58,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "f25c17864f3405a5fda5dd9c71b19007": {
+   "unit": 58,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "405d87b10717e3ba82dd5375949a271a": {
+   "unit": 58,
+   "sec": 2,
+   "type": "unit_test",
+   "state": "legendary",
+   "fin": 0,
+   "tot": 1
+  },
+  "0534430af75f495c7996b79d9e8d7c3c": {
+   "unit": 59,
+   "sec": 2,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "58cf9db1a080170538e6c36415fb7371": {
+   "unit": 59,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "05d55972092d1421f3a2d80882688e48": {
+   "unit": 59,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "4c25ce2af21f8b2fe27d0dd076c2d21f": {
+   "unit": 59,
+   "sec": 2,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "dbf7430e3e01e237f115ee4e54fe45bf": {
+   "unit": 59,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "78cc52c171f7c7906c56f8b5c7398e20": {
+   "unit": 59,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "10d6da877fbabea2a64f426387b04e02": {
+   "unit": 59,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "977d47921364151233fa2543e0917c70": {
+   "unit": 59,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "5ae8559511ef9e9253d6ad5caa7d1410": {
+   "unit": 59,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "c6379aef2be83d8728e6751f0d653a13": {
+   "unit": 59,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "37c95253de6cc74f39794a9e6e94a72d": {
+   "unit": 59,
+   "sec": 2,
+   "type": "unit_test",
+   "state": "legendary",
+   "fin": 0,
+   "tot": 1
+  },
+  "9d3e36f7f8819a4ec2272fbcd1896910": {
+   "unit": 60,
+   "sec": 2,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "bea074a81e903b2a4ff64400d84d6353": {
+   "unit": 60,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "3e5b06663feee30aa3b271501526e786": {
+   "unit": 60,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "624565d253bd6ece6c258708db97fb2a": {
+   "unit": 60,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "23fbea75c937cc98195953dc559116f0": {
+   "unit": 60,
+   "sec": 2,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "7171dc391d3488c90cba853088546bb1": {
+   "unit": 60,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "230195654aba18498c64853527389e2c": {
+   "unit": 60,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "44efae47c8a7fdf846edfbaa9ece732b": {
+   "unit": 60,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "e4d4a161d2433725c207b6faa342e6eb": {
+   "unit": 60,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 3,
+   "tot": 3
+  },
+  "8862132b128bc9796a4c9be940735290": {
+   "unit": 60,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "d3875518833d6ffb575f9c6ea581e155": {
+   "unit": 60,
+   "sec": 2,
+   "type": "radio",
+   "state": "legendary",
+   "fin": 1,
+   "tot": 1
+  },
+  "237ec9f8acb4ece54e52ed990cf0621e": {
+   "unit": 60,
+   "sec": 2,
+   "type": "unit_test",
+   "state": "legendary",
+   "fin": 0,
+   "tot": 1
+  },
+  "fefaed11d155522f46b662f12df2d3c9": {
+   "unit": 61,
+   "sec": 2,
+   "type": "skill",
+   "state": "legendary",
+   "fin": 6,
+   "tot": 6
+  },
+  "e1fc36feb369fcea9ed112a07f0e298c": {
+   "unit": 61,
+   "sec": 2,
+   "type": "radio",
+   "state": "passed",
+   "fin": 1,
+   "tot": 1
+  },
+  "0f6c45996988dd49eb95381e506bb767": {
+   "unit": 61,
+   "sec": 2,
+   "type": "skill",
+   "state": "passed",
+   "fin": 6,
+   "tot": 6
+  },
+  "e67f0c21d00fab958ae5df0cc5b0274a": {
+   "unit": 61,
+   "sec": 2,
+   "type": "radio",
+   "state": "passed",
+   "fin": 1,
+   "tot": 1
+  },
+  "7fe088c63b89425e80f2da2c5d48710b": {
+   "unit": 61,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "passed",
+   "fin": 3,
+   "tot": 3
+  },
+  "2e0d7b0f85d948a44993243b690863b7": {
+   "unit": 61,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "passed",
+   "fin": 1,
+   "tot": 1
+  },
+  "ec2beba92e1f83e5024bcd040f25d9df": {
+   "unit": 61,
+   "sec": 2,
+   "type": "radio",
+   "state": "passed",
+   "fin": 1,
+   "tot": 1
+  },
+  "0f71ae831f2bd74ae93919a59ba55391": {
+   "unit": 61,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "passed",
+   "fin": 3,
+   "tot": 3
+  },
+  "b5f763d33d3e726e7d3cb84fb2fc156b": {
+   "unit": 61,
+   "sec": 2,
+   "type": "radio",
+   "state": "passed",
+   "fin": 1,
+   "tot": 1
+  },
+  "8dae4e6ccc04d1ee45ea976ba309cdd7": {
+   "unit": 61,
+   "sec": 2,
+   "type": "unit_test",
+   "state": "passed",
+   "fin": 0,
+   "tot": 1
+  },
+  "1725a1d3c6bcc7dd86d001e82b7c664b": {
+   "unit": 62,
+   "sec": 2,
+   "type": "skill",
+   "state": "passed",
+   "fin": 6,
+   "tot": 6
+  },
+  "59a5083e3f9f3b386eaaaa64594fc778": {
+   "unit": 62,
+   "sec": 2,
+   "type": "radio",
+   "state": "passed",
+   "fin": 1,
+   "tot": 1
+  },
+  "2796f0becb1d013f1987a9248bb82057": {
+   "unit": 62,
+   "sec": 2,
+   "type": "radio",
+   "state": "passed",
+   "fin": 1,
+   "tot": 1
+  },
+  "538c163f6f3a5394bf760e6f8bf14e22": {
+   "unit": 62,
+   "sec": 2,
+   "type": "skill",
+   "state": "passed",
+   "fin": 6,
+   "tot": 6
+  },
+  "d0b0f43d36645235e741d4f0b016b216": {
+   "unit": 62,
+   "sec": 2,
+   "type": "radio",
+   "state": "passed",
+   "fin": 1,
+   "tot": 1
+  },
+  "282067f46483128c79cb8ebf7b838dec": {
+   "unit": 62,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "passed",
+   "fin": 3,
+   "tot": 3
+  },
+  "aa1e12d198143566efd0a2ff8f42de46": {
+   "unit": 62,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "passed",
+   "fin": 1,
+   "tot": 1
+  },
+  "e5b6ee70e3dfc5ee00115503f5bfc550": {
+   "unit": 62,
+   "sec": 2,
+   "type": "radio",
+   "state": "passed",
+   "fin": 1,
+   "tot": 1
+  },
+  "a67ca8f2d49c9802bd9f19685fe09949": {
+   "unit": 62,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "passed",
+   "fin": 3,
+   "tot": 3
+  },
+  "19d8969e2df1401f6f9d2d2339c3f17d": {
+   "unit": 62,
+   "sec": 2,
+   "type": "radio",
+   "state": "passed",
+   "fin": 1,
+   "tot": 1
+  },
+  "b75295723661468786acc7af47a6a5a2": {
+   "unit": 62,
+   "sec": 2,
+   "type": "unit_test",
+   "state": "passed",
+   "fin": 0,
+   "tot": 1
+  },
+  "4e4959ab3e870b0db6c18f5ffd7198d3": {
+   "unit": 63,
+   "sec": 2,
+   "type": "skill",
+   "state": "passed",
+   "fin": 6,
+   "tot": 6
+  },
+  "20df9ab3803c459eeaa231a89d98ef4f": {
+   "unit": 63,
+   "sec": 2,
+   "type": "radio",
+   "state": "passed",
+   "fin": 1,
+   "tot": 1
+  },
+  "b6b397cde928519f4d3daef6fdd49d03": {
+   "unit": 63,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "passed",
+   "fin": 1,
+   "tot": 1
+  },
+  "852970919032dd4c8e7f371684e0603c": {
+   "unit": 63,
+   "sec": 2,
+   "type": "radio",
+   "state": "passed",
+   "fin": 1,
+   "tot": 1
+  },
+  "5fab35cb189c53bc935f03e82ca964de": {
+   "unit": 63,
+   "sec": 2,
+   "type": "skill",
+   "state": "passed",
+   "fin": 6,
+   "tot": 6
+  },
+  "a081c7c842e749632edae916684f119d": {
+   "unit": 63,
+   "sec": 2,
+   "type": "radio",
+   "state": "passed",
+   "fin": 1,
+   "tot": 1
+  },
+  "ec029505229bb691b1cda6c848fa13b7": {
+   "unit": 63,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "passed",
+   "fin": 3,
+   "tot": 3
+  },
+  "b29cfb612009961479ed12f8b6c7306c": {
+   "unit": 63,
+   "sec": 2,
+   "type": "radio",
+   "state": "passed",
+   "fin": 1,
+   "tot": 1
+  },
+  "f42147eca85b8a24164abbdc5ecbc694": {
+   "unit": 63,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "passed",
+   "fin": 3,
+   "tot": 3
+  },
+  "35ee0c7aeaf857b42fe72549bb8a7b5c": {
+   "unit": 63,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "passed",
+   "fin": 1,
+   "tot": 1
+  },
+  "3931cb41f101c1b6cfd7b7063d967fc6": {
+   "unit": 63,
+   "sec": 2,
+   "type": "radio",
+   "state": "passed",
+   "fin": 1,
+   "tot": 1
+  },
+  "6760e49ef13ce428f9b92f17512e845f": {
+   "unit": 63,
+   "sec": 2,
+   "type": "unit_test",
+   "state": "passed",
+   "fin": 0,
+   "tot": 1
+  },
+  "4a431f873caab3d86375140b809f7e74": {
+   "unit": 64,
+   "sec": 2,
+   "type": "skill",
+   "state": "passed",
+   "fin": 6,
+   "tot": 6
+  },
+  "4a5c982b4dac5d324d2bb251e2481528": {
+   "unit": 64,
+   "sec": 2,
+   "type": "radio",
+   "state": "passed",
+   "fin": 1,
+   "tot": 1
+  },
+  "f684c5c7c9e6771b76da2d5e80bab508": {
+   "unit": 64,
+   "sec": 2,
+   "type": "radio",
+   "state": "passed",
+   "fin": 1,
+   "tot": 1
+  },
+  "98f59dccf2c5d96334ad623914661ad0": {
+   "unit": 64,
+   "sec": 2,
+   "type": "skill",
+   "state": "passed",
+   "fin": 6,
+   "tot": 6
+  },
+  "3fae827ebb39e934a5c26faefcf6eacc": {
+   "unit": 64,
+   "sec": 2,
+   "type": "radio",
+   "state": "passed",
+   "fin": 1,
+   "tot": 1
+  },
+  "0fc7870efe01ab3bcea88b308b23a8f4": {
+   "unit": 64,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "passed",
+   "fin": 3,
+   "tot": 3
+  },
+  "7593064966982f30fa0975e5a99302b8": {
+   "unit": 64,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "passed",
+   "fin": 1,
+   "tot": 1
+  },
+  "0279a2bcfc4661e28301b98f54f6e1b5": {
+   "unit": 64,
+   "sec": 2,
+   "type": "radio",
+   "state": "passed",
+   "fin": 1,
+   "tot": 1
+  },
+  "751814a9e8068c66a9dfcf68a2b13bd4": {
+   "unit": 64,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "passed",
+   "fin": 3,
+   "tot": 3
+  },
+  "6c091719184ac4fa9c769b4b7605424c": {
+   "unit": 64,
+   "sec": 2,
+   "type": "radio",
+   "state": "passed",
+   "fin": 1,
+   "tot": 1
+  },
+  "dc515340482c9dc7c45f69f2dd55549e": {
+   "unit": 64,
+   "sec": 2,
+   "type": "unit_test",
+   "state": "passed",
+   "fin": 0,
+   "tot": 1
+  },
+  "be061d435a6a867dac16c63edbc996ec": {
+   "unit": 65,
+   "sec": 2,
+   "type": "skill",
+   "state": "passed",
+   "fin": 6,
+   "tot": 6
+  },
+  "032b1253a3bd7d3bf1949a28384ac3d7": {
+   "unit": 65,
+   "sec": 2,
+   "type": "radio",
+   "state": "passed",
+   "fin": 1,
+   "tot": 1
+  },
+  "6c5005887bc9139211b42e3456f795a9": {
+   "unit": 65,
+   "sec": 2,
+   "type": "radio",
+   "state": "passed",
+   "fin": 1,
+   "tot": 1
+  },
+  "7268deb24a911fec61ec878f1596132a": {
+   "unit": 65,
+   "sec": 2,
+   "type": "skill",
+   "state": "passed",
+   "fin": 6,
+   "tot": 6
+  },
+  "97aeca7d0885a1ff2dfc81705c845682": {
+   "unit": 65,
+   "sec": 2,
+   "type": "radio",
+   "state": "passed",
+   "fin": 1,
+   "tot": 1
+  },
+  "387bc7cfe9da1e6bf14dc03b77d96a08": {
+   "unit": 65,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "passed",
+   "fin": 3,
+   "tot": 3
+  },
+  "bbcde85bdedf79ea45e90d75a6ee0ccf": {
+   "unit": 65,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "passed",
+   "fin": 1,
+   "tot": 1
+  },
+  "fdc435543a3afce346aed3289bad843f": {
+   "unit": 65,
+   "sec": 2,
+   "type": "radio",
+   "state": "passed",
+   "fin": 1,
+   "tot": 1
+  },
+  "1dcf59fe95e8f45871f7fc1deddeee00": {
+   "unit": 65,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "passed",
+   "fin": 3,
+   "tot": 3
+  },
+  "cc0e999f8403c129e5ca6f5f40b7212a": {
+   "unit": 65,
+   "sec": 2,
+   "type": "radio",
+   "state": "passed",
+   "fin": 1,
+   "tot": 1
+  },
+  "c08035b4ab6dc6a301b9e9e8852a1d41": {
+   "unit": 65,
+   "sec": 2,
+   "type": "unit_test",
+   "state": "passed",
+   "fin": 0,
+   "tot": 1
+  },
+  "88df8173c5280701d99bb43738c8f658": {
+   "unit": 66,
+   "sec": 2,
+   "type": "skill",
+   "state": "passed",
+   "fin": 6,
+   "tot": 6
+  },
+  "775acc917f1cca7f0d49900af197c718": {
+   "unit": 66,
+   "sec": 2,
+   "type": "radio",
+   "state": "passed",
+   "fin": 1,
+   "tot": 1
+  },
+  "fbde3d252ce6012c426633bd841dfa6e": {
+   "unit": 66,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "passed",
+   "fin": 1,
+   "tot": 1
+  },
+  "be4d73cc8e78fbf7f8f2082babc66ae0": {
+   "unit": 66,
+   "sec": 2,
+   "type": "radio",
+   "state": "passed",
+   "fin": 1,
+   "tot": 1
+  },
+  "9919fd15fc3cb1d1a4838a5075c586c3": {
+   "unit": 66,
+   "sec": 2,
+   "type": "skill",
+   "state": "passed",
+   "fin": 6,
+   "tot": 6
+  },
+  "2d28f13340470575faa3f077db91977c": {
+   "unit": 66,
+   "sec": 2,
+   "type": "radio",
+   "state": "passed",
+   "fin": 1,
+   "tot": 1
+  },
+  "8e99d294e3ab62e06e7f6a9576d872fc": {
+   "unit": 66,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "passed",
+   "fin": 3,
+   "tot": 3
+  },
+  "54b9c9453235fa25da7cb08c62973bfc": {
+   "unit": 66,
+   "sec": 2,
+   "type": "radio",
+   "state": "passed",
+   "fin": 1,
+   "tot": 1
+  },
+  "200f672916a5edbe7301c63df858f713": {
+   "unit": 66,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "passed",
+   "fin": 3,
+   "tot": 3
+  },
+  "7355c9bafd18b6df2a0630cce5f377c7": {
+   "unit": 66,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "passed",
+   "fin": 1,
+   "tot": 1
+  },
+  "17c3a5bb0e4007a77d89cc0ff6511d6c": {
+   "unit": 66,
+   "sec": 2,
+   "type": "radio",
+   "state": "passed",
+   "fin": 1,
+   "tot": 1
+  },
+  "a70c2ad8a2b93d12d9d1d65600a44398": {
+   "unit": 66,
+   "sec": 2,
+   "type": "unit_test",
+   "state": "passed",
+   "fin": 0,
+   "tot": 1
+  },
+  "7616e64dc1249387942194151bf3c715": {
+   "unit": 67,
+   "sec": 2,
+   "type": "skill",
+   "state": "passed",
+   "fin": 6,
+   "tot": 6
+  },
+  "aa7dd8ef2c3813f162cae6537f586982": {
+   "unit": 67,
+   "sec": 2,
+   "type": "radio",
+   "state": "passed",
+   "fin": 1,
+   "tot": 1
+  },
+  "d70a548e575998f4364faf5b3e5a2ca4": {
+   "unit": 67,
+   "sec": 2,
+   "type": "radio",
+   "state": "passed",
+   "fin": 1,
+   "tot": 1
+  },
+  "a6b3cee1cc5460f3495040cd8daa50eb": {
+   "unit": 67,
+   "sec": 2,
+   "type": "skill",
+   "state": "passed",
+   "fin": 6,
+   "tot": 6
+  },
+  "2e0786b80f34698b5a6c98dd0d88ee0a": {
+   "unit": 67,
+   "sec": 2,
+   "type": "radio",
+   "state": "passed",
+   "fin": 1,
+   "tot": 1
+  },
+  "f914c20202d00700200b1f0f4e4f0794": {
+   "unit": 67,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "passed",
+   "fin": 3,
+   "tot": 3
+  },
+  "2eb0b4c098b9470b54c9f53ce03f47e6": {
+   "unit": 67,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "passed",
+   "fin": 1,
+   "tot": 1
+  },
+  "4fa9fcb87764928888598370098b3080": {
+   "unit": 67,
+   "sec": 2,
+   "type": "radio",
+   "state": "passed",
+   "fin": 1,
+   "tot": 1
+  },
+  "96f5edabaf6bc2669d92a79b62ebf10e": {
+   "unit": 67,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "passed",
+   "fin": 3,
+   "tot": 3
+  },
+  "7f8aa002740a2a26cd9e75ffdf471230": {
+   "unit": 67,
+   "sec": 2,
+   "type": "radio",
+   "state": "passed",
+   "fin": 1,
+   "tot": 1
+  },
+  "9e2eb7f7f99282783df25367da0731ef": {
+   "unit": 67,
+   "sec": 2,
+   "type": "unit_test",
+   "state": "passed",
+   "fin": 0,
+   "tot": 1
+  },
+  "0a29039a95e3aef5ffce6f5cc4644db5": {
+   "unit": 68,
+   "sec": 2,
+   "type": "skill",
+   "state": "passed",
+   "fin": 6,
+   "tot": 6
+  },
+  "f0206640967c2c701412b26c3758190b": {
+   "unit": 68,
+   "sec": 2,
+   "type": "radio",
+   "state": "passed",
+   "fin": 1,
+   "tot": 1
+  },
+  "e2bba9acbbf41e90f0eaf5fa07fecfab": {
+   "unit": 68,
+   "sec": 2,
+   "type": "radio",
+   "state": "passed",
+   "fin": 1,
+   "tot": 1
+  },
+  "d769cb2512ca55eb3539673cb0017e76": {
+   "unit": 68,
+   "sec": 2,
+   "type": "skill",
+   "state": "passed",
+   "fin": 6,
+   "tot": 6
+  },
+  "8f93dd1d71e16aff02b2bfc173a57193": {
+   "unit": 68,
+   "sec": 2,
+   "type": "radio",
+   "state": "passed",
+   "fin": 1,
+   "tot": 1
+  },
+  "d534931caab359f7923ce40e84c1d22d": {
+   "unit": 68,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "passed",
+   "fin": 3,
+   "tot": 3
+  },
+  "2343b66ddd0aae84ecbb6c6abce1825b": {
+   "unit": 68,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "passed",
+   "fin": 1,
+   "tot": 1
+  },
+  "b3df240007bbf68b02624dae37f754ba": {
+   "unit": 68,
+   "sec": 2,
+   "type": "radio",
+   "state": "passed",
+   "fin": 1,
+   "tot": 1
+  },
+  "1809ea12a5a7be25f1b1d57c555979a2": {
+   "unit": 68,
+   "sec": 2,
+   "type": "practice/review",
+   "state": "passed",
+   "fin": 3,
+   "tot": 3
+  },
+  "55a8849981337e0d503a8c226e0df2ec": {
+   "unit": 68,
+   "sec": 2,
+   "type": "radio",
+   "state": "passed",
+   "fin": 1,
+   "tot": 1
+  },
+  "c67187fef035c8fe2ce227dfac4c1f98": {
+   "unit": 68,
+   "sec": 2,
+   "type": "unit_test",
+   "state": "passed",
+   "fin": 0,
+   "tot": 1
+  }
+ },
+ "chain": {
+  "headsGold": 65,
+  "chainsGold": 61,
+  "pending": 38,
+  "ready": 0,
+  "absent": 0,
+  "unknown": 38,
+  "courseNotGold": 6825
+ },
+ "section1": {
+  "gold": 330,
+  "total": 330
+ },
+ "old": {
+  "gold": 643,
+  "total": 739
+ }
+}
