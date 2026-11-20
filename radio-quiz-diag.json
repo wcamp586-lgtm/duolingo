@@ -1,10 +1,45 @@
 {
- "at": "2026-11-20T05:23:01.359Z",
- "reason": "no-cards",
+ "at": "2026-11-20T07:52:31.852Z",
+ "reason": "RADIO_CHOICE_UNMATCHED hits=0",
  "state": {
-  "url": "/lesson/unit/73/level/12",
-  "text": "VOS IDÉES AVEC BÉA 选择配对 1 2 3 4 5 神奇 6 十二月 7 顾客 8 氛围",
-  "cards": [],
+  "url": "/lesson/unit/74/level/12",
+  "text": "CHEZ VIKRAM Sofia a fait vingt gâteaux au chocolat. 1 2",
+  "cards": [
+   {
+    "i": 0,
+    "text": "1",
+    "checked": false,
+    "shape": {
+     "vb": "41x28",
+     "mirrorLR": 0.514,
+     "mirrorUD": 0.477,
+     "ink": 0.342,
+     "corners": {
+      "tl": 0,
+      "tr": 0.603,
+      "bl": 0.222,
+      "br": 0
+     }
+    }
+   },
+   {
+    "i": 1,
+    "text": "2",
+    "checked": false,
+    "shape": {
+     "vb": "36x38",
+     "mirrorLR": 0.074,
+     "mirrorUD": 0.253,
+     "ink": 0.451,
+     "corners": {
+      "tl": 0.662,
+      "tr": 0.629,
+      "bl": 0.486,
+      "br": 0.457
+     }
+    }
+   }
+  ],
   "buttons": [
    {
     "i": 0,
@@ -33,62 +68,6 @@
     "text": "",
     "disabled": true,
     "img": "1197f5d009de6723df45564439c8181d.svg"
-   },
-   {
-    "i": 4,
-    "test": "十二月-challenge-tap-token",
-    "text": "1",
-    "disabled": false,
-    "img": ""
-   },
-   {
-    "i": 5,
-    "test": "顾客-challenge-tap-token",
-    "text": "2",
-    "disabled": false,
-    "img": ""
-   },
-   {
-    "i": 6,
-    "test": "氛围-challenge-tap-token",
-    "text": "3",
-    "disabled": false,
-    "img": ""
-   },
-   {
-    "i": 7,
-    "test": "神奇-challenge-tap-token",
-    "text": "4",
-    "disabled": false,
-    "img": ""
-   },
-   {
-    "i": 8,
-    "test": "神奇-challenge-tap-token",
-    "text": "5 神奇",
-    "disabled": false,
-    "img": ""
-   },
-   {
-    "i": 9,
-    "test": "十二月-challenge-tap-token",
-    "text": "6 十二月",
-    "disabled": false,
-    "img": ""
-   },
-   {
-    "i": 10,
-    "test": "顾客-challenge-tap-token",
-    "text": "7 顾客",
-    "disabled": false,
-    "img": ""
-   },
-   {
-    "i": 11,
-    "test": "氛围-challenge-tap-token",
-    "text": "8 氛围",
-    "disabled": false,
-    "img": ""
    }
   ]
  },

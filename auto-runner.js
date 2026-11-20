@@ -1179,8 +1179,11 @@ async function main() {
       };
       active = { slot, level, data: null, mode };
       // 普通课/传奇课都先看预加载缓存：/lesson 有时根本不发新 session（页面直接用预加载那份）
+      // 只对 skill/practice/unit_review 查缓存：radio/story 的元数据没有 skillId，key 会落到 '|'，
+      // 误取练习 session 会占住 active.data，让真正的 radio session（elements）不再赋值（2026-11-20 l11 实测）。
       const meta = level?.pathLevelMetadata || {};
-      const cached = sessionCache.get((meta.skillId || '') + '|' + (meta.crownLevelIndex ?? ''));
+      const cacheEligible = slot.type === 'skill' || slot.type === 'practice' || slot.type === 'unit_review';
+      const cached = cacheEligible ? sessionCache.get((meta.skillId || '') + '|' + (meta.crownLevelIndex ?? '')) : null;
       if (cached && !seenSessions.has(cached.id)
           && (mode === 'normal'
             ? /^(LESSON|LEVEL_REVIEW|LEXEME_PRACTICE|UNIT_PRACTICE|LEXEME_REVIEW|UNIT_REVIEW)/.test(cached.type || '')
