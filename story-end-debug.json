@@ -636,5 +636,1232 @@
       ]
     },
     "afterRoute": "/learn"
+  },
+  {
+    "at": "2026-11-20T09:30:56.512Z",
+    "event": "clicked",
+    "clicks": 0,
+    "total": 33,
+    "spec": "[data-test=\"stories-player-continue\"]",
+    "clickError": null,
+    "before": {
+      "route": "/lesson/unit/74/legendary/2",
+      "candidates": [
+        {
+          "spec": "[data-test=\"stories-player-done\"]",
+          "count": 0,
+          "visible": null,
+          "enabled": null,
+          "box": null
+        },
+        {
+          "spec": "[data-test=\"stories-player-continue\"]",
+          "count": 1,
+          "visible": true,
+          "enabled": true,
+          "box": {
+            "x": 942.484375,
+            "y": 805,
+            "width": 150,
+            "height": 50
+          }
+        },
+        {
+          "spec": "[data-test=\"legendary-session-end-continue\"]",
+          "count": 0,
+          "visible": null,
+          "enabled": null,
+          "box": null
+        },
+        {
+          "spec": "button:has-text(\"结束课程\")",
+          "count": 0,
+          "visible": null,
+          "enabled": null,
+          "box": null
+        }
+      ]
+    },
+    "afterRoute": "/lesson/unit/74/legendary/2"
+  },
+  {
+    "at": "2026-11-20T09:30:57.533Z",
+    "event": "story-progress",
+    "clicks": 0,
+    "total": 33,
+    "spec": "[data-test=\"stories-player-continue\"]",
+    "after": {
+      "len": 1036,
+      "tail": "gnifique, vu de la fenêtre de Lucie. La fenêtre du salon regarde vers l'est. Joli, non ? Tu as vu le lever du soleil… depuis le canapé ? Oui. Avec une crêpe. 继续",
+      "storyCount": 23,
+      "storyParts": [
+        "L'aventure matinale",
+        "Béa voyage seule à la montagne. À huit heures du matin, elle appelle Lin en vidéo.",
+        "Lin ! Bonjour ! Tu es réveillée ?",
+        "Oui. Étonnant, hein ?",
+        "Écoute mon plan. Je me réveille à quatre heures. Je marche trois heures. Et je regarde le lever du soleil !",
+        "Pourquoi ?",
+        "C'est gratuit, c'est unique, et c'est parfait pour être en forme !",
+        "D'accord. Et après ?",
+        "Après, j'ai une heure de temps libre. Je visite un musée à deux euros.",
+        "Moi aussi, j'ai du temps libre.",
+        "Combien ?",
+        "Tout mon temps est libre.",
+        "Béa est en haut de la montagne. Il pleut. Il y a beaucoup de nuages.",
+        "Non, non, non ! Je ne vois rien ! Pas de soleil !",
+        "Oh. Dommage.",
+        "Trois heures de marche pour des nuages ! Mon plan était parfait !",
+        "Moi, je me suis réveillée à cinq heures ce matin.",
+        "Toi ? Pourquoi ?",
+        "Mamie Lucie fait des crêpes à cinq heures. Des crêpes gratuites.",
+        "Lin montre une photo. Un soleil orange magnifique, vu de la fenêtre de Lucie.",
+        "La fenêtre du salon regarde vers l'est. Joli, non ?",
+        "Tu as vu le lever du soleil… depuis le canapé ?",
+        "Oui. Avec une crêpe."
+      ],
+      "buttons": [
+        "stories-player-continue:disabled"
+      ],
+      "top": true
+    },
+    "sigChanged": true
+  },
+  {
+    "at": "2026-11-20T09:30:58.575Z",
+    "event": "control-enabled",
+    "clicks": 1,
+    "total": 33,
+    "waited": 1,
+    "spec": "[data-test=\"stories-player-continue\"]"
+  },
+  {
+    "at": "2026-11-20T09:30:58.637Z",
+    "event": "clicked",
+    "clicks": 1,
+    "total": 33,
+    "spec": "[data-test=\"stories-player-continue\"]",
+    "clickError": null,
+    "before": {
+      "route": "/lesson/unit/74/legendary/2",
+      "candidates": [
+        {
+          "spec": "[data-test=\"stories-player-done\"]",
+          "count": 0,
+          "visible": null,
+          "enabled": null,
+          "box": null
+        },
+        {
+          "spec": "[data-test=\"stories-player-continue\"]",
+          "count": 1,
+          "visible": true,
+          "enabled": false,
+          "box": {
+            "x": 942.484375,
+            "y": 811,
+            "width": 150,
+            "height": 50
+          }
+        },
+        {
+          "spec": "[data-test=\"legendary-session-end-continue\"]",
+          "count": 0,
+          "visible": null,
+          "enabled": null,
+          "box": null
+        },
+        {
+          "spec": "button:has-text(\"结束课程\")",
+          "count": 0,
+          "visible": null,
+          "enabled": null,
+          "box": null
+        }
+      ]
+    },
+    "afterRoute": "/lesson/unit/74/legendary/2"
+  },
+  {
+    "at": "2026-11-20T09:30:59.648Z",
+    "event": "story-progress",
+    "clicks": 1,
+    "total": 33,
+    "spec": "[data-test=\"stories-player-continue\"]",
+    "after": {
+      "len": 1107,
+      "tail": "'est. Joli, non ? Tu as vu le lever du soleil… depuis le canapé ? Oui. Avec une crêpe. Lin, je voyage, je planifie, je marche… et toi, tu gagnes ! Pourquoi ? 继续",
+      "storyCount": 24,
+      "storyParts": [
+        "L'aventure matinale",
+        "Béa voyage seule à la montagne. À huit heures du matin, elle appelle Lin en vidéo.",
+        "Lin ! Bonjour ! Tu es réveillée ?",
+        "Oui. Étonnant, hein ?",
+        "Écoute mon plan. Je me réveille à quatre heures. Je marche trois heures. Et je regarde le lever du soleil !",
+        "Pourquoi ?",
+        "C'est gratuit, c'est unique, et c'est parfait pour être en forme !",
+        "D'accord. Et après ?",
+        "Après, j'ai une heure de temps libre. Je visite un musée à deux euros.",
+        "Moi aussi, j'ai du temps libre.",
+        "Combien ?",
+        "Tout mon temps est libre.",
+        "Béa est en haut de la montagne. Il pleut. Il y a beaucoup de nuages.",
+        "Non, non, non ! Je ne vois rien ! Pas de soleil !",
+        "Oh. Dommage.",
+        "Trois heures de marche pour des nuages ! Mon plan était parfait !",
+        "Moi, je me suis réveillée à cinq heures ce matin.",
+        "Toi ? Pourquoi ?",
+        "Mamie Lucie fait des crêpes à cinq heures. Des crêpes gratuites.",
+        "Lin montre une photo. Un soleil orange magnifique, vu de la fenêtre de Lucie.",
+        "La fenêtre du salon regarde vers l'est. Joli, non ?",
+        "Tu as vu le lever du soleil… depuis le canapé ?",
+        "Oui. Avec une crêpe.",
+        "Lin, je voyage, je planifie, je marche… et toi, tu gagnes ! Pourquoi ?"
+      ],
+      "buttons": [
+        "stories-player-continue:disabled"
+      ],
+      "top": true
+    },
+    "sigChanged": true
+  },
+  {
+    "at": "2026-11-20T09:31:04.773Z",
+    "event": "control-enabled",
+    "clicks": 2,
+    "total": 33,
+    "waited": 5,
+    "spec": "[data-test=\"stories-player-continue\"]"
+  },
+  {
+    "at": "2026-11-20T09:31:04.823Z",
+    "event": "clicked",
+    "clicks": 2,
+    "total": 33,
+    "spec": "[data-test=\"stories-player-continue\"]",
+    "clickError": null,
+    "before": {
+      "route": "/lesson/unit/74/legendary/2",
+      "candidates": [
+        {
+          "spec": "[data-test=\"stories-player-done\"]",
+          "count": 0,
+          "visible": null,
+          "enabled": null,
+          "box": null
+        },
+        {
+          "spec": "[data-test=\"stories-player-continue\"]",
+          "count": 1,
+          "visible": true,
+          "enabled": false,
+          "box": {
+            "x": 942.484375,
+            "y": 811,
+            "width": 150,
+            "height": 50
+          }
+        },
+        {
+          "spec": "[data-test=\"legendary-session-end-continue\"]",
+          "count": 0,
+          "visible": null,
+          "enabled": null,
+          "box": null
+        },
+        {
+          "spec": "button:has-text(\"结束课程\")",
+          "count": 0,
+          "visible": null,
+          "enabled": null,
+          "box": null
+        }
+      ]
+    },
+    "afterRoute": "/lesson/unit/74/legendary/2"
+  },
+  {
+    "at": "2026-11-20T09:31:05.843Z",
+    "event": "story-progress",
+    "clicks": 2,
+    "total": 33,
+    "spec": "[data-test=\"stories-player-continue\"]",
+    "after": {
+      "len": 1149,
+      "tail": "eil… depuis le canapé ? Oui. Avec une crêpe. Lin, je voyage, je planifie, je marche… et toi, tu gagnes ! Pourquoi ? Le canapé, c'est aussi une aventure, Béa. 继续",
+      "storyCount": 25,
+      "storyParts": [
+        "L'aventure matinale",
+        "Béa voyage seule à la montagne. À huit heures du matin, elle appelle Lin en vidéo.",
+        "Lin ! Bonjour ! Tu es réveillée ?",
+        "Oui. Étonnant, hein ?",
+        "Écoute mon plan. Je me réveille à quatre heures. Je marche trois heures. Et je regarde le lever du soleil !",
+        "Pourquoi ?",
+        "C'est gratuit, c'est unique, et c'est parfait pour être en forme !",
+        "D'accord. Et après ?",
+        "Après, j'ai une heure de temps libre. Je visite un musée à deux euros.",
+        "Moi aussi, j'ai du temps libre.",
+        "Combien ?",
+        "Tout mon temps est libre.",
+        "Béa est en haut de la montagne. Il pleut. Il y a beaucoup de nuages.",
+        "Non, non, non ! Je ne vois rien ! Pas de soleil !",
+        "Oh. Dommage.",
+        "Trois heures de marche pour des nuages ! Mon plan était parfait !",
+        "Moi, je me suis réveillée à cinq heures ce matin.",
+        "Toi ? Pourquoi ?",
+        "Mamie Lucie fait des crêpes à cinq heures. Des crêpes gratuites.",
+        "Lin montre une photo. Un soleil orange magnifique, vu de la fenêtre de Lucie.",
+        "La fenêtre du salon regarde vers l'est. Joli, non ?",
+        "Tu as vu le lever du soleil… depuis le canapé ?",
+        "Oui. Avec une crêpe.",
+        "Lin, je voyage, je planifie, je marche… et toi, tu gagnes ! Pourquoi ?",
+        "Le canapé, c'est aussi une aventure, Béa."
+      ],
+      "buttons": [
+        "stories-player-continue:disabled"
+      ],
+      "top": true
+    },
+    "sigChanged": true
+  },
+  {
+    "at": "2026-11-20T09:31:08.921Z",
+    "event": "control-enabled",
+    "clicks": 3,
+    "total": 33,
+    "waited": 3,
+    "spec": "[data-test=\"stories-player-continue\"]"
+  },
+  {
+    "at": "2026-11-20T09:31:08.987Z",
+    "event": "clicked",
+    "clicks": 3,
+    "total": 33,
+    "spec": "[data-test=\"stories-player-continue\"]",
+    "clickError": null,
+    "before": {
+      "route": "/lesson/unit/74/legendary/2",
+      "candidates": [
+        {
+          "spec": "[data-test=\"stories-player-done\"]",
+          "count": 0,
+          "visible": null,
+          "enabled": null,
+          "box": null
+        },
+        {
+          "spec": "[data-test=\"stories-player-continue\"]",
+          "count": 1,
+          "visible": true,
+          "enabled": false,
+          "box": {
+            "x": 942.484375,
+            "y": 811,
+            "width": 150,
+            "height": 50
+          }
+        },
+        {
+          "spec": "[data-test=\"legendary-session-end-continue\"]",
+          "count": 0,
+          "visible": null,
+          "enabled": null,
+          "box": null
+        },
+        {
+          "spec": "button:has-text(\"结束课程\")",
+          "count": 0,
+          "visible": null,
+          "enabled": null,
+          "box": null
+        }
+      ]
+    },
+    "afterRoute": "/lesson/unit/74/legendary/2"
+  },
+  {
+    "at": "2026-11-20T09:31:10.000Z",
+    "event": "story-progress",
+    "clicks": 3,
+    "total": 33,
+    "spec": "[data-test=\"stories-player-continue\"]",
+    "after": {
+      "len": 1146,
+      "tail": "soleil… depuis le canapé ? Oui. Avec une crêpe. Lin, je voyage, je planifie, je marche… et toi, tu gagnes ! Pourquoi ? Le canapé, c'est aussi une aventure, Béa.",
+      "storyCount": 25,
+      "storyParts": [
+        "L'aventure matinale",
+        "Béa voyage seule à la montagne. À huit heures du matin, elle appelle Lin en vidéo.",
+        "Lin ! Bonjour ! Tu es réveillée ?",
+        "Oui. Étonnant, hein ?",
+        "Écoute mon plan. Je me réveille à quatre heures. Je marche trois heures. Et je regarde le lever du soleil !",
+        "Pourquoi ?",
+        "C'est gratuit, c'est unique, et c'est parfait pour être en forme !",
+        "D'accord. Et après ?",
+        "Après, j'ai une heure de temps libre. Je visite un musée à deux euros.",
+        "Moi aussi, j'ai du temps libre.",
+        "Combien ?",
+        "Tout mon temps est libre.",
+        "Béa est en haut de la montagne. Il pleut. Il y a beaucoup de nuages.",
+        "Non, non, non ! Je ne vois rien ! Pas de soleil !",
+        "Oh. Dommage.",
+        "Trois heures de marche pour des nuages ! Mon plan était parfait !",
+        "Moi, je me suis réveillée à cinq heures ce matin.",
+        "Toi ? Pourquoi ?",
+        "Mamie Lucie fait des crêpes à cinq heures. Des crêpes gratuites.",
+        "Lin montre une photo. Un soleil orange magnifique, vu de la fenêtre de Lucie.",
+        "La fenêtre du salon regarde vers l'est. Joli, non ?",
+        "Tu as vu le lever du soleil… depuis le canapé ?",
+        "Oui. Avec une crêpe.",
+        "Lin, je voyage, je planifie, je marche… et toi, tu gagnes ! Pourquoi ?",
+        "Le canapé, c'est aussi une aventure, Béa."
+      ],
+      "buttons": [
+        "stories-player-continue:disabled"
+      ],
+      "top": true
+    },
+    "sigChanged": true
+  },
+  {
+    "at": "2026-11-20T09:31:15.470Z",
+    "event": "control-enabled",
+    "clicks": 4,
+    "total": 33,
+    "waited": 5,
+    "spec": "[data-test=\"stories-player-done\"]"
+  },
+  {
+    "at": "2026-11-20T09:31:15.635Z",
+    "event": "clicked",
+    "clicks": 4,
+    "total": 33,
+    "spec": "[data-test=\"stories-player-done\"]",
+    "clickError": null,
+    "before": {
+      "route": "/lesson/unit/74/legendary/2",
+      "candidates": [
+        {
+          "spec": "[data-test=\"stories-player-done\"]",
+          "count": 0,
+          "visible": null,
+          "enabled": null,
+          "box": null
+        },
+        {
+          "spec": "[data-test=\"stories-player-continue\"]",
+          "count": 1,
+          "visible": true,
+          "enabled": false,
+          "box": {
+            "x": 942.484375,
+            "y": 807,
+            "width": 150,
+            "height": 50
+          }
+        },
+        {
+          "spec": "[data-test=\"legendary-session-end-continue\"]",
+          "count": 0,
+          "visible": null,
+          "enabled": null,
+          "box": null
+        },
+        {
+          "spec": "button:has-text(\"结束课程\")",
+          "count": 0,
+          "visible": null,
+          "enabled": null,
+          "box": null
+        }
+      ]
+    },
+    "afterRoute": "/learn"
+  },
+  {
+    "at": "2026-11-20T09:34:16.858Z",
+    "event": "clicked",
+    "clicks": 0,
+    "total": 32,
+    "spec": "[data-test=\"stories-player-continue\"]",
+    "clickError": null,
+    "before": {
+      "route": "/lesson/unit/74/legendary/5",
+      "candidates": [
+        {
+          "spec": "[data-test=\"stories-player-done\"]",
+          "count": 0,
+          "visible": null,
+          "enabled": null,
+          "box": null
+        },
+        {
+          "spec": "[data-test=\"stories-player-continue\"]",
+          "count": 1,
+          "visible": true,
+          "enabled": true,
+          "box": {
+            "x": 942.484375,
+            "y": 805,
+            "width": 150,
+            "height": 50
+          }
+        },
+        {
+          "spec": "[data-test=\"legendary-session-end-continue\"]",
+          "count": 0,
+          "visible": null,
+          "enabled": null,
+          "box": null
+        },
+        {
+          "spec": "button:has-text(\"结束课程\")",
+          "count": 0,
+          "visible": null,
+          "enabled": null,
+          "box": null
+        }
+      ]
+    },
+    "afterRoute": "/lesson/unit/74/legendary/5"
+  },
+  {
+    "at": "2026-11-20T09:34:17.872Z",
+    "event": "story-progress",
+    "clicks": 0,
+    "total": 32,
+    "spec": "[data-test=\"stories-player-continue\"]",
+    "after": {
+      "len": 1167,
+      "tail": " reçoit un message de Zari. Lily ! J'ai mis la photo du chaton sur la page du groupe. Avec l'heure du concert ! Tu as fait une affiche avec un chat inconnu ? 继续",
+      "storyCount": 21,
+      "storyParts": [
+        "Le concert du chaton",
+        "Zari et Lily sont dans un café. Elles doivent prévoir le concert de leur groupe.",
+        "Bon. Samedi, on joue à la fête de l'école. Il faut une affiche.",
+        "Oui ! Une affiche parfaite ! Avec des étoiles, des couleurs, et…",
+        "Une femme entre. Dans son sac, il y a un tout petit chaton.",
+        "Oh non. Oh non, non, non ! Lily ! Regarde ! Il est trop mignon !",
+        "C'est un chat. J'ai déjà vu des chats.",
+        "Pas comme lui ! Il a des petites chaussettes blanches !",
+        "Zari prend des photos. Puis elle montre son téléphone au serveur.",
+        "Monsieur ! Regardez ! Il bâille ! C'est le plus beau jour de ma vie !",
+        "Euh… oui, il est mignon, mademoiselle.",
+        "Attendez, j'ai une vidéo aussi ! Et une autre !",
+        "Zari. L'affiche. Le concert. Samedi.",
+        "Oui, oui ! Mais regarde sa petite oreille !",
+        "Zari montre la vidéo à toutes les personnes du café.",
+        "Mesdemoiselles, les clients veulent être tranquilles. Vous pouvez parler ailleurs, s'il vous plaît ?",
+        "Super. On quitte le café, et on n'a pas d'affiche.",
+        "Pas de problème ! J'ai une idée !",
+        "Le soir, Lily reçoit un message de Zari.",
+        "Lily ! J'ai mis la photo du chaton sur la page du groupe. Avec l'heure du concert !",
+        "Tu as fait une affiche avec un chat inconnu ?"
+      ],
+      "buttons": [
+        "stories-player-continue:disabled"
+      ],
+      "top": true
+    },
+    "sigChanged": true
+  },
+  {
+    "at": "2026-11-20T09:34:18.909Z",
+    "event": "control-enabled",
+    "clicks": 1,
+    "total": 32,
+    "waited": 1,
+    "spec": "[data-test=\"stories-player-continue\"]"
+  },
+  {
+    "at": "2026-11-20T09:34:18.937Z",
+    "event": "clicked",
+    "clicks": 1,
+    "total": 32,
+    "spec": "[data-test=\"stories-player-continue\"]",
+    "clickError": null,
+    "before": {
+      "route": "/lesson/unit/74/legendary/5",
+      "candidates": [
+        {
+          "spec": "[data-test=\"stories-player-done\"]",
+          "count": 0,
+          "visible": null,
+          "enabled": null,
+          "box": null
+        },
+        {
+          "spec": "[data-test=\"stories-player-continue\"]",
+          "count": 1,
+          "visible": true,
+          "enabled": false,
+          "box": {
+            "x": 942.484375,
+            "y": 811,
+            "width": 150,
+            "height": 50
+          }
+        },
+        {
+          "spec": "[data-test=\"legendary-session-end-continue\"]",
+          "count": 0,
+          "visible": null,
+          "enabled": null,
+          "box": null
+        },
+        {
+          "spec": "button:has-text(\"结束课程\")",
+          "count": 0,
+          "visible": null,
+          "enabled": null,
+          "box": null
+        }
+      ]
+    },
+    "afterRoute": "/lesson/unit/74/legendary/5"
+  },
+  {
+    "at": "2026-11-20T09:34:19.959Z",
+    "event": "story-progress",
+    "clicks": 1,
+    "total": 32,
+    "spec": "[data-test=\"stories-player-continue\"]",
+    "after": {
+      "len": 1232,
+      "tail": "r la page du groupe. Avec l'heure du concert ! Tu as fait une affiche avec un chat inconnu ? Oui ! Et trois cents personnes disent qu'elles viennent samedi ! 继续",
+      "storyCount": 22,
+      "storyParts": [
+        "Le concert du chaton",
+        "Zari et Lily sont dans un café. Elles doivent prévoir le concert de leur groupe.",
+        "Bon. Samedi, on joue à la fête de l'école. Il faut une affiche.",
+        "Oui ! Une affiche parfaite ! Avec des étoiles, des couleurs, et…",
+        "Une femme entre. Dans son sac, il y a un tout petit chaton.",
+        "Oh non. Oh non, non, non ! Lily ! Regarde ! Il est trop mignon !",
+        "C'est un chat. J'ai déjà vu des chats.",
+        "Pas comme lui ! Il a des petites chaussettes blanches !",
+        "Zari prend des photos. Puis elle montre son téléphone au serveur.",
+        "Monsieur ! Regardez ! Il bâille ! C'est le plus beau jour de ma vie !",
+        "Euh… oui, il est mignon, mademoiselle.",
+        "Attendez, j'ai une vidéo aussi ! Et une autre !",
+        "Zari. L'affiche. Le concert. Samedi.",
+        "Oui, oui ! Mais regarde sa petite oreille !",
+        "Zari montre la vidéo à toutes les personnes du café.",
+        "Mesdemoiselles, les clients veulent être tranquilles. Vous pouvez parler ailleurs, s'il vous plaît ?",
+        "Super. On quitte le café, et on n'a pas d'affiche.",
+        "Pas de problème ! J'ai une idée !",
+        "Le soir, Lily reçoit un message de Zari.",
+        "Lily ! J'ai mis la photo du chaton sur la page du groupe. Avec l'heure du concert !",
+        "Tu as fait une affiche avec un chat inconnu ?",
+        "Oui ! Et trois cents personnes disent qu'elles viennent samedi !"
+      ],
+      "buttons": [
+        "stories-player-continue:disabled"
+      ],
+      "top": true
+    },
+    "sigChanged": true
+  },
+  {
+    "at": "2026-11-20T09:34:22.010Z",
+    "event": "control-enabled",
+    "clicks": 2,
+    "total": 32,
+    "waited": 2,
+    "spec": "[data-test=\"stories-player-continue\"]"
+  },
+  {
+    "at": "2026-11-20T09:34:22.048Z",
+    "event": "clicked",
+    "clicks": 2,
+    "total": 32,
+    "spec": "[data-test=\"stories-player-continue\"]",
+    "clickError": null,
+    "before": {
+      "route": "/lesson/unit/74/legendary/5",
+      "candidates": [
+        {
+          "spec": "[data-test=\"stories-player-done\"]",
+          "count": 0,
+          "visible": null,
+          "enabled": null,
+          "box": null
+        },
+        {
+          "spec": "[data-test=\"stories-player-continue\"]",
+          "count": 1,
+          "visible": true,
+          "enabled": false,
+          "box": {
+            "x": 942.484375,
+            "y": 811,
+            "width": 150,
+            "height": 50
+          }
+        },
+        {
+          "spec": "[data-test=\"legendary-session-end-continue\"]",
+          "count": 0,
+          "visible": null,
+          "enabled": null,
+          "box": null
+        },
+        {
+          "spec": "button:has-text(\"结束课程\")",
+          "count": 0,
+          "visible": null,
+          "enabled": null,
+          "box": null
+        }
+      ]
+    },
+    "afterRoute": "/lesson/unit/74/legendary/5"
+  },
+  {
+    "at": "2026-11-20T09:34:23.063Z",
+    "event": "story-progress",
+    "clicks": 2,
+    "total": 32,
+    "spec": "[data-test=\"stories-player-continue\"]",
+    "after": {
+      "len": 1281,
+      "tail": " as fait une affiche avec un chat inconnu ? Oui ! Et trois cents personnes disent qu'elles viennent samedi ! Trois cents ? D'habitude, il y a ta mère et Max. 继续",
+      "storyCount": 23,
+      "storyParts": [
+        "Le concert du chaton",
+        "Zari et Lily sont dans un café. Elles doivent prévoir le concert de leur groupe.",
+        "Bon. Samedi, on joue à la fête de l'école. Il faut une affiche.",
+        "Oui ! Une affiche parfaite ! Avec des étoiles, des couleurs, et…",
+        "Une femme entre. Dans son sac, il y a un tout petit chaton.",
+        "Oh non. Oh non, non, non ! Lily ! Regarde ! Il est trop mignon !",
+        "C'est un chat. J'ai déjà vu des chats.",
+        "Pas comme lui ! Il a des petites chaussettes blanches !",
+        "Zari prend des photos. Puis elle montre son téléphone au serveur.",
+        "Monsieur ! Regardez ! Il bâille ! C'est le plus beau jour de ma vie !",
+        "Euh… oui, il est mignon, mademoiselle.",
+        "Attendez, j'ai une vidéo aussi ! Et une autre !",
+        "Zari. L'affiche. Le concert. Samedi.",
+        "Oui, oui ! Mais regarde sa petite oreille !",
+        "Zari montre la vidéo à toutes les personnes du café.",
+        "Mesdemoiselles, les clients veulent être tranquilles. Vous pouvez parler ailleurs, s'il vous plaît ?",
+        "Super. On quitte le café, et on n'a pas d'affiche.",
+        "Pas de problème ! J'ai une idée !",
+        "Le soir, Lily reçoit un message de Zari.",
+        "Lily ! J'ai mis la photo du chaton sur la page du groupe. Avec l'heure du concert !",
+        "Tu as fait une affiche avec un chat inconnu ?",
+        "Oui ! Et trois cents personnes disent qu'elles viennent samedi !",
+        "Trois cents ? D'habitude, il y a ta mère et Max."
+      ],
+      "buttons": [
+        "stories-player-continue:disabled"
+      ],
+      "top": true
+    },
+    "sigChanged": true
+  },
+  {
+    "at": "2026-11-20T09:34:25.134Z",
+    "event": "control-enabled",
+    "clicks": 3,
+    "total": 32,
+    "waited": 2,
+    "spec": "[data-test=\"stories-player-continue\"]"
+  },
+  {
+    "at": "2026-11-20T09:34:25.162Z",
+    "event": "clicked",
+    "clicks": 3,
+    "total": 32,
+    "spec": "[data-test=\"stories-player-continue\"]",
+    "clickError": null,
+    "before": {
+      "route": "/lesson/unit/74/legendary/5",
+      "candidates": [
+        {
+          "spec": "[data-test=\"stories-player-done\"]",
+          "count": 0,
+          "visible": null,
+          "enabled": null,
+          "box": null
+        },
+        {
+          "spec": "[data-test=\"stories-player-continue\"]",
+          "count": 1,
+          "visible": true,
+          "enabled": false,
+          "box": {
+            "x": 942.484375,
+            "y": 811,
+            "width": 150,
+            "height": 50
+          }
+        },
+        {
+          "spec": "[data-test=\"legendary-session-end-continue\"]",
+          "count": 0,
+          "visible": null,
+          "enabled": null,
+          "box": null
+        },
+        {
+          "spec": "button:has-text(\"结束课程\")",
+          "count": 0,
+          "visible": null,
+          "enabled": null,
+          "box": null
+        }
+      ]
+    },
+    "afterRoute": "/lesson/unit/74/legendary/5"
+  },
+  {
+    "at": "2026-11-20T09:34:26.176Z",
+    "event": "story-progress",
+    "clicks": 3,
+    "total": 32,
+    "spec": "[data-test=\"stories-player-continue\"]",
+    "after": {
+      "len": 1316,
+      "tail": "nconnu ? Oui ! Et trois cents personnes disent qu'elles viennent samedi ! Trois cents ? D'habitude, il y a ta mère et Max. Grâce au chaton, on est célèbres ! 继续",
+      "storyCount": 24,
+      "storyParts": [
+        "Le concert du chaton",
+        "Zari et Lily sont dans un café. Elles doivent prévoir le concert de leur groupe.",
+        "Bon. Samedi, on joue à la fête de l'école. Il faut une affiche.",
+        "Oui ! Une affiche parfaite ! Avec des étoiles, des couleurs, et…",
+        "Une femme entre. Dans son sac, il y a un tout petit chaton.",
+        "Oh non. Oh non, non, non ! Lily ! Regarde ! Il est trop mignon !",
+        "C'est un chat. J'ai déjà vu des chats.",
+        "Pas comme lui ! Il a des petites chaussettes blanches !",
+        "Zari prend des photos. Puis elle montre son téléphone au serveur.",
+        "Monsieur ! Regardez ! Il bâille ! C'est le plus beau jour de ma vie !",
+        "Euh… oui, il est mignon, mademoiselle.",
+        "Attendez, j'ai une vidéo aussi ! Et une autre !",
+        "Zari. L'affiche. Le concert. Samedi.",
+        "Oui, oui ! Mais regarde sa petite oreille !",
+        "Zari montre la vidéo à toutes les personnes du café.",
+        "Mesdemoiselles, les clients veulent être tranquilles. Vous pouvez parler ailleurs, s'il vous plaît ?",
+        "Super. On quitte le café, et on n'a pas d'affiche.",
+        "Pas de problème ! J'ai une idée !",
+        "Le soir, Lily reçoit un message de Zari.",
+        "Lily ! J'ai mis la photo du chaton sur la page du groupe. Avec l'heure du concert !",
+        "Tu as fait une affiche avec un chat inconnu ?",
+        "Oui ! Et trois cents personnes disent qu'elles viennent samedi !",
+        "Trois cents ? D'habitude, il y a ta mère et Max.",
+        "Grâce au chaton, on est célèbres !"
+      ],
+      "buttons": [
+        "stories-player-continue:disabled"
+      ],
+      "top": true
+    },
+    "sigChanged": true
+  },
+  {
+    "at": "2026-11-20T09:34:27.214Z",
+    "event": "control-enabled",
+    "clicks": 4,
+    "total": 32,
+    "waited": 1,
+    "spec": "[data-test=\"stories-player-continue\"]"
+  },
+  {
+    "at": "2026-11-20T09:34:27.243Z",
+    "event": "clicked",
+    "clicks": 4,
+    "total": 32,
+    "spec": "[data-test=\"stories-player-continue\"]",
+    "clickError": null,
+    "before": {
+      "route": "/lesson/unit/74/legendary/5",
+      "candidates": [
+        {
+          "spec": "[data-test=\"stories-player-done\"]",
+          "count": 0,
+          "visible": null,
+          "enabled": null,
+          "box": null
+        },
+        {
+          "spec": "[data-test=\"stories-player-continue\"]",
+          "count": 1,
+          "visible": true,
+          "enabled": false,
+          "box": {
+            "x": 942.484375,
+            "y": 811,
+            "width": 150,
+            "height": 50
+          }
+        },
+        {
+          "spec": "[data-test=\"legendary-session-end-continue\"]",
+          "count": 0,
+          "visible": null,
+          "enabled": null,
+          "box": null
+        },
+        {
+          "spec": "button:has-text(\"结束课程\")",
+          "count": 0,
+          "visible": null,
+          "enabled": null,
+          "box": null
+        }
+      ]
+    },
+    "afterRoute": "/lesson/unit/74/legendary/5"
+  },
+  {
+    "at": "2026-11-20T09:34:28.265Z",
+    "event": "story-progress",
+    "clicks": 4,
+    "total": 32,
+    "spec": "[data-test=\"stories-player-continue\"]",
+    "after": {
+      "len": 1370,
+      "tail": "s viennent samedi ! Trois cents ? D'habitude, il y a ta mère et Max. Grâce au chaton, on est célèbres ! Petit problème : ils viennent tous pour voir le chat. 继续",
+      "storyCount": 25,
+      "storyParts": [
+        "Le concert du chaton",
+        "Zari et Lily sont dans un café. Elles doivent prévoir le concert de leur groupe.",
+        "Bon. Samedi, on joue à la fête de l'école. Il faut une affiche.",
+        "Oui ! Une affiche parfaite ! Avec des étoiles, des couleurs, et…",
+        "Une femme entre. Dans son sac, il y a un tout petit chaton.",
+        "Oh non. Oh non, non, non ! Lily ! Regarde ! Il est trop mignon !",
+        "C'est un chat. J'ai déjà vu des chats.",
+        "Pas comme lui ! Il a des petites chaussettes blanches !",
+        "Zari prend des photos. Puis elle montre son téléphone au serveur.",
+        "Monsieur ! Regardez ! Il bâille ! C'est le plus beau jour de ma vie !",
+        "Euh… oui, il est mignon, mademoiselle.",
+        "Attendez, j'ai une vidéo aussi ! Et une autre !",
+        "Zari. L'affiche. Le concert. Samedi.",
+        "Oui, oui ! Mais regarde sa petite oreille !",
+        "Zari montre la vidéo à toutes les personnes du café.",
+        "Mesdemoiselles, les clients veulent être tranquilles. Vous pouvez parler ailleurs, s'il vous plaît ?",
+        "Super. On quitte le café, et on n'a pas d'affiche.",
+        "Pas de problème ! J'ai une idée !",
+        "Le soir, Lily reçoit un message de Zari.",
+        "Lily ! J'ai mis la photo du chaton sur la page du groupe. Avec l'heure du concert !",
+        "Tu as fait une affiche avec un chat inconnu ?",
+        "Oui ! Et trois cents personnes disent qu'elles viennent samedi !",
+        "Trois cents ? D'habitude, il y a ta mère et Max.",
+        "Grâce au chaton, on est célèbres !",
+        "Petit problème : ils viennent tous pour voir le chat."
+      ],
+      "buttons": [
+        "stories-player-continue:disabled"
+      ],
+      "top": true
+    },
+    "sigChanged": true
+  },
+  {
+    "at": "2026-11-20T09:34:30.314Z",
+    "event": "control-enabled",
+    "clicks": 5,
+    "total": 32,
+    "waited": 2,
+    "spec": "[data-test=\"stories-player-continue\"]"
+  },
+  {
+    "at": "2026-11-20T09:34:30.376Z",
+    "event": "clicked",
+    "clicks": 5,
+    "total": 32,
+    "spec": "[data-test=\"stories-player-continue\"]",
+    "clickError": null,
+    "before": {
+      "route": "/lesson/unit/74/legendary/5",
+      "candidates": [
+        {
+          "spec": "[data-test=\"stories-player-done\"]",
+          "count": 0,
+          "visible": null,
+          "enabled": null,
+          "box": null
+        },
+        {
+          "spec": "[data-test=\"stories-player-continue\"]",
+          "count": 1,
+          "visible": true,
+          "enabled": false,
+          "box": {
+            "x": 942.484375,
+            "y": 811,
+            "width": 150,
+            "height": 50
+          }
+        },
+        {
+          "spec": "[data-test=\"legendary-session-end-continue\"]",
+          "count": 0,
+          "visible": null,
+          "enabled": null,
+          "box": null
+        },
+        {
+          "spec": "button:has-text(\"结束课程\")",
+          "count": 0,
+          "visible": null,
+          "enabled": null,
+          "box": null
+        }
+      ]
+    },
+    "afterRoute": "/lesson/unit/74/legendary/5"
+  },
+  {
+    "at": "2026-11-20T09:34:31.398Z",
+    "event": "story-progress",
+    "clicks": 5,
+    "total": 32,
+    "spec": "[data-test=\"stories-player-continue\"]",
+    "after": {
+      "len": 1367,
+      "tail": "lles viennent samedi ! Trois cents ? D'habitude, il y a ta mère et Max. Grâce au chaton, on est célèbres ! Petit problème : ils viennent tous pour voir le chat.",
+      "storyCount": 25,
+      "storyParts": [
+        "Le concert du chaton",
+        "Zari et Lily sont dans un café. Elles doivent prévoir le concert de leur groupe.",
+        "Bon. Samedi, on joue à la fête de l'école. Il faut une affiche.",
+        "Oui ! Une affiche parfaite ! Avec des étoiles, des couleurs, et…",
+        "Une femme entre. Dans son sac, il y a un tout petit chaton.",
+        "Oh non. Oh non, non, non ! Lily ! Regarde ! Il est trop mignon !",
+        "C'est un chat. J'ai déjà vu des chats.",
+        "Pas comme lui ! Il a des petites chaussettes blanches !",
+        "Zari prend des photos. Puis elle montre son téléphone au serveur.",
+        "Monsieur ! Regardez ! Il bâille ! C'est le plus beau jour de ma vie !",
+        "Euh… oui, il est mignon, mademoiselle.",
+        "Attendez, j'ai une vidéo aussi ! Et une autre !",
+        "Zari. L'affiche. Le concert. Samedi.",
+        "Oui, oui ! Mais regarde sa petite oreille !",
+        "Zari montre la vidéo à toutes les personnes du café.",
+        "Mesdemoiselles, les clients veulent être tranquilles. Vous pouvez parler ailleurs, s'il vous plaît ?",
+        "Super. On quitte le café, et on n'a pas d'affiche.",
+        "Pas de problème ! J'ai une idée !",
+        "Le soir, Lily reçoit un message de Zari.",
+        "Lily ! J'ai mis la photo du chaton sur la page du groupe. Avec l'heure du concert !",
+        "Tu as fait une affiche avec un chat inconnu ?",
+        "Oui ! Et trois cents personnes disent qu'elles viennent samedi !",
+        "Trois cents ? D'habitude, il y a ta mère et Max.",
+        "Grâce au chaton, on est célèbres !",
+        "Petit problème : ils viennent tous pour voir le chat."
+      ],
+      "buttons": [
+        "stories-player-continue:disabled"
+      ],
+      "top": true
+    },
+    "sigChanged": true
+  },
+  {
+    "at": "2026-11-20T09:34:35.497Z",
+    "event": "control-enabled",
+    "clicks": 6,
+    "total": 32,
+    "waited": 4,
+    "spec": "[data-test=\"stories-player-done\"]"
+  },
+  {
+    "at": "2026-11-20T09:34:35.648Z",
+    "event": "clicked",
+    "clicks": 6,
+    "total": 32,
+    "spec": "[data-test=\"stories-player-done\"]",
+    "clickError": null,
+    "before": {
+      "route": "/lesson/unit/74/legendary/5",
+      "candidates": [
+        {
+          "spec": "[data-test=\"stories-player-done\"]",
+          "count": 0,
+          "visible": null,
+          "enabled": null,
+          "box": null
+        },
+        {
+          "spec": "[data-test=\"stories-player-continue\"]",
+          "count": 1,
+          "visible": true,
+          "enabled": false,
+          "box": {
+            "x": 942.484375,
+            "y": 807,
+            "width": 150,
+            "height": 50
+          }
+        },
+        {
+          "spec": "[data-test=\"legendary-session-end-continue\"]",
+          "count": 0,
+          "visible": null,
+          "enabled": null,
+          "box": null
+        },
+        {
+          "spec": "button:has-text(\"结束课程\")",
+          "count": 0,
+          "visible": null,
+          "enabled": null,
+          "box": null
+        }
+      ]
+    },
+    "afterRoute": "/learn"
+  },
+  {
+    "at": "2026-11-20T09:37:58.284Z",
+    "event": "clicked",
+    "clicks": 0,
+    "total": 32,
+    "spec": "[data-test=\"stories-player-continue\"]",
+    "clickError": null,
+    "before": {
+      "route": "/lesson/unit/74/legendary/9",
+      "candidates": [
+        {
+          "spec": "[data-test=\"stories-player-done\"]",
+          "count": 0,
+          "visible": null,
+          "enabled": null,
+          "box": null
+        },
+        {
+          "spec": "[data-test=\"stories-player-continue\"]",
+          "count": 1,
+          "visible": true,
+          "enabled": true,
+          "box": {
+            "x": 942.484375,
+            "y": 805,
+            "width": 150,
+            "height": 50
+          }
+        },
+        {
+          "spec": "[data-test=\"legendary-session-end-continue\"]",
+          "count": 0,
+          "visible": null,
+          "enabled": null,
+          "box": null
+        },
+        {
+          "spec": "button:has-text(\"结束课程\")",
+          "count": 0,
+          "visible": null,
+          "enabled": null,
+          "box": null
+        }
+      ]
+    },
+    "afterRoute": "/lesson/unit/74/legendary/9"
+  },
+  {
+    "at": "2026-11-20T09:37:59.296Z",
+    "event": "story-progress",
+    "clicks": 0,
+    "total": 32,
+    "spec": "[data-test=\"stories-player-continue\"]",
+    "after": {
+      "len": 1611,
+      "tail": "âteaux ?! C'est incroyable ! Tu vois ? Tu devrais quitter le café plus souvent. Le café de Vikram devient très silencieux a beaucoup de clients ferme ce jour-là",
+      "storyCount": 27,
+      "storyParts": [
+        "Le relooking du café",
+        "Vikram est dans son café. Il est très fatigué.",
+        "Je travaille trop. J'ai besoin d'une journée de repos.",
+        "Tu as besoin de vacances, Vikram !",
+        "Oui. Lin, tu peux t'occuper du café aujourd'hui ?",
+        "Bien sûr ! Pas de problème !",
+        "Merci, Lin. Mais s'il te plaît, ne change rien.",
+        "D'accord, d'accord. Ne change rien. C'est compris.",
+        "Vikram quitte le café. Lin est seule.",
+        "Lin regarde le café. Elle prend son téléphone et met de la musique.",
+        "Ce café n'est pas assez relaxant.",
+        "Lin monte chez sa grand-mère dans l'immeuble. Elle prend des coussins du canapé et les plantes de l'entrée. Elle redescend au café.",
+        "Elle met les coussins sur les chaises et les plantes sur les tables. Elle prépare du thé et l'offre aux clients.",
+        "Deux heures plus tard, Vikram appelle Lin.",
+        "Tout va bien, Lin ?",
+        "Oui, oui ! Tout est parfait. Il y a beaucoup de clients !",
+        "Beaucoup de clients ? Vraiment ? On n'a jamais eu autant de clients !",
+        "Vikram rentre au café. Il ouvre la porte. Il est choqué.",
+        "Lin ! Il y a des coussins partout ! Et de la musique ! Et des plantes ! Je t'ai dit de ne rien changer !",
+        "Je n'ai rien changé. J'ai juste ajouté des choses. C'est différent.",
+        "Ce n'est pas… Lin, c'est…",
+        "Vikram regarde le café. Il est plein de clients. Tout le monde sourit.",
+        "Bon. Les clients sont contents. Le café marche bien. Mais le thé gratuit, Lin ? On perd de l'argent !",
+        "Détends-toi, Vikram. Tout le monde achète aussi un gâteau avec le thé. On a vendu tous les gâteaux.",
+        "Tous les gâteaux ?! C'est incroyable !",
+        "Tu vois ? Tu devrais quitter le café plus souvent.",
+        "Le café de Vikram"
+      ],
+      "buttons": [
+        "stories-player-continue:disabled"
+      ],
+      "top": true
+    },
+    "sigChanged": true
+  },
+  {
+    "at": "2026-11-20T09:37:59.305Z",
+    "event": "questions-appeared",
+    "clicks": 1,
+    "total": 32,
+    "choiceCount": 3,
+    "challengeCount": 0
+  },
+  {
+    "at": "2026-11-20T09:38:03.412Z",
+    "event": "control-enabled",
+    "clicks": 0,
+    "total": 32,
+    "waited": 4,
+    "spec": "[data-test=\"stories-player-done\"]"
+  },
+  {
+    "at": "2026-11-20T09:38:03.562Z",
+    "event": "clicked",
+    "clicks": 0,
+    "total": 32,
+    "spec": "[data-test=\"stories-player-done\"]",
+    "clickError": null,
+    "before": {
+      "route": "/lesson/unit/74/legendary/9",
+      "candidates": [
+        {
+          "spec": "[data-test=\"stories-player-done\"]",
+          "count": 0,
+          "visible": null,
+          "enabled": null,
+          "box": null
+        },
+        {
+          "spec": "[data-test=\"stories-player-continue\"]",
+          "count": 1,
+          "visible": true,
+          "enabled": false,
+          "box": {
+            "x": 942.484375,
+            "y": 807,
+            "width": 150,
+            "height": 50
+          }
+        },
+        {
+          "spec": "[data-test=\"legendary-session-end-continue\"]",
+          "count": 0,
+          "visible": null,
+          "enabled": null,
+          "box": null
+        },
+        {
+          "spec": "button:has-text(\"结束课程\")",
+          "count": 0,
+          "visible": null,
+          "enabled": null,
+          "box": null
+        }
+      ]
+    },
+    "afterRoute": "/learn"
   }
 ]

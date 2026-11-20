@@ -88,5 +88,14 @@
 - **进课首次 `NODE_FAIL` 是常见时序现象**：每节普通课第一次进课常报「未收到与目标节点匹配的课程数据」（等 90 秒），`ENTRY` 重试一次即成功（`SESSION_CACHED`）。不是缺入口，但会浪费每节 ~90 秒；后续可考虑「进课后页面已是题目页但无 session 时快速重进」的优化。
 - 实测数字（unit 73 前四节点）：l0 skill 6/6 passed、l1 故事 1/1 passed、l2 radio passed（自动）、l3 skill 2/6；XP 129443→129618。
 
+## 10. 普通练习引导屏与 section 3 其它时序（2026-11-20 unit 73 完整实测）
+
+- **普通练习（practice）/单元复习的引导屏**：点路径节点后进 `/lesson` 先出现 `[data-test="session-splash-title"]`（「来巩固一下你最薄弱的语法知识点吧！」）+ `[data-test="player-next"]`「开始练习」，**session 在点这个按钮后才请求**；不点就永远等不到数据（unit 73 l6/l10 实测连续 `NODE_FAIL`）。修复：`automation-policy.js` 的 `shouldClickSplash`（normal、无 session、未点过、有 splash+player-next 才点），`auto-runner.js` 在超时检查前点一次。
+- **进课首帧 session 晚到**：练习课进课后 session 实测 90 秒后才到（`SESSION_SEEN` 出现在 `NODE_FAIL` 之后），题目页等待窗口已从 90 秒加到 **150 秒**；`waitForURL` 从「pathname 全等」改成「`/lesson` 前缀」，避免尾斜杠导致 25 秒误判超时。
+- **session 缓存复用**：只对 `skill`/`practice`/`unit_review` 生效。radio/story 的 `pathLevelMetadata` 没有 `skillId`，缓存 key 会落到 `'|'`，误取练习 session 会占住 `active.data`，让真正的 radio `elements` session 不再赋值（l11 判断题 `RADIO_CHOICE_UNMATCHED` 的根因就是它）。
+- **radio 题间音频**：配对后判断题/选择题之间会插一段音频/过渡（页面只剩标题、`challenge-choice` 清空），实测有 **35 秒以上**才出下一题的；`radio-quiz.js` 的 `waitAdvance` 上限从 50×700ms（35s）放到 120×700ms（84s）。l11 完整流程：配对 4 组 + 4 题 → `RADIO_QUIZ_DONE answered=4`（+30）。
+- **传说故事结束按钮**：故事题全部答完后，`stories-player-done` 在最后一段音频播完前是 disabled；`finishStory` 的禁用等待从 15 秒放到 **60 秒**（unit 73 l1 传说故事因此结算 +40）。
+- **unit 73 完整结果**：13/13 全 legendary（普通线 13/13 passed → 传说 7 关独立 +40/关 → 6 个 radio/chest/unit_review 连带）；XP 129443→130273；链口径 headsGold/chainsGold 73→74、courseNotGold 6700→6687；section 3 已金 53→66/792；unit 74 首节点 `7a6eae35` 解锁为 active。
+
 
 
