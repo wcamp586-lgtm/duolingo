@@ -32,6 +32,11 @@ async function main() {
   const sessionResp = fakeResponse('https://www.duolingo.com/2023-05-23/sessions/s1', {
     id: 's1', type: 'LESSON', challenges: [], skillId: 'skill1', levelIndex: 0,
   });
+  // 故事数据从 stories API 来（与真机一致）；不再依赖普通 session 缓存给 story 节点注入数据，
+  // 因为 runner 现在只让 skill/practice/unit_review 查缓存（radio/story 的 key 会落到 '|' 误取练习）。
+  const storyResp = fakeResponse('https://stories.duolingo.com/api2/stories/story1', {
+    elements: [{ type: 'line' }],
+  });
 
   const locator = () => ({
     first() { return this; },
@@ -55,6 +60,10 @@ async function main() {
           await handler(sessionResp);
         }
       }
+      // 进入 /lesson 后再发故事响应：此时 active 已指向 story 节点，handler 能把它绑到 target.data
+      if (/\/lesson/.test(url)) {
+        for (const handler of handlers) await handler(storyResp);
+      }
     },
     url: () => currentUrl,
     async evaluate() { return ''; },
@@ -75,7 +84,7 @@ async function main() {
   const slot = { id: 'n1', type: 'story', sectionIndex: 0, unitIndex: 0, levelIndex: 0, name: 'Story', courseId: 'C' };
   const level = {
     id: 'n1', state: 'active', type: 'story',
-    pathLevelMetadata: { skillId: 'skill1', crownLevelIndex: 0 },
+    pathLevelMetadata: { skillId: 'skill1', crownLevelIndex: 0, storyId: 'story1' },
   };
   const modules = {
     playwright: { chromium: { launchPersistentContext: async () => ctx } },
