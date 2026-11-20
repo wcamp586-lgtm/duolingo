@@ -77,13 +77,13 @@ async function solveWith(page, target, check = async () => {}) {
 }
 
 async function main() {
-  await t('数据未到时也会点一次封面，超时仍按原 45 秒报错，不加大重试', async () => {
+  await t('数据未到时也会点一次封面，超时按故事 120 秒报错，不加大重试', async () => {
     const { page, counters } = makePage({ cover: true });
     const target = { slot: { type: 'story' }, data: null, mode: 'normal', startedAt: Date.now() - 44000 };
     let error = null;
     const check = async () => {
-      // 第二轮开始前把起点推到 45 秒之前，触发原有的数据超时，避免测试真的等
-      if (counters.cover() > 0) target.startedAt = Date.now() - 46000;
+      // 第二轮开始前把起点推到 120 秒之前，触发故事页的数据超时，避免测试真的等
+      if (counters.cover() > 0) target.startedAt = Date.now() - 121000;
     };
     try { await solveWith(page, target, check); } catch (e) { error = e; }
     assert.equal(counters.cover(), 1, '封面应被点击一次');
