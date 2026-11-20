@@ -127,6 +127,18 @@ async function solve(page, target, check) {
         await page.waitForURL(LEARN, { timeout: 45000 });
         return answered;
       }
+      // 首次进入故事页时平台可能直接用缓存/内嵌数据渲染封面与内容，不发 stories API；
+      // 不 reload 就永远收不到 elements（unit 74 l4 实测：封面和第一屏都渲染了，但网络里没有
+      // /api2/stories/<id> 请求，120 秒后 NODE_FAIL；reload 后平台会重新请求并 200 返回 elements=32）。
+      if (!target.data && !target.storyReloaded && ((await storyElements.count()) > 0 || (await storyContinue.count()) > 0)) {
+        target.storyReloaded = true;
+        coverClicked = false;
+        console.log('STORY_RELOAD_FOR_DATA');
+        await page.reload({ waitUntil: 'domcontentloaded' }).catch(() => {});
+        progress.touch();
+        await page.waitForTimeout(2000);
+        continue;
+      }
       const coverAction = policy.storyCoverAction({
         hasStoryStart: (await cover.count()) > 0,
         hasContinue: (await storyContinue.count()) > 0,
