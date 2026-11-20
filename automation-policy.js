@@ -155,4 +155,14 @@ function storyCoverAction({ hasStoryStart = false, hasContinue = false, hasEleme
   return null;
 }
 
-module.exports={classifyLevel,planCourse,planNormal,stopDecision,skipKind,createRetryTracker,chainReport,storyCoverAction};
+// 普通练习/单元复习的引导屏（2026-11-20 unit 73 l6 practice 取证）：
+// 点路径节点后进 /lesson 先出现「来巩固一下你最薄弱的语法知识点吧！」（session-splash-title）
+// + 「开始练习」（player-next），session 在点这个按钮后才请求；不点就永远等不到数据。
+// 只在普通模式、还没拿到 session、本节点还没点过时点一次；故事/电台有各自入口，不套用。
+function shouldClickSplash({ mode = 'legendary', type = '', hasData = false, alreadyClicked = false, hasSplashTitle = false, hasPlayerNext = false } = {}) {
+  if (mode !== 'normal' || hasData || alreadyClicked) return false;
+  if (type === 'story' || type === 'duo_radio') return false;
+  return !!(hasSplashTitle && hasPlayerNext);
+}
+
+module.exports={classifyLevel,planCourse,planNormal,stopDecision,skipKind,createRetryTracker,chainReport,storyCoverAction,shouldClickSplash};

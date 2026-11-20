@@ -147,4 +147,14 @@ test('故事封面：旧 story-start 与新 continue 封面都只点一次，已
   assert.equal(policy.storyCoverAction({ hasContinue: true }), null, '没有 stories-element 的裸「继续」不当作封面');
 });
 
+test('练习引导屏：只在普通模式、无 session、未点过时点「开始练习」', () => {
+  const base = { hasSplashTitle: true, hasPlayerNext: true, type: 'practice' };
+  assert.equal(policy.shouldClickSplash({ ...base, mode: 'normal' }), true, '普通练习引导屏要点');
+  assert.equal(policy.shouldClickSplash({ ...base, mode: 'normal', hasData: true }), false, 'session 已到不点');
+  assert.equal(policy.shouldClickSplash({ ...base, mode: 'normal', alreadyClicked: true }), false, '每个节点只点一次');
+  assert.equal(policy.shouldClickSplash({ ...base, mode: 'legendary' }), false, '传说线不套用');
+  assert.equal(policy.shouldClickSplash({ ...base, mode: 'normal', type: 'story' }), false, '故事有自己的封面流程');
+  assert.equal(policy.shouldClickSplash({ ...base, mode: 'normal', hasPlayerNext: false }), false, '按钮没渲染不点');
+});
+
 console.log(`结果: ${passed} 通过, 0 失败`);

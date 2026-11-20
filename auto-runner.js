@@ -76,11 +76,27 @@ async function solve(page, target, check) {
   let sawData = !!target.data;
   let screenSeen = '';
   let coverClicked = false;
+  let splashClicked = false;
   let storyDone = false;
   for (let round = 0; round < 400; round++) {
     await check();
     if (LEARN.test(page.url())) return answered;
     if (!sawData && target.data) { sawData = true; progress.touch(); }
+    // 普通练习/单元复习的引导屏：点「开始练习」后 session 才请求（unit 73 l6 practice 实测），
+    // 先于 45/90 秒超时检查处理，每个节点只点一次。
+    if (target.mode === 'normal' && !splashClicked && target.slot.type !== 'story' && target.slot.type !== 'duo_radio') {
+      const splash = page.locator('[data-test="session-splash-title"]:visible');
+      const splashNext = page.locator('[data-test="player-next"]:visible');
+      const hasSplash = (await splash.count()) > 0;
+      const hasNext = (await splashNext.count()) > 0;
+      if (policy.shouldClickSplash({ mode: 'normal', type: target.slot.type, hasData: !!target.data, alreadyClicked: splashClicked, hasSplashTitle: hasSplash, hasPlayerNext: hasNext })) {
+        splashClicked = true;
+        await check();
+        await clickSafe(page, splashNext.first());
+        progress.touch();
+        await page.waitForTimeout(1500);
+      }
+    }
     // 没收到匹配的 session 时不要一直空转：页面已在题目页说明课已开、只是 session 晚到，
     // 给 90 秒；还没到题目页则 45 秒就报，并带上页面状态。
     if (!target.data && target.startedAt) {

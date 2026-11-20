@@ -64,6 +64,7 @@ function buildEnv({ totalChallenges = 17, answers = 17, fakeClock = false, stall
       createRetryTracker: () => ({ fail: () => ({ attempts: 1, action: 'retry', stop: null, streak: 1, totalAttempts: 1 }), ok: () => {}, attempts: new Map(), skipped: new Set() }),
       chainReport: () => ({ headsGold: 0, chainsGold: 0, pending: [], ready: [], absent: [], unknown: [], courseNotGold: 0 }),
       storyCoverAction: () => null,
+      shouldClickSplash: () => false,
     },
     './core.js': require('./core.js'),
     './story-runner.js': { step: async () => ({ status: 'waiting' }) },

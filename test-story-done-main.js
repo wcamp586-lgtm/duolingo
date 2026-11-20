@@ -87,6 +87,7 @@ async function main() {
       stopDecision: () => ({ action: 'continue', reasons: [], xpGain: 0, elapsedMs: 0, mayStartNext: true }),
       createRetryTracker: () => ({ fail: () => ({ attempts: 1, action: 'retry', stop: null, streak: 1, totalAttempts: 1 }), ok: () => {}, attempts: new Map(), skipped: new Set() }),
       storyCoverAction: () => null,
+      shouldClickSplash: () => false,
     },
     './core.js': require('./core.js'),
     './story-runner.js': { step: async () => ({ status: 'done' }) },
