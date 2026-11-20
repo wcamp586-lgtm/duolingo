@@ -138,4 +138,13 @@ test('链口径：入口证据三态分流，只有 passed+observed-present 算�
   assert.deepEqual(r.unknown.map((p) => p.id), ['b', 'd'], 'unknown 不算，active 即使见过也仍是 unknown');
 });
 
+test('故事封面：旧 story-start 与新 continue 封面都只点一次，已有数据则不点', () => {
+  assert.equal(policy.storyCoverAction({ hasStoryStart: true }), 'start', '旧 UI 点「开始读故事」');
+  assert.equal(policy.storyCoverAction({ hasStoryStart: true, hasData: true }), 'start', '旧 UI 数据预加载也要点封面进阅读器');
+  assert.equal(policy.storyCoverAction({ hasElements: true, hasContinue: true }), 'continue', '新 UI 封面点「继续」');
+  assert.equal(policy.storyCoverAction({ hasElements: true, hasContinue: true, hasData: true }), null, '新 UI 数据已到交给 step，不再点封面');
+  assert.equal(policy.storyCoverAction({ hasElements: true, hasContinue: true, alreadyCoverClicked: true }), null, '同一节点只点一次封面');
+  assert.equal(policy.storyCoverAction({ hasContinue: true }), null, '没有 stories-element 的裸「继续」不当作封面');
+});
+
 console.log(`结果: ${passed} 通过, 0 失败`);

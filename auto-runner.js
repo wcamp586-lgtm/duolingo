@@ -97,6 +97,10 @@ async function solve(page, target, check) {
     if (target.slot.type === 'story') {
       const finish = page.locator('[data-test="stories-player-done"]:visible');
       const cover = page.locator('[data-test="story-start"]:visible');
+      // 新版故事封面（2026-11-20 unit 73 取证）：/lesson 里的 stories-element 封面只有
+      // stories-player-continue「继续」，没有 story-start；不点它就不会发 stories API，形成死锁。
+      const storyContinue = page.locator('[data-test="stories-player-continue"]:visible');
+      const storyElements = page.locator('[data-test="stories-element"]:visible');
       if (await finish.count()) {
         await check();
         await clickSafe(page, finish);
@@ -104,16 +108,21 @@ async function solve(page, target, check) {
         await page.waitForURL(LEARN, { timeout: 45000 });
         return answered;
       }
-      if (await cover.count()) {
-        // 故事封面必须点击「开始读故事」才会进入阅读器、请求 stories API；
-        // 原来要等 target.data 到了才点，形成死锁（不点封面就永远没有数据）。
-        if (!coverClicked) {
-          coverClicked = true;
-          await check();
-          await clickSafe(page, cover);
-          progress.touch();
-          await page.waitForTimeout(2000);
-        }
+      const coverAction = policy.storyCoverAction({
+        hasStoryStart: (await cover.count()) > 0,
+        hasContinue: (await storyContinue.count()) > 0,
+        hasElements: (await storyElements.count()) > 0,
+        hasData: !!target.data,
+        alreadyCoverClicked: coverClicked,
+      });
+      if (coverAction) {
+        // 封面必须先点（旧 UI「开始读故事」/新 UI「继续」）才会请求故事数据；
+        // 原来只人 story-start，导致新 UI 永远等不到数据。每个节点只点一次。
+        coverClicked = true;
+        await check();
+        await clickSafe(page, coverAction === 'start' ? cover : storyContinue.first());
+        progress.touch();
+        await page.waitForTimeout(2000);
         // 点完只等数据/页面变化，数据超时仍由循环开头 45 秒兜底，不无限重试
       } else if (target.data) {
         const result = await storyRunner.step(page, target.data, check);

@@ -61,10 +61,12 @@ async function waitFeedback(page, pair) {
 // 等「配对屏」真实信号：challenge-tap-token >= 2 或正文出现「选择配对」；
 // 电台有约 30 秒开场动画，固定等 35 秒会误判（2026-11-20 l11）。总上限 90 秒，
 // 等待期间不点击任何东西，避免打断开场动画。
-async function waitForRadioStart(page, { maxMs = 90000 } = {}) {
+async function waitForRadioStart(page, { maxMs = 90000, log = null } = {}) {
   const started = Date.now();
   let tokens = 0;
   let text = '';
+  let firstText = null;          // 开场屏文本（辅助信号：变了说明开场推进了）
+  let introAdvanced = false;
   while (Date.now() - started < maxMs) {
     const st = await page.evaluate(() => ({
       tokens: document.querySelectorAll('[data-test$="challenge-tap-token"]').length,
@@ -73,13 +75,18 @@ async function waitForRadioStart(page, { maxMs = 90000 } = {}) {
     if (st) {
       tokens = st.tokens;
       text = st.text || '';
+      if (firstText === null) firstText = text;
+      else if (!introAdvanced && text !== firstText) {
+        introAdvanced = true;
+        if (log) log('RADIO_INTRO_ADVANCED waitedMs=' + (Date.now() - started) + ' text=' + JSON.stringify(text.slice(0, 60)));
+      }
       if (tokens >= 2 || text.includes('选择配对')) {
-        return { ok: true, waitedMs: Date.now() - started, tokens, text: text.slice(0, 120) };
+        return { ok: true, waitedMs: Date.now() - started, tokens, text: text.slice(0, 120), introAdvanced };
       }
     }
     await page.waitForTimeout(500);
   }
-  return { ok: false, reason: 'RADIO_INTRO_TIMEOUT', waitedMs: Date.now() - started, tokens, text: text.slice(0, 120) };
+  return { ok: false, reason: 'RADIO_INTRO_TIMEOUT', waitedMs: Date.now() - started, tokens, text: text.slice(0, 120), introAdvanced };
 }
 
 async function run(page, check) {

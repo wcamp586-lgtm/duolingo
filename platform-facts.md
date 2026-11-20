@@ -20,10 +20,12 @@
 - `/lesson/unit/<unitIndex+1>/level/<crownLevelIndex+1>` 与 `.../legendary/...`：HTTP 200、无错误页；legendary 的 session 是 `LEGENDARY_LEVEL`，`skillId`/`levelIndex` 与目标节点完全对上（证据 `direct-route-probe.json`，`skillId=b304dd10… levelIndex=0`）。
 - 结论：路由映射正确、平台接受；但页面上没有链接来源，按约定**不作为入口证明**，老段仍走第 2 节的阶段入口。
 
-## 4. s3u72 的 l11 缺口
+## 4. s3u72 的 l11（已解决，2026-11-20）
 
-- 节点定位成功（`skill-path-level-11 skill-path-level-duo_radio`），点击后气泡只有「跳级到这儿？」，**没有可绑定的电台入口**（证据 `l11-probe.json`）。
-- 记为「平台此刻不给该 radio 可绑入口」，保持缺口，不再重试。
+- 现象：节点定位成功（`skill-path-level-11 skill-path-level-duo_radio`），点击后气泡只有「跳级到这儿？」，**路径气泡里没有可绑定的电台入口**（证据 `l11-probe.json`）。
+- **正常课堂路由确实存在**：`/lesson/unit/73/level/<levelIndex+1>`（即 unit 72+1、level 11+1）→ session `elements=13`，元素 `["audio","challenge"]`，页面文案 `VOS IDÉES AVEC BÉA` 与 `duoRadioSummary.episode_wrapper=ideasWithBea` 一致，身份匹配（证据 `l11-route-check.json`、`l11-run2.json`）。注意：路由映射正确，但按约定只用于「已验证节点的一次性完成」，不作为常规入口证明。
+- **真正的卡点不是入口，是时序**：进课后约 30 秒都是开场屏，配对题（「选择配对」+ `challenge-tap-token`）才出现，且出现时机不稳定。修复见第 8 节。
+- 完成后：`state=passed 1/1`，+30 XP；链路完成时被连带成 legendary；随后 `144216ca` unit_review 由 `locked` 变 `active`，普通流程 `SETTLED legendary +40`；unit 72 13/13 全金，unit 73 首节点 `99e8dc98` 由 locked 变 active。
 
 ## 5. 平台连带（链路授予）
 
@@ -63,6 +65,28 @@
 - **机制未核实**：疑似 2 倍经验加成（Double XP）生效，也可能与活动/时间有关，**不当永久规则**。
 - **后续观测（2026-11-20 01:54，`auto-legendary-s2u51a.log`，unit 51/52）**：本批首关仍 `delta=80`（126053→126133），其后回到 `delta=40`，整批 `xpGain=360`（1×80 + 7×40）。说明那个加成是**有期限的**，且可能在批中结束。
 - 后续若再变化，继续在这里补一行观测时间点与批号。
+
+## 8. 电台课（duo_radio）的时序（2026-11-20 实测，l11 修复）
+
+- **页面序列**：进入电台课后，先是约 **30 秒开场屏**（显示 `VOS IDÉES AVEC BÉA` 之类标题），之后才出现「选择配对」屏（正文「选择配对」+ 8 个 `challenge-tap-token`），配对完成后再进入判断题/选择题。
+- **配对屏出现时机不稳定**：同一路由实测 t≈30s 出现，但不是固定时长；曾出现等 45 秒仍未命中而被误判为「无题」。
+- **正确做法（已实现）**：`radio-tap.js` 的 `waitForRadioStart` 每 500ms 轮询真实信号——`challenge-tap-token` 数量 ≥2 **或** 正文出现「选择配对」——命中才进 `radioTap`；开场屏元素消失只作**辅助记录信号**（不触发点击）。总上限 **90 秒**，超时返回 `intro-timeout` 并保留现场（已等待秒数、tap-token 数量、屏幕文本片段），记 `RADIO_INTRO_TIMEOUT`；等待期间**不点击任何东西**，避免打断开场动画。
+- **旧做法（作废）**：不用「按正文文案等固定 35 秒」当主判据；`radio-quiz.js` 无卡片时的 30 秒固定等待同样改为同一套 90 秒真实信号等待，超时报 `RADIO_INTRO_TIMEOUT waitedMs=… cards=0`，不再误报 `RADIO_QUIZ_NO_QUESTION`。
+- **回归**：`test-radio-tap.js` / `test-radio-quiz.js` 覆盖「开场后出现配对必须等到再走」「一直不出现记 `RADIO_INTRO_TIMEOUT` 不误报 `NO_QUESTION`」「配对立即出现立刻进流程」三种时序；`npm test` 179 项全绿。
+- **入口形态**：section 3 的 radio 节点（`level.type=duo_radio`）在路径气泡里同样只有「跳级到这儿？→ /test」，**正常入口在 `duo_radio` 的课堂路由**（unit+1 / level+1 映射）；进课后续按上面的时序等待即可，不需要跳级测试。
+- 待观察：其它段/其它 unit 的电台开场时长是否一致（目前只有 l11 一个完整样本：约 30 秒出场、配对 4 组 + 4 题、`RADIO_QUIZ_DONE answered=4`）。
+
+## 9. 普通线（`--normal`）在 section 3 的形态（2026-11-20 unit 73 实测）
+
+- **前提**：unit 73 起是全新链（`locked`），`planNormal` 只取 `state=active` 的节点逐节推进；节点做到 `passed` 后，传说批才有候选。所以 section 3 后半段是「普通线 × N 批 → 单元 passed → 传说批刷金」两段式。
+- **skill 课**：每节点 6 节（`finishedSessions/totalSessions` 0/6→6/6），每节 +15 XP，最后一节 +20；`state=active` 到 6/6 才变 `passed`。
+- **普通故事课（1/1）**：+20 XP，完成后 `passed`。封面有两种 UI：
+  - 旧：`[data-test="story-start"]`「开始读故事」；
+  - 新（unit 73 l1 实测）：`/lesson` 路由里的 `stories-element` 封面 + `[data-test="stories-player-continue"]`「继续」；**不点「继续」就不会请求** `stories.duolingo.com/api2/stories/<storyId>`（URL 最后一段 = `pathLevelMetadata.storyId`，200 返回带 `elements`）。
+  - 旧代码只认 `story-start`，新 UI 下等于「等数据→不点→没数据」死锁（45 秒 `NODE_FAIL`）。修复：`automation-policy.js` 的 `storyCoverAction`（旧 start 优先于「数据已到」；新 UI 仅在未拿到数据时点一次「继续」），`auto-runner.js` 故事分支改用。
+- **普通 radio**：不单独做，普通线跑前一节点时会 `RADIO_ADVANCED` 自动切到后继节点（unit 73 l2 就是这样从 radio 切到 l3 skill 的）。
+- **进课首次 `NODE_FAIL` 是常见时序现象**：每节普通课第一次进课常报「未收到与目标节点匹配的课程数据」（等 90 秒），`ENTRY` 重试一次即成功（`SESSION_CACHED`）。不是缺入口，但会浪费每节 ~90 秒；后续可考虑「进课后页面已是题目页但无 session 时快速重进」的优化。
+- 实测数字（unit 73 前四节点）：l0 skill 6/6 passed、l1 故事 1/1 passed、l2 radio passed（自动）、l3 skill 2/6；XP 129443→129618。
 
 
 

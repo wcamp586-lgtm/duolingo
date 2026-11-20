@@ -140,4 +140,19 @@ function createRetryTracker({ perNode = 2, nodeStreak = 5, total = 40 } = {}) {
   };
 }
 
-module.exports={classifyLevel,planCourse,planNormal,stopDecision,skipKind,createRetryTracker,chainReport};
+// 故事封面动作（2026-11-20 普通故事课取证）：
+// 旧 UI 封面按钮是 [data-test="story-start"]「开始读故事」；
+// 新 UI（/lesson 里的 stories-element）封面只有 [data-test="stories-player-continue"]「继续」，
+// 不点它就不会请求 stories API，形成「等数据→不点→没数据」的死锁。
+// 只在该节点还没拿到故事数据、且本节点还没点过封面时返回动作，避免把阅读中每屏的「继续」当封面连点。
+function storyCoverAction({ hasStoryStart = false, hasContinue = false, hasElements = false, hasData = false, alreadyCoverClicked = false } = {}) {
+  if (alreadyCoverClicked) return null;
+  // 旧 UI 的「开始读故事」只在封面出现：即使故事数据已预加载，也必须点它才能进阅读器
+  if (hasStoryStart) return 'start';
+  // 新 UI 数据已到，说明封面已点过，每屏的「继续」交给 storyRunner.step
+  if (hasData) return null;
+  if (hasElements && hasContinue) return 'continue';
+  return null;
+}
+
+module.exports={classifyLevel,planCourse,planNormal,stopDecision,skipKind,createRetryTracker,chainReport,storyCoverAction};
