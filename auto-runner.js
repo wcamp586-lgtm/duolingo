@@ -1210,7 +1210,11 @@ async function main() {
           await page.waitForTimeout(2000);
         } else if (entry.button) {
           await clickSafe(page, entry.button, 4);
-          await page.waitForURL(url => url.origin === ORIGIN && url.pathname === entry.url.pathname, { timeout: 25000 });
+          // 点「开始」后目标是进入课程页：只要求路径是 /lesson（可能带尾斜杠/查询参数），
+          // 不拿准备阶段读到的 pathname 做全等比较（unit 73 l10 实测 25 秒超时但页面其实已在 /lesson）。
+          await page.waitForURL(url => url.origin === ORIGIN && url.pathname.startsWith('/lesson'), { timeout: 45000 })
+            .catch(() => console.log('ENTRY_URL_WAIT_MISMATCH wanted=/lesson actual=' + new URL(page.url()).pathname));
+          if (!/\/lesson/.test(page.url())) throw new Error('点击开始后未进入 /lesson url=' + page.url().slice(0, 80));
         }
         answered = await solve(page, active, check);
       }
