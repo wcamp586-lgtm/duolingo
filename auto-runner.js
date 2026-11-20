@@ -98,11 +98,14 @@ async function solve(page, target, check) {
       }
     }
     // 没收到匹配的 session 时不要一直空转：页面已在题目页说明课已开、只是 session 晚到，
-    // 给 150 秒（unit 73 l10 实测 session 在 90 秒后才到）；还没到题目页则 45 秒就报，并带上页面状态。
+    // 给 150 秒（unit 73 l10 实测 session 在 90 秒后才到）；故事页要更久——unit 74 l1 实测
+    // 「加载中…」持续约 35 秒才渲染封面，而且封面出来前不会请求 stories API，所以故事给 120 秒；
+    // 其它非题目页仍 45 秒。
     if (!target.data && target.startedAt) {
       const snapshot = await lessonGuard.readPageState(page).catch(() => null);
       const inQuestion = snapshot && lessonGuard.classifyPage(snapshot) === 'question';
-      if (Date.now() - target.startedAt > (inQuestion ? 150000 : 45000)) {
+      const idleWait = inQuestion ? 150000 : (target.slot.type === 'story' ? 120000 : 45000);
+      if (Date.now() - target.startedAt > idleWait) {
         throw new Error('未收到与目标节点匹配的课程数据；页面：' + lessonGuard.describePage(snapshot));
       }
     }
