@@ -98,11 +98,11 @@ async function solve(page, target, check) {
       }
     }
     // 没收到匹配的 session 时不要一直空转：页面已在题目页说明课已开、只是 session 晚到，
-    // 给 90 秒；还没到题目页则 45 秒就报，并带上页面状态。
+    // 给 150 秒（unit 73 l10 实测 session 在 90 秒后才到）；还没到题目页则 45 秒就报，并带上页面状态。
     if (!target.data && target.startedAt) {
       const snapshot = await lessonGuard.readPageState(page).catch(() => null);
       const inQuestion = snapshot && lessonGuard.classifyPage(snapshot) === 'question';
-      if (Date.now() - target.startedAt > (inQuestion ? 90000 : 45000)) {
+      if (Date.now() - target.startedAt > (inQuestion ? 150000 : 45000)) {
         throw new Error('未收到与目标节点匹配的课程数据；页面：' + lessonGuard.describePage(snapshot));
       }
     }
@@ -1182,7 +1182,9 @@ async function main() {
       const meta = level?.pathLevelMetadata || {};
       const cached = sessionCache.get((meta.skillId || '') + '|' + (meta.crownLevelIndex ?? ''));
       if (cached && !seenSessions.has(cached.id)
-          && (mode === 'normal' ? /^(LESSON|LEVEL_REVIEW)/.test(cached.type || '') : /^LEGENDARY/.test(cached.type || ''))) {
+          && (mode === 'normal'
+            ? /^(LESSON|LEVEL_REVIEW|LEXEME_PRACTICE|UNIT_PRACTICE|LEXEME_REVIEW|UNIT_REVIEW)/.test(cached.type || '')
+            : /^LEGENDARY/.test(cached.type || ''))) {
         active.data = cached;
         seenSessions.add(cached.id);
         console.log('SESSION_CACHED type=' + cached.type + ' n=' + cached.challenges.length);
