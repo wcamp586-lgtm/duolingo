@@ -157,6 +157,19 @@ async function main() {
     await browser.close();
   }
 
+  await t('一直没卡片：到上限记 RADIO_INTRO_TIMEOUT（不误报 NO_QUESTION）', async () => {
+    const radioQuiz = require('./radio-quiz.js');
+    const page = {
+      url: () => 'https://www.duolingo.com/lesson/unit/73/level/12',
+      async evaluate() { return { url: '/lesson/unit/73/level/12', text: 'VOS IDÉES AVEC BÉA', cards: [], buttons: [], media: 0 }; },
+      async waitForTimeout() {},
+    };
+    const r = await radioQuiz.run(page, { elements: [] }, async () => {}, { introWaitMs: 2000 });
+    assert.equal(r.status, 'blocked');
+    assert.ok(/RADIO_INTRO_TIMEOUT/.test(r.error), '错误应为 RADIO_INTRO_TIMEOUT，实际 ' + r.error);
+    assert.ok(/waitedMs=/.test(r.error), '要带等待秒数');
+  });
+
   console.log('\n' + pass + ' passed, ' + fail + ' failed');
   if (fail) process.exitCode = 1;
 }

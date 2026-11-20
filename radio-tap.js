@@ -58,8 +58,34 @@ async function waitFeedback(page, pair) {
   return false;
 }
 
+// 等「配对屏」真实信号：challenge-tap-token >= 2 或正文出现「选择配对」；
+// 电台有约 30 秒开场动画，固定等 35 秒会误判（2026-11-20 l11）。总上限 90 秒，
+// 等待期间不点击任何东西，避免打断开场动画。
+async function waitForRadioStart(page, { maxMs = 90000 } = {}) {
+  const started = Date.now();
+  let tokens = 0;
+  let text = '';
+  while (Date.now() - started < maxMs) {
+    const st = await page.evaluate(() => ({
+      tokens: document.querySelectorAll('[data-test$="challenge-tap-token"]').length,
+      text: (document.body.innerText || '').replace(/\s+/g, ' ').trim(),
+    })).catch(() => null);
+    if (st) {
+      tokens = st.tokens;
+      text = st.text || '';
+      if (tokens >= 2 || text.includes('选择配对')) {
+        return { ok: true, waitedMs: Date.now() - started, tokens, text: text.slice(0, 120) };
+      }
+    }
+    await page.waitForTimeout(500);
+  }
+  return { ok: false, reason: 'RADIO_INTRO_TIMEOUT', waitedMs: Date.now() - started, tokens, text: text.slice(0, 120) };
+}
+
 async function run(page, check) {
-  if (!(await waitPairing(page))) return { status: 'not-match' };
+  const start = await waitForRadioStart(page);
+  if (!start.ok) return { status: 'intro-timeout', waitedMs: start.waitedMs, tokens: start.tokens, text: start.text };
+  if (!(await waitPairing(page, 3))) return { status: 'not-match' };
   const buttons = await readButtons(page);
   if (!buttons || !buttons.length) return { status: 'not-match' };
   const groups = new Map();
@@ -135,4 +161,4 @@ async function run(page, check) {
   return { status: 'partial', next };
 }
 
-module.exports = { run, readButtons, waitPairing };
+module.exports = { run, readButtons, waitPairing, waitForRadioStart };

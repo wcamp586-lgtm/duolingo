@@ -1,0 +1,166 @@
+{
+ "pairing": true,
+ "tap": {
+  "status": "partial",
+  "next": {
+   "url": "/lesson/unit/73/level/12",
+   "text": "VOS IDÉES AVEC BÉA Le restaurant ouvre en décembre. 1 2",
+   "buttons": [
+    {
+     "i": 0,
+     "test": "quit-button",
+     "aria": "",
+     "title": "",
+     "role": "",
+     "class": [
+      "_1gEmM",
+      "_7jW2t",
+      "_3X5b9"
+     ],
+     "text": "",
+     "disabled": false,
+     "rect": {
+      "x": 133,
+      "y": 57,
+      "w": 18,
+      "h": 18
+     },
+     "kids": [
+      {
+       "tag": "img",
+       "attrs": [
+        "class",
+        "src"
+       ],
+       "cls": [
+        "_3X5b9",
+        "_9lHjd"
+       ]
+      }
+     ],
+     "svg": null,
+     "parentText": ""
+    },
+    {
+     "i": 1,
+     "test": "",
+     "aria": "",
+     "title": "",
+     "role": "",
+     "class": [
+      "_2rQ98",
+      "_1GQxS",
+      "_1ursp",
+      "_7jW2t",
+      "_3GWMC"
+     ],
+     "text": "",
+     "disabled": false,
+     "rect": {
+      "x": 550,
+      "y": 798,
+      "w": 39,
+      "h": 48
+     },
+     "kids": [
+      {
+       "tag": "img",
+       "attrs": [
+        "src",
+        "class"
+       ],
+       "cls": [
+        "_9lHjd"
+       ]
+      }
+     ],
+     "svg": null,
+     "parentText": ""
+    },
+    {
+     "i": 2,
+     "test": "",
+     "aria": "",
+     "title": "",
+     "role": "",
+     "class": [
+      "_2rQ98",
+      "_1GQxS",
+      "_1ursp",
+      "_7jW2t",
+      "_3GWMC"
+     ],
+     "text": "",
+     "disabled": false,
+     "rect": {
+      "x": 613,
+      "y": 798,
+      "w": 39,
+      "h": 48
+     },
+     "kids": [
+      {
+       "tag": "img",
+       "attrs": [
+        "src",
+        "class"
+       ],
+       "cls": [
+        "_9lHjd"
+       ]
+      }
+     ],
+     "svg": null,
+     "parentText": ""
+    },
+    {
+     "i": 3,
+     "test": "",
+     "aria": "",
+     "title": "",
+     "role": "",
+     "class": [
+      "_2wryV",
+      "_2rQ98",
+      "_1GQxS",
+      "_1ursp",
+      "_7jW2t",
+      "_3mDWI",
+      "_3GWMC"
+     ],
+     "text": "",
+     "disabled": true,
+     "rect": {
+      "x": 676,
+      "y": 802,
+      "w": 39,
+      "h": 48
+     },
+     "kids": [
+      {
+       "tag": "img",
+       "attrs": [
+        "src",
+        "class"
+       ],
+       "cls": [
+        "_9lHjd"
+       ]
+      }
+     ],
+     "svg": null,
+     "parentText": ""
+    }
+   ],
+   "media": 0
+  }
+ },
+ "quiz": null,
+ "xp": 129373,
+ "node": {
+  "unit": 72,
+  "state": "active",
+  "fin": 0,
+  "tot": 1
+ }
+}

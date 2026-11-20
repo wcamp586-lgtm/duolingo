@@ -278,15 +278,17 @@ async function answerChoice(page, session, state, check) {
 }
 
 // 主循环：答题 → 提交 → 等推进 → 继续；拿不到唯一证据就 blocked。
-async function run(page, session, check = async () => {}) {
+async function run(page, session, check = async () => {}, { introWaitMs = 90000 } = {}) {
   let answered = 0;
   for (let step = 0; step < 30; step++) {
     await check();
     if (/^\/learn(\/|$)/.test(new URL(page.url()).pathname)) return { status: 'done', answered };
     let state = await readQuiz(page);
     if (!state) return { status: 'blocked', error: 'RADIO_QUIZ_READ_FAILED' };
-    // 没卡片：等渲染（电台页面约 22 秒）或过场；30 秒内没卡片就停
-    for (let w = 0; w < 30 && !state.cards.length; w++) {
+    // 没卡片：等真实渲染信号（开场动画约 30 秒 + 过场），总上限 90 秒；
+    // 超时记 RADIO_INTRO_TIMEOUT（带等待秒数与现场），不误报「题目不存在」。
+    const waitStart = Date.now();
+    for (let w = 0; w <= Math.ceil(introWaitMs / 1000) && !state.cards.length; w++) {
       await sleep(1000);
       if (/^\/learn(\/|$)/.test(new URL(page.url()).pathname)) return { status: 'done', answered };
       state = await readQuiz(page);
@@ -294,7 +296,7 @@ async function run(page, session, check = async () => {}) {
     }
     if (!state.cards.length) {
       dumpDiag('no-cards', state);
-      return { status: 'blocked', error: 'RADIO_QUIZ_NO_QUESTION url=' + state.url, state };
+      return { status: 'blocked', error: 'RADIO_INTRO_TIMEOUT waitedMs=' + (Date.now() - waitStart) + ' cards=0 url=' + state.url, state };
     }
     // session 里有唯一判断题元素 → 必须按勾/叉作答；否则按 choices 匹配。
     // 形状判不出就 blocked，不退回选择题、不按左右顺序猜。
