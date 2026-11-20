@@ -61,7 +61,10 @@ const READ_SRC = `(() => {
       };
     } catch (e) { return { err: String((e && e.message) || e).slice(0, 60) }; }
   };
-  const cards = [...document.querySelectorAll('[data-test="challenge-choice"]')].filter(vis).map((e, i) => {
+  // 卡片 = 判断题/选择题的 challenge-choice + 听音选词的单词块 challenge-tap-token。
+  // 2026-11-20 s3u73n 实测：3 选 1 提交后已跳到「选择你听到的 3 个单词」，旧读取只认
+  // challenge-choice，把这一屏读成 cards=0，waitAdvance 等 35 秒后误判 RADIO_SUBMIT_NO_ADVANCE。
+  const cards = [...document.querySelectorAll('[data-test="challenge-choice"], [data-test*="challenge-tap-token"]')].filter(vis).map((e, i) => {
     const r = e.getBoundingClientRect();
     return {
       i, text: norm(e.innerText).slice(0, 120),

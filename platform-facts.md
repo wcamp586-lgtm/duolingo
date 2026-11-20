@@ -94,6 +94,7 @@
 - **进课首帧 session 晚到**：练习课进课后 session 实测 90 秒后才到（`SESSION_SEEN` 出现在 `NODE_FAIL` 之后），题目页等待窗口已从 90 秒加到 **150 秒**；`waitForURL` 从「pathname 全等」改成「`/lesson` 前缀」，避免尾斜杠导致 25 秒误判超时。
 - **session 缓存复用**：只对 `skill`/`practice`/`unit_review` 生效。radio/story 的 `pathLevelMetadata` 没有 `skillId`，缓存 key 会落到 `'|'`，误取练习 session 会占住 `active.data`，让真正的 radio `elements` session 不再赋值（l11 判断题 `RADIO_CHOICE_UNMATCHED` 的根因就是它）。
 - **radio 题间音频**：配对后判断题/选择题之间会插一段音频/过渡（页面只剩标题、`challenge-choice` 清空），实测有 **35 秒以上**才出下一题的；`radio-quiz.js` 的 `waitAdvance` 上限从 50×700ms（35s）放到 120×700ms（84s）。l11 完整流程：配对 4 组 + 4 题 → `RADIO_QUIZ_DONE answered=4`（+30）。
+- **听音选词题型（2026-11-20 s3u73n 结论，已修复）**：3 选 1 提交后其实**已成功跳到第 4 题**「选择你听到的 3 个单词」（5 个 `challenge-tap-token` 单词块），旧 `READ_SRC` 只读 `challenge-choice`，把这一屏读成 `cards=0`，`waitAdvance` 等 35 秒后误判 `RADIO_SUBMIT_NO_ADVANCE`。修复：`READ_SRC` 把 `[data-test*="challenge-tap-token"]` 也当卡片读（innerText 就是单词，能和 session `choices` 对上），`waitAdvance` 的文本签名自动生效；配对阶段由 `radio-tap` 单独处理，不冲突。回归：「卡片清零后出现 tap-token 新题型 → next 而不是 timeout」。
 - **传说故事结束按钮**：故事题全部答完后，`stories-player-done` 在最后一段音频播完前是 disabled；`finishStory` 的禁用等待从 15 秒放到 **60 秒**（unit 73 l1 传说故事因此结算 +40）。
 - **unit 73 完整结果**：13/13 全 legendary（普通线 13/13 passed → 传说 7 关独立 +40/关 → 6 个 radio/chest/unit_review 连带）；XP 129443→130273；链口径 headsGold/chainsGold 73→74、courseNotGold 6700→6687；section 3 已金 53→66/792；unit 74 首节点 `7a6eae35` 解锁为 active。
 

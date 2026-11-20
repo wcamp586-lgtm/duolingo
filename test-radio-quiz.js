@@ -128,6 +128,20 @@ async function main() {
       await page.close();
     });
 
+    await t('提交后卡片清零、出现 tap-token 单词块题 → waitAdvance 记 next 而不是 timeout', async () => {
+      const page = await browser.newPage();
+      await page.setViewportSize({ width: 1280, height: 900 });
+      await page.setContent(`<div style="position:absolute;left:100px;top:600px">
+        <button data-test="challenge-tap-token" style="width:90px;height:44px">el</button>
+        <button data-test="challenge-tap-token" style="width:90px;height:44px">safe</button>
+        <button data-test="challenge-tap-token" style="width:90px;height:44px">lu</button>
+      </div>`);
+      const r = await radioQuiz.waitAdvance(page, { cards: [] });
+      assert.equal(r.status, 'next', '单词块题应识别为下一题，实际 ' + r.status);
+      assert.deepEqual(r.state.cards.map((c) => c.text), ['el', 'safe', 'lu']);
+      await page.close();
+    });
+
     await t('提交键没解锁 → RADIO_CHECK_UNRESOLVED、不点检查', async () => {
       const page = await browser.newPage();
       await page.setViewportSize({ width: 1280, height: 900 });
