@@ -828,7 +828,8 @@ async function prepareDeferredRadio(page, check, slot, onTarget) {
     // 练习/复习的课程介绍页（真机：「来巩固一下你最薄弱的语法知识点吧！…开始练习」）：
     // 点唯一「开始练习」再等题目容器，复用普通入口的按钮体系，不另造一套。
     const practiceStart = page.locator('button:has-text("开始练习"), [role="button"]:has-text("开始练习")').filter({ visible: true });
-    for (let w = 0; w < 8; w++) {
+    // practice 引导屏在页面加载完才渲染（unit 75 l6 实测 >8 秒），等待窗口 8s→20s
+    for (let w = 0; w < 20; w++) {
       await page.waitForTimeout(1000);
       const ps = await practiceStart.count().catch(() => 0);
       if (ps === 1) {
