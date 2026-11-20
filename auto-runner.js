@@ -753,10 +753,10 @@ async function prepareDeferredRadio(page, check, slot, onTarget) {
     }
     if (laterCount || picks.length) break;
   }
-  if (!laterCount) {
-    // 没有「跳过内容」入口时走电台自己的常规入口（如「听力练习 +30 经验」），
-    // 只有唯一、有文本、标题与目标节点匹配的入口才点。
-    if (picks.length !== 1) throw new Error('RADIO_UNSUPPORTED 无跳过入口，电台自身入口不唯一 candidates=' + picks.length);
+  // 优先电台自身入口（唯一「听力练习 +N 经验」）：直接进电台课完成整关。
+  // 跳过内容只在「其后有可进入的课程节点」时才有意义——unit 75 l2 后继是宝箱，
+  // 旧逻辑优先「稍后选择」，跳过后找不到可进入的课程，报 RADIO_NO_PROGRESS 且 radio 仍 active。
+  if (picks.length === 1) {
     const unitText = String(await unit.evaluate((el) => (el.innerText || '').replace(/\s+/g, ' ').trim()).catch(() => ''));
     if (!unitText.includes(String(slot.name || '').trim())) {
       throw new Error('RADIO_UNSUPPORTED 电台自身入口标题不匹配目标节点 name=' + slot.name);
@@ -768,6 +768,10 @@ async function prepareDeferredRadio(page, check, slot, onTarget) {
     if (!/\/lesson/.test(page.url())) throw new Error('RADIO_NO_PROGRESS 电台自身入口未进入 /lesson');
     console.log('RADIO_DIRECT id=' + slot.id + ' entry=' + JSON.stringify(picks[0].text));
     return { url: new URL(page.url()), deferred: true, skipped: false, radioDirect: true };
+  }
+  if (!laterCount) {
+    // 没有「跳过内容」入口、也没有唯一电台入口：记待处理，不猜。
+    throw new Error('RADIO_UNSUPPORTED 无跳过入口，电台自身入口不唯一 candidates=' + picks.length);
   }
   const beforeUrl = page.url();
   const beforeText = await page.evaluate(() => (document.body.innerText || '').replace(/\s+/g, ' ').slice(0, 300)).catch(() => '');
