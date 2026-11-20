@@ -549,12 +549,13 @@ async function finishStory(page, check, session) {
     let probe = await probeStoryEnd(page);
     let picked = await pickStoryEndControl(page);
     // 已知按钮暂时禁用 ≠ 没有候选：禁用期间只等 enabled/结算信号，不点击。
+    // 结束按钮会在最后一段音频播完后才 enabled，实测有 30 秒以上的尾段，禁用等待放到 60 秒。
     if (!picked) {
       const known = await knownEndControl(page);
       if (known) {
         let waited = 0;
         let gone = false;
-        while (waited < 15 && !picked) {
+        while (waited < 60 && !picked) {
           await page.waitForTimeout(1000);
           waited++;
           if (LEARN.test(page.url())) return 'advanced';
