@@ -208,12 +208,13 @@ async function findCheckButton(page, before) {
 
 // 等真实推进：返回学习路径 / 新题出现。
 // 真机事实：点卡即提交后卡片区会清空约 14 秒（播放/过渡），之后才出下一题；
-// 这段时间不是反馈页，也不该点任何键，只等。
+// 这段时间不是反馈页，也不该点任何键，只等。unit 73 l11 实测题间音频有 35 秒以上才出下一题的，
+// 上限放到 ~84 秒（120×700ms），不按固定秒数猜题间时长。
 async function waitAdvance(page, prev) {
   const prevSig = cardSig(prev.cards);
   let last = null;
   let contClicks = 0;
-  for (let i = 0; i < 50; i++) {
+  for (let i = 0; i < 120; i++) {
     await sleep(700);
     last = await readQuiz(page);
     if (!last) continue;
