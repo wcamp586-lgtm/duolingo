@@ -8,7 +8,7 @@ const lessonRunner = require('./lesson-runner.js');
 const lessonGuard = require('./lesson-guard.js');
 const radioTap = require('./radio-tap.js');
 const radioQuiz = require('./radio-quiz.js');
-const { prepareByUrl, prepareByNode, findCourseLevel, LEARN, ORIGIN } = require('./legendary-entry.js');
+const { prepareByUrl, prepareByNode, findCourseLevel, LEARN, ORIGIN, nodeClickOffset } = require('./legendary-entry.js');
 
 const nextSelector = '[data-test="player-next"]:visible';
 // 配对题兜底用的词表（practice-lexemes 响应），solve 和响应回调都要读
@@ -950,9 +950,27 @@ async function prepareNormal(page, check, slot, level, onTarget) {
   // 宝箱：/lesson 会回路径并显示「打开」，点掉就解锁下一节点（不给 XP）
   if (slot && slot.type === 'chest') {
     await page.goto(ORIGIN + '/learn', { waitUntil: 'domcontentloaded', timeout: 20000 }).catch(() => {});
-    await page.waitForTimeout(3000);
+    // 路径是客户端渲染的：等目标 unit 出现并滚到宝箱节点，点开气泡再找「打开」；
+    // 原来只等 3 秒全局找按钮，冷启动时会误报「宝箱没有打开入口」（unit 75 l3 实测）。
+    const chestUnit = page.locator('[data-test="skill-path-unit-' + slot.unitIndex + '"]').first();
+    await chestUnit.waitFor({ timeout: 15000 }).catch(() => {});
+    await chestUnit.scrollIntoViewIfNeeded({ timeout: 6000 }).catch(() => {});
+    await page.waitForTimeout(800);
+    const chestNode = chestUnit.locator('[data-test="skill-path-level-' + slot.levelIndex + '"]').first();
+    await chestNode.scrollIntoViewIfNeeded().catch(() => {});
+    await page.waitForTimeout(600);
+    const chestBox = await chestNode.boundingBox().catch(() => null);
+    const chestDy = nodeClickOffset(chestBox);
+    if (chestDy) { await page.evaluate((d) => window.scrollBy(0, d), chestDy).catch(() => {}); await page.waitForTimeout(500); }
+    await chestNode.click({ timeout: 6000 }).catch(() => {});
     const open = page.locator('button:has-text("打开")').filter({ visible: true }).first();
-    if (!(await open.count())) throw new Error('宝箱没有「打开」入口');
+    let opened = 0;
+    for (let w = 0; w < 10; w++) {
+      await page.waitForTimeout(800);
+      opened = await open.count().catch(() => 0);
+      if (opened) break;
+    }
+    if (!opened) throw new Error('宝箱没有「打开」入口');
     await clickSafe(page, open);
     await page.waitForTimeout(3000);
     return { chest: true, url: new URL(page.url()) };
