@@ -101,9 +101,20 @@ async function solve(page, target, check) {
     // 给 150 秒（unit 73 l10 实测 session 在 90 秒后才到）；故事页要更久——unit 74 l1 实测
     // 「加载中…」持续约 35 秒才渲染封面，而且封面出来前不会请求 stories API，所以故事给 120 秒；
     // 其它非题目页仍 45 秒。
+    // 题目页已出现但 30 秒没 session：主动 reload 一次强制重新请求（2026-11-20 实测这类失败
+    // 是「进课没触发请求」，再等也不会来），reload 后从当前时刻重新计时，仍无则按超时报错。
     if (!target.data && target.startedAt) {
       const snapshot = await lessonGuard.readPageState(page).catch(() => null);
       const inQuestion = snapshot && lessonGuard.classifyPage(snapshot) === 'question';
+      if (policy.shouldReloadForSession({ hasData: !!target.data, startedAt: target.startedAt, now: Date.now(), isQuestion: inQuestion, alreadyReloaded: !!target.sessionReloaded })) {
+        target.sessionReloaded = true;
+        console.log('SESSION_RELOAD_FOR_DATA');
+        await page.reload({ waitUntil: 'domcontentloaded' }).catch(() => {});
+        target.startedAt = Date.now();
+        progress.touch();
+        await page.waitForTimeout(2000);
+        continue;
+      }
       const idleWait = inQuestion ? 150000 : (target.slot.type === 'story' ? 120000 : 45000);
       if (Date.now() - target.startedAt > idleWait) {
         throw new Error('未收到与目标节点匹配的课程数据；页面：' + lessonGuard.describePage(snapshot));

@@ -165,4 +165,13 @@ function shouldClickSplash({ mode = 'legendary', type = '', hasData = false, alr
   return !!(hasSplashTitle && hasPlayerNext);
 }
 
-module.exports={classifyLevel,planCourse,planNormal,stopDecision,skipKind,createRetryTracker,chainReport,storyCoverAction,shouldClickSplash};
+// 首帧 session 兜底（2026-11-20）：题目页已出现、但 30 秒没收到 session 数据时，
+// 主动 reload 一次强制平台重新请求（实测这类失败是「进课没触发请求」，加时长等不到）；
+// 已 reload 过就不再（不无限重试），reload 后由调用方从当前时刻重新计时。
+function shouldReloadForSession({ hasData = false, startedAt = null, now = Date.now(), isQuestion = false, alreadyReloaded = false, thresholdMs = 30000 } = {}) {
+  if (hasData || alreadyReloaded || !isQuestion) return false;
+  if (!Number.isFinite(startedAt) || !Number.isFinite(now)) return false;
+  return now - startedAt > thresholdMs;
+}
+
+module.exports={classifyLevel,planCourse,planNormal,stopDecision,skipKind,createRetryTracker,chainReport,storyCoverAction,shouldClickSplash,shouldReloadForSession};

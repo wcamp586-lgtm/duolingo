@@ -157,4 +157,13 @@ test('练习引导屏：只在普通模式、无 session、未点过时点「开
   assert.equal(policy.shouldClickSplash({ ...base, mode: 'normal', hasPlayerNext: false }), false, '按钮没渲染不点');
 });
 
+test('首帧无 session：题目页 30 秒后 reload 一次，reload 后仍无不再重复', () => {
+  assert.equal(policy.shouldReloadForSession({ startedAt: 0, now: 29999, isQuestion: true }), false, '不到 30 秒不 reload');
+  assert.equal(policy.shouldReloadForSession({ startedAt: 0, now: 31000, isQuestion: true }), true, '题目页 30 秒无 session 触发 reload');
+  assert.equal(policy.shouldReloadForSession({ startedAt: 0, now: 31000, isQuestion: true, alreadyReloaded: true }), false, 'reload 过就不再重复');
+  assert.equal(policy.shouldReloadForSession({ startedAt: 0, now: 31000, isQuestion: false }), false, '非题目页不 reload');
+  assert.equal(policy.shouldReloadForSession({ startedAt: 0, now: 31000, isQuestion: true, hasData: true }), false, 'session 已到不 reload');
+});
+
 console.log(`结果: ${passed} 通过, 0 失败`);
+
