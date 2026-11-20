@@ -1,0 +1,31 @@
+{
+ "at": "2026-11-20T05:21:21.735Z",
+ "sessions": [
+  {
+   "path": "/2023-05-23/sessions",
+   "method": "POST",
+   "status": 200,
+   "type": null,
+   "skillId": null,
+   "levelIndex": null,
+   "id": "b334fdfd27b048d282eb5b97e796ec27",
+   "n": 13,
+   "elementTypes": [
+    "audio",
+    "challenge"
+   ],
+   "learningLanguage": null
+  }
+ ],
+ "st": {
+  "url": "/lesson/unit/73/level/12",
+  "body": "VOS IDÉES AVEC BÉA",
+  "hasChallenge": false,
+  "controls": [
+   {
+    "test": "quit-button",
+    "text": ""
+   }
+  ]
+ }
+}
