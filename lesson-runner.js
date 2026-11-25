@@ -173,6 +173,11 @@ async function step(page, session, check = async () => {}, lexemes = null) {
   if (!ch && /^(tapComplete|completeReverseTranslation|partialReverseTranslate)$/.test(dom.type)) {
     ch = core.matchByDisplay(pools, dom.boxText, dom.type);
   }
+  // 点选填空（gapFill）没有顶层 prompt：同选项集不同答案的候选只能靠 displayTokens
+  // 的非空格词序列区分（2026-11-24 s3u81l4，étais vs était，句子 Tu/Omar 不同）
+  if (!ch && core.normType(dom.type) === 'gapFill') {
+    ch = core.matchBySentence(pools, dom, 'gapFill');
+  }
   // 新词形·选词填空：页面显示 patternSentences 模板句，靠它匹配，答案仍是 choices[correctIndex]
   if (!ch && core.normType(dom.type) === 'patternTapComplete') {
     ch = core.matchByPattern(pools, dom.boxText, dom.type);

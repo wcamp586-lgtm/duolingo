@@ -247,6 +247,11 @@ async function solve(page, target, check) {
           const near = [...inBox, ...sameType.filter((p) => !inBox.includes(p))].slice(0, 6).map((p) => ({
             type: p.type, pool: p.__pool, prompt: p.prompt,
             ans: core.textAnswers(p), opts: core.challengeOptions(p).slice(0, 12),
+
+            // gapFill 没有 prompt，句子只能从 displayTokens 看：这行是 s3u81l4 失配时缺的取证
+            dt: Array.isArray(p.displayTokens)
+              ? p.displayTokens.filter((t) => t && !t.isBlank).map((t) => t.text).join(' ').slice(0, 200)
+              : undefined,
           }));
           console.log('NOMATCH_DETAIL ' + JSON.stringify({
             kind: result.kind, type: dom.type, hasInput: dom.hasInput,

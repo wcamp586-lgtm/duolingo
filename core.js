@@ -1,6 +1,8 @@
 // 题目识别 / 答案计划 / 标注核心。浏览器入口和离线测试共用这一份实现。
 
 const norm = (s) => (s || '').replace(/[^\p{L}\p{N}]+/gu, '').toLowerCase();
+// 保留空格分词的归一化（句子匹配用；norm 会把词边界粘掉）
+const normalizeText = (s) => (s || '').toLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
 
 function tx(x) {
   if (typeof x === 'string') return x;
@@ -287,6 +289,52 @@ function matchByDisplay(pools, boxText, domType) {
   return plans.size === 1 ? cands[0] : null;
 }
 
+// 句子的非空格词序列：gapFill 这类点选题没有顶层 prompt，页面题干只能从
+// displayTokens 的已知词还原（blank 词是答案，页面上是空位，不能算进句子）。
+// 兜底用 metadata.prompt（完整句子），但调用方要注意它可能含答案词。
+function challengeWordSequence(ch) {
+  const dt = Array.isArray(ch.displayTokens) ? ch.displayTokens : [];
+  const words = dt
+    .filter(t => t && !t.isBlank && typeof t.text === 'string')
+    .flatMap(t => normalizeText(t.text).split(' '))
+    .filter(w => w.length > 1);
+  if (words.length >= 3) return words;
+  if (ch.metadata && typeof ch.metadata.prompt === 'string') {
+    const metaWords = normalizeText(ch.metadata.prompt).split(' ').filter(w => w.length > 1);
+    if (metaWords.length >= 3) return metaWords;
+  }
+  return [];
+}
+
+// 通过句子词序列匹配（gapFill 等没有 prompt 的题型）：候选的非空格词必须是
+// 页面题干的顺序子序列。只看同题型；多候选时只有答案计划一致才接受，否则不猜。
+// 依据：2026-11-24 s3u81l4 取证，两条 gapFill 选项集相同、答案是 étais/était，
+// 页面句子是「Tu _ la plus jeune dans ta famille ?」，用 displayTokens 词序列可唯一认到 main。
+function matchBySentence(pools, dom, domType) {
+  if (!dom || !dom.boxText) return null;
+  const pageWords = normalizeText(dom.boxText).split(' ').filter(w => w.length > 1);
+  if (!pageWords.length) return null;
+  const cands = pools.filter((p) => {
+    if (domType && normType(p.type) !== normType(domType)) return false;
+    const candWords = challengeWordSequence(p);
+    if (candWords.length < 3) return false;
+    let pageIdx = 0;
+    for (const candWord of candWords) {
+      let found = false;
+      while (pageIdx < pageWords.length) {
+        if (pageWords[pageIdx] === candWord) { found = true; pageIdx++; break; }
+        pageIdx++;
+      }
+      if (!found) return false;
+    }
+    return true;
+  });
+  if (!cands.length) return null;
+  if (cands.length === 1) return cands[0];
+  const sigs = new Set(cands.map((ch) => planSig(ch)));
+  return sigs.size === 1 ? cands[0] : null;
+}
+
 // 词汇配对练习：答案来自 practice-lexemes（word ↔ translation），不在 session 里
 function challengeFromLexemes(lexemes, domOptions) {
   // 只保留页面实际出现的词对，否则会对着不存在的词空点
@@ -299,4 +347,4 @@ function challengeFromLexemes(lexemes, domOptions) {
   return { id: 'lexemes|' + pairs.length, type: 'match', pairs, __pool: 'lexemes' };
 }
 
-module.exports = { planSig, challengeFromLexemes,  normType, matchByDisplay, matchByPattern,  storiesPlan, storiesQuestions,  resolveChallenge, textAnswers, matchByPrompt,  isSubsetOf,  norm, tx, collectChallenges, challengeOptions, buildPlan, matchChallenge, multiset, sameMultiset, assignMarks, multipleOf };
+module.exports = { planSig, challengeFromLexemes,  normType, matchByDisplay, matchBySentence, challengeWordSequence, matchByPattern,  storiesPlan, storiesQuestions,  resolveChallenge, textAnswers, matchByPrompt,  isSubsetOf,  norm, normalizeText, tx, collectChallenges, challengeOptions, buildPlan, matchChallenge, multiset, sameMultiset, assignMarks, multipleOf };

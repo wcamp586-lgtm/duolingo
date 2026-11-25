@@ -364,6 +364,10 @@ async function clickToken(page, text) {
     if (!ch && /^(tapComplete|completeReverseTranslation|partialReverseTranslate)$/.test(dom.type)) {
       ch = core.matchByDisplay(pools, dom.boxText, dom.type);
     }
+    // 点选填空（gapFill）同上：没有 prompt，用 displayTokens 非空格词序列认题
+    if (!ch && core.normType(dom.type) === 'gapFill') {
+      ch = core.matchBySentence(pools, dom, 'gapFill');
+    }
     // 配对题 session 没命中时，用词汇表构造（配不上的留给手动）
     if (!ch && isPair && lexemes) ch = core.challengeFromLexemes(lexemes, dom.options);
     if (!ch) {
