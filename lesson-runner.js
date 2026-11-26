@@ -171,7 +171,8 @@ async function step(page, session, check = async () => {}, lexemes = null) {
     ch = core.challengeFromLexemes(lexemes, dom.options);
   }
   if (!ch && /^(tapComplete|completeReverseTranslation|partialReverseTranslate)$/.test(dom.type)) {
-    ch = core.matchByDisplay(pools, dom.boxText, dom.type);
+    // 先试连续短语（同选项不同答案的题能分开），失配再回退 80% 覆盖
+    ch = core.matchByDisplayStrict(pools, dom.boxText, dom.type) || core.matchByDisplay(pools, dom.boxText, dom.type);
   }
   // 点选填空（gapFill）没有顶层 prompt：同选项集不同答案的候选只能靠 displayTokens
   // 的非空格词序列区分（2026-11-24 s3u81l4，étais vs était，句子 Tu/Omar 不同）

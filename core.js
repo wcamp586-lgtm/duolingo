@@ -335,6 +335,43 @@ function matchBySentence(pools, dom, domType) {
   return sigs.size === 1 ? cands[0] : null;
 }
 
+// 连续短语匹配（tapComplete 等「同选项不同答案」的题）：已知词序列必须**连续**出现在
+// 页面词序列里。80% 覆盖率在两句拼接的页面会同时命中两条候选（2026-11-25 s3u84l4：
+// Mon frère _ parle. À qui ? Mon frère parle _ bien sûr !），连续子串能区分；
+// 调用方在它失配时再回退 matchByDisplay。
+function displayWordSequence(ch) {
+  const dt = Array.isArray(ch.displayTokens) ? ch.displayTokens : [];
+  return dt
+    .filter(t => t && !t.isBlank && typeof t.text === 'string')
+    .flatMap(t => normalizeText(t.text).split(' '))
+    .filter(w => w.length > 1);
+}
+
+function indexOfWordRun(hay, needle) {
+  if (needle.length > hay.length) return -1;
+  for (let i = 0; i + needle.length <= hay.length; i++) {
+    let ok = true;
+    for (let j = 0; j < needle.length; j++) if (hay[i + j] !== needle[j]) { ok = false; break; }
+    if (ok) return i;
+  }
+  return -1;
+}
+
+function matchByDisplayStrict(pools, boxText, domType) {
+  if (!boxText) return null;
+  const pageWords = normalizeText(boxText).split(' ').filter(w => w.length > 1);
+  if (!pageWords.length) return null;
+  const cands = pools.filter((p) => {
+    if (domType && normType(p.type) !== normType(domType)) return false;
+    const words = displayWordSequence(p);
+    return words.length >= 3 && indexOfWordRun(pageWords, words) >= 0;
+  });
+  if (!cands.length) return null;
+  if (cands.length === 1) return cands[0];
+  const sigs = new Set(cands.map((ch) => planSig(ch)));
+  return sigs.size === 1 ? cands[0] : null;
+}
+
 // 词汇配对练习：答案来自 practice-lexemes（word ↔ translation），不在 session 里
 function challengeFromLexemes(lexemes, domOptions) {
   // 只保留页面实际出现的词对，否则会对着不存在的词空点
@@ -347,4 +384,4 @@ function challengeFromLexemes(lexemes, domOptions) {
   return { id: 'lexemes|' + pairs.length, type: 'match', pairs, __pool: 'lexemes' };
 }
 
-module.exports = { planSig, challengeFromLexemes,  normType, matchByDisplay, matchBySentence, challengeWordSequence, matchByPattern,  storiesPlan, storiesQuestions,  resolveChallenge, textAnswers, matchByPrompt,  isSubsetOf,  norm, normalizeText, tx, collectChallenges, challengeOptions, buildPlan, matchChallenge, multiset, sameMultiset, assignMarks, multipleOf };
+module.exports = { planSig, challengeFromLexemes,  normType, matchByDisplay, matchByDisplayStrict, matchBySentence, challengeWordSequence, matchByPattern,  storiesPlan, storiesQuestions,  resolveChallenge, textAnswers, matchByPrompt,  isSubsetOf,  norm, normalizeText, tx, collectChallenges, challengeOptions, buildPlan, matchChallenge, multiset, sameMultiset, assignMarks, multipleOf };

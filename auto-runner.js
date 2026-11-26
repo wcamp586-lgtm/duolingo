@@ -978,6 +978,14 @@ async function prepareNormal(page, check, slot, level, onTarget) {
     }
     if (!opened) throw new Error('宝箱没有「打开」入口');
     await clickSafe(page, open);
+    // 打开后气泡里还会出现一个「开始」，点掉才走宝箱奖励动画并结算。
+    // 2026-11-25 s3u84l3 取证：只点「打开」时 state 一直是 active，点「开始」后变 passed。
+    await page.waitForTimeout(1200);
+    const chestStart = page.locator('button:has-text("开始")').filter({ visible: true });
+    if (await chestStart.count().catch(() => 0) === 1) {
+      await check();
+      await clickSafe(page, chestStart.first());
+    }
     await page.waitForTimeout(3000);
     return { chest: true, url: new URL(page.url()) };
   }

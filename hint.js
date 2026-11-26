@@ -362,7 +362,7 @@ async function clickToken(page, text) {
     // 填空题没有 prompt，选项又常和其它题重复（at/on、is/it's），纯选项认不出来；
     // 退回到「用句子里的非空格词认题」
     if (!ch && /^(tapComplete|completeReverseTranslation|partialReverseTranslate)$/.test(dom.type)) {
-      ch = core.matchByDisplay(pools, dom.boxText, dom.type);
+      ch = core.matchByDisplayStrict(pools, dom.boxText, dom.type) || core.matchByDisplay(pools, dom.boxText, dom.type);
     }
     // 点选填空（gapFill）同上：没有 prompt，用 displayTokens 非空格词序列认题
     if (!ch && core.normType(dom.type) === 'gapFill') {
